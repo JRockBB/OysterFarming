@@ -1,0 +1,12 @@
+title = "SYNTHETIC parameter file for loader tests only"
+
+[a]
+value = 2
+units = "1"
+source = "synthetic: test fixture"
+
+[b]
+value = 0.5
+units = "d^-1"
+source = "synthetic: test fixture"
+notes = "has notes"

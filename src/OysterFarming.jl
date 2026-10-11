@@ -14,9 +14,11 @@ using TOML
 using Tables
 
 include("contract.jl")
+include("params.jl")
 
 export ContractError, ColumnSpec, TableSpec, CONTRACT_SPECS
 export validate_table, validate_sites, validate_forcing_daily, validate_closures,
        validate_growth_obs, validate_disease_obs, validate_economics, read_contract
+export Param, ParamError, load_params, param_value
 
 end
