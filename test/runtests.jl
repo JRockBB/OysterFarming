@@ -6,5 +6,8 @@ using Test
     include("test_params.jl")
     include("test_deb.jl")
     include("test_forcing.jl")
+    include("test_calibration.jl")
+    include("test_farm.jl")
+    include("test_nitrogen.jl")
     include("test_aqua.jl")
 end

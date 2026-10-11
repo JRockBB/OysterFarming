@@ -18,8 +18,10 @@
 """
     DEBParams
 
-Concrete parameter set for the standard DEB model. Build it from a parameter
-file with `DEBParams(load_params(path))`; never construct it from guessed values.
+Parameter set for the standard DEB model. Build it from a parameter file with
+`DEBParams(load_params(path))`; never construct it from guessed values. The
+element type `T` is `Float64` normally; calibration replaces selected values
+with other number types (e.g. ForwardDiff duals) via [`with_values`](@ref).
 
 Fields (units):
 - `p_Am`   maximum surface-area-specific assimilation rate, J cm⁻² d⁻¹
@@ -39,29 +41,31 @@ Fields (units):
 - `T_spawn_c` water temperature that must be exceeded to spawn, °C
 - `S_L`, `S_H` salinity thresholds of the feeding correction (`NaN` = no salinity effect)
 """
-struct DEBParams
-    p_Am::Float64
-    E_m::Float64
-    p_M::Float64
-    E_G::Float64
-    kappa::Float64
-    kappa_R::Float64
-    V_p::Float64
-    delta_M::Float64
-    X_K::Float64
-    T_A::Float64
-    T_ref::Float64
-    T_L::Float64
-    T_H::Float64
-    T_AL::Float64
-    T_AH::Float64
-    mu_E::Float64
-    d_V::Float64
-    GSI_spawn::Float64
-    T_spawn_c::Float64
-    S_L::Float64
-    S_H::Float64
+struct DEBParams{T<:Real}
+    p_Am::T
+    E_m::T
+    p_M::T
+    E_G::T
+    kappa::T
+    kappa_R::T
+    V_p::T
+    delta_M::T
+    X_K::T
+    T_A::T
+    T_ref::T
+    T_L::T
+    T_H::T
+    T_AL::T
+    T_AH::T
+    mu_E::T
+    d_V::T
+    GSI_spawn::T
+    T_spawn_c::T
+    S_L::T
+    S_H::T
 end
+
+Base.eltype(::DEBParams{T}) where {T} = T
 
 _optional(params, name) = haskey(params, name) ? param_value(params, name) : NaN
 
@@ -87,12 +91,29 @@ function DEBParams(params::AbstractDict{String,<:Param})
     sal = [_optional(params, n) for n in ("S_L", "S_H")]
     all(isnan, sal) || !any(isnan, sal) ||
         throw(ArgumentError("S_L and S_H must be given together"))
-    p = DEBParams(p_Am, E_m, pv("p_M"), pv("E_G"), pv("kappa"), pv("kappa_R"), pv("V_p"),
+    p = DEBParams{Float64}(p_Am, E_m, pv("p_M"), pv("E_G"), pv("kappa"), pv("kappa_R"), pv("V_p"),
                   pv("delta_M"), pv("X_K"), pv("T_A"), pv("T_ref"), bounds...,
                   pv("mu_E"), pv("d_V"), pv("GSI_spawn"), pv("T_spawn_c"), sal...)
     0 < p.kappa < 1 || throw(ArgumentError("kappa must be in (0, 1)"))
     0 < p.kappa_R <= 1 || throw(ArgumentError("kappa_R must be in (0, 1]"))
     return p
+end
+
+"""
+    with_values(p::DEBParams; kwargs...) -> DEBParams
+
+Copy of `p` with the named fields replaced, e.g. `with_values(p; X_K=4.0)`.
+The element type is promoted to fit the new values, so automatic
+differentiation through the model works. Used by calibration (P2.5).
+"""
+function with_values(p::DEBParams; kwargs...)
+    names = fieldnames(DEBParams)
+    for k in keys(kwargs)
+        k in names || throw(ArgumentError("DEBParams has no field $k"))
+    end
+    vals = [haskey(kwargs, n) ? kwargs[n] : getfield(p, n) for n in names]
+    T = promote_type(map(typeof, vals)...)
+    return DEBParams{T}(T.(vals)...)
 end
 
 """
@@ -150,9 +171,9 @@ Returns 1 when the parameter set has no salinity thresholds (e.g. Pouvreau et
 al. 2006, which has no salinity effect).
 """
 function salinity_factor(salinity_psu::Real, p::DEBParams)
-    isnan(p.S_L) && return 1.0
-    salinity_psu >= p.S_H && return 1.0
-    salinity_psu < p.S_L && return 0.0
+    isnan(p.S_L) && return one(p.S_L)
+    salinity_psu >= p.S_H && return one(p.S_L)
+    salinity_psu < p.S_L && return zero(p.S_L)
     return (salinity_psu - p.S_L) / (p.S_H - p.S_L)
 end
 
@@ -184,23 +205,25 @@ function deb_fluxes(E, V, E_R, f, c_T, c_S, p::DEBParams)
     V23 = V^(2 / 3)
     p_A = c_S * c_T * p.p_Am * f * V23
     p_Mflux = c_T * p.p_M * V
-    Ed = V > 0 ? E / V : 0.0
+    Ed = V > 0 ? E / V : zero(V)
     p_C = Ed / (p.E_G + p.kappa * Ed) * (p.E_G * c_T * p.p_Am / p.E_m * V23 + p_Mflux)
     p_J = (1 - p.kappa) / p.kappa * c_T * p.p_M * min(V, p.V_p)
     somatic = p.kappa * p_C - p_Mflux
-    to_buffer = V >= p.V_p ? (1 - p.kappa) * p_C - p_J : 0.0
-    deficit = max(0.0, -somatic)
+    z = zero(p_C)
+    to_buffer = V >= p.V_p ? (1 - p.kappa) * p_C - p_J : z
+    deficit = max(z, -somatic)
     dE_R = to_buffer - deficit
-    dV = max(somatic, 0.0) / p.E_G
+    dV = max(somatic, z) / p.E_G
     if E_R <= 0 && dE_R < 0
-        dE_R = 0.0
+        dE_R = z
         dV -= deficit / p.E_G
     end
     return (p_A=p_A, p_C=p_C, p_M=p_Mflux, p_J=p_J, dE=p_A - p_C, dV=dV, dE_R=dE_R)
 end
 
 function _deb_rhs!(du, u, env, t)
-    E, V, E_R = max(u[1], 0.0), max(u[2], 0.0), max(u[3], 0.0)
+    z = zero(eltype(u))
+    E, V, E_R = max(u[1], z), max(u[2], z), max(u[3], z)
     fl = deb_fluxes(E, V, E_R, env.f, env.c_T, env.c_S, env.p)
     du[1] = fl.dE
     du[2] = fl.dV
@@ -238,7 +261,7 @@ GSI = (E_R/µ_E) / DW. Returns 0 for an empty animal.
 """
 function gonado_somatic_index(E::Real, V::Real, E_R::Real, p::DEBParams)
     dw = dry_tissue_g(E, V, E_R, p)
-    return dw > 0 ? (E_R / p.mu_E) / dw : 0.0
+    return dw > 0 ? (E_R / p.mu_E) / dw : zero(dw)
 end
 
 """
@@ -293,34 +316,84 @@ function simulate_individual(p::DEBParams, forcing, u0; food_col::Symbol=:chl_ug
         throw(ArgumentError("food column $food_col has missing values; gap-fill the forcing first"))
     all(>=(0), (u0.E, u0.V, u0.E_R)) || throw(DomainError(u0, "initial state must be non-negative"))
 
-    u = Float64[u0.E, u0.V, u0.E_R]
-    out = DataFrame(date=Vector{Date}(undef, n), E_J=zeros(n), V_cm3=zeros(n), E_R_J=zeros(n),
-                    shell_height_mm=zeros(n), dry_tissue_g=zeros(n), gsi=zeros(n), spawned_J=zeros(n))
-    for i in 1:n
-        temp_c = df.temp_c[i]
-        env = (p=p, f=functional_response(df[i, food_col], p.X_K),
-               c_T=arrhenius_factor(temp_c, p; normalize=normalize_temperature),
-               c_S=salinity_factor(df.salinity_psu[i], p))
-        prob = ODEProblem(_deb_rhs!, u, (0.0, 1.0), env)
-        sol = solve(prob, Tsit5(); reltol=reltol, abstol=abstol, save_everystep=false, save_start=false)
-        u = max.(sol.u[end], 0.0)
-        E, V, E_R = u
-        gsi = gonado_somatic_index(E, V, E_R, p)
-        spawned = 0.0
-        if spawns(temp_c, gsi, p)
-            spawned = p.kappa_R * E_R
-            E_R = 0.0
-            u[3] = 0.0
-            gsi = 0.0
-        end
-        out.date[i] = df.date[i]
-        out.E_J[i] = E
-        out.V_cm3[i] = V
-        out.E_R_J[i] = E_R
-        out.shell_height_mm[i] = shell_height_mm(V, p.delta_M)
-        out.dry_tissue_g[i] = dry_tissue_g(E, V, E_R, p)
-        out.gsi[i] = gsi
-        out.spawned_J[i] = spawned
+    temps = Vector{Float64}(df.temp_c)
+    sal = Vector{Float64}(df.salinity_psu)
+    food = Vector{Float64}(df[!, food_col])
+    cols = _simulate_days(p, temps, sal, food, u0, normalize_temperature, reltol, abstol)
+    return DataFrame(date=collect(df.date), E_J=cols.E, V_cm3=cols.V, E_R_J=cols.E_R,
+                     shell_height_mm=cols.shell_height_mm, dry_tissue_g=cols.dry_tissue_g,
+                     gsi=cols.gsi, spawned_J=cols.spawned)
+end
+
+"""
+    IndividualStepper(p, u0; normalize_temperature=true, reltol=1e-8, abstol=1e-8)
+
+Advances one oyster's DEB state a day at a time with a single reused Tsit5
+integrator. Forcing for each day is passed to [`advance_day!`](@ref). Used by
+[`simulate_individual`](@ref) and by the farm layer, so both share the same
+daily step and spawning rule.
+"""
+mutable struct IndividualStepper{P<:DEBParams,T<:Real,I}
+    p::P
+    u::Vector{T}
+    integ::I
+    normalize_temperature::Bool
+end
+
+function IndividualStepper(p::DEBParams, u0; normalize_temperature::Bool=true, reltol=1e-8, abstol=1e-8)
+    all(>=(0), (u0.E, u0.V, u0.E_R)) || throw(DomainError(u0, "initial state must be non-negative"))
+    T = promote_type(eltype(p), typeof(u0.E), typeof(u0.V), typeof(u0.E_R))
+    u = T[u0.E, u0.V, u0.E_R]
+    env = (p=p, f=zero(T), c_T=one(T), c_S=one(T))
+    integ = init(ODEProblem(_deb_rhs!, copy(u), (0.0, Inf), env), Tsit5();
+                 reltol=reltol, abstol=abstol, save_everystep=false, save_start=false, save_end=false)
+    return IndividualStepper(p, u, integ, normalize_temperature)
+end
+
+"""
+    advance_day!(s::IndividualStepper, temp_c, salinity_psu, f) -> NamedTuple
+
+Integrate one day with constant temperature, salinity and scaled functional
+response `f` (0–1), then apply the spawning rule ([`spawns`](@ref)). Returns
+`(E, V, E_R, gsi, spawned)` at the end of the day. Forcing changes at the day
+boundary by swapping the parameter tuple, which makes Tsit5 re-evaluate the
+derivative.
+"""
+function advance_day!(s::IndividualStepper{P,T}, temp_c::Real, salinity_psu::Real, f::Real) where {P,T}
+    p = s.p
+    s.integ.p = (p=p, f=T(f), c_T=T(arrhenius_factor(temp_c, p; normalize=s.normalize_temperature)),
+                 c_S=T(salinity_factor(salinity_psu, p)))
+    derivative_discontinuity!(s.integ, true)
+    step!(s.integ, 1.0, true)
+    u = s.u
+    u .= max.(s.integ.u, zero(T))
+    gsi = gonado_somatic_index(u[1], u[2], u[3], p)
+    spawned = zero(T)
+    if spawns(temp_c, gsi, p)
+        spawned = p.kappa_R * u[3]
+        u[3] = zero(T)
+        gsi = zero(T)
     end
-    return out
+    set_u!(s.integ, u)
+    return (E=u[1], V=u[2], E_R=u[3], gsi=gsi, spawned=spawned)
+end
+
+# Type-stable inner loop (function barrier) for simulate_individual.
+function _simulate_days(p::DEBParams, temps::Vector{Float64}, sal::Vector{Float64}, food::Vector{Float64},
+                        u0, normalize_temperature::Bool, reltol, abstol)
+    n = length(temps)
+    s = IndividualStepper(p, u0; normalize_temperature=normalize_temperature, reltol=reltol, abstol=abstol)
+    T = eltype(s.u)
+    E_out, V_out, ER_out = zeros(T, n), zeros(T, n), zeros(T, n)
+    sh_out, dw_out, gsi_out, sp_out = zeros(T, n), zeros(T, n), zeros(T, n), zeros(T, n)
+    for i in 1:n
+        r = advance_day!(s, temps[i], sal[i], functional_response(food[i], p.X_K))
+        E_out[i], V_out[i], ER_out[i] = r.E, r.V, r.E_R
+        sh_out[i] = shell_height_mm(r.V, p.delta_M)
+        dw_out[i] = dry_tissue_g(r.E, r.V, r.E_R, p)
+        gsi_out[i] = r.gsi
+        sp_out[i] = r.spawned
+    end
+    return (E=E_out, V=V_out, E_R=ER_out, shell_height_mm=sh_out, dry_tissue_g=dw_out, gsi=gsi_out,
+            spawned=sp_out)
 end

@@ -17,3 +17,19 @@ using DataFrames, Dates
     gappy = site[[1, 2, 3, 10, 11, 12, 13], :]
     @test nrow(longest_block(gappy)) == 4
 end
+
+@testset "time to market" begin
+    p = DEBParams(load_params(joinpath(@__DIR__, "fixtures", "synthetic_deb_params.toml")))
+    n = 800
+    d = Date(2020, 1, 1) .+ Day.(0:n-1)
+    forcing = DataFrame(date=d, temp_c=fill(18.0, n), salinity_psu=fill(30.0, n), chl_ug_l=fill(10.0, n))  # SYNTHETIC
+    u0 = initial_state(p; shell_height_mm=20.0, e=0.5)
+    days = time_to_market(p, forcing, d[1], u0)
+    @test days isa Int
+    sh = simulate_individual(p, forcing, u0).shell_height_mm
+    @test sh[days] >= 76.0 && sh[days-1] < 76.0
+    @test time_to_market(p, forcing, d[1], u0; market_shell_height_mm=1e6) === nothing
+    @test_throws ArgumentError time_to_market(p, forcing, d[1] - Day(1), u0)
+    gappy = forcing[[1:30; 200:n], :]
+    @test time_to_market(p, gappy, d[1], u0) === nothing   # stops at the gap
+end

@@ -1,0 +1,21 @@
+title = "SYNTHETIC farm parameter set for tests only. Round numbers, not literature or site values."
+
+[mortality_rate_d]
+value = 0.001
+units = "d^-1"
+source = "synthetic: test fixture"
+
+[flushing_time_d]
+value = 2.0
+units = "d"
+source = "synthetic: test fixture"
+
+[box_volume_L]
+value = 10000000.0
+units = "L"
+source = "synthetic: test fixture"
+
+[assim_energy_J_per_ug_chl]
+value = 5.0
+units = "J ug^-1"
+source = "synthetic: test fixture"

@@ -23,4 +23,6 @@ Rules (from docs/AGENTS.md):
 | file | status |
 |---|---|
 | `deb_c_gigas_pouvreau2006.toml` | Pacific oyster DEB set (Pouvreau et al. 2006), for method testing (P2.4) |
-| `deb_c_virginica.toml` | Eastern oyster DEB set; incomplete, entries marked `TODO(source)` |
+| `deb_c_virginica.toml` | Eastern oyster DEB set (Lavaud et al. 2017); incomplete, entries marked `TODO(source)` |
+| `farm_damariscotta.toml` | Lease-scale farm parameters; all entries `TODO(source)` |
+| `nitrogen_chesapeake_bmp.toml` | Shell height to dry weight and N content (Chesapeake Oyster BMP Expert Panel) |

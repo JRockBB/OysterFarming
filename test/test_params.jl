@@ -44,3 +44,9 @@ pfix(name) = joinpath(@__DIR__, "fixtures", "synthetic_params_$(name).toml")
         @test occursin("invalid parameter file", sprint(showerror, err))
     end
 end
+
+@testset "incomplete project parameter files are refused" begin
+    for f in ("deb_c_virginica.toml", "farm_damariscotta.toml")
+        @test_throws ParamError load_params(joinpath(@__DIR__, "..", "params", f))
+    end
+end

@@ -1,0 +1,26 @@
+title = "Lease-scale farm parameters for the Damariscotta River sites"
+status = "INCOMPLETE: every entry needs a source; the loader refuses this file until they are filled."
+
+[mortality_rate_d]
+value = 0.0
+units = "d^-1"
+source = "TODO(source)"
+notes = "Background (non-disease) mortality of cultured C. virginica in Maine. Candidates: partner farm records, Maine culture studies."
+
+[flushing_time_d]
+value = 0.0
+units = "d"
+source = "TODO(source)"
+notes = "Flushing or residence time of the water around a lease in the Damariscotta estuary; published estuary residence-time studies or hydrodynamic model output."
+
+[box_volume_L]
+value = 0.0
+units = "L"
+source = "TODO(source)"
+notes = "Volume of water exchanging with the lease (lease area x mean depth); site-specific."
+
+[assim_energy_J_per_ug_chl]
+value = 0.0
+units = "J ug^-1"
+source = "TODO(source)"
+notes = "Assimilated energy per ug chlorophyll-a ingested (assimilation efficiency x energy per ug chl). Needs a carbon:chl ratio and energy content from the literature."
