@@ -134,6 +134,7 @@ Done when: a per-site summary (coverage %, filled %) is written to `data/process
 **P1.5 Maine closures.** Pull closure polygons from the Maine DMR ArcGIS REST services (current closures and the archived biotoxin layer) and the conditional-area rainfall rules. Convert to `closures.arrow` keyed by growing area.
 Sources: `https://gis.maine.gov/arcgis/rest/services/dmr/DMR_Public_Health_Shellfish_Closures/MapServer`; archived biotoxin metadata at `https://www1.maine.gov/geolib/catalog/metadata/ARCHIVE_BIOTOXIN.html`.
 Done when: file validates; a report lists how many years of history exist per closure type (this answers an open question below).
+*Status (2026-10-11):* blocked. Every `gis.maine.gov` ArcGIS endpoint returned HTTP 502, and the ARCHIVE_BIOTOXIN metadata URL now redirects to the GeoLibrary home page. ArcGIS Online mirrors only area boundaries (`BTX_Areas`) and a 2019 NSSP classification layer, with no closure history. Retry the state server; if history is still unavailable, ask DMR for archived closure records.
 
 **P1.6 Economics.** Extract Maine oyster landings (pounds, count, value by year) from DMR landings reports and historical tables (`https://www.maine.gov/dmr/fisheries/commercial/landings-program/historical-data`).
 Done when: `economics.arrow` validates and matches the published PDF totals for every year extracted.
@@ -256,6 +257,9 @@ Done when: a script produces the comparison for any farm site.
 5. **Costs.** Need published enterprise budgets for Maine or Northeast oyster farms.
 6. **Language.** Julia core is the default (TECH_STACK.md). Confirm before Phase 2 starts.
 7. **Disease transfer.** Is a Chesapeake-calibrated Dermo model defensible for Maine? Plan to treat Maine results as risk scenarios, not predictions.
+8. **Winter forcing for Maine sites.** The Damariscotta LOBO buoys never cover January–February (see P1.3 status). Options: Boothbay Harbor DMR daily SST for temperature, satellite products, UMaine climatologies, or a documented winter assumption. Needed before multi-year runs (P2.7).
+9. **French growth data measures total live mass.** The IFREMER RESCO data (P1.8) record mean whole-oyster live mass in g (shell included), not shell height or dry tissue. Using it needs (a) a new `growth_obs` column such as `total_mass_g` (contract change) and (b) a sourced conversion from DEB state to total live mass. P1.8/P2.4 are paused until this is decided.
+10. **Eastern oyster maturity formulation.** Lavaud et al. (2017) use maturity energy E_H with k_J and a gonad compartment; the current model uses the Pouvreau et al. (2006) volume threshold V_p. Decide whether to implement the Lavaud formulation (unblocks `params/deb_c_virginica.toml`).
 
 ## Key references
 
