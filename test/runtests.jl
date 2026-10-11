@@ -2,5 +2,5 @@ using OysterFarming
 using Test
 
 @testset "OysterFarming.jl" begin
-    # Write your tests here.
+    include("test_aqua.jl")
 end
