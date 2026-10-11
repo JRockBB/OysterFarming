@@ -8,8 +8,13 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "pandas>=2.2",
     "pyarrow>=17",
+    "requests>=2.32",
 ]
+
+[project.scripts]
+oyster-data = "oyster_data.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.2,<0.13.0"]

@@ -120,9 +120,13 @@ Done when: file validates; each site lists its forcing source in `notes`.
 
 **P1.2 NERRS fetcher (Wells Reserve).** Download water-quality data (temperature, salinity, and chlorophyll or fluorescence if present) from the NERRS Centralized Data Management Office. Check access requirements first (the web service may need registration); fall back to bulk CSV export.
 Done when: daily-averaged `forcing_daily` rows for Wells stations validate; QC flags from the source are respected.
+*Status (2026-10-11):* blocked on a human step. The CDMO web service answers `Invalid ip` until the caller's IP address is registered with CDMO. Either register the IP or download CSV exports from the CDMO Advanced Query System into `data/raw/nerrs/`; then the parser can be written against a real export.
 
 **P1.3 Buoy fetcher (ERDDAP).** Use `erddapy` to pull temperature, salinity and chlorophyll from regional buoys near the chosen sites (start by searching the NERACOOS ERDDAP server; verify the URL).
 Done when: `forcing_daily` rows for at least one Damariscotta-area site validate.
+*Status (2026-10-11):* the NERACOOS ERDDAP is now `https://data.neracoos.org/erddap` and no longer serves the E05 Damariscotta buoy; it has only offshore shelf buoys (E01, B01, I01...), and the IOOS sensors ERDDAP has only tide gauges near Damariscotta. Damariscotta forcing instead comes from the Maine EPSCoR LOBO buoys (`oyster_data.sources.lobo`; nodes 65 lower river and 66 upper river at Mook Sea Farm; hourly temperature, salinity, chlorophyll, seasonal deployments 2015–2023). Done-when met with LOBO. An ERDDAP fetcher for offshore buoys is optional.
+
+*Open issue (winter forcing):* no Damariscotta source covers January–February, so P1.4 cannot fill those months from site climatology and multi-year runs break each winter. Candidate fixes need a decision: Maine DMR Boothbay Harbor daily SST (temperature only, 1905–present), satellite products (P1.10), or data from the UMaine group.
 
 **P1.4 Gap filling and merging.** Merge sources per site into one daily series. Fill short gaps (≤ 7 days) by linear interpolation and longer gaps with a day-of-year climatology from the same site; mark both with `qc_flag = 1`.
 Done when: a per-site summary (coverage %, filled %) is written to `data/processed/forcing_report.md`; unit tests cover both fill methods.
