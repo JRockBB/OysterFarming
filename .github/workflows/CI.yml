@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - main
     tags: ['*']
   pull_request:
   workflow_dispatch:
@@ -12,10 +13,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 jobs:
-  test:
+  julia:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
+    continue-on-error: ${{ matrix.version == 'pre' }}
     permissions: # needed to allow julia-actions/cache to proactively delete old caches that it has created
       actions: write
       contents: read
@@ -39,3 +41,22 @@ jobs:
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
+
+  python:
+    name: Python data pipeline
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: data-pipeline
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: uv sync --locked
+      - name: Fixtures are up to date
+        run: |
+          uv run python scripts/make_fixtures.py
+          git diff --exit-code -- ../data/fixtures
+      - name: Tests
+        run: uv run pytest
