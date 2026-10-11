@@ -1,0 +1,106 @@
+title = "SYNTHETIC DEB parameter set for tests only. Round numbers, not literature values."
+
+[p_Am]
+value = 400.0
+units = "J cm^-2 d^-1"
+source = "synthetic: test fixture"
+
+[E_m]
+value = 2000.0
+units = "J cm^-3"
+source = "synthetic: test fixture"
+
+[p_M]
+value = 25.0
+units = "J cm^-3 d^-1"
+source = "synthetic: test fixture"
+
+[E_G]
+value = 2000.0
+units = "J cm^-3"
+source = "synthetic: test fixture"
+
+[kappa]
+value = 0.5
+units = "1"
+source = "synthetic: test fixture"
+
+[kappa_R]
+value = 0.7
+units = "1"
+source = "synthetic: test fixture"
+
+[V_p]
+value = 0.5
+units = "cm^3"
+source = "synthetic: test fixture"
+
+[delta_M]
+value = 0.2
+units = "1"
+source = "synthetic: test fixture"
+
+[X_K]
+value = 5.0
+units = "ug chl-a L^-1"
+source = "synthetic: test fixture"
+
+[T_A]
+value = 6000.0
+units = "K"
+source = "synthetic: test fixture"
+
+[T_ref]
+value = 293.15
+units = "K"
+source = "synthetic: test fixture"
+
+[T_L]
+value = 280.0
+units = "K"
+source = "synthetic: test fixture"
+
+[T_H]
+value = 305.0
+units = "K"
+source = "synthetic: test fixture"
+
+[T_AL]
+value = 50000.0
+units = "K"
+source = "synthetic: test fixture"
+
+[T_AH]
+value = 50000.0
+units = "K"
+source = "synthetic: test fixture"
+
+[mu_E]
+value = 20000.0
+units = "J g^-1"
+source = "synthetic: test fixture"
+
+[d_V]
+value = 0.2
+units = "g cm^-3"
+source = "synthetic: test fixture"
+
+[GSI_spawn]
+value = 0.3
+units = "1"
+source = "synthetic: test fixture"
+
+[T_spawn_c]
+value = 20.0
+units = "degC"
+source = "synthetic: test fixture"
+
+[S_L]
+value = 3.0
+units = "psu"
+source = "synthetic: test fixture"
+
+[S_H]
+value = 10.0
+units = "psu"
+source = "synthetic: test fixture"

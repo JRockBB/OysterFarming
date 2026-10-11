@@ -1,0 +1,120 @@
+title = "Standard DEB parameters for the Pacific oyster Crassostrea gigas (Pouvreau et al. 2006)"
+species = "C_gigas"
+purpose = "Method testing only (PLAN.md P2.4). Not for eastern oyster results."
+
+# Citations
+#  Pouvreau, S., Bourles, Y., Lefebvre, S., Gangnery, A., Alunno-Bruscia, M., 2006. Application of a dynamic
+#    energy budget model to the Pacific oyster, Crassostrea gigas, reared under various environmental conditions.
+#    J. Sea Res. 56, 156-167. doi:10.1016/j.seares.2006.03.007
+#  Bourles, Y., Alunno-Bruscia, M., Pouvreau, S., Tollu, G., Leguay, D., Arnaud, C., Goulletquer, P.,
+#    Kooijman, S.A.L.M., 2009. Modelling growth and reproduction of the Pacific oyster Crassostrea gigas:
+#    advances in the oyster-DEB model through application to a coastal pond. J. Sea Res. 62, 62-71.
+#    doi:10.1016/j.seares.2009.03.002
+
+[T_A]
+value = 5800.0
+units = "K"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[T_ref]
+value = 293.15
+units = "K"
+source = "Bourles et al. 2009, J. Sea Res. 62:62-71, section 2.1.2 (T1 for C. gigas commonly given at 20 degC)"
+notes = "20 degC converted to K. Pouvreau et al. 2006 Table 1 does not list T1."
+
+[T_L]
+value = 281.0
+units = "K"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[T_H]
+value = 305.0
+units = "K"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[T_AL]
+value = 75000.0
+units = "K"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[T_AH]
+value = 30000.0
+units = "K"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[X_K]
+value = 3.5
+units = "ug chl-a L^-1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 and section 3.1 (experiment C, Thau lagoon field conditions)"
+notes = "Free-fitted per site in the paper: 3.5 (field, Thau), 8 (pond), 17 (cultured algae). Treat as a calibration parameter."
+
+[p_Xm]
+value = 560.0
+units = "J cm^-2 d^-1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+notes = "Maximum surface-area-specific ingestion rate. p_Am = ae * p_Xm = 420 J cm^-2 d^-1 (eq. 2)."
+
+[ae]
+value = 0.75
+units = "1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[p_M]
+value = 24.0
+units = "J cm^-3 d^-1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[E_m]
+value = 2295.0
+units = "J cm^-3"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[E_G]
+value = 1900.0
+units = "J cm^-3"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[V_p]
+value = 0.4
+units = "cm^3"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (authors' unpublished data)"
+
+[kappa]
+value = 0.45
+units = "1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+
+[kappa_R]
+value = 0.7
+units = "1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 and section 4"
+
+[delta_M]
+value = 0.175
+units = "1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Van der Veer et al. 2006)"
+notes = "Pouvreau et al. 2006 Table 2 used 0.2 for suspended culture in Thau lagoon."
+
+[mu_E]
+value = 17500.0
+units = "J g^-1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (from Deslous-Paoli and Heral 1988)"
+notes = "Table gives 17.5 J mg^-1 AFDM; converted to J g^-1. Section 2.3 of the same paper quotes 17 J mg^-1."
+
+[d_V]
+value = 0.15
+units = "g cm^-3"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, section 2.3, conversion (i) (from Whyte et al. 1990)"
+notes = "Derived: structure density 1 g wet cm^-3 times 0.15 g dry per g wet."
+
+[GSI_spawn]
+value = 0.35
+units = "1"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (authors' unpublished data)"
+notes = "Paper gives 35 percent. Bourles et al. 2009 refit this to 40 percent for a coastal pond."
+
+[T_spawn_c]
+value = 20.0
+units = "degC"
+source = "Pouvreau et al. 2006, J. Sea Res. 56:156-167, Table 1 (authors' unpublished data)"
+notes = "Bourles et al. 2009 refit this to 22 degC for a coastal pond."

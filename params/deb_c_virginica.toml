@@ -1,0 +1,124 @@
+title = "DEB parameters for the eastern oyster Crassostrea virginica (Lavaud et al. 2017)"
+species = "C_virginica"
+status = "INCOMPLETE: entries marked TODO(source) block loading until resolved."
+
+# Values are from Lavaud et al. 2017 (Ecol. Model. 363:221-233, doi:10.1016/j.ecolmodel.2017.09.003) as reproduced in
+# Table A2 of Lavaud, R., La Peyre, M.K., Justic, D., La Peyre, J.F., 2021. Dynamic Energy Budget modelling to predict
+# eastern oyster growth, reproduction, and mortality under river management and climate change scenarios. Estuar.
+# Coast. Shelf Sci. (https://www.sciencedirect.com/science/article/pii/S027277142100024X; author manuscript at
+# https://repository.library.noaa.gov/view/noaa/60944). Check each value against the 2017 Supplementary Information.
+#
+# Lavaud et al. use maturity energy (E_H^p = 369.9 J, k_J = 0.002 d^-1) and a separate gonad compartment, which this
+# package's model does not implement yet. The entries the current model needs but that have no equivalent in that
+# formulation are marked TODO(source) rather than guessed.
+
+[p_Am]
+value = 187.125
+units = "J cm^-2 d^-1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[v]
+value = 0.03453
+units = "cm d^-1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+notes = "Energy conductance. E_m = p_Am / v."
+
+[kappa]
+value = 0.82
+units = "1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[kappa_R]
+value = 0.95
+units = "1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[p_M]
+value = 38.0
+units = "J cm^-3 d^-1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[E_G]
+value = 5230.0
+units = "J cm^-3"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[delta_M]
+value = 0.2
+units = "1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[d_V]
+value = 0.2
+units = "g cm^-3"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+notes = "Specific density of structure."
+
+[T_ref]
+value = 293.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_A]
+value = 6700.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_L]
+value = 283.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_H]
+value = 303.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_AL]
+value = 21820.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_AH]
+value = 45380.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[S_L]
+value = 3.0
+units = "psu"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[S_H]
+value = 10.0
+units = "psu"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[T_spawn_c]
+value = 25.0
+units = "degC"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+
+[mu_E]
+value = 23012.55
+units = "J g^-1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+notes = "Derived: chemical potential of reserve 550000 J mol^-1 divided by molecular weight of reserve 23.9 g mol^-1."
+
+[X_K]
+value = 0.0
+units = "ug chl-a L^-1"
+source = "TODO(source)"
+notes = "Needs a chlorophyll half-saturation for C. virginica: from calibration (P2.6) or literature."
+
+[V_p]
+value = 0.0
+units = "cm^3"
+source = "TODO(source)"
+notes = "Lavaud et al. use maturity at puberty E_H^p = 369.9 J instead of a volume threshold. Implement E_H maturity or find a published V_p."
+
+[GSI_spawn]
+value = 0.0
+units = "1"
+source = "TODO(source)"
+notes = "Lavaud et al. gsi_sp = 0.08 uses a different GSI definition (gonad energy over egg energy density times wet mass); not interchangeable with this model's GSI."
