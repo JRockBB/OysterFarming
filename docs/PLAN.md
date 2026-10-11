@@ -138,6 +138,7 @@ Done when: file validates; a report lists how many years of history exist per cl
 
 **P1.6 Economics.** Extract Maine oyster landings (pounds, count, value by year) from DMR landings reports and historical tables (`https://www.maine.gov/dmr/fisheries/commercial/landings-program/historical-data`).
 Done when: `economics.arrow` validates and matches the published PDF totals for every year extracted.
+*Status (2026-10-11):* the DMR historical-data page returns 404. `economics.arrow` is built instead from NOAA Fisheries One Stop Shop (`oyster_data.sources.foss`, ACCSP data, 1954–2024, eastern oyster only), and tests check it against the raw API totals. Still to do for the original done-when: compare against DMR's published aquaculture harvest totals, and confirm whether FOSS pounds are meat or live weight.
 
 **P1.7 Chesapeake disease data.** (a) Extract Dermo and MSX prevalence and intensity by bar and year from Maryland DNR Fall Oyster Survey reports (PDF tables, `pdfplumber`). (b) Pull matching temperature and salinity from the Chesapeake Bay Program DataHub (`https://data.chesapeakebay.net`) for the nearest stations. Choose 5–10 disease-monitoring bars with good station coverage and add them to `sites.arrow`.
 Done when: `disease_obs.arrow` and Chesapeake `forcing_daily` rows validate; extraction is spot-checked against 3 report tables by hand and recorded in the test suite.

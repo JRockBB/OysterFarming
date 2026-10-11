@@ -4,6 +4,9 @@ Commands
   sites                      write data/processed/sites.arrow
   lobo-fetch --node N --years 2015-2023 [--overwrite]
                              download LOBO raw files to data/raw/lobo/
+  economics-fetch [--overwrite]
+                             download NOAA FOSS Maine oyster landings to data/raw/foss/
+  economics                  write data/processed/economics.arrow from the raw FOSS file
   forcing                    clean all raw forcing sources, merge, gap-fill and write
                              data/processed/forcing_daily.arrow and forcing_report.md
 """
@@ -21,7 +24,7 @@ from oyster_data.forcing import to_forcing_table
 from oyster_data.contract import write_contract
 from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
-from oyster_data.sources import lobo
+from oyster_data.sources import foss, lobo
 
 
 def _years(spec: str) -> list[int]:
@@ -73,12 +76,24 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--years", required=True, help="e.g. 2015-2023 or 2016,2018")
     p.add_argument("--overwrite", action="store_true")
     sub.add_parser("forcing", help="clean, merge and gap-fill forcing")
+    e = sub.add_parser("economics-fetch", help="download NOAA FOSS landings")
+    e.add_argument("--overwrite", action="store_true")
+    sub.add_parser("economics", help="write economics.arrow")
     args = parser.parse_args(argv)
 
     if args.command == "sites":
         print(f"wrote {write_sites()}")
     elif args.command == "lobo-fetch":
         return cmd_lobo_fetch(args)
+    elif args.command == "economics-fetch":
+        try:
+            print(f"saved {foss.fetch(overwrite=args.overwrite)}")
+        except FileExistsError as err:
+            print(f"skipped: {err}")
+    elif args.command == "economics":
+        out = PROCESSED_DIR / "economics.arrow"
+        write_contract(foss.clean(), out, "economics")
+        print(f"wrote {out}")
     elif args.command == "forcing":
         out, report = build_forcing()
         print(f"wrote {out}\nwrote {report}")
