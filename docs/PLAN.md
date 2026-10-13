@@ -254,6 +254,7 @@ Done when: the optimal decision per site is reported with its expected NPV and u
 
 **P5.4 Climate scenarios.** Delta-change warming: add +0.5, +1.0 and +2.0 °C to each site's temperature series (configurable). Document that this ignores changes in food and salinity.
 Done when: scenarios run through Phases 2–5 from one script.
+*Status (2026-10-13):* done with one gap (`scripts/p5_4_climate_scenarios.jl`, outputs/p5_4/scenarios.md; warming values are CLI arguments). +0/0.5/1/2 degC on the 2016-2020 blocks. Warming speeds growth: May-seeded time to market at dam_upper falls from 2.0 to 1.3 yr and at dam_lower from 2.35 to 2.0 yr. Best expected NPV rises (dam_upper 87k to 190k USD, dam_lower -51k to 63k USD; P5.3 caveats apply, compare scenarios only). Dermo division days rise (dam_upper 58 to 90/yr, dam_lower 2 to 38/yr). Gap: Dermo is not coupled into farm mortality because the model failed validation (P4.2), and closures (P4.4) are blocked, so the NPV gains are upper bounds on the net effect of warming.
 
 **P5.5 Headline analysis.** For each site and scenario: change in time-to-market, change in risk (mortality, lost harvest days), change in optimal decisions and NPV. This is the core "does warming help or hurt" result.
 Done when: `scripts/p5_5_headline.jl` produces the tables and figures for Chapter 3.
