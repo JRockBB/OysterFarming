@@ -6,13 +6,19 @@ Rules (processing choices, recorded here and in forcing_report.md):
    given priority order wins, variable by variable.
 2. Short gaps: a run of at most ``MAX_LINEAR_GAP_DAYS`` missing days with
    observations on both sides is filled by linear interpolation.
-3. Long gaps: filled from the same site's day-of-year climatology, the mean of
-   observed values within +/- ``CLIM_HALF_WINDOW_DAYS`` days of that day of year
-   (circular across the new year), pooled over all years.
-4. Days whose day-of-year window has no observations at all stay missing. Rows
-   still lacking temperature or salinity are dropped (not nullable in the contract).
-5. Filled rows get ``qc_flag = 1`` and ``;fill=linear`` or ``;fill=climatology``
-   appended to ``source`` (climatology wins if both methods were used in a row).
+3. Longer gaps, from measured secondary stations: for each secondary station
+   given for a variable (in priority order), fit ``site = a + b * station`` by
+   ordinary least squares on days where the site was observed and the station
+   has data (at least ``MIN_OVERLAP_DAYS``), then fill remaining gaps on days the
+   station has data. Fit statistics are reported.
+4. Remaining gaps: the same site's day-of-year climatology, the mean of observed
+   values within +/- ``CLIM_HALF_WINDOW_DAYS`` days of that day of year (circular
+   across the new year), pooled over all years. Used only where no secondary
+   station covers the day.
+5. Days still without a value stay missing. Rows lacking temperature or salinity
+   are dropped (not nullable in the contract).
+6. Filled rows get ``qc_flag = 1`` and ``;fill=<methods>`` appended to ``source``,
+   listing every fill method used in that row (e.g. ``linear+regression:boothbay_dmr_sst``).
 """
 
 from __future__ import annotations
@@ -24,9 +30,40 @@ import pandas as pd
 
 MAX_LINEAR_GAP_DAYS = 7
 CLIM_HALF_WINDOW_DAYS = 7
+MIN_OVERLAP_DAYS = 30
 FILL_VARIABLES = ("temp_c", "salinity_psu", "chl_ug_l")
 
 OBSERVED, LINEAR, CLIMATOLOGY, MISSING = "observed", "linear", "climatology", "missing"
+REGRESSION_PREFIX = "regression:"
+
+Secondary = tuple[str, pd.Series]   # (station name, daily series indexed by date)
+
+
+@dataclass
+class RegressionFit:
+    station: str
+    n_overlap: int
+    intercept: float
+    slope: float
+    r2: float
+    rmse: float
+    n_filled: int = 0
+
+
+def fit_secondary(site: pd.Series, station: pd.Series) -> RegressionFit | None:
+    """OLS fit of site on station over days both observed; None if overlap is too short."""
+    both = pd.concat([site, station], axis=1, join="inner").dropna()
+    if len(both) < MIN_OVERLAP_DAYS:
+        return None
+    y = both.iloc[:, 0].to_numpy(dtype=float)
+    x = both.iloc[:, 1].to_numpy(dtype=float)
+    if np.ptp(x) == 0:
+        return None
+    b, a = np.polyfit(x, y, 1)
+    resid = y - (a + b * x)
+    ss_tot = float(((y - y.mean()) ** 2).sum())
+    r2 = 1 - float((resid ** 2).sum()) / ss_tot if ss_tot > 0 else float("nan")
+    return RegressionFit("", len(both), float(a), float(b), r2, float(np.sqrt((resid ** 2).mean())))
 
 
 def merge_sources(frames: list[pd.DataFrame]) -> pd.DataFrame:
@@ -69,11 +106,12 @@ def climatology(series: pd.Series, half_window: int = CLIM_HALF_WINDOW_DAYS) -> 
 
 
 def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
-                half_window: int = CLIM_HALF_WINDOW_DAYS) -> tuple[pd.Series, pd.Series]:
+                half_window: int = CLIM_HALF_WINDOW_DAYS, secondaries: list[Secondary] | tuple = (),
+                ) -> tuple[pd.Series, pd.Series, list[RegressionFit]]:
     """Fill one daily series indexed by a complete DatetimeIndex.
 
-    Returns ``(filled_values, method)`` where ``method`` is one of
-    observed / linear / climatology / missing for each day.
+    Returns ``(filled_values, method, fits)`` where ``method`` is observed /
+    linear / regression:<station> / climatology / missing for each day.
     """
     values = series.astype(float).copy()
     method = pd.Series(np.where(values.notna(), OBSERVED, MISSING), index=values.index, dtype=object)
@@ -94,6 +132,18 @@ def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
             values.iloc[i:j] = interp.iloc[i:j]
             method.iloc[i:j] = LINEAR
         i = j
+    fits: list[RegressionFit] = []
+    for name, station in secondaries:
+        fit = fit_secondary(series, station)
+        if fit is None:
+            continue
+        fit.station = name
+        st = station.reindex(values.index)
+        gap = values.isna() & st.notna()
+        values.loc[gap] = fit.intercept + fit.slope * st[gap]
+        method.loc[gap] = REGRESSION_PREFIX + name
+        fit.n_filled = int(gap.sum())
+        fits.append(fit)
     clim = climatology(series, half_window)
     still = values.isna()
     if still.any():
@@ -103,7 +153,7 @@ def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
         idx = values.index[still][ok]
         values.loc[idx] = cvals[ok]
         method.loc[idx] = CLIMATOLOGY
-    return values, method
+    return values, method, fits
 
 
 def longest_run(mask: pd.Series) -> int:
@@ -123,11 +173,17 @@ class SiteReport:
     n_days: int
     counts: dict[str, dict[str, int]] = field(default_factory=dict)
     longest_climatology_run: dict[str, int] = field(default_factory=dict)
+    fits: dict[str, list[RegressionFit]] = field(default_factory=dict)
     rows_written: int = 0
 
 
-def fill_site(daily: pd.DataFrame, site_id: str) -> tuple[pd.DataFrame, SiteReport]:
-    """Gap-fill one site's merged daily rows over its first-to-last observed date range."""
+def fill_site(daily: pd.DataFrame, site_id: str,
+              secondaries: dict[str, list[Secondary]] | None = None) -> tuple[pd.DataFrame, SiteReport]:
+    """Gap-fill one site's merged daily rows over its first-to-last observed date range.
+
+    ``secondaries`` maps a variable name to its secondary stations in priority order.
+    """
+    secondaries = secondaries or {}
     d = daily[daily["site_id"] == site_id].copy()
     if d.empty:
         raise ValueError(f"no rows for site {site_id!r}")
@@ -138,21 +194,23 @@ def fill_site(daily: pd.DataFrame, site_id: str) -> tuple[pd.DataFrame, SiteRepo
     report = SiteReport(site_id, full[0].date(), full[-1].date(), len(full))
     methods = {}
     for var in FILL_VARIABLES:
-        vals, meth = fill_series(d[var])
+        vals, meth, fits = fill_series(d[var], secondaries=secondaries.get(var, ()))
         d[var] = vals
         methods[var] = meth
-        report.counts[var] = {m: int((meth == m).sum()) for m in (OBSERVED, LINEAR, CLIMATOLOGY, MISSING)}
+        report.counts[var] = {m: int((meth == m).sum()) for m in sorted(set(meth))}
         report.longest_climatology_run[var] = longest_run(meth == CLIMATOLOGY)
+        report.fits[var] = fits
     base_source = d["source"].ffill().bfill()
-    any_clim = np.zeros(len(d), dtype=bool)
-    any_lin = np.zeros(len(d), dtype=bool)
-    for var in FILL_VARIABLES:
-        any_clim |= (methods[var] == CLIMATOLOGY).to_numpy()
-        any_lin |= (methods[var] == LINEAR).to_numpy()
-    suffix = np.where(any_clim, ";fill=climatology", np.where(any_lin, ";fill=linear", ""))
+    fill_methods = []
+    for i in range(len(d)):
+        used = sorted({methods[v].iloc[i] for v in FILL_VARIABLES} - {OBSERVED, MISSING})
+        fill_methods.append("+".join(used))
+    fill_arr = np.array(fill_methods, dtype=object)
+    filled_any = fill_arr != ""
+    suffix = [";fill=" + m if m else "" for m in fill_methods]
     d["source"] = base_source.str.split(";").str[0] + suffix
     prior_qc = d["qc_flag"].fillna(0).astype(int)
-    d["qc_flag"] = np.where(any_clim | any_lin, np.maximum(prior_qc, 1), prior_qc).astype(int)
+    d["qc_flag"] = np.where(filled_any, np.maximum(prior_qc, 1), prior_qc).astype(int)
     d.loc[prior_qc == 2, "qc_flag"] = 2
     d["site_id"] = site_id
     d = d.dropna(subset=["temp_c", "salinity_psu"])
@@ -163,10 +221,11 @@ def fill_site(daily: pd.DataFrame, site_id: str) -> tuple[pd.DataFrame, SiteRepo
     return out[cols], report
 
 
-def fill_all(daily: pd.DataFrame) -> tuple[pd.DataFrame, list[SiteReport]]:
+def fill_all(daily: pd.DataFrame,
+             secondaries: dict[str, list[Secondary]] | None = None) -> tuple[pd.DataFrame, list[SiteReport]]:
     parts, reports = [], []
     for site in sorted(daily["site_id"].unique()):
-        filled, rep = fill_site(daily, site)
+        filled, rep = fill_site(daily, site, secondaries)
         parts.append(filled)
         reports.append(rep)
     return pd.concat(parts, ignore_index=True), reports
@@ -180,19 +239,27 @@ def render_report(reports: list[SiteReport]) -> str:
         "Generated by `oyster-data forcing` (PLAN.md P1.4). Percentages are of days between each",
         "site's first and last observation.",
         "",
-        f"Rules: linear interpolation for gaps of at most {MAX_LINEAR_GAP_DAYS} days; otherwise the",
-        f"site's day-of-year climatology (+/- {CLIM_HALF_WINDOW_DAYS} day window, all years pooled).",
-        "Days with no climatology stay missing; rows missing temperature or salinity are not written.",
+        f"Fill order: observed; linear interpolation for gaps of at most {MAX_LINEAR_GAP_DAYS} days; regression on",
+        f"a measured secondary station (fitted on at least {MIN_OVERLAP_DAYS} overlapping days); the site's",
+        f"day-of-year climatology (+/- {CLIM_HALF_WINDOW_DAYS} days, all years) only where no station covers the day.",
+        "Rows still missing temperature or salinity are not written.",
         "",
     ]
     for r in reports:
         lines += [f"## {r.site_id}", "",
                   f"Range {r.first_date} to {r.last_date}: {r.n_days} days, {r.rows_written} rows written.", "",
-                  "| variable | observed % | linear % | climatology % | missing % | longest climatology run (days) |",
-                  "|---|---|---|---|---|---|"]
+                  "| variable | method | days | % |", "|---|---|---|---|"]
         for var, c in r.counts.items():
-            pct = {k: 100 * v / r.n_days for k, v in c.items()}
-            lines.append(f"| {var} | {pct[OBSERVED]:.1f} | {pct[LINEAR]:.1f} | {pct[CLIMATOLOGY]:.1f} | "
-                         f"{pct[MISSING]:.1f} | {r.longest_climatology_run[var]} |")
-        lines.append("")
+            for m, n in sorted(c.items(), key=lambda kv: -kv[1]):
+                lines.append(f"| {var} | {m} | {n} | {100 * n / r.n_days:.1f} |")
+        lines += ["", "Longest climatology-filled run (days): "
+                  + ", ".join(f"{v} {n}" for v, n in r.longest_climatology_run.items()), ""]
+        fit_rows = [(v, f) for v, fs in r.fits.items() for f in fs]
+        if fit_rows:
+            lines += ["| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |",
+                      "|---|---|---|---|---|---|---|"]
+            for v, f in fit_rows:
+                lines.append(f"| {v} | {f.station} | {f.n_overlap} | {f.intercept:.3f} + {f.slope:.3f} x | "
+                             f"{f.r2:.3f} | {f.rmse:.3f} | {f.n_filled} |")
+            lines.append("")
     return "\n".join(lines)
