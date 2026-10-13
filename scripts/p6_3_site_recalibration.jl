@@ -1,0 +1,151 @@
+# P6.3: recalibrate the food half-saturation X_K for a farm site and compare with the public-data version (P2.6).
+#
+# Inputs: a folder written by `oyster-data farm-ingest` (sites.arrow, growth_obs.arrow, optional
+# farm_temperature_daily.csv) and the id of the public site whose forcing is used (e.g. dam_upper).
+# Forcing: public forcing_daily for that site; where the farm logger has a daily mean, it replaces temp_c.
+# Model: params/deb_c_virginica.toml, public X_K from params/deb_c_virginica_xk.toml. Diploid spawning rule
+# active unless --triploid is given (then spawning is disabled as in P2.6).
+# Per cohort (>= 3 sampling dates): start at the first sampling date and observed mean shell height, reserve
+# at equilibrium with the mean chlorophyll of the first 14 days, run to the first chlorophyll gap, fit X_K by
+# least squares (same bounds as P2.6).
+# Comparison per cohort: shell-height RMSE with the public X_K, with the cohort's own fit (in-sample), and with
+# the median of the other cohorts' fits (out-of-sample; needs >= 2 cohorts).
+#
+# Usage:
+#   julia --project scripts/p6_3_site_recalibration.jl FARM_DIR PUBLIC_SITE_ID [--triploid]
+#   julia --project scripts/p6_3_site_recalibration.jl --synthetic-demo
+#     (writes SYNTHETIC growth data simulated with a known X_K at dam_upper, then recalibrates; a pipeline check)
+# Writes outputs/p6_3/<farm site id>.md.
+
+using OysterFarming
+using Arrow, DataFrames, Dates, Random, Statistics
+
+const ROOT = normpath(joinpath(@__DIR__, ".."))
+const OUT = joinpath(ROOT, "outputs", "p6_3")
+const XK_BOUNDS = (0.1, 50.0)
+const INIT_FOOD_DAYS = 14
+const MIN_DATES = 3
+
+P(file) = load_params(joinpath(ROOT, "params", file))
+xk_public = P("deb_c_virginica_xk.toml")["X_K"].value
+forcing_all = read_contract(joinpath(ROOT, "data", "processed", "forcing_daily.arrow"), "forcing_daily")
+
+function base_params(triploid::Bool)
+    p = DEBParams(P("deb_c_virginica.toml"); X_K=xk_public)
+    return triploid ? with_values(p; GSI_spawn=Inf) : p
+end
+
+"Public forcing for `site` with farm logger temperatures substituted where present."
+function farm_forcing(site, farm_dir)
+    f = forcing_for_site(forcing_all, site)
+    n_logger = 0
+    path = joinpath(farm_dir, "farm_temperature_daily.csv")
+    if isfile(path)
+        lines = readlines(path)
+        hdr = split(lines[1], ",")
+        id, it = findfirst(==("date"), hdr), findfirst(==("temp_c"), hdr)
+        logger = Dict(Date(split(l, ",")[id]) => parse(Float64, split(l, ",")[it]) for l in lines[2:end])
+        f = copy(f); f.temp_c = Vector{Union{Missing,Float64}}(f.temp_c)
+        for i in eachindex(f.date)
+            haskey(logger, f.date[i]) && (f.temp_c[i] = logger[f.date[i]]; n_logger += 1)
+        end
+    end
+    return f, n_logger
+end
+
+function cohort_case(f, obs, p)
+    obs = sort(obs, :date)
+    start = findfirst(==(obs.date[1]), f.date)
+    start === nothing && return nothing
+    run = f[start:end, :]
+    run = run[continuous_blocks(run.date)[1], :]
+    gap = findfirst(i -> ismissing(run.chl_ug_l[i]) || ismissing(run.temp_c[i]), 1:nrow(run))
+    gap === nothing || (run = run[1:gap-1, :])
+    nrow(run) > INIT_FOOD_DAYS || return nothing
+    obs = obs[obs.date .<= last(run.date), :]
+    nrow(obs) >= MIN_DATES || return nothing
+    run = DataFrame(date=run.date, temp_c=Float64.(run.temp_c), salinity_psu=Float64.(run.salinity_psu),
+                    chl_ug_l=Float64.(run.chl_ug_l))
+    sh0 = Float64(obs.shell_height_mm[1])
+    food0 = mean(run.chl_ug_l[1:INIT_FOOD_DAYS])
+    u0 = q -> initial_state(q; shell_height_mm=sh0, e=functional_response(food0, q.X_K))
+    cp = CalibrationProblem(p, run, u0, obs.date[2:end], Float64.(obs.shell_height_mm[2:end]);
+                            names=[:X_K], lower=[XK_BOUNDS[1]], upper=[XK_BOUNDS[2]])
+    return (cp=cp, n=nrow(obs) - 1)
+end
+
+rmse_at(cp, xk) = sqrt(mean((predict_shell_height(cp, [xk]) .- cp.obs_shell_height_mm) .^ 2))
+
+function recalibrate(farm_dir, public_site; triploid=false)
+    site_id = only(read_contract(joinpath(farm_dir, "sites.arrow"), "sites").site_id)
+    growth = read_contract(joinpath(farm_dir, "growth_obs.arrow"), "growth_obs")
+    growth = growth[.!ismissing.(growth.shell_height_mm), :]
+    f, n_logger = farm_forcing(public_site, farm_dir)
+    p = base_params(triploid)
+    cases = Dict{String,Any}()
+    for g in groupby(growth, :cohort_id)
+        c = cohort_case(f, DataFrame(g), p)
+        c === nothing ? println("skipped $(g.cohort_id[1]): fewer than $(MIN_DATES) dates inside gap-free forcing") :
+                        (cases[g.cohort_id[1]] = c)
+    end
+    isempty(cases) && error("no cohort has $(MIN_DATES)+ sampling dates inside gap-free forcing for $(public_site)")
+    fits = Dict(k => fit_least_squares(c.cp, [xk_public]) for (k, c) in cases)
+    mkpath(OUT)
+    path = joinpath(OUT, "$(site_id).md")
+    fmt(x) = string(round(x; digits=3))
+    open(path, "w") do io
+        println(io, "# P6.3 site recalibration: $(site_id) (generated by scripts/p6_3_site_recalibration.jl)\n")
+        println(io, "Forcing: public site $(public_site); farm logger temperature used on $(n_logger) days. ",
+                "Public X_K (P2.6) = $(fmt(xk_public)) ug chl-a/L. $(triploid ? "Triploid (no spawning)." : "Diploid.")\n")
+        println(io, "| cohort | dates fitted | farm X_K | 95 % interval | RMSE public X_K (mm) | RMSE own fit (mm, in-sample) | RMSE other cohorts' median X_K (mm) |")
+        println(io, "|---|---|---|---|---|---|---|")
+        for k in sort(collect(keys(cases)))
+            c, r = cases[k], fits[k]
+            others = [fits[o].estimate[1] for o in keys(fits) if o != k]
+            oos = isempty(others) ? "n/a" : fmt(rmse_at(c.cp, median(others)))
+            println(io, "| $(k) | $(c.n) | $(fmt(r.estimate[1])) | $(fmt(r.lower_ci[1])) to $(fmt(r.upper_ci[1])) | ",
+                    "$(fmt(rmse_at(c.cp, xk_public))) | $(fmt(rmse_at(c.cp, r.estimate[1]))) | $(oos) |")
+        end
+        println(io, "\nA farm X_K whose interval excludes the public value means the farm's food or feeding differs from the ",
+                "Chesapeake calibration; use the farm value for that site only if the out-of-sample RMSE also improves.")
+    end
+    println(read(path, String))
+    return path
+end
+
+"SYNTHETIC demo data: two cohorts simulated at `site` with known X_K, monthly samples, Gaussian noise."
+function synthetic_demo(site="dam_upper"; xk_true=1.5, noise_mm=1.5, rng=Xoshiro(63))
+    dir = mktempdir()
+    f = longest_block(forcing_for_site(forcing_all, site))
+    p = with_values(base_params(false); X_K=xk_true)
+    rows = DataFrame(dataset_id=String[], species=String[], site_id=String[], cohort_id=String[], date=Date[],
+                     shell_height_mm=Union{Missing,Float64}[], dry_tissue_g=Union{Missing,Float64}[], n=Int[])
+    sid = "farm_synthetic"
+    for y in (year(first(f.date)) + 1, year(first(f.date)) + 2)
+        seed = Date(y, 5, 15)
+        run = f[f.date .>= seed, :]
+        gap = findfirst(ismissing, run.chl_ug_l); gap === nothing || (run = run[1:gap-1, :])
+        u0 = initial_state(p; shell_height_mm=20.0, e=functional_response(mean(run.chl_ug_l[1:INIT_FOOD_DAYS]), xk_true))
+        sim = simulate_individual(p, run, u0)
+        for d in [seed + Month(m) for m in 0:18 if month(seed + Month(m)) in 5:10]
+            i = findfirst(==(d), sim.date); i === nothing && continue
+            sh = d == seed ? 20.0 : sim.shell_height_mm[i] + noise_mm * randn(rng)
+            push!(rows, ("SYNTHETIC_demo", "C_virginica", sid, "$(sid)_c$(y)", d, sh, missing, 30))
+        end
+    end
+    Arrow.write(joinpath(dir, "growth_obs.arrow"), rows)
+    Arrow.write(joinpath(dir, "sites.arrow"), DataFrame(site_id=[sid], name=[sid], lat=[44.0], lon=[-69.5],
+                                                        region=["maine"], growing_area=Union{Missing,String}[missing],
+                                                        notes=Union{Missing,String}["SYNTHETIC demo"]))
+    println("SYNTHETIC demo: true X_K = $(xk_true) ug/L, noise sd $(noise_mm) mm, folder $(dir)")
+    return dir, site
+end
+
+if !isempty(ARGS) && ARGS[1] == "--synthetic-demo"
+    dir, site = synthetic_demo()
+    recalibrate(dir, site)
+elseif length(ARGS) >= 2
+    recalibrate(ARGS[1], ARGS[2]; triploid="--triploid" in ARGS)
+else
+    println("usage: julia --project scripts/p6_3_site_recalibration.jl FARM_DIR PUBLIC_SITE_ID [--triploid] | --synthetic-demo")
+end

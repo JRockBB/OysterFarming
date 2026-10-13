@@ -273,6 +273,7 @@ Done when: a filled-in example converts and validates.
 
 **P6.3 Site recalibration.** Rerun P2.6 calibration with farm data for that site and compare against the public-data version.
 Done when: a script produces the comparison for any farm site.
+*Status (2026-10-13):* done (`scripts/p6_3_site_recalibration.jl FARM_DIR PUBLIC_SITE [--triploid]`). Fits X_K per farm cohort on public forcing with farm logger temperature substituted, and compares shell-height RMSE under the public X_K, the cohort's own fit and the other cohorts' median fit. Pipeline check with SYNTHETIC data (`--synthetic-demo`, true X_K 1.5 at dam_upper, noise 1.5 mm): fits 1.41 (1.28-1.55) and 1.44 (1.21-1.66); out-of-sample RMSE 1.1-1.8 mm vs 5.2-5.5 mm with the public X_K. No real farm data yet.
 
 ---
 
