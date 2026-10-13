@@ -6,7 +6,7 @@ Commands
                              download LOBO raw files to data/raw/lobo/
   economics-fetch [--overwrite]
                              download NOAA FOSS Maine oyster landings to data/raw/foss/
-  economics                  write data/processed/economics.arrow from the raw FOSS file
+  economics                  write data/processed/economics.arrow (NOAA FOSS + Maine DMR aquaculture report)
   secondary-fetch            download Maine secondary stations used for gap filling
                              (Boothbay DMR SST, DMC dock and VIIRS chlorophyll, NERACOOS E01)
   disease-fetch [--overwrite] download the MD DNR 2024 Fall Survey report (Dermo/MSX tables)
@@ -26,6 +26,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import pyarrow as pa
 
 from oyster_data import gapfill
 from oyster_data.forcing import to_forcing_table
@@ -34,7 +35,7 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import (boothbay_dmr, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
+from oyster_data.sources import (boothbay_dmr, dmr_aquaculture, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
                                  mddnr_fall_survey, nerrs_ncei, neracoos, viirs_chl, zenodo_growth)
 
 
@@ -89,13 +90,15 @@ def cmd_secondary_fetch(overwrite: bool) -> int:
 
 def cmd_chesapeake_fetch(overwrite: bool) -> int:
     jobs = []
-    for site in chesapeake_sites.SITES:
+    for site in chesapeake_sites.SITES + chesapeake_sites.BAR_SITES:
         first, last = int(site.start[:4]), int(site.end[:4])
-        jobs += [(lambda st=site.coops_station, y=y: coops.fetch_year(st, y, overwrite=overwrite))
-                 for y in range(first, last + 1)]
+        for st in (site.coops_station, *site.coops_secondaries):
+            jobs += [(lambda st=st, y=y: coops.fetch_year(st, y, overwrite=overwrite))
+                     for y in range(first, last + 1)]
         for st in filter(None, (site.cbp_station, site.cbp_secondary)):
-            jobs.append(lambda st=st: cbp_datahub.fetch(st, date(2005, 9, 1), date(2007, 11, 30),
-                                                        overwrite=overwrite))
+            jobs.append(lambda st=st, a=first, b=last: cbp_datahub.fetch(
+                st, date(a, 1, 1) if a < 2005 else date(2005, 9, 1),
+                date(b, 12, 31) if b > 2007 else date(2007, 11, 30), overwrite=overwrite))
         if site.nerrs_nut_station:
             jobs += [(lambda st=site.nerrs_nut_station, y=y: nerrs_ncei.fetch_year(st, y, overwrite=overwrite))
                      for y in range(first, last + 1)]
@@ -190,7 +193,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"skipped: {err}")
     elif args.command == "economics":
         out = PROCESSED_DIR / "economics.arrow"
-        write_contract(foss.clean(), out, "economics")
+        write_contract(pa.concat_tables([foss.clean(), dmr_aquaculture.to_economics()]), out, "economics")
         print(f"wrote {out}")
     elif args.command == "disease-fetch":
         try:
