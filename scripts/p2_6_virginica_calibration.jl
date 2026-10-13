@@ -125,6 +125,15 @@ open(joinpath(ROOT, "params", "deb_c_virginica_xk.toml"), "w") do io
     println(io, "units = \"ug chl-a L^-1\"")
     println(io, "source = \"Calibrated in this project: scripts/p2_6_virginica_calibration.jl, least squares on Kingsley-Smith Patuxent triploid shell heights (Zenodo 10.5281/zenodo.11205266) with measured forcing (CO-OPS 8577330, CBP LE1.3, NERRS cbmrrwq); results in outputs/p2_6/metrics.md\"")
     println(io, "notes = \"95 % intervals: Gauss-Newton $(fmt(ls.lower_ci[1])) to $(fmt(ls.upper_ci[1])); Bayesian $(fmt(bayes.lower_ci[1])) to $(fmt(bayes.upper_ci[1])) (median $(fmt(xk_median))). Held-out York shell-height RMSE $(fmt(m[("ches_york_ks", "shell_height_mm")].rmse)) mm. Weakly identified: calibration site food was near saturation.\"")
+    for q in (0.1, 0.3, 0.5, 0.7, 0.9)
+        name = "X_K_posterior_q$(lpad(round(Int, 100q), 2, '0'))"
+        println(io, "
+[$(name)]")
+        println(io, "value = $(round(quantile(xk_draws, q); sigdigits=4))")
+        println(io, "units = \"ug chl-a L^-1\"")
+        println(io, "source = \"Bayesian posterior quantile $(q) of X_K from scripts/p2_6_virginica_calibration.jl (NUTS, 1000 draws), same data as X_K\"")
+        println(io, "notes = \"The 0.1/0.3/0.5/0.7/0.9 quantiles each stand for 20 % of posterior probability in decision analyses (P5.2).\"")
+    end
 end
 
 println(read(joinpath(OUT, "metrics.md"), String))

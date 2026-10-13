@@ -244,9 +244,11 @@ Done when: net present value per lease is computed for a reference farm and chec
 
 **P5.2 Decision variables and objective.** Decision variables: seeding month, seeding density, harvest size threshold. Objective: expected NPV (with an option for a risk-averse objective such as a lower quantile). Secondary output: nitrogen removed.
 Done when: objective function runs end to end on one site.
+*Status (2026-10-13):* done. `src/decision.jl`: `FarmDecision` (seed month, seeds per cohort, market size), `evaluate_decision` gives expected NPV, a lower-quantile NPV, expected nitrogen removed and harvest over weighted parameter scenarios (X_K posterior quantiles 0.1-0.9, 20 % each, exported by P2.6). Runs end to end on dam_upper (`scripts/p5_3_grid_search.jl`).
 
 **P5.3 Optimizer.** Start with a grid search over the decision variables (simple and transparent). Add a derivative-free optimizer from Optimization.jl only if the grid is too coarse.
 Done when: the optimal decision per site is reported with its expected NPV and uncertainty.
+*Status (2026-10-13):* grid search done (`grid_search`). First dam_upper run: best expected NPV at 1.6 million seeds per cohort, 65 mm, seeding in October/April/May (about 0.19-0.20 million USD over the 2015-2020 block). Not a result yet: it is driven by scenario inputs without sources - weekly harvest capacity (10,000 oysters, binding), one price for all sizes (favours the smallest market size), a 4.3-year horizon with no value for unharvested stock, and Maryland 2018 costs. Needs size-specific prices and a Maine capacity/labour source before interpretation.
 
 **P5.4 Climate scenarios.** Delta-change warming: add +0.5, +1.0 and +2.0 °C to each site's temperature series (configurable). Document that this ignores changes in food and salinity.
 Done when: scenarios run through Phases 2–5 from one script.
