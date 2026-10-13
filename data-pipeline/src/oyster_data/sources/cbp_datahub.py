@@ -31,7 +31,9 @@ from oyster_data.raw import http_get, save_raw
 BASE = "https://datahub.chesapeakebay.net/api/WaterQuality"
 RAW_SUBDIR = "cbp_datahub"
 SUBSTANCES = {"WTEMP": ("temp_c", 123), "SALINITY": ("salinity_psu", 83), "CHLA": ("chl_ug_l", 21)}
-STATIONS = {"LE1.3": 1309, "YRK005.40": 1991, "WT7.1": 1730, "LE4.2": 1325}
+STATIONS = {"LE1.3": 1309, "YRK005.40": 1991, "WT7.1": 1730, "LE4.2": 1325,
+            "CB5.1W": 1171, "LE1.1": 1307, "CB3.2": 1153, "CB3.3W": 1156, "ET5.2": 1257,
+            "EE3.1": 1235, "EE3.0": 1234}
 UPPER_LAYERS = {"S", "AP"}
 
 
@@ -44,13 +46,39 @@ def raw_path(station: str, start: date, end: date, raw_dir: Path = RAW_DIR) -> P
     return raw_dir / RAW_SUBDIR / f"{station}_{start:%Y%m%d}_{end:%Y%m%d}.json"
 
 
+MAX_YEARS_PER_QUERY = 10  # API limit: "The maximum query year range is 10 years" (HTTP 400 beyond it)
+
+
+def date_chunks(start: date, end: date, max_years: int = MAX_YEARS_PER_QUERY) -> list[tuple[date, date]]:
+    """Split [start, end] into pieces spanning at most `max_years` calendar years."""
+    if end < start:
+        raise ValueError("end before start")
+    chunks, a = [], start
+    while a <= end:
+        b = min(end, date(a.year + max_years - 1, 12, 31))
+        chunks.append((a, b))
+        a = date(b.year + 1, 1, 1)
+    return chunks
+
+
 def fetch(station: str, start: date, end: date, raw_dir: Path = RAW_DIR,
-          get: Callable[[str], bytes] = http_get, overwrite: bool = False) -> Path:
-    body = get(build_url(STATIONS[station], start, end))
-    data = json.loads(body)
-    if not isinstance(data, list):
-        raise RuntimeError(f"DataHub {station}: unexpected response")
-    return save_raw(body, raw_path(station, start, end, raw_dir), overwrite=overwrite)
+          get: Callable[[str], bytes] = http_get, overwrite: bool = False) -> list[Path]:
+    """Download [start, end] in API-sized pieces, one raw file per piece.
+
+    Pieces already on disk are kept unless `overwrite`; raises FileExistsError
+    if every piece was already present."""
+    saved = []
+    for a, b in date_chunks(start, end):
+        path = raw_path(station, a, b, raw_dir)
+        if path.exists() and not overwrite:
+            continue
+        body = get(build_url(STATIONS[station], a, b))
+        if not isinstance(json.loads(body), list):
+            raise RuntimeError(f"DataHub {station}: unexpected response")
+        saved.append(save_raw(body, path, overwrite=overwrite))
+    if not saved:
+        raise FileExistsError(f"DataHub {station} {start}..{end}: all pieces already saved")
+    return saved
 
 
 def parse(records: list[dict]) -> pd.DataFrame:

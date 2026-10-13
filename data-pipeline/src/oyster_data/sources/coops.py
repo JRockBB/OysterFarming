@@ -26,6 +26,9 @@ MIN_OBS_PER_DAY = 12
 STATIONS = {
     "8577330": "Solomons Island, MD (Chesapeake Biological Laboratory pier)",
     "8637689": "Yorktown USCG Training Center / Gloucester Point, VA",
+    "8573364": "Tolchester Beach, MD",
+    "8571892": "Cambridge, MD",
+    "8571421": "Bishops Head, MD",
 }
 
 

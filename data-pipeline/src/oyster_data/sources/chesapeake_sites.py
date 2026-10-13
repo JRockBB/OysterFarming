@@ -12,6 +12,11 @@ Per site (choices made from the 2026-10-13 forcing audit; all inputs are measure
   used through regression on overlap days. The limit is about two months so
   that one skipped monthly sample does not break the series.
 
+Maryland DNR disease bars (P4.2): a core set chosen for nearby long records
+(2026-10-13 audit): temperature from the nearest CO-OPS gauge with other gauges
+as regression fills, salinity from the nearest CBP fixed station. Chlorophyll is
+carried along but not needed by the Dermo model.
+
 Severn River (ches_severn_ks) is not built: no station operated in the Severn
 in 2005-2007 and the nearest winter measurements are about 30 km away.
 """
@@ -40,6 +45,7 @@ class ChesSite:
     nerrs_temp_station: str | None = None
     cbp_secondary: str | None = None
     nerrs_nut_station: str | None = None
+    coops_secondaries: tuple[str, ...] = ()
     notes: tuple[str, ...] = field(default_factory=tuple)
 
 
@@ -50,6 +56,26 @@ SITES = [
     ChesSite("ches_york_ks", "2005-10-01", "2006-10-31", "8637689", "YRK005.40", "cbvgiwq", "LE4.2", "cbvginut",
              notes=("CO-OPS Gloucester Point 0.1 km", "CBP YRK005.40 0.3 km (seasonal)",
                     "CBP LE4.2 monthly incl. winter", "NERRS Goodwin Islands ~10 km (sonde and monthly chl)")),
+]
+
+BAR_START, BAR_END = "1996-10-01", "2024-11-30"
+BAR_SITES = [
+    ChesSite("mddnr_hog_island", BAR_START, BAR_END, "8577330", "CB5.1W", coops_secondaries=("8573364",),
+             notes=("CO-OPS Solomons 5.9 km", "CBP CB5.1W 1.3 km")),
+    ChesSite("mddnr_broome_island", BAR_START, BAR_END, "8577330", "LE1.1", coops_secondaries=("8573364",),
+             notes=("CO-OPS Solomons 14 km", "CBP LE1.1 3.8 km")),
+    ChesSite("mddnr_swan_point", BAR_START, BAR_END, "8573364", "CB3.2", coops_secondaries=("8577330",),
+             notes=("CO-OPS Tolchester 9.5 km", "CBP CB3.2 2.6 km")),
+    ChesSite("mddnr_hackett_point", BAR_START, BAR_END, "8573364", "CB3.3W", coops_secondaries=("8577330",),
+             notes=("CO-OPS Tolchester", "CBP CB3.3W 3.4 km")),
+    ChesSite("mddnr_sandy_hill", BAR_START, BAR_END, "8571892", "ET5.2", coops_secondaries=("8577330",),
+             notes=("CO-OPS Cambridge 5.4 km (from 1998)", "CBP ET5.2 5.3 km")),
+    ChesSite("mddnr_oyster_shell_pt", BAR_START, BAR_END, "8571892", "ET5.2", coops_secondaries=("8577330",),
+             notes=("CO-OPS Cambridge 5.6 km (from 1998)", "CBP ET5.2 5.1 km")),
+    ChesSite("mddnr_sharkfin_shoal", BAR_START, BAR_END, "8571421", "EE3.1", coops_secondaries=("8571892", "8577330"),
+             notes=("CO-OPS Bishops Head 4.1 km (patchy before 2012)", "CBP EE3.1 2.6 km")),
+    ChesSite("mddnr_goose_creek", BAR_START, BAR_END, "8571421", "EE3.0", coops_secondaries=("8571892", "8577330"),
+             notes=("CO-OPS Bishops Head 7.2 km (patchy before 2012)", "CBP EE3.0 1.3 km")),
 ]
 
 
@@ -68,6 +94,8 @@ def build_site(site: ChesSite, raw_dir=RAW_DIR) -> tuple[pd.DataFrame, gapfill.S
         "qc_flag": 0,
     })
     secondaries: dict[str, list[gapfill.Secondary]] = {}
+    for st in site.coops_secondaries:
+        secondaries.setdefault("temp_c", []).append((coops.station_name(st), coops.load(st, raw_dir)))
     if site.nerrs_temp_station:
         secondaries["temp_c"] = [(nerrs_ncei.station_name(site.nerrs_temp_station, "Temp"),
                                   nerrs_ncei.load(site.nerrs_temp_station, "Temp", raw_dir))]
@@ -85,7 +113,7 @@ def build_site(site: ChesSite, raw_dir=RAW_DIR) -> tuple[pd.DataFrame, gapfill.S
 
 def build_all(raw_dir=RAW_DIR) -> tuple[pd.DataFrame, list[gapfill.SiteReport]]:
     parts, reports = [], []
-    for site in SITES:
+    for site in SITES + BAR_SITES:
         df, rep = build_site(site, raw_dir)
         parts.append(df)
         reports.append(rep)

@@ -68,3 +68,32 @@ def test_interpolate_samples_respects_max_gap() -> None:
     d = interpolate_samples(s, 62)
     assert d[pd.Timestamp("2006-01-06")] == pytest.approx(2.0)
     assert d[pd.Timestamp("2006-02-15")] != d[pd.Timestamp("2006-02-15")]   # 80-day gap stays NaN
+
+
+def test_cbp_date_chunks_respect_api_limit():
+    from datetime import date
+    ch = cbp_datahub.date_chunks(date(1996, 1, 1), date(2024, 12, 31))
+    assert ch == [(date(1996, 1, 1), date(2005, 12, 31)), (date(2006, 1, 1), date(2015, 12, 31)),
+                  (date(2016, 1, 1), date(2024, 12, 31))]
+    assert cbp_datahub.date_chunks(date(2005, 9, 1), date(2007, 11, 30)) == [(date(2005, 9, 1), date(2007, 11, 30))]
+
+
+def test_cbp_fetch_saves_one_file_per_chunk_and_skips_existing(tmp_path):
+    from datetime import date
+    urls = []
+    get = lambda u: (urls.append(u), b"[]")[1]  # synthetic empty response
+    paths = cbp_datahub.fetch("CB5.1W", date(1996, 1, 1), date(2024, 12, 31), raw_dir=tmp_path, get=get)
+    assert len(paths) == 3 and len(urls) == 3
+    assert "01-01-1996/12-31-2005" in urls[0]
+    with pytest.raises(FileExistsError):
+        cbp_datahub.fetch("CB5.1W", date(1996, 1, 1), date(2024, 12, 31), raw_dir=tmp_path, get=get)
+
+
+def test_bar_sites_use_known_stations_and_registered_sites():
+    from oyster_data.sources import chesapeake_sites, mddnr_fall_survey
+    bars = {r["site_id"] for r in mddnr_fall_survey.site_rows()}
+    for s in chesapeake_sites.BAR_SITES:
+        assert s.site_id in bars
+        assert s.coops_station in coops.STATIONS
+        assert all(st in coops.STATIONS for st in s.coops_secondaries)
+        assert s.cbp_station in cbp_datahub.STATIONS
