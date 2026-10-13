@@ -265,6 +265,7 @@ Done when: `scripts/p5_5_headline.jl` produces the tables and figures for Chapte
 
 **P6.1 Intake templates.** Simple spreadsheet templates for farms: growth checks (date, cohort, shell height sample), mortality counts, seeding and harvest records, and an optional temperature logger file.
 Done when: templates exist in `docs/farm_templates/` with a one-page explanation for farmers.
+*Status (2026-10-13):* done. `docs/farm_templates/`: farm_info, growth_checks (one row per oyster), mortality_counts, seeding, harvest and temperature_logger CSV templates, with a one-page README for farmers.
 
 **P6.2 Farm data ingest.** Python converter from those templates into contract files, with anonymized site ids.
 Done when: a filled-in example converts and validates.
