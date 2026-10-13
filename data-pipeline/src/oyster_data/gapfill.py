@@ -107,7 +107,7 @@ def climatology(series: pd.Series, half_window: int = CLIM_HALF_WINDOW_DAYS) -> 
 
 def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
                 half_window: int = CLIM_HALF_WINDOW_DAYS, secondaries: list[Secondary] | tuple = (),
-                ) -> tuple[pd.Series, pd.Series, list[RegressionFit]]:
+                climatology_fill: bool = True) -> tuple[pd.Series, pd.Series, list[RegressionFit]]:
     """Fill one daily series indexed by a complete DatetimeIndex.
 
     Returns ``(filled_values, method, fits)`` where ``method`` is observed /
@@ -146,7 +146,7 @@ def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
         fits.append(fit)
     clim = climatology(series, half_window)
     still = values.isna()
-    if still.any():
+    if climatology_fill and still.any():
         doy = _doy(pd.DatetimeIndex(values.index[still]))
         cvals = clim[doy]
         ok = ~np.isnan(cvals)
@@ -178,12 +178,18 @@ class SiteReport:
 
 
 def fill_site(daily: pd.DataFrame, site_id: str,
-              secondaries: dict[str, list[Secondary]] | None = None) -> tuple[pd.DataFrame, SiteReport]:
-    """Gap-fill one site's merged daily rows over its first-to-last observed date range.
+              secondaries: dict[str, list[Secondary]] | None = None,
+              max_linear: dict[str, int] | None = None,
+              climatology: bool = True) -> tuple[pd.DataFrame, SiteReport]:
+    """Gap-fill one site's merged daily rows over its first-to-last date range.
 
     ``secondaries`` maps a variable name to its secondary stations in priority order.
+    ``max_linear`` overrides the linear-interpolation limit per variable (e.g. for
+    series built from grab samples taken every few weeks). ``climatology=False``
+    leaves unfilled days missing instead of using the site climatology.
     """
     secondaries = secondaries or {}
+    max_linear = max_linear or {}
     d = daily[daily["site_id"] == site_id].copy()
     if d.empty:
         raise ValueError(f"no rows for site {site_id!r}")
@@ -194,7 +200,8 @@ def fill_site(daily: pd.DataFrame, site_id: str,
     report = SiteReport(site_id, full[0].date(), full[-1].date(), len(full))
     methods = {}
     for var in FILL_VARIABLES:
-        vals, meth, fits = fill_series(d[var], secondaries=secondaries.get(var, ()))
+        vals, meth, fits = fill_series(d[var], max_linear=max_linear.get(var, MAX_LINEAR_GAP_DAYS),
+                                       secondaries=secondaries.get(var, ()), climatology_fill=climatology)
         d[var] = vals
         methods[var] = meth
         report.counts[var] = {m: int((meth == m).sum()) for m in sorted(set(meth))}

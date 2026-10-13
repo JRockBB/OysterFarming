@@ -68,6 +68,24 @@ def hourly_to_daily(df: pd.DataFrame, site_id: str, source: str,
     return daily
 
 
+def interpolate_samples(samples: pd.Series, max_gap_days: int) -> pd.Series:
+    """Daily series from discrete samples: linear interpolation between samples at
+    most ``max_gap_days`` apart; longer gaps stay missing. Sample days keep their value."""
+    if samples.empty:
+        return samples
+    full = pd.date_range(samples.index.min(), samples.index.max(), freq="D")
+    daily = samples.reindex(full)
+    known = daily.notna()
+    interp = daily.interpolate(method="time", limit_area="inside")
+    prev_obs = pd.Series(full.where(known), index=full).ffill()
+    next_obs = pd.Series(full.where(known), index=full).bfill()
+    gap = (next_obs - prev_obs).dt.days
+    ok = known | (gap <= max_gap_days)
+    out = interp.where(ok)
+    out.name = samples.name
+    return out
+
+
 def to_forcing_table(daily: pd.DataFrame) -> pa.Table:
     """Convert daily rows to a validated ``forcing_daily`` Arrow table."""
     schema = arrow_schema("forcing_daily")

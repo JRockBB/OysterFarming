@@ -13,6 +13,8 @@ Commands
   disease                    write data/processed/disease_obs.arrow
   growth-fetch [--overwrite]  download the Chesapeake Oyster BMP growth compilation (Zenodo)
   growth                     write data/processed/growth_obs.arrow
+  chesapeake-fetch [--overwrite]
+                             download CO-OPS, CBP DataHub and NERRS data for the Chesapeake growth sites
   forcing                    clean all raw forcing sources, merge, gap-fill and write
                              data/processed/forcing_daily.arrow and forcing_report.md
 """
@@ -32,8 +34,8 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import (boothbay_dmr, dmc_dock, foss, lobo, mddnr_fall_survey, neracoos, viirs_chl,
-                                 zenodo_growth)
+from oyster_data.sources import (boothbay_dmr, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
+                                 mddnr_fall_survey, nerrs_ncei, neracoos, viirs_chl, zenodo_growth)
 
 
 def _years(spec: str) -> list[int]:
@@ -85,6 +87,33 @@ def cmd_secondary_fetch(overwrite: bool) -> int:
     return 1 if failures else 0
 
 
+def cmd_chesapeake_fetch(overwrite: bool) -> int:
+    jobs = []
+    for site in chesapeake_sites.SITES:
+        first, last = int(site.start[:4]), int(site.end[:4])
+        jobs += [(lambda st=site.coops_station, y=y: coops.fetch_year(st, y, overwrite=overwrite))
+                 for y in range(first, last + 1)]
+        for st in filter(None, (site.cbp_station, site.cbp_secondary)):
+            jobs.append(lambda st=st: cbp_datahub.fetch(st, date(2005, 9, 1), date(2007, 11, 30),
+                                                        overwrite=overwrite))
+        if site.nerrs_nut_station:
+            jobs += [(lambda st=site.nerrs_nut_station, y=y: nerrs_ncei.fetch_year(st, y, overwrite=overwrite))
+                     for y in range(first, last + 1)]
+        if site.nerrs_temp_station:
+            jobs += [(lambda st=site.nerrs_temp_station, y=y: nerrs_ncei.fetch_year(st, y, overwrite=overwrite))
+                     for y in range(first, last + 1)]
+    failures = 0
+    for job in jobs:
+        try:
+            print(f"saved {job()}")
+        except FileExistsError as e:
+            print(f"skipped: {e}")
+        except Exception as e:  # keep going; report every failure
+            failures += 1
+            print(f"FAILED: {e}")
+    return 1 if failures else 0
+
+
 def load_secondaries(raw_dir: Path = RAW_DIR) -> dict[str, list[gapfill.Secondary]]:
     """Secondary stations with raw files present, keyed by forcing variable (priority order)."""
     out: dict[str, list[gapfill.Secondary]] = {}
@@ -111,6 +140,13 @@ def build_forcing(raw_dir: Path = RAW_DIR, out_dir: Path = PROCESSED_DIR) -> tup
         raise SystemExit("no raw forcing files found; run a fetch command first")
     merged = gapfill.merge_sources(frames)
     filled, reports = gapfill.fill_all(merged, load_secondaries(raw_dir))
+    try:
+        ches, ches_reports = chesapeake_sites.build_all(raw_dir)
+    except FileNotFoundError as err:
+        print(f"Chesapeake sites skipped (run chesapeake-fetch): {err}")
+    else:
+        filled = pd.concat([filled, ches], ignore_index=True)
+        reports += ches_reports
     table = to_forcing_table(filled)
     out = out_dir / "forcing_daily.arrow"
     write_contract(table, out, "forcing_daily")
@@ -134,6 +170,8 @@ def main(argv: list[str] | None = None) -> int:
     gf = sub.add_parser("growth-fetch", help="download Zenodo growth data")
     gf.add_argument("--overwrite", action="store_true")
     sub.add_parser("growth", help="write growth_obs.arrow")
+    cf = sub.add_parser("chesapeake-fetch", help="download Chesapeake site forcing")
+    cf.add_argument("--overwrite", action="store_true")
     sf = sub.add_parser("secondary-fetch", help="download secondary stations for gap filling")
     sf.add_argument("--overwrite", action="store_true")
     e = sub.add_parser("economics-fetch", help="download NOAA FOSS landings")
@@ -172,6 +210,8 @@ def main(argv: list[str] | None = None) -> int:
         out = PROCESSED_DIR / "growth_obs.arrow"
         write_contract(zenodo_growth.growth_obs(zenodo_growth.load()), out, "growth_obs")
         print(f"wrote {out}")
+    elif args.command == "chesapeake-fetch":
+        return cmd_chesapeake_fetch(args.overwrite)
     elif args.command == "secondary-fetch":
         return cmd_secondary_fetch(args.overwrite)
     elif args.command == "forcing":

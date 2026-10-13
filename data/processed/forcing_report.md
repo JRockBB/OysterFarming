@@ -78,3 +78,51 @@ Longest climatology-filled run (days): temp_c 0, salinity_psu 3, chl_ug_l 8
 | salinity_psu | neracoos_e01_10m_salinity | 226 | 72.971 + -1.401 x | 0.096 | 1.997 | 98 |
 | chl_ug_l | dmc_dock_chl | 779 | 0.919 + 0.788 x | 0.132 | 2.690 | 795 |
 | chl_ug_l | viirs_8day_chl_box | 907 | 3.237 + -0.055 x | 0.004 | 2.672 | 523 |
+
+## ches_patuxent_ks
+
+Range 2005-10-01 to 2007-10-31: 761 days, 754 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 719 | 94.5 |
+| temp_c | regression:nerrs_cbmrrwq_temp_c | 41 | 5.4 |
+| temp_c | linear | 1 | 0.1 |
+| salinity_psu | linear | 712 | 93.6 |
+| salinity_psu | observed | 42 | 5.5 |
+| salinity_psu | missing | 7 | 0.9 |
+| chl_ug_l | linear | 712 | 93.6 |
+| chl_ug_l | observed | 42 | 5.5 |
+| chl_ug_l | missing | 7 | 0.9 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_cbmrrwq_temp_c | 662 | 1.766 + 0.934 x | 0.888 | 2.682 | 41 |
+
+## ches_york_ks
+
+Range 2005-10-01 to 2006-10-31: 396 days, 396 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 339 | 85.6 |
+| temp_c | regression:nerrs_cbvgiwq_temp_c | 56 | 14.1 |
+| temp_c | linear | 1 | 0.3 |
+| salinity_psu | linear | 343 | 86.6 |
+| salinity_psu | observed | 38 | 9.6 |
+| salinity_psu | regression:cbp_LE4.2_salinity_psu | 15 | 3.8 |
+| chl_ug_l | linear | 231 | 58.3 |
+| chl_ug_l | regression:cbp_LE4.2_chl_ug_l | 118 | 29.8 |
+| chl_ug_l | observed | 38 | 9.6 |
+| chl_ug_l | regression:nerrs_cbvginut_chl_ug_l | 9 | 2.3 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_cbvgiwq_temp_c | 339 | 1.019 + 0.952 x | 0.985 | 0.993 | 56 |
+| salinity_psu | cbp_LE4.2_salinity_psu | 38 | 6.466 + 0.730 x | 0.556 | 0.769 | 15 |
+| chl_ug_l | cbp_LE4.2_chl_ug_l | 30 | 4.942 + 0.344 x | 0.128 | 3.412 | 118 |
+| chl_ug_l | nerrs_cbvginut_chl_ug_l | 38 | 4.302 + 0.547 x | 0.097 | 3.409 | 9 |

@@ -20,6 +20,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from oyster_data.forcing import interpolate_samples
 from oyster_data.paths import RAW_DIR
 from oyster_data.raw import http_get, save_raw
 
@@ -53,17 +54,7 @@ def parse(text: str) -> pd.Series:
 
 def to_daily(samples: pd.Series, max_gap_days: int = MAX_INTERP_DAYS) -> pd.Series:
     """Daily series: linear interpolation between samples no more than max_gap_days apart."""
-    if samples.empty:
-        return samples
-    full = pd.date_range(samples.index.min(), samples.index.max(), freq="D")
-    daily = samples.reindex(full)
-    known = daily.notna()
-    interp = daily.interpolate(method="time", limit_area="inside")
-    prev_obs = pd.Series(full.where(known), index=full).ffill()
-    next_obs = pd.Series(full.where(known), index=full).bfill()
-    gap = (next_obs - prev_obs).dt.days
-    ok = known | (gap <= max_gap_days)
-    out = interp.where(ok)
+    out = interpolate_samples(samples, max_gap_days)
     out.name = "chl_ug_l"
     return out
 
