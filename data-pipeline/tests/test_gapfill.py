@@ -117,3 +117,15 @@ def test_fill_site_source_lists_methods() -> None:
     assert (filled["qc_flag"] == 1).all()
     assert filled["source"].str.contains("regression:st").all()
     assert rep.fits["temp_c"][0].n_overlap == len(idx) - len(drop)
+
+
+def test_final_pass_bridges_short_gap_between_filled_values() -> None:
+    """SYNTHETIC: a 5-day hole in the secondary station inside a long site gap."""
+    idx = pd.date_range("2020-01-01", periods=200)
+    station = pd.Series(np.linspace(0, 10, 200), index=idx)
+    site = 2 * station
+    site.iloc[50:150] = np.nan
+    station.iloc[90:95] = np.nan
+    vals, meth, _ = gapfill.fill_series(site, secondaries=[("st", station)], climatology_fill=False)
+    assert (meth.iloc[90:95] == "linear").all()
+    assert vals.iloc[50:150].notna().all()

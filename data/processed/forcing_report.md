@@ -10,15 +10,14 @@ Rows still missing temperature or salinity are not written.
 
 ## dam_lower
 
-Range 2015-09-26 to 2022-12-21: 2644 days, 2624 rows written.
+Range 2015-09-26 to 2022-12-21: 2644 days, 2630 rows written.
 
 | variable | method | days | % |
 |---|---|---|---|
 | temp_c | regression:boothbay_dmr_sst | 1957 | 74.0 |
 | temp_c | observed | 627 | 23.7 |
 | temp_c | regression:neracoos_e01_1m_temperature | 37 | 1.4 |
-| temp_c | linear | 15 | 0.6 |
-| temp_c | missing | 6 | 0.2 |
+| temp_c | linear | 21 | 0.8 |
 | temp_c | climatology | 2 | 0.1 |
 | salinity_psu | regression:neracoos_e01_1m_salinity | 1795 | 67.9 |
 | salinity_psu | observed | 627 | 23.7 |
@@ -29,9 +28,8 @@ Range 2015-09-26 to 2022-12-21: 2644 days, 2624 rows written.
 | chl_ug_l | regression:dmc_dock_chl | 1302 | 49.2 |
 | chl_ug_l | regression:viirs_8day_chl_box | 636 | 24.1 |
 | chl_ug_l | observed | 627 | 23.7 |
+| chl_ug_l | linear | 46 | 1.7 |
 | chl_ug_l | climatology | 33 | 1.2 |
-| chl_ug_l | missing | 31 | 1.2 |
-| chl_ug_l | linear | 15 | 0.6 |
 
 Longest climatology-filled run (days): temp_c 2, salinity_psu 5, chl_ug_l 8
 
@@ -46,15 +44,14 @@ Longest climatology-filled run (days): temp_c 2, salinity_psu 5, chl_ug_l 8
 
 ## dam_upper
 
-Range 2015-09-26 to 2022-06-29: 2469 days, 2452 rows written.
+Range 2015-09-26 to 2022-06-29: 2469 days, 2455 rows written.
 
 | variable | method | days | % |
 |---|---|---|---|
 | temp_c | regression:boothbay_dmr_sst | 1344 | 54.4 |
 | temp_c | observed | 1094 | 44.3 |
 | temp_c | regression:neracoos_e01_1m_temperature | 20 | 0.8 |
-| temp_c | linear | 8 | 0.3 |
-| temp_c | missing | 3 | 0.1 |
+| temp_c | linear | 11 | 0.4 |
 | salinity_psu | regression:neracoos_e01_1m_salinity | 1244 | 50.4 |
 | salinity_psu | observed | 1094 | 44.3 |
 | salinity_psu | regression:neracoos_e01_10m_salinity | 98 | 4.0 |
@@ -64,9 +61,8 @@ Range 2015-09-26 to 2022-06-29: 2469 days, 2452 rows written.
 | chl_ug_l | observed | 1094 | 44.3 |
 | chl_ug_l | regression:dmc_dock_chl | 795 | 32.2 |
 | chl_ug_l | regression:viirs_8day_chl_box | 523 | 21.2 |
-| chl_ug_l | missing | 26 | 1.1 |
+| chl_ug_l | linear | 34 | 1.4 |
 | chl_ug_l | climatology | 23 | 0.9 |
-| chl_ug_l | linear | 8 | 0.3 |
 
 Longest climatology-filled run (days): temp_c 0, salinity_psu 3, chl_ug_l 8
 

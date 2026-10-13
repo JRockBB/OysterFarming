@@ -15,7 +15,8 @@ Rules (processing choices, recorded here and in forcing_report.md):
    values within +/- ``CLIM_HALF_WINDOW_DAYS`` days of that day of year (circular
    across the new year), pooled over all years. Used only where no secondary
    station covers the day.
-5. Days still without a value stay missing. Rows lacking temperature or salinity
+5. A final pass interpolates remaining gaps of at most ``MAX_LINEAR_GAP_DAYS``
+   between filled values. Days still without a value stay missing. Rows lacking temperature or salinity
    are dropped (not nullable in the contract).
 6. Filled rows get ``qc_flag = 1`` and ``;fill=<methods>`` appended to ``source``,
    listing every fill method used in that row (e.g. ``linear+regression:boothbay_dmr_sst``).
@@ -153,6 +154,22 @@ def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
         idx = values.index[still][ok]
         values.loc[idx] = cvals[ok]
         method.loc[idx] = CLIMATOLOGY
+    # final pass: short gaps (<= max_linear days) left between filled values
+    still = values.isna().to_numpy()
+    if still.any():
+        interp2 = values.interpolate(method="linear", limit_area="inside")
+        i = 0
+        while i < n:
+            if not still[i]:
+                i += 1
+                continue
+            j = i
+            while j < n and still[j]:
+                j += 1
+            if i > 0 and j < n and j - i <= max_linear:
+                values.iloc[i:j] = interp2.iloc[i:j]
+                method.iloc[i:j] = LINEAR
+            i = j
     return values, method, fits
 
 
