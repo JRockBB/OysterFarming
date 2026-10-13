@@ -240,6 +240,7 @@ Done when: running the same seed twice gives identical results; outputs are dist
 
 **P5.1 Economics.** Revenue from harvest count × price (from P1.6, with a scenario range). Costs per oyster seeded and per harvest day (seed, gear, labor); source these from extension enterprise budgets and record citations.
 Done when: net present value per lease is computed for a reference farm and checked by hand.
+*Status (2026-10-13):* done as functions; reference-farm run pending P5.2. `src/economics.jl` (`EconParams`, `farm_cashflows`, `npv`) with `params/economics_reference_farm.toml`: price 0.7785 USD/oyster (Maine DMR 2024 farm value / count); costs from Engle & van Senten, Economic Analysis of Oyster Production in Maryland (NOAA IR noaa/37917, Tables 11-12, 2018 dollars): seed 0.009 USD, non-seed variable cost 0.3119 USD per harvested oyster, fixed 4,800 USD/yr, capital 155,375 USD, discount rate 10 %. Hand-calculated NPV example is a test. Caveats: Maryland 2018 costs, not inflation-adjusted; no published Maine enterprise budget with these items was found (Maine Aquaculture Association benchmarking gives cost of goods sold per oyster but its source table was not verified).
 
 **P5.2 Decision variables and objective.** Decision variables: seeding month, seeding density, harvest size threshold. Objective: expected NPV (with an option for a risk-averse objective such as a lower quantile). Secondary output: nitrogen removed.
 Done when: objective function runs end to end on one site.

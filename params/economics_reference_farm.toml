@@ -1,0 +1,36 @@
+title = "Reference-farm economics (PLAN.md P5.1)"
+notes = "Costs from the only verified published oyster enterprise budget found: Engle, C.R. and van Senten, J., Economic Analysis of Oyster Production in Maryland (producer interviews 2018, 2018 dollars), NOAA Institutional Repository noaa/37917, Table 11 (caged bottom culture, 5,000 boxes of 100 oysters) and Table 12 (capital). These are Maryland costs in 2018 dollars, not Maine costs, and are not inflation-adjusted; no published Maine enterprise budget with these items was found. Price is Maine farm-gate value per oyster from Maine DMR data."
+
+[price_per_oyster]
+value = 0.7785
+units = "USD per oyster"
+source = "Maine DMR Maine Aquaculture Landings Report (2026-04), 2024 American/eastern oyster value 18,217,846 USD / count 23,401,019 (Tables 3 and 1A); data/processed/economics.arrow region maine_aquaculture"
+notes = "Derived. 2021-2025 range 0.596-0.779 USD per oyster."
+
+[seed_cost_per_seed]
+value = 0.009
+units = "USD per seed"
+source = "Engle & van Senten, Economic Analysis of Oyster Production in Maryland (NOAA IR noaa/37917), Table 11: triploid seed 0.009 USD x 2,000,000"
+
+[variable_cost_per_oyster]
+value = 0.3119
+units = "USD per harvested oyster"
+source = "Engle & van Senten, NOAA IR noaa/37917, Table 11: sum of per-box variable costs other than seed (labor 16.50, fuel 1.42, pumping 0.33, electricity 0.74, lab testing 0.17, telephone 0.68, repairs 4.08, office 0.38, miscellaneous 1.04, containers 1.70, advertising 1.10, transportation 3.05; total 31.19 USD per 100-oyster box)"
+notes = "Derived: 31.19 / 100. Excludes the table's 10% interest on operating capital, which the NPV discounting replaces."
+
+[fixed_cost_per_year]
+value = 4800.0
+units = "USD per year"
+source = "Engle & van Senten, NOAA IR noaa/37917, Table 11: insurance 3,175 + accounting 1,375 + lease fees 250 (10 acres at 25 USD/acre, Maryland) = 4,800 USD per year"
+notes = "Excludes depreciation and interest on capital (the capital outlay is in capital_investment). Maine lease rent is set by statute between 50 and 100 USD/acre/yr (12 MRS 6072 sub-9), so a Maine 10-acre lease would add 250-750 USD/yr."
+
+[capital_investment]
+value = 155375.0
+units = "USD"
+source = "Engle & van Senten, NOAA IR noaa/37917, Table 12: total capital investment (cages, truck, skiff and motor, bags, long lines, upwellers, cold room, sorter)"
+notes = "Treated as a single outlay at the start of the horizon; Table 12 useful lives are 4-15 years (median 10), longer than the ~4-year farm runs, so replacement and salvage are ignored."
+
+[discount_rate]
+value = 0.10
+units = "yr^-1"
+source = "Engle & van Senten, NOAA IR noaa/37917, Table 11: interest on operating capital and on capital invested at 0.10"
