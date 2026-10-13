@@ -1,0 +1,60 @@
+Table 4. Prevalence of Haplosporidium nelsoni in oysters from the 43 disease monitoring bars,
+1990-2024. NA = insufficient quantity of oysters for analytical sample. ND = sample collected
+but diagnostics not performed; prevalence assumed to be 0. (S) = bar within an oyster sanctuary
+since 2010.
+Haplosporidium nelsoni Prevalence (%)
+Region Oyster Bar
+1990 1991 1992 1993 1994 1995 1996 1997
+Upper Bay Swan Point 0 0 0 0 ND 0 0 0
+Hackett Point 0 0 3 0 0 0 0 0
+Holland Point (S) 0 3 13 0 0 0 0 0
+Middle Bay
+Stone Rock 0 0 43 0 0 3 0 0
+Flag Pond (S) 0 0 53 0 0 27 0 0
+Hog Island 0 0 43 0 0 14 0 0
+Lower Bay
+Butler 0 0 50 0 0 23 0 7
+Buoy Rock ND 0 0 0 ND 0 0 0
+Chester River
+Old Field (S) ND 0 0 0 ND 0 0 0
+Bugby 0 7 3 0 0 0 0 0
+Eastern Bay Parsons Island ND 0 7 0 0 0 0 0
+Hollicutt Noose 0 0 17 0 0 0 0 0
+Wye River Bruffs Island (S) 0 0 0 0 0 0 0 0
+Turtle Back 0 0 0 0 0 23 0 0
+Miles River
+Long Point (S) 0 0 0 0 0 0 0 0
+Cook Point (S) 0 7 73 0 0 NA 0 3
+Royston NA 0 33 0 0 0 0 0
+Choptank River Lighthouse 0 0 53 0 0 0 0 0
+Sandy Hill (S) 0 0 13 0 ND 0 0 0
+Oyster Shell Pt. (S) 0 0 30 0 ND 0 0 0
+Harris Creek Tilghman Wharf 0 0 40 0 0 0 0 0
+Broad Creek Deep Neck 0 0 30 0 0 0 0 0
+Tred Avon River Double Mills (S) 0 0 17 0 0 0 0 0
+Cason (S) 0 0 43 0 0 0 0 0
+Little Choptank R.
+Ragged Point 0 20 57 0 0 0 0 0
+Honga River Norman Addition 3 0 53 0 0 33 0 0
+Fishing Bay Goose Creek 0 10 27 7 0 20 0 0
+Nanticoke River Wilson Shoals (S) 0 0 57 0 ND 7 0 0
+Manokin River Georges (S) 10 7 23 0 0 33 0 0
+Holland Straits Holland Straits 0 20 13 13 0 52 0 10
+Sharkfin Shoal 20 43 40 17 0 33 0 0
+Back Cove 0 17 27 33 7 20 3 3
+Tangier Sound
+Piney Island East 7 23 17 20 13 10 7 13
+Old Woman’s Leg 0 33 23 30 10 43 20 4
+Pocomoke Sound Marumsco 0 20 20 0 0 20 0 11
+Patuxent River Broome Island 0 ND 20 0 0 0 0 0
+Chicken Cock 0 0 57 0 ND 0 0 0
+St. Mary’s River
+Pagan (S) 0 0 0 0 ND 0 0 0
+Wicomico R. Lancaster 0 0 0 0 ND 0 0 0
+(west) Mills West 0 0 0 0 ND 0 0 0
+Cornfield Harbor 0 0 57 0 0 37 0 0
+Potomac River Ragged Point 0 0 0 0 0 0 0 0
+Lower Cedar Point ND ND 0 0 ND 0 0 0
+Average Prevalence (%) 1.1 5.1 24.5 2.8 0.9 9.5 0.7 1.2
+Frequency of Positive Bars (%) 9 28 74 14 7 40 7 16
+66

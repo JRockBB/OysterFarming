@@ -9,6 +9,8 @@ Commands
   economics                  write data/processed/economics.arrow from the raw FOSS file
   secondary-fetch            download Maine secondary stations used for gap filling
                              (Boothbay DMR SST, DMC dock and VIIRS chlorophyll, NERACOOS E01)
+  disease-fetch [--overwrite] download the MD DNR 2024 Fall Survey report (Dermo/MSX tables)
+  disease                    write data/processed/disease_obs.arrow
   growth-fetch [--overwrite]  download the Chesapeake Oyster BMP growth compilation (Zenodo)
   growth                     write data/processed/growth_obs.arrow
   forcing                    clean all raw forcing sources, merge, gap-fill and write
@@ -30,7 +32,8 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import boothbay_dmr, dmc_dock, foss, lobo, neracoos, viirs_chl, zenodo_growth
+from oyster_data.sources import (boothbay_dmr, dmc_dock, foss, lobo, mddnr_fall_survey, neracoos, viirs_chl,
+                                 zenodo_growth)
 
 
 def _years(spec: str) -> list[int]:
@@ -125,6 +128,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--years", required=True, help="e.g. 2015-2023 or 2016,2018")
     p.add_argument("--overwrite", action="store_true")
     sub.add_parser("forcing", help="clean, merge and gap-fill forcing")
+    df_ = sub.add_parser("disease-fetch", help="download MD DNR Fall Survey report")
+    df_.add_argument("--overwrite", action="store_true")
+    sub.add_parser("disease", help="write disease_obs.arrow")
     gf = sub.add_parser("growth-fetch", help="download Zenodo growth data")
     gf.add_argument("--overwrite", action="store_true")
     sub.add_parser("growth", help="write growth_obs.arrow")
@@ -147,6 +153,15 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "economics":
         out = PROCESSED_DIR / "economics.arrow"
         write_contract(foss.clean(), out, "economics")
+        print(f"wrote {out}")
+    elif args.command == "disease-fetch":
+        try:
+            print(f"saved {mddnr_fall_survey.fetch(overwrite=args.overwrite)}")
+        except FileExistsError as err:
+            print(f"skipped: {err}")
+    elif args.command == "disease":
+        out = PROCESSED_DIR / "disease_obs.arrow"
+        write_contract(mddnr_fall_survey.disease_obs(*mddnr_fall_survey.load_pages()), out, "disease_obs")
         print(f"wrote {out}")
     elif args.command == "growth-fetch":
         try:

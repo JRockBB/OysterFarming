@@ -77,7 +77,7 @@ One row per site per day.
 | prevalence | float64 | 0–1 |
 | intensity_mean | float64, nullable | |
 | intensity_scale | string | e.g. `mackin_0_5` |
-| n | int | |
+| n | int, nullable | null when the source gives no per-sample count |
 | source | string | |
 
 ### `economics.arrow`
@@ -142,12 +142,15 @@ Done when: `economics.arrow` validates and matches the published PDF totals for 
 
 **P1.7 Chesapeake disease data.** (a) Extract Dermo and MSX prevalence and intensity by bar and year from Maryland DNR Fall Oyster Survey reports (PDF tables, `pdfplumber`). (b) Pull matching temperature and salinity from the Chesapeake Bay Program DataHub (`https://data.chesapeakebay.net`) for the nearest stations. Choose 5–10 disease-monitoring bars with good station coverage and add them to `sites.arrow`.
 Done when: `disease_obs.arrow` and Chesapeake `forcing_daily` rows validate; extraction is spot-checked against 3 report tables by hand and recorded in the test suite.
+*Status (2026-10-13):* (a) done: `oyster_data.sources.mddnr_fall_survey` extracts Tables 3-4 of the 2024 report (all 43 bars, 1990-2024) into `disease_obs.arrow`, spot-checked against the report in tests. NA/ND are not written; `n` is null (no per-bar counts in the tables; contract column made nullable); rows are dated 1 November of the survey year (midpoint of the 2024 survey window) and `source` marks the date as year-only. Open: bar coordinates are not in the report and names match the MD Historic Oyster Bottom layer only ambiguously, so bars are not yet in `sites.arrow`; (b) water data for the bars not started.
 
 **P1.8 French growth data (method testing only).** Download the IFREMER 26-year Pacific oyster growth and mortality data (Zenodo record 6536065; curated file `DataResco_clean.csv`) and the ECOSCOPA high-frequency environmental data (SEANOE, DOI 10.17882/86131).
 Done when: `growth_obs.arrow` (species `C_gigas`) and matching `forcing_daily` rows validate for at least 3 French sites.
+*Status (2026-10-13):* superseded. The IFREMER data record only whole-oyster live mass (shell included), not shell height or dry tissue. The model is instead calibrated directly on eastern oyster shell height and dry tissue from Chesapeake cohorts (P1.9, P2.6), so the Pacific oyster method test is dropped rather than changing the contract for total mass.
 
 **P1.9 Eastern oyster growth data.** Collect any public *C. virginica* growth series (shell height over time with matching forcing). Candidates are listed under Open questions.
 Done when: whatever is found is in `growth_obs.arrow`, or a short note in `docs/` says what was searched and what is missing.
+*Status (2026-10-13):* done for Chesapeake: Kingsley-Smith triploid cohorts (Patuxent, Severn, York; 2005-2007) from the Oyster BMP compilation (Zenodo 10.5281/zenodo.11205266) are in `growth_obs.arrow`. Further validation candidates: Zenodo 11966672 (US Northeast farms incl. Levinton NY 2008-10) and USGS 10.5066/P1C8KQWH (Louisiana 2024-25).
 
 **P1.10 (later) Satellite forcing.** Landsat Collection 2 surface temperature and Sentinel-2-derived chlorophyll for sites without buoys, via STAC (`pystac-client`). This is hard (narrow estuaries, atmospheric correction, chlorophyll algorithms). Before building it, ask the UMaine group whether their processed climatologies can be shared.
 Done when: deferred until Phase 2 results show buoy coverage is insufficient.
@@ -167,6 +170,7 @@ Done when: all pass.
 
 **P2.4 Method test on Pacific oysters.** Implement the *C. gigas* parameter set (Pouvreau et al. 2006) and run it on the French data from P1.8. This tests the machinery, not the eastern oyster model.
 Done when: a figure of observed vs simulated growth for each French site is produced by `scripts/p2_4_gigas_check.jl`, with RMSE reported.
+*Status (2026-10-13):* superseded by direct eastern oyster calibration (see P1.8 status).
 
 **P2.5 Calibration pipeline.** Bayesian calibration of a small subset of parameters (start with the half-saturation constant for food and one maintenance parameter) using Turing.jl, plus a fast least-squares alternative with Optimization.jl.
 Done when: on synthetic data generated from known parameters plus noise, both methods recover the true values within their credible/confidence intervals.

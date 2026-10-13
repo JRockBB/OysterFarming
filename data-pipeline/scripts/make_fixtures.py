@@ -81,7 +81,7 @@ VALID: dict[str, dict[str, list]] = {
         "prevalence": [0.6, 0.1],
         "intensity_mean": [2.1, None],
         "intensity_scale": ["mackin_0_5", "mackin_0_5"],
-        "n": [30, 30],
+        "n": [30, None],
         "source": ["synthetic", "synthetic"],
     },
     "economics": {

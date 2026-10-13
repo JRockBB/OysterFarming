@@ -108,7 +108,7 @@ const CONTRACT_SPECS = Dict{String,TableSpec}(
         ColumnSpec("prevalence", :float64; lo=0, hi=1),
         ColumnSpec("intensity_mean", :float64; nullable=true, lo=0),
         ColumnSpec("intensity_scale", :string),
-        ColumnSpec("n", :int; lo=0),
+        ColumnSpec("n", :int; nullable=true, lo=0),
         ColumnSpec("source", :string),
     ]),
     "economics" => TableSpec("economics", [

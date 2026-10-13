@@ -123,7 +123,7 @@ SPECS: dict[str, TableSpec] = {
             Column("prevalence", "float64", lo=0, hi=1),
             Column("intensity_mean", "float64", nullable=True, lo=0),
             Column("intensity_scale", "string"),
-            Column("n", "int", lo=0),
+            Column("n", "int", nullable=True, lo=0),
             Column("source", "string"),
         ),
     ),
