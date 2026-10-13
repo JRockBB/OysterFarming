@@ -13,5 +13,6 @@ using Test
     include("test_stochastic.jl")
     include("test_vibrio.jl")
     include("test_economics.jl")
+    include("test_decision.jl")
     include("test_aqua.jl")
 end
