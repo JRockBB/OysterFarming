@@ -1,0 +1,38 @@
+title = "Maine Vibrio parahaemolyticus control rule for oysters (PLAN.md P4.5)"
+notes = "Maine DMR Rules Chapter 115, Vibrio Control Plan, consolidated text as amended March 19, 2024 (statewide for oysters since that amendment; rule first effective January 1, 2016). https://www1.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/Chapter115_03192024.pdf. Applied to every simulated year as the current regulatory regime."
+
+[control_start_month]
+value = 6
+units = "month"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.02: in effect from June 1st through October 15th, inclusive"
+
+[control_start_day]
+value = 1
+units = "day of month"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.02"
+
+[control_end_month]
+value = 10
+units = "month"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.02"
+
+[control_end_day]
+value = 15
+units = "day of month"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.02"
+
+[dealer_delivery_max_h]
+value = 2.0
+units = "h"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.05 option A: transfer to a certified dealer and into temperature control within two (2) hours of the time of harvest"
+notes = "Option B instead requires shading and adequate icing immediately after harvest until delivery."
+
+[resubmerge_short_h]
+value = 24.0
+units = "h"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.05: shellstock exposed more than 2 hours but less than 12 hours must be resubmerged on the lease for no less than 24 hours or destroyed"
+
+[resubmerge_long_h]
+value = 168.0
+units = "h"
+source = "Maine DMR Rules Ch. 115 (as amended 2024-03-19), section 115.05: exposure of 12 hours or more requires resubmersion for no less than seven (7) days (168 hours) or destruction"

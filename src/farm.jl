@@ -120,7 +120,9 @@ Run cohorts on one lease over consecutive forcing days (one site). Each day:
 DEB day; (3) mortality removes a fraction 1 − exp(−(m + m_x)), where m is the
 background rate and m_x = `extra_mortality_d(date)` an optional additional daily
 rate (e.g. disease, PLAN.md P4.6); (4) cohorts at market size are harvested
-within the weekly capacity, except on `closed_dates` (harvest closures).
+within the weekly capacity, except on `closed_dates` (harvest closures). The
+capacity in force on a day is `weekly_capacity_fn(date)` (default: the rule's
+fixed capacity), e.g. reduced during the Vibrio control period (P4.5).
 
 Returns `daily` (one row per cohort per day after seeding: `date`, `cohort_id`,
 `n_alive`, `n_dead`, `n_harvested`, `shell_height_mm`, `dry_tissue_g`,
@@ -130,7 +132,8 @@ closed day) and `harvests` (`date`, `cohort_id`, `count`,
 """
 function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractVector{Cohort},
                        rule::HarvestRule; depletion::Bool=true, food_col::Symbol=:chl_ug_l,
-                       closed_dates::AbstractSet{Date}=Set{Date}(), extra_mortality_d::Function=d -> 0.0)
+                       closed_dates::AbstractSet{Date}=Set{Date}(), extra_mortality_d::Function=d -> 0.0,
+                       weekly_capacity_fn::Function=d -> rule.weekly_capacity)
     df = DataFrame(forcing; copycols=false)
     n = nrow(df)
     n > 0 || throw(ArgumentError("forcing is empty"))
@@ -197,7 +200,7 @@ function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractV
             if sh >= rule.market_shell_height_mm && alive[j] > 0 && closed
                 blocked = true
             elseif sh >= rule.market_shell_height_mm && alive[j] > 0
-                take = min(alive[j], rule.weekly_capacity - used_this_week)
+                take = min(alive[j], weekly_capacity_fn(date) - used_this_week)
                 if take > 0
                     alive[j] -= take
                     harvested[j] += take
