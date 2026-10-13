@@ -18,8 +18,15 @@ Encoding choices (also in PLAN.md):
 - The tables give only the survey year. The 2024 survey ran 8 October to
   25 November (report p. 5), midpoint 1 November; every row is dated 1 November
   of its year and ``source`` says the date is year-resolution only.
-- Bar coordinates are not in the report, so site_ids (``mddnr_<bar>``) are not
-  yet in sites.arrow.
+- Bar coordinates are not in the report. They come from Smith, G.F. & Jordan, S.J.
+  (1992) Monitoring Maryland's Chesapeake Bay Oysters: A Comprehensive
+  Characterization of Modified Fall Survey Results 1990-1991. MD DNR report
+  CBRM-OX-93-3, Table 1 (pp. 6-7), which gives the fixed sampling position of each
+  of these 43 disease bars (uncorrected LORAN-C, degrees-minutes-seconds;
+  https://www.govinfo.gov/content/pkg/CZIC-sh365-m3-s55-1992/pdf/CZIC-sh365-m3-s55-1992.pdf).
+  Piney Island East is "Piney Island" (TSPI) in 1992; its position lies nearer the
+  Piney Island West polygon of the MD Historic Oyster Bottom layer, recorded in
+  its site notes.
 """
 
 from __future__ import annotations
@@ -52,6 +59,71 @@ BAR_ORDER = [
     "Cornfield Harbor", "Ragged Point", "Lower Cedar Point",
 ]
 SITE_SUFFIX = {24: "little_choptank", 41: "potomac"}   # the two "Ragged Point" bars (0-based index)
+
+BAR_COORDS_DDMMSS = [
+    ('BNSP', '390827', '761810'),
+    ('UBHA', '385859', '762500'),
+    ('WSHP', '384407', '763008'),
+    ('MESR', '383920', '762259'),
+    ('WSFP', '382606', '762609'),
+    ('WSHI', '381854', '762301'),
+    ('WSBU', '380632', '761937'),
+    ('CHBR', '385938', '761242'),
+    ('CHOF', '390448', '760952'),
+    ('EBBU', '385255', '761320'),
+    ('EBPI', '385420', '761602'),
+    ('EBHN', '385114', '762106'),
+    ('MRBI', '385129', '761135'),
+    ('MRTU', '385119', '761421'),
+    ('MRLP', '384613', '761032'),
+    ('CRCP', '383909', '761725'),
+    ('CRRO', '384115', '761430'),
+    ('CRLI', '383927', '761122'),
+    ('CRSH', '383539', '760700'),
+    ('CROS', '383518', '760001'),
+    ('CRTW', '384247', '761915'),
+    ('BCDN', '384417', '761433'),
+    ('TADM', '384347', '760825'),
+    ('LCCA', '383159', '761421'),
+    ('LCRP', '383218', '761750'),
+    ('HRNO', '381519', '760815'),
+    ('FBGC', '381702', '760130'),
+    ('NRWS', '381735', '755518'),
+    ('MAGE', '380727', '755124'),
+    ('HOHO', '380644', '760430'),
+    ('TSSS', '381256', '755929'),
+    ('TSBC', '380225', '755939'),
+    ('TSPI', '380409', '755734'),
+    ('TSOW', '375747', '755823'),
+    ('PSMA', '375733', '754409'),
+    ('PXBI', '382428', '763351'),
+    ('SMCC', '380723', '762613'),
+    ('SMPA', '381130', '762635'),
+    ('WWLA', '381635', '764945'),
+    ('WWMW', '382009', '765129'),
+    ('PRCH', '380253', '762001'),
+    ('PRRP', '380922', '763633'),
+    ('PRLC', '381959', '765850'),
+]
+
+
+def _ddmmss(text: str) -> float:
+    d, m, sec = int(text[:-4]), int(text[-4:-2]), int(text[-2:])
+    return d + m / 60 + sec / 3600
+
+
+def site_rows() -> list[dict[str, object]]:
+    """Registry rows (sites contract) for the 43 disease bars."""
+    rows = []
+    for k, (code, lat, lon) in enumerate(BAR_COORDS_DDMMSS):
+        note = (f"MD DNR Fall Survey disease bar {BAR_ORDER[k]}; Oxford Lab code {code}; position from "
+                "Smith & Jordan 1992 (CBRM-OX-93-3) Table 1, uncorrected LORAN-C.")
+        if code == "TSPI":
+            note += " Listed as Piney Island in 1992; position is nearer the Piney Island West polygon."
+        rows.append({"site_id": site_id(k), "name": BAR_ORDER[k].replace("(S)", "(sanctuary)").strip(),
+                     "lat": round(_ddmmss(lat), 6), "lon": -round(_ddmmss(lon), 6), "region": "chesapeake",
+                     "growing_area": None, "notes": note})
+    return rows
 
 _VALUE = r"(?:\d+(?:\.\d+)?|NA|ND)"
 

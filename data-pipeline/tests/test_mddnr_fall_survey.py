@@ -74,3 +74,13 @@ def test_row_order_check_catches_mismatch() -> None:
 def test_fetch_rejects_non_pdf(tmp_path: Path) -> None:
     with pytest.raises(RuntimeError):
         m.fetch(raw_dir=tmp_path, get=lambda url: b"<html>")
+
+
+def test_bar_coordinates() -> None:
+    rows = m.site_rows()
+    assert len(rows) == 43 and len({r["site_id"] for r in rows}) == 43
+    swan = next(r for r in rows if r["site_id"] == "mddnr_swan_point")
+    # Smith & Jordan 1992 Table 1: BNSP 39 08 27 N, 76 18 10 W
+    assert swan["lat"] == pytest.approx(39 + 8 / 60 + 27 / 3600, abs=1e-5)
+    assert swan["lon"] == pytest.approx(-(76 + 18 / 60 + 10 / 3600), abs=1e-5)
+    assert all(37.9 < r["lat"] < 39.2 and -77.0 < r["lon"] < -75.7 for r in rows)
