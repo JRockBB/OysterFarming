@@ -1,0 +1,7 @@
+title = "Excess oyster mortality per unit of Dermo intensity (fitted in this project)"
+
+[dermo_mortality_per_intensity_yr]
+value = 0.09021
+units = "yr^-1 per unit mean intensity (0-7 scale)"
+source = "Fitted in this project: scripts/p4_dermo_mortality_fit.jl, OLS of annual instantaneous observed mortality on mean Dermo intensity and MSX prevalence, Maryland DNR 2024 Fall Survey report Tables 3-5 (43 bars, 1990-2024, n = 1472); results in outputs/p4_dermo_mortality/fit.md"
+notes = "95 % bar-bootstrap interval 0.0738 to 0.1053; OLS se 0.0063; R^2 0.2977 with MSX in the model. Intercept 0.0302 yr^-1 (background) and MSX term 1.0476 yr^-1 are not used by the farm model. Observational: confounded by other causes that co-vary with Dermo."

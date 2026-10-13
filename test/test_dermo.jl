@@ -70,3 +70,14 @@ dermo_forcing(n, temp_c, sal; start=Date(2001, 1, 1)) =
         @test_throws ArgumentError simulate_dermo(DP, f[[1, 3], :], 1.0)
     end
 end
+
+@testset "dermo intensity and oyster mortality" begin
+    for x in (1.5, 3.0, 5.0, 7.0)
+        @test cells_to_intensity(10^rank_to_log10_cells(x)) ≈ x
+    end
+    @test cells_to_intensity(0.0) == 0.0
+    @test cells_to_intensity(0.5) == 0.0
+    @test cells_to_intensity(1e5) < cells_to_intensity(1e6)
+    @test_throws DomainError cells_to_intensity(-1.0)
+    @test dermo_excess_mortality_d(10^rank_to_log10_cells(3.0), 0.09) ≈ 0.09 * 3 / 365
+end

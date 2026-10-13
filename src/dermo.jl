@@ -143,3 +143,35 @@ tissue with the regression of Bushek et al. (1994), as used by Ragone Calvo et
 al. (2001, p. 234):  y = 0.176 − 0.463·x + 0.205·x².
 """
 rank_to_log10_cells(rank::Real) = 0.176 - 0.463 * rank + 0.205 * rank^2
+
+"""
+    cells_to_intensity(P) -> Float64
+
+Mean infection intensity rank (0-7 scale) for a parasite density P (cells per g
+wet tissue), the inverse of [`rank_to_log10_cells`](@ref) (Bushek et al. 1994,
+as used by Ragone Calvo et al. 2001): solves 0.205·x² − 0.463·x + 0.176 = log10 P
+for the root x ≥ 1.13 (where the quadratic is increasing). Densities at or below
+the quadratic's minimum (≈ 0.92 cells/g) map to 0.
+
+Assumes the Maryland DNR 0-7 intensity scale and the ranks used by Bushek et al.
+are the same Ray-assay scale (recorded in PLAN.md P4.1).
+"""
+function cells_to_intensity(P::Real)
+    P >= 0 || throw(DomainError(P, "density must be non-negative"))
+    a, b0, c = 0.205, -0.463, 0.176
+    xmin = -b0 / (2a)
+    ymin = c - b0^2 / (4a)
+    y = P > 0 ? log10(P) : -Inf
+    y <= ymin && return 0.0
+    return (-b0 + sqrt(b0^2 - 4a * (c - y))) / (2a)
+end
+
+"""
+    dermo_excess_mortality_d(P, per_intensity_yr) -> Float64
+
+Daily excess oyster mortality rate from Dermo for parasite density P:
+`per_intensity_yr × cells_to_intensity(P) / 365`, with `per_intensity_yr` the
+fitted annual rate per unit intensity (params/dermo_mortality_mddnr.toml).
+Use as `extra_mortality_d` in [`simulate_farm`](@ref).
+"""
+dermo_excess_mortality_d(P::Real, per_intensity_yr::Real) = per_intensity_yr * cells_to_intensity(P) / 365
