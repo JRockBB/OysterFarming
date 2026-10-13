@@ -119,6 +119,14 @@ const CONTRACT_SPECS = Dict{String,TableSpec}(
         ColumnSpec("count", :float64; nullable=true, lo=0),
         ColumnSpec("source", :string),
     ]),
+    "mortality_obs" => TableSpec("mortality_obs", [
+        ColumnSpec("site_id", :string),
+        ColumnSpec("date", :date),
+        ColumnSpec("period_days", :int; nullable=true, lo=1),
+        ColumnSpec("mortality_fraction", :float64; lo=0, hi=1),
+        ColumnSpec("method", :string),
+        ColumnSpec("source", :string),
+    ]),
 )
 
 function _type_ok(kind::Symbol, T::Type)
@@ -215,6 +223,8 @@ validate_growth_obs(tbl) = validate_table(tbl, CONTRACT_SPECS["growth_obs"])
 validate_disease_obs(tbl) = validate_table(tbl, CONTRACT_SPECS["disease_obs"])
 "Validate an `economics` table. See [`validate_table`](@ref)."
 validate_economics(tbl) = validate_table(tbl, CONTRACT_SPECS["economics"])
+"Validate a `mortality_obs` table. See [`validate_table`](@ref)."
+validate_mortality_obs(tbl) = validate_table(tbl, CONTRACT_SPECS["mortality_obs"])
 
 """
     read_contract(path, table_name) -> DataFrame

@@ -5,6 +5,10 @@ https://dnr.maryland.gov/fisheries/Documents/oysters/2024RptFinal.pdf
 - Table 3 (pp. 62-68): Perkinsus marinus prevalence (%) and mean intensity
   (scale 0-7) at the 43 disease monitoring bars, 1990-2024.
 - Table 4 (pp. 69-72): Haplosporidium nelsoni (MSX) prevalence (%), 1990-2024.
+- Table 5 (pp. 73-77): Observed Mortality Index (%), 1985-2024, "an indicator of
+  annual natural mortality ... calculated as the total number of dead oysters
+  (boxes and gapers) divided by the sum of live and dead oysters" (report p. 13);
+  written to mortality_obs with period_days = 365 and method "box_count".
 
 Rows are listed in the same fixed bar order on every page, so the k-th data row
 on a page is the k-th bar of BAR_ORDER; each row is checked against that name.
@@ -46,6 +50,7 @@ URL = "https://dnr.maryland.gov/fisheries/Documents/oysters/2024RptFinal.pdf"
 RAW_FILE = "mddnr_fall_survey/2024RptFinal.pdf"
 DERMO_PAGES = range(62, 69)   # 1-based report pages holding Table 3
 MSX_PAGES = range(69, 73)     # Table 4
+MORTALITY_PAGES = range(73, 78)   # Table 5
 INTENSITY_SCALE = "mddnr_0_7"
 
 BAR_ORDER = [
@@ -215,6 +220,31 @@ def disease_obs(dermo_pages: list[str], msx_pages: list[str]) -> pa.Table:
     table = pa.Table.from_pylist(rows, schema=arrow_schema("disease_obs"))
     validate_table(table, SPECS["disease_obs"])
     return table
+
+
+def mortality_obs(mortality_pages: list[str]) -> pa.Table:
+    """Contract mortality_obs rows from Table 5 page texts (NA rows are not written)."""
+    rows = []
+    for text in mortality_pages:
+        for k, years, vals in parse_page(text, 1):
+            for i, y in enumerate(years):
+                v = _num(vals[i])
+                if v is None:
+                    continue
+                rows.append({"site_id": site_id(k), "date": date(y, 11, 1), "period_days": 365,
+                             "mortality_fraction": v / 100.0, "method": "box_count",
+                             "source": "mddnr_fall_survey:2024RptFinal:Table5;date=survey_year_only"})
+    rows.sort(key=lambda r: (r["site_id"], r["date"]))
+    table = pa.Table.from_pylist(rows, schema=arrow_schema("mortality_obs"))
+    validate_table(table, SPECS["mortality_obs"])
+    return table
+
+
+def load_mortality_pages(raw_dir: Path = RAW_DIR) -> list[str]:
+    import pdfplumber
+
+    with pdfplumber.open(str(raw_dir / RAW_FILE)) as pdf:
+        return [pdf.pages[p - 1].extract_text() or "" for p in MORTALITY_PAGES]
 
 
 def load_pages(raw_dir: Path = RAW_DIR) -> tuple[list[str], list[str]]:

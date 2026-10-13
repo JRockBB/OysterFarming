@@ -10,7 +10,7 @@ Commands
   secondary-fetch            download Maine secondary stations used for gap filling
                              (Boothbay DMR SST, DMC dock and VIIRS chlorophyll, NERACOOS E01)
   disease-fetch [--overwrite] download the MD DNR 2024 Fall Survey report (Dermo/MSX tables)
-  disease                    write data/processed/disease_obs.arrow
+  disease                    write data/processed/disease_obs.arrow and mortality_obs.arrow
   growth-fetch [--overwrite]  download the Chesapeake Oyster BMP growth compilation (Zenodo)
   growth                     write data/processed/growth_obs.arrow
   chesapeake-fetch [--overwrite]
@@ -200,6 +200,9 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "disease":
         out = PROCESSED_DIR / "disease_obs.arrow"
         write_contract(mddnr_fall_survey.disease_obs(*mddnr_fall_survey.load_pages()), out, "disease_obs")
+        print(f"wrote {out}")
+        out = PROCESSED_DIR / "mortality_obs.arrow"
+        write_contract(mddnr_fall_survey.mortality_obs(mddnr_fall_survey.load_mortality_pages()), out, "mortality_obs")
         print(f"wrote {out}")
     elif args.command == "growth-fetch":
         try:

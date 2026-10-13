@@ -84,3 +84,18 @@ def test_bar_coordinates() -> None:
     assert swan["lat"] == pytest.approx(39 + 8 / 60 + 27 / 3600, abs=1e-5)
     assert swan["lon"] == pytest.approx(-(76 + 18 / 60 + 10 / 3600), abs=1e-5)
     assert all(37.9 < r["lat"] < 39.2 and -77.0 < r["lon"] < -75.7 for r in rows)
+
+
+def test_hand_checked_mortality_values() -> None:
+    """Table 5 p. 73: Swan Point 1985 = 14 %, Hackett Point 1992 = 12 %, Flag Pond 1992 = 77 %, Stone Rock 1986 = NA."""
+    t = m.mortality_obs([page("mddnr2024_table5_p73.txt")]).to_pylist()
+
+    def get(site, year):
+        hits = [r for r in t if r["site_id"] == site and r["date"] == date(year, 11, 1)]
+        return hits[0]["mortality_fraction"] if hits else None
+
+    assert get("mddnr_swan_point", 1985) == pytest.approx(0.14)
+    assert get("mddnr_hackett_point", 1992) == pytest.approx(0.12)
+    assert get("mddnr_flag_pond", 1992) == pytest.approx(0.77)
+    assert get("mddnr_stone_rock", 1986) is None
+    assert all(r["period_days"] == 365 and r["method"] == "box_count" for r in t)

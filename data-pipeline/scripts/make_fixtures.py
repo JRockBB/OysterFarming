@@ -92,6 +92,14 @@ VALID: dict[str, dict[str, list]] = {
         "count": [4000.0, None],
         "source": ["synthetic", "synthetic"],
     },
+    "mortality_obs": {
+        "site_id": ["synthetic_bay", "synthetic_bay"],
+        "date": [D(2019, 11, 1), D(2020, 11, 1)],
+        "period_days": [365, None],
+        "mortality_fraction": [0.12, 0.3],
+        "method": ["box_count", "box_count"],
+        "source": ["synthetic", "synthetic"],
+    },
 }
 
 # (column to drop, column to retype -> new type, (column, row, out-of-range value))
@@ -102,6 +110,7 @@ BREAKAGE: dict[str, tuple[str, tuple[str, pa.DataType], tuple[str, int, object]]
     "growth_obs": ("n", ("shell_height_mm", pa.string()), ("shell_height_mm", 0, -1.0)),
     "disease_obs": ("prevalence", ("prevalence", pa.string()), ("prevalence", 0, 1.5)),
     "economics": ("value_usd", ("year", pa.float64()), ("value_usd", 0, -5.0)),
+    "mortality_obs": ("mortality_fraction", ("period_days", pa.float64()), ("mortality_fraction", 0, 1.5)),
 }
 
 

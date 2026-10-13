@@ -138,6 +138,17 @@ SPECS: dict[str, TableSpec] = {
             Column("source", "string"),
         ),
     ),
+    "mortality_obs": TableSpec(
+        "mortality_obs",
+        (
+            Column("site_id", "string"),
+            Column("date", "date"),
+            Column("period_days", "int", nullable=True, lo=1),
+            Column("mortality_fraction", "float64", lo=0, hi=1),
+            Column("method", "string"),
+            Column("source", "string"),
+        ),
+    ),
 }
 
 
@@ -236,6 +247,10 @@ def validate_disease_obs(table: pa.Table) -> None:
 
 def validate_economics(table: pa.Table) -> None:
     validate_table(table, SPECS["economics"])
+
+
+def validate_mortality_obs(table: pa.Table) -> None:
+    validate_table(table, SPECS["mortality_obs"])
 
 
 def arrow_schema(table_name: str) -> pa.Schema:

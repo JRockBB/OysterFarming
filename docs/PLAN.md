@@ -90,6 +90,17 @@ One row per site per day.
 | count | float64, nullable | number of oysters |
 | source | string | |
 
+### `mortality_obs.arrow`
+Observed oyster mortality for a population (added 2026-10-13 for P4.1/P4.2).
+| column | type | notes |
+|---|---|---|
+| site_id | string | |
+| date | date | end of the observation period |
+| period_days | int, nullable | length of the period the fraction covers (e.g. 365 for annual) |
+| mortality_fraction | float64 | 0–1 |
+| method | string | `box_count`, `cohort_count`, ... |
+| source | string | |
+
 ---
 
 ## Phase 0: Scaffolding

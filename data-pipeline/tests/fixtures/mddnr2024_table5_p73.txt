@@ -1,0 +1,57 @@
+Table 5. Oyster population observed mortality estimates from the 43 disease monitoring bars, 1985-2024.
+NA = unable to obtain a sufficient sample size. (S) = bar within an oyster sanctuary since 2010.
+Total Observed Mortality (%)
+Region Oyster Bar
+1985 1986 1987 1988 1989 1990 1991 1992
+Upper Bay Swan Point 14 1 2 1 9 4 4 3
+Hackett Point 7 0 10 9 5 2 2 12
+Holland Point (S) 4 21 19 3 19 3 14 45
+Middle Bay
+Stone Rock 6 NA NA NA NA 2 9 45
+Flag Pond (S) NA 48 30 39 37 10 35 77
+Hog Island NA 26 47 25 6 19 73 85
+Lower Bay
+Butler NA 23 84 15 7 30 58 84
+Buoy Rock 10 0 0 1 10 5 11 16
+Chester River
+Old Field (S) 8 3 3 4 2 7 3 9
+Bugby 8 25 46 33 25 39 53 18
+Eastern Bay Parsons Island 19 1 26 13 2 7 43 27
+Hollicutt Noose 2 32 42 25 14 1 7 9
+Wye River Bruffs Island (S) 2 1 45 12 9 12 50 77
+Turtle Back NA 1 19 27 15 27 51 23
+Miles River
+Long Point (S) 17 8 23 8 12 11 53 73
+Cook Point (S) 40 20 45 63 6 11 2 88
+Royston 4 21 19 11 14 14 33 43
+Choptank River Lighthouse 3 14 59 14 8 8 45 52
+Sandy Hill (S) 12 6 29 34 7 11 75 48
+Oyster Shell Pt. (S) 9 0 1 2 2 3 2 19
+Harris Creek Tilghman Wharf 2 36 57 NA 20 30 34 26
+Broad Creek Deep Neck 2 25 37 32 47 66 48 40
+Tred Avon River Double Mills (S) 4 7 13 9 6 28 82 50
+Cason (S) 4 22 60 37 40 63 25 48
+Little Choptank R.
+Ragged Point 5 31 84 38 7 23 53 49
+Honga River Norman Addition 15 53 82 NA 11 11 48 49
+Fishing Bay Goose Creek 6 26 84 59 19 7 23 63
+Nanticoke River Wilson Shoals (S) 23 65 51 41 38 10 29 60
+Manokin River Georges (S) 5 24 84 55 23 31 50 55
+Holland Straits Holland Straits 19 51 85 90 15 27 35 71
+Sharkfin Shoal 25 61 94 80 8 0 10 63
+Back Cove NA NA NA NA NA 11 49 88
+Tangier Sound
+Piney Island East 21 16 88 11 5 23 57 55
+Old Woman’s Leg 4 17 79 21 8 5 50 80
+Pocomoke Sound Marumsco 3 27 77 NA 20 8 31 44
+Patuxent River Broome Island 10 29 31 6 4 24 53 70
+Chicken Cock 18 43 63 43 24 27 31 51
+St. Mary’s River
+Pagan (S) 9 30 27 13 20 39 24 19
+Wicomico R. Lancaster 13 6 4 4 6 28 20 8
+(west) Mills West 18 0 2 1 1 2 11 9
+Cornfield Harbor 17 59 92 51 11 16 29 77
+Potomac River Ragged Point 10 14 29 79 54 63 34 63
+Lower Cedar Point 6 9 2 1 6 6 7 5
+Annual Means 10 22 44 29 14 18 34 46
+70
