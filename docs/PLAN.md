@@ -258,6 +258,7 @@ Done when: scenarios run through Phases 2–5 from one script.
 
 **P5.5 Headline analysis.** For each site and scenario: change in time-to-market, change in risk (mortality, lost harvest days), change in optimal decisions and NPV. This is the core "does warming help or hurt" result.
 Done when: `scripts/p5_5_headline.jl` produces the tables and figures for Chapter 3.
+*Status (2026-10-13):* done with gaps (`julia --project=scripts/figures scripts/p5_5_headline.jl`; outputs/p5_5/headline.md and headline.png). `scripts/figures` is a separate environment holding CairoMakie so the package does not depend on it. Result: warming helps growth and economics at both Damariscotta sites (May-seeded time to market -0.3 yr at dam_lower and -0.7 yr at dam_upper by +2 degC; best expected NPV +104k to +114k USD; same best decision, October seeding at the highest density, at every level) and raises Dermo risk (division days 2 to 38/yr at dam_lower, 58 to 90/yr at dam_upper). The Vibrio control period is a fixed calendar window (137 days), so it does not change. Gaps: Dermo cost is not in the NPV (P4.2), closures are not modelled (P4.4 blocked), and the P5.3 economic caveats apply, so NPV gains are upper bounds.
 
 ---
 

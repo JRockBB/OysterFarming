@@ -1,0 +1,5 @@
+[deps]
+Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+OysterFarming = "5f0344d3-ba2e-4c0b-ab33-a2946b2075e5"
