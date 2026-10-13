@@ -36,6 +36,35 @@ SITES: list[dict[str, object]] = [
                  "Position: median of the buoy's own GPS fixes 2015-2022. "
                  "Gap-fill stations (regression on overlap days, see forcing_report.md): Maine DMR Boothbay Harbor SST; NERACOOS E01 1 m and 10 m temperature/salinity; DMC dock chlorophyll; VIIRS 8-day chlorophyll.",
     },
+    # Chesapeake growth-calibration sites (PLAN.md P2.6). Coordinates are the
+    # Latitude/Longitude given for these cohorts in Zenodo 10.5281/zenodo.11205266.
+    {
+        "site_id": "ches_patuxent_ks",
+        "name": "Patuxent River, Kingsley-Smith triploid cage site",
+        "lat": 38.342046,
+        "lon": -76.475113,
+        "region": "chesapeake",
+        "growing_area": None,
+        "notes": "growth: zenodo11205266 (Kingsley-Smith); forcing: see PLAN.md P2.6.",
+    },
+    {
+        "site_id": "ches_severn_ks",
+        "name": "Severn River, Kingsley-Smith triploid cage site",
+        "lat": 38.981848,
+        "lon": -76.459049,
+        "region": "chesapeake",
+        "growing_area": None,
+        "notes": "growth: zenodo11205266 (Kingsley-Smith); forcing: see PLAN.md P2.6.",
+    },
+    {
+        "site_id": "ches_york_ks",
+        "name": "York River, Kingsley-Smith triploid cage site",
+        "lat": 37.2471916666667,
+        "lon": -76.5002,
+        "region": "chesapeake",
+        "growing_area": None,
+        "notes": "growth: zenodo11205266 (Kingsley-Smith); forcing: see PLAN.md P2.6.",
+    },
 ]
 
 

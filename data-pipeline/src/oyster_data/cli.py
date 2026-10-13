@@ -9,6 +9,8 @@ Commands
   economics                  write data/processed/economics.arrow from the raw FOSS file
   secondary-fetch            download Maine secondary stations used for gap filling
                              (Boothbay DMR SST, DMC dock and VIIRS chlorophyll, NERACOOS E01)
+  growth-fetch [--overwrite]  download the Chesapeake Oyster BMP growth compilation (Zenodo)
+  growth                     write data/processed/growth_obs.arrow
   forcing                    clean all raw forcing sources, merge, gap-fill and write
                              data/processed/forcing_daily.arrow and forcing_report.md
 """
@@ -28,7 +30,7 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import boothbay_dmr, dmc_dock, foss, lobo, neracoos, viirs_chl
+from oyster_data.sources import boothbay_dmr, dmc_dock, foss, lobo, neracoos, viirs_chl, zenodo_growth
 
 
 def _years(spec: str) -> list[int]:
@@ -123,6 +125,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--years", required=True, help="e.g. 2015-2023 or 2016,2018")
     p.add_argument("--overwrite", action="store_true")
     sub.add_parser("forcing", help="clean, merge and gap-fill forcing")
+    gf = sub.add_parser("growth-fetch", help="download Zenodo growth data")
+    gf.add_argument("--overwrite", action="store_true")
+    sub.add_parser("growth", help="write growth_obs.arrow")
     sf = sub.add_parser("secondary-fetch", help="download secondary stations for gap filling")
     sf.add_argument("--overwrite", action="store_true")
     e = sub.add_parser("economics-fetch", help="download NOAA FOSS landings")
@@ -142,6 +147,15 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "economics":
         out = PROCESSED_DIR / "economics.arrow"
         write_contract(foss.clean(), out, "economics")
+        print(f"wrote {out}")
+    elif args.command == "growth-fetch":
+        try:
+            print(f"saved {zenodo_growth.fetch(overwrite=args.overwrite)}")
+        except FileExistsError as err:
+            print(f"skipped: {err}")
+    elif args.command == "growth":
+        out = PROCESSED_DIR / "growth_obs.arrow"
+        write_contract(zenodo_growth.growth_obs(zenodo_growth.load()), out, "growth_obs")
         print(f"wrote {out}")
     elif args.command == "secondary-fetch":
         return cmd_secondary_fetch(args.overwrite)
