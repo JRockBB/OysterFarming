@@ -29,6 +29,7 @@ include("forcing.jl")
 include("calibration.jl")
 include("farm.jl")
 include("nitrogen.jl")
+include("dermo.jl")
 
 export ContractError, ColumnSpec, TableSpec, CONTRACT_SPECS
 export validate_table, validate_sites, validate_forcing_daily, validate_closures,
@@ -38,6 +39,8 @@ export DEBParams, with_values, arrhenius_factor, functional_response, salinity_f
        shell_height_mm, dry_tissue_g, gonado_somatic_index, spawns, initial_state,
        simulate_individual, IndividualStepper, advance_day!
 export forcing_for_site, continuous_blocks, longest_block, time_to_market
+export DermoParams, dermo_division_rate, dermo_mortality_rate, dermo_transmission_cells, dermo_step,
+       simulate_dermo, rank_to_log10_cells
 export NitrogenParams, nitrogen_per_oyster_g, nitrogen_removed_g
 export FarmParams, Cohort, HarvestRule, max_ingestion_ug_d, depleted_food, simulate_farm
 export CalibrationProblem, predict_shell_height, sum_squared_error, fit_least_squares, fit_bayesian

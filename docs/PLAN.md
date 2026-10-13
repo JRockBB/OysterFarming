@@ -205,6 +205,7 @@ Done when: function tested on a hand-calculated example.
 
 **P4.1 Dermo model.** Within-host parasite model driven by temperature and salinity, following the structure of Ragone Calvo et al. 2001 (Journal of Shellfish Research 20:231–241). Map infection intensity to a daily mortality rate.
 Done when: the model reproduces qualitative behavior (higher intensity at higher temperature and salinity) in tests.
+*Status (2026-10-13):* done. `src/dermo.jl` implements Ragone Calvo et al. 2001 (J. Shellfish Res. 20(1):231-241; no DOI; PDF from the user in `data/raw/literature/`, gitignored) with parameters in `params/dermo_ragone_calvo2001.toml`. Choices: eq. 1 is applied as the sum of flows (as printed it multiplies by P twice); Table 1's S<3 mortality 0.006 d^-1 is used (text says 0.003); salinity values on a bin edge go to the higher bin; eq. 2 and eq. 3 are used as published. Tests show faster build-up at higher temperature and salinity. Open: the paper gives no mapping from parasite density to oyster mortality; that needs another source before P4.6. The Bushek et al. 1994 rank-to-cells regression (`rank_to_log10_cells`) is available for P4.2 against the MD DNR intensity data.
 
 **P4.2 Dermo calibration on Chesapeake.** Calibrate to `disease_obs.arrow` from P1.7, holding out some bars.
 Done when: observed vs simulated prevalence/intensity figures and metrics exist for held-out bars.

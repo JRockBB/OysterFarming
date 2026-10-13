@@ -1,0 +1,104 @@
+title = "Perkinsus marinus (Dermo) within-host model parameters (Ragone Calvo et al. 2001)"
+
+# Ragone Calvo, L.M., Wetzel, R.L., Burreson, E.M., 2001. Development and verification of a model for the population
+# dynamics of the protistan parasite, Perkinsus marinus, within its host, the eastern oyster, Crassostrea virginica,
+# in Chesapeake Bay. Journal of Shellfish Research 20(1):231-241. No DOI (pre-BioOne volume).
+# Calibrated on James River, Virginia, 1990-1993; verified 1994-1999. Units of densities: cells (g wet tissue)^-1.
+# Salinity bin edges are part of the published model; values exactly on an edge go to the higher bin here
+# (the paper uses strict inequalities and leaves edges undefined).
+
+[A_p]
+value = 10000.0
+units = "cells g^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (parasite growth threshold density) and p. 233"
+
+[G_p]
+value = 2.0e6
+units = "cells g^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (parasite maximum density) and p. 233"
+
+[div_intercept]
+value = -0.009
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 3"
+
+[div_slope]
+value = 0.0035
+units = "d^-1 ppt^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 3"
+
+[q10_a]
+value = 0.06931
+units = "degC^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eqs. 3 and 5 (Q10 = 2 conversion, ln 2 / 10)"
+
+[div_T_min_c]
+value = 20.0
+units = "degC"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, p. 233: parasite division only occurs above 20 degC"
+
+[mort_T_ref_c]
+value = 18.0
+units = "degC"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 5 and p. 235: mortality only below 18 degC, e^(a(18-T))"
+
+[mort_T_min_c]
+value = 3.0
+units = "degC"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, p. 235: mortality only above 3 degC"
+
+[mort_rate_S_gt_12]
+value = 0.0175
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (mu_m,sal at S > 12)"
+
+[mort_rate_S_8_12]
+value = 0.02
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (mu_m,sal at 12 >= S >= 8)"
+
+[mort_rate_S_3_8]
+value = 0.0175
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (mu_m,sal at 8 > S >= 3)"
+
+[mort_rate_S_lt_3]
+value = 0.006
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, Table 1 (mu_m,sal at S < 3)"
+notes = "The text on p. 236 gives 0.003 for S < 3; the Table 1 default value is used."
+
+[transmission_doy]
+value = 218
+units = "day of year"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, p. 236: single transmission event on Julian day 218"
+
+[transmission_S_gt_15]
+value = 1000.0
+units = "cells g^-1 per event"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 6 and Table 1"
+
+[transmission_S_12_15]
+value = 500.0
+units = "cells g^-1 per event"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 6 and Table 1"
+
+[transmission_S_9_12]
+value = 100.0
+units = "cells g^-1 per event"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 6 and Table 1"
+
+[transmission_S_6_9]
+value = 50.0
+units = "cells g^-1 per event"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 6 and Table 1"
+
+[loss_rate]
+value = 0.5
+units = "d^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 7 and Table 1 (parasite loss via host death)"
+
+[loss_P_threshold]
+value = 100000.0
+units = "cells g^-1"
+source = "Ragone Calvo et al. 2001, J. Shellfish Res. 20:231-241, eq. 7 (loss applies when P > 100,000)"

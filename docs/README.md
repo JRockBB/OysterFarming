@@ -69,7 +69,8 @@ As of 2026-10-13 (details in PLAN.md task status notes):
 
 - Done: Phase 0; data contract validators; Maine forcing from LOBO buoys with gap filling from measured secondary stations (Boothbay DMR SST, NERACOOS E01, DMC dock and VIIRS chlorophyll); Chesapeake growth cohorts and their measured forcing (CO-OPS, CBP DataHub, NERRS); Maine landings (NOAA FOSS); MD DNR Dermo/MSX bar-year data; standard DEB model with sourced Pacific and eastern oyster parameters; calibration pipeline and eastern oyster X_K calibration with held-out validation (P2.6); Maine time to market (P2.7); farm layer and nitrogen accounting with sourced parameters.
 - Open: X_K is weakly identified (calibration site near food saturation); disease bar coordinates; Wells NERRS (CDMO IP registration); Maine DMR closure history (state GIS down).
-- Not started: risk layer (Phase 4, needs Ragone Calvo et al. 2001 PDF), decision layer (Phase 5), farm-data readiness (Phase 6).
+- Phase 4: Dermo within-host model done (P4.1, Ragone Calvo et al. 2001); P4.2-P4.6 not started.
+- Not started: decision layer (Phase 5), farm-data readiness (Phase 6).
 
 ## Related work to build on, not duplicate
 
