@@ -14,9 +14,12 @@
 Fit the `DEBParams` fields listed in `names` (e.g. `[:X_K, :p_M]`) within
 `lower`/`upper`, keeping every other field of `base` fixed. `forcing` is a
 single-site run of consecutive days as accepted by [`simulate_individual`](@ref);
-observations are shell heights (mm) on dates inside the forcing.
+observations are shell heights (mm) on dates inside the forcing. `u0` is the
+initial state `(E, V, E_R)`, or a function `p -> (E, V, E_R)` when the initial
+state depends on the parameters being fitted (e.g. reserve at equilibrium with
+food, which depends on X_K).
 """
-struct CalibrationProblem{P<:DEBParams,F<:AbstractDataFrame,U<:NamedTuple}
+struct CalibrationProblem{P<:DEBParams,F<:AbstractDataFrame,U}
     base::P
     forcing::F
     u0::U
@@ -27,11 +30,12 @@ struct CalibrationProblem{P<:DEBParams,F<:AbstractDataFrame,U<:NamedTuple}
     upper::Vector{Float64}
 end
 
-function CalibrationProblem(base::DEBParams, forcing, u0::NamedTuple,
-                            obs_dates::AbstractVector{Date}, obs_shell_height_mm::AbstractVector{<:Real};
+function CalibrationProblem(base::DEBParams, forcing, u0::Union{NamedTuple,Function},
+                            obs_dates::AbstractVector{Date}, obs_shell_height_mm::AbstractVector;
                             names::AbstractVector{Symbol}, lower::AbstractVector{<:Real},
                             upper::AbstractVector{<:Real})
     df = DataFrame(forcing; copycols=false)
+    any(ismissing, obs_shell_height_mm) && throw(ArgumentError("observations contain missing values"))
     length(obs_dates) == length(obs_shell_height_mm) ||
         throw(ArgumentError("obs_dates and obs_shell_height_mm differ in length"))
     length(names) == length(lower) == length(upper) ||
@@ -56,7 +60,8 @@ parameters set to `θ` (same order as `cp.names`).
 """
 function predict_shell_height(cp::CalibrationProblem, θ::AbstractVector)
     p = with_values(cp.base; (cp.names[i] => θ[i] for i in eachindex(cp.names))...)
-    out = simulate_individual(p, cp.forcing, cp.u0)
+    u0 = cp.u0 isa Function ? cp.u0(p) : cp.u0
+    out = simulate_individual(p, cp.forcing, u0)
     return out.shell_height_mm[cp.obs_idx]
 end
 

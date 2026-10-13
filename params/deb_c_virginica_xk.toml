@@ -1,0 +1,7 @@
+title = "Calibrated food half-saturation for the eastern oyster (PLAN.md P2.6)"
+
+[X_K]
+value = 0.5557
+units = "ug chl-a L^-1"
+source = "Calibrated in this project: scripts/p2_6_virginica_calibration.jl, least squares on Kingsley-Smith Patuxent triploid shell heights (Zenodo 10.5281/zenodo.11205266) with measured forcing (CO-OPS 8577330, CBP LE1.3, NERRS cbmrrwq); results in outputs/p2_6/metrics.md"
+notes = "95 % intervals: Gauss-Newton -1.0 to 2.11; Bayesian 0.16 to 3.73 (median 0.99). Held-out York shell-height RMSE 1.84 mm. Weakly identified: calibration site food was near saturation."

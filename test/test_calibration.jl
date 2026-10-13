@@ -61,3 +61,14 @@ end
         @test 0.3 < b.sigma_mean_mm < 0.8
     end
 end
+
+@testset "initial state as a function of parameters" begin
+    cp0, truth = synthetic_calibration_problem(n_days=120)
+    u0f = p -> initial_state(p; shell_height_mm=20.0, e=functional_response(4.0, p.X_K))
+    cpf = CalibrationProblem(cp0.base, cp0.forcing, u0f, cp0.forcing.date[cp0.obs_idx], cp0.obs_shell_height_mm;
+                             names=[:X_K], lower=[1.0], upper=[20.0])
+    a = predict_shell_height(cpf, [5.0])
+    b = predict_shell_height(cpf, [10.0])
+    @test a != b
+    @test length(a) == length(cp0.obs_idx)
+end
