@@ -80,8 +80,10 @@ Build a [`DEBParams`](@ref) from a loaded parameter file.
   conductance `v` (cm d⁻¹), since v = {p_Am}/[E_m] (Kooijman 2010, Table 2.4).
 - Temperature-tolerance bounds (`T_L`, `T_H`, `T_AL`, `T_AH`) must be all
   present or all absent. Salinity thresholds (`S_L`, `S_H`) likewise.
+- `X_K` may be omitted from the file and given as a keyword instead, e.g. as a
+  starting value for calibration (PLAN.md P2.6). Giving it in both places is an error.
 """
-function DEBParams(params::AbstractDict{String,<:Param})
+function DEBParams(params::AbstractDict{String,<:Param}; X_K::Union{Nothing,Real}=nothing)
     pv(n) = param_value(params, n)
     p_Am = haskey(params, "p_Am") ? pv("p_Am") : pv("ae") * pv("p_Xm")
     E_m = haskey(params, "E_m") ? pv("E_m") : p_Am / pv("v")
@@ -91,8 +93,14 @@ function DEBParams(params::AbstractDict{String,<:Param})
     sal = [_optional(params, n) for n in ("S_L", "S_H")]
     all(isnan, sal) || !any(isnan, sal) ||
         throw(ArgumentError("S_L and S_H must be given together"))
+    if X_K === nothing
+        X_K = pv("X_K")
+    elseif haskey(params, "X_K")
+        throw(ArgumentError("X_K is in the parameter file and also given as a keyword"))
+    end
+    X_K > 0 || throw(ArgumentError("X_K must be positive"))
     p = DEBParams{Float64}(p_Am, E_m, pv("p_M"), pv("E_G"), pv("kappa"), pv("kappa_R"), pv("V_p"),
-                  pv("delta_M"), pv("X_K"), pv("T_A"), pv("T_ref"), bounds...,
+                  pv("delta_M"), Float64(X_K), pv("T_A"), pv("T_ref"), bounds...,
                   pv("mu_E"), pv("d_V"), pv("GSI_spawn"), pv("T_spawn_c"), sal...)
     0 < p.kappa < 1 || throw(ArgumentError("kappa must be in (0, 1)"))
     0 < p.kappa_R <= 1 || throw(ArgumentError("kappa_R must be in (0, 1]"))

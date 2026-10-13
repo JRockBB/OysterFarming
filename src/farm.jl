@@ -13,24 +13,24 @@ Lease-scale parameters, read from a parameter file with
 - `mortality_rate_d`    background mortality, d⁻¹ (daily survival exp(−m))
 - `flushing_time_d`     flushing time τ of the water box around the lease, d
 - `box_volume_L`        volume of that water box, L
-- `assim_energy_J_per_ug_chl` assimilated energy per µg chlorophyll-a ingested,
-                        J µg⁻¹; converts DEB assimilation into chlorophyll removal
+- `clearance_max_L_cm2_d` maximum surface-specific clearance rate {C_R},
+                        L d⁻¹ cm⁻² (per V^(2/3)); converts feeding into chlorophyll removal
 """
 struct FarmParams
     mortality_rate_d::Float64
     flushing_time_d::Float64
     box_volume_L::Float64
-    assim_energy_J_per_ug_chl::Float64
+    clearance_max_L_cm2_d::Float64
 end
 
 function FarmParams(params::AbstractDict{String,<:Param})
     pv(n) = param_value(params, n)
     fp = FarmParams(pv("mortality_rate_d"), pv("flushing_time_d"), pv("box_volume_L"),
-                    pv("assim_energy_J_per_ug_chl"))
+                    pv("clearance_max_L_cm2_d"))
     fp.mortality_rate_d >= 0 || throw(ArgumentError("mortality_rate_d must be non-negative"))
     fp.flushing_time_d > 0 || throw(ArgumentError("flushing_time_d must be positive"))
     fp.box_volume_L > 0 || throw(ArgumentError("box_volume_L must be positive"))
-    fp.assim_energy_J_per_ug_chl > 0 || throw(ArgumentError("assim_energy_J_per_ug_chl must be positive"))
+    fp.clearance_max_L_cm2_d > 0 || throw(ArgumentError("clearance_max_L_cm2_d must be positive"))
     return fp
 end
 
@@ -73,15 +73,17 @@ end
 """
     max_ingestion_ug_d(V, c_T, c_S, p, fp) -> Float64
 
-Maximum chlorophyll ingestion of one oyster (f = 1), µg chl-a d⁻¹:
+Maximum chlorophyll ingestion of one oyster (f = 1), µg chl-a d⁻¹. With a
+Holling type II response, clearance is CR = {C_R}·(1 − f)·c_T·c_S·V^(2/3) and
+ingestion CR·X equals {C_R}·X_K·f·c_T·c_S·V^(2/3) (Kooijman 2010, section 2.3;
+{C_R} from Lavaud et al. 2017, Table 2), so
 
-    J_X,max = c_S · c_T · {p_Am} · V^(2/3) / ε
+    J_X,max = {C_R} · X_K · c_T · c_S · V^(2/3)
 
-where ε = `assim_energy_J_per_ug_chl`, so that ingestion × ε equals the DEB
-assimilation flux p_A of Pouvreau et al. (2006, eq. 2).
+with X_K in µg chl-a L⁻¹ and {C_R} in L d⁻¹ cm⁻².
 """
 max_ingestion_ug_d(V, c_T, c_S, p::DEBParams, fp::FarmParams) =
-    c_S * c_T * p.p_Am * V^(2 / 3) / fp.assim_energy_J_per_ug_chl
+    c_S * c_T * fp.clearance_max_L_cm2_d * p.X_K * V^(2 / 3)
 
 """
     depleted_food(X_in, total_max_ingestion_ug_d, X_K, fp) -> Float64

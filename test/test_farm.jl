@@ -17,6 +17,13 @@ end
 @testset "farm" begin
     @testset "parameters and rules" begin
         @test FARM_FP.flushing_time_d == 2.0
+        # ingestion consistent with the Holling response: {C_R} * X_K * c_T * c_S * V^(2/3)
+        @test max_ingestion_ug_d(8.0, 1.0, 1.0, FARM_DEB, FARM_FP) ≈ 20.0 * FARM_DEB.X_K * 4.0
+        dam = merge(load_params(joinpath(@__DIR__, "..", "params", "farm_damariscotta.toml")),
+                    load_params(joinpath(@__DIR__, "..", "params", "deb_c_virginica_clearance.toml")))
+        fp = FarmParams(dam)
+        @test fp.flushing_time_d == 35.0 && fp.box_volume_L ≈ 123.4e9 && fp.clearance_max_L_cm2_d == 56.0
+        @test fp.mortality_rate_d ≈ 0.22 / 365 rtol = 1e-2
         @test HarvestRule().market_shell_height_mm == 76.0
         @test HarvestRule().weekly_capacity == Inf
         @test_throws ArgumentError HarvestRule(market_shell_height_mm=-1)

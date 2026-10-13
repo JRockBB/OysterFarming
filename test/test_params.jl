@@ -45,8 +45,11 @@ pfix(name) = joinpath(@__DIR__, "fixtures", "synthetic_params_$(name).toml")
     end
 end
 
-@testset "incomplete project parameter files are refused" begin
-    for f in ("deb_c_virginica.toml", "farm_damariscotta.toml")
-        @test_throws ParamError load_params(joinpath(@__DIR__, "..", "params", f))
+@testset "every project parameter file loads with sources" begin
+    dir = joinpath(@__DIR__, "..", "params")
+    for f in filter(endswith(".toml"), readdir(dir))
+        p = load_params(joinpath(dir, f))
+        @test !isempty(p)
+        @test all(!occursin("TODO", v.source) for v in values(p))
     end
 end

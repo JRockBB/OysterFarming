@@ -1,0 +1,7 @@
+title = "Eastern oyster maximum clearance rate, used for food depletion around a lease (PLAN.md P3.2)"
+
+[clearance_max_L_cm2_d]
+value = 56.0
+units = "L d^-1 cm^-2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2: clearance rate {C_R} at the pseudofeces threshold X_P (from Casas et al.)"
+notes = "Surface-specific (per V^(2/3)) clearance at low food. With a Holling type II response, chlorophyll removed per oyster = {C_R} * X_K * f * c_T * c_S * V^(2/3)."

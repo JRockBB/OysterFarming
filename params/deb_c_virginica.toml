@@ -1,124 +1,126 @@
 title = "DEB parameters for the eastern oyster Crassostrea virginica (Lavaud et al. 2017)"
 species = "C_virginica"
-status = "INCOMPLETE: entries marked TODO(source) block loading until resolved."
+status = "Complete except X_K (food half-saturation, chlorophyll units), which is calibrated in PLAN.md P2.6 and stored separately in deb_c_virginica_xk.toml."
 
-# Values are from Lavaud et al. 2017 (Ecol. Model. 363:221-233, doi:10.1016/j.ecolmodel.2017.09.003) as reproduced in
-# Table A2 of Lavaud, R., La Peyre, M.K., Justic, D., La Peyre, J.F., 2021. Dynamic Energy Budget modelling to predict
-# eastern oyster growth, reproduction, and mortality under river management and climate change scenarios. Estuar.
-# Coast. Shelf Sci. (https://www.sciencedirect.com/science/article/pii/S027277142100024X; author manuscript at
-# https://repository.library.noaa.gov/view/noaa/60944). Check each value against the 2017 Supplementary Information.
+# Primary source: Lavaud, R., La Peyre, M.K., Casas, S.M., Bacher, C., La Peyre, J.F., 2017. Integrating the effects of
+# salinity on the physiology of the eastern oyster, Crassostrea virginica, in the northern Gulf of Mexico through a
+# Dynamic Energy Budget model. Ecological Modelling 363:221-233, doi:10.1016/j.ecolmodel.2017.09.003.
+# Author manuscript with supplementary data: https://archimer.ifremer.fr/doc/00400/51137/53773.pdf
+# (Table 1 = equations, Table 2 = parameters, Table S1 = zero-variate data).
 #
-# Lavaud et al. use maturity energy (E_H^p = 369.9 J, k_J = 0.002 d^-1) and a separate gonad compartment, which this
-# package's model does not implement yet. The entries the current model needs but that have no equivalent in that
-# formulation are marked TODO(source) rather than guessed.
+# Model structure used: Lavaud et al. 2017 eqs 1-10 and 17-19 (reserve E, structure V, development/reproduction buffer
+# E_R), which is the Pouvreau et al. 2006 structure implemented in src/deb.jl. Not implemented: the separate gonad
+# compartment (eqs 12-16, 20) and the salinity maintenance cost (eq 6); Lavaud et al. found the salinity effect acts
+# through filtration (c_S, eq 2), which is implemented. Lavaud et al. 2021 (ECSS; NOAA IR noaa/60944, Table A2)
+# re-use the same values (p_Am = 187.125, v = 0.03453 = p_Am / E_m).
 
-[p_Am]
-value = 187.125
+[p_Xm]
+value = 249.5
 units = "J cm^-2 d^-1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (post-metamorphosis value)"
 
-[v]
-value = 0.03453
-units = "cm d^-1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
-notes = "Energy conductance. E_m = p_Am / v."
-
-[kappa]
-value = 0.82
+[ae]
+value = 0.75
 units = "1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (assimilation efficiency kappa_X)"
+notes = "p_Am = ae * p_Xm = 187.125 J cm^-2 d^-1 (eq 4)."
 
-[kappa_R]
-value = 0.95
-units = "1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+[E_m]
+value = 5420.0
+units = "J cm^-3"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
 
 [p_M]
 value = 38.0
 units = "J cm^-3 d^-1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
 
 [E_G]
 value = 5230.0
 units = "J cm^-3"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
+
+[kappa]
+value = 0.82
+units = "1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
+
+[kappa_R]
+value = 0.95
+units = "1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (from Kooijman 2010)"
+
+[V_p]
+value = 0.274625
+units = "cm^3"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table S1: length at puberty L_p predicted 3.25 cm (observed 3.00 cm, La Peyre unpublished)"
+notes = "Derived: V_p = (delta_M * L_p)^3 = (0.2 * 3.25 cm)^3. The model-predicted L_p is used because it is consistent with the fitted parameter set (eq 9 uses min(V, V_P) but the paper gives no V_P value)."
 
 [delta_M]
 value = 0.2
 units = "1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
-
-[d_V]
-value = 0.2
-units = "g cm^-3"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
-notes = "Specific density of structure."
-
-[T_ref]
-value = 293.0
-units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
+notes = "Length here is shell length from umbo to distal edge (Table S1 caption), i.e. shell height."
 
 [T_A]
 value = 6700.0
 units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
+
+[T_ref]
+value = 293.0
+units = "K"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (T_1)"
 
 [T_L]
 value = 283.0
 units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (from Galtsoff 1964)"
 
 [T_H]
 value = 303.0
 units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (from Galtsoff 1964)"
 
 [T_AL]
 value = 21820.0
 units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
 
 [T_AH]
 value = 45380.0
 units = "K"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2"
 
 [S_L]
 value = 3.0
 units = "psu"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (from Casas et al.)"
 
 [S_H]
 value = 10.0
 units = "psu"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (from Casas et al.)"
+
+[mu_E]
+value = 23000.0
+units = "J g^-1"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (energy content of 1 g of reserve, from Kooijman 2010)"
+
+[d_V]
+value = 0.2
+units = "g cm^-3"
+source = "Lavaud et al. 2017, Ecol. Model. 363:221-233, Table 2 (dry mass ratio of structure, 0.2 g dw per g ww)"
+notes = "Converted assuming structure wet density 1 g cm^-3, as in Pouvreau et al. 2006 section 2.3."
 
 [T_spawn_c]
 value = 25.0
 units = "degC"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
-
-[mu_E]
-value = 23012.55
-units = "J g^-1"
-source = "Lavaud et al. 2017, Ecol. Model. 363:221-233; as reproduced in Lavaud et al. 2021 ECSS, Table A2"
-notes = "Derived: chemical potential of reserve 550000 J mol^-1 divided by molecular weight of reserve 23.9 g mol^-1."
-
-[X_K]
-value = 0.0
-units = "ug chl-a L^-1"
-source = "TODO(source)"
-notes = "Needs a chlorophyll half-saturation for C. virginica: from calibration (P2.6) or literature."
-
-[V_p]
-value = 0.0
-units = "cm^3"
-source = "TODO(source)"
-notes = "Lavaud et al. use maturity at puberty E_H^p = 369.9 J instead of a volume threshold. Implement E_H maturity or find a published V_p."
+source = "Lavaud et al. 2021, Estuar. Coast. Shelf Sci., Table A2 (temperature threshold for spawning T_Sp); author manuscript NOAA IR noaa/60944"
+notes = "Lavaud et al. 2017 gives no spawning rule. Affects only diploid tissue mass, not shell height."
 
 [GSI_spawn]
-value = 0.0
+value = 0.08
 units = "1"
-source = "TODO(source)"
-notes = "Lavaud et al. gsi_sp = 0.08 uses a different GSI definition (gonad energy over egg energy density times wet mass); not interchangeable with this model's GSI."
+source = "Lavaud et al. 2021, Estuar. Coast. Shelf Sci., Table A2 (gonado-somatic index threshold gsi_sp)"
+notes = "Lavaud et al. 2021 define gsi on a separate gonad compartment; this model applies the threshold to E_R as a fraction of total dry mass. Triploid cohorts are run with spawning disabled (functionally sterile)."

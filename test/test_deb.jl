@@ -130,13 +130,19 @@ end
         @test gig.p_Am ≈ 0.75 * 560
         @test isnan(gig.S_L)
         @test salinity_factor(1.0, gig) == 1.0
-        err = try
-            load_params(joinpath(PARAMS_DIR, "deb_c_virginica.toml"))
-            nothing
-        catch e
-            e
-        end
-        @test err isa ParamError   # incomplete on purpose until TODO(source) entries are resolved
+        # Eastern oyster set (Lavaud et al. 2017): complete except X_K, which comes from calibration
+        vir = load_params(joinpath(PARAMS_DIR, "deb_c_virginica.toml"))
+        @test !haskey(vir, "X_K")
+        @test_throws KeyError DEBParams(vir)
+        pv = DEBParams(vir; X_K=3.0)
+        @test pv.p_Am ≈ 0.75 * 249.5                 # = 187.125, as in Lavaud et al. 2021 Table A2
+        @test pv.p_Am / pv.E_m ≈ 0.03453 rtol = 1e-3 # energy conductance v of Lavaud et al. 2021
+        @test pv.V_p ≈ (0.2 * 3.25)^3
+        @test salinity_factor(6.5, pv) ≈ 0.5
+        @test arrhenius_factor(293.0 - 273.15, pv) ≈ 1 atol = 1e-12
+        @test_throws ArgumentError DEBParams(vir; X_K=-1.0)
+        d2 = copy(vir); d2["X_K"] = Param(3.0, "ug chl-a L^-1", "synthetic: test", "")
+        @test_throws ArgumentError DEBParams(d2; X_K=3.0)
         # E_m from energy conductance
         d = load_params(joinpath(@__DIR__, "fixtures", "synthetic_deb_params.toml"))
         delete!(d, "E_m")

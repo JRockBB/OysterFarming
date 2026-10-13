@@ -15,7 +15,7 @@ value = 10000000.0
 units = "L"
 source = "synthetic: test fixture"
 
-[assim_energy_J_per_ug_chl]
-value = 5.0
-units = "J ug^-1"
+[clearance_max_L_cm2_d]
+value = 20.0
+units = "L d^-1 cm^-2"
 source = "synthetic: test fixture"

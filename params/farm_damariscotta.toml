@@ -1,26 +1,24 @@
 title = "Lease-scale farm parameters for the Damariscotta River sites"
-status = "INCOMPLETE: every entry needs a source; the loader refuses this file until they are filled."
+notes = "Merge with params/deb_c_virginica_clearance.toml (clearance rate) when building FarmParams."
+
+# Box = the estuary north of Fort Island (McAlice 1977), which contains both Damariscotta sites
+# (dam_lower near the Darling Marine Center and dam_upper at Perkins Point). Farm stocking density is a
+# management decision variable (PLAN.md Phase 5), not a parameter here.
 
 [mortality_rate_d]
-value = 0.0
+value = 0.000603
 units = "d^-1"
-source = "TODO(source)"
-notes = "Background (non-disease) mortality of cultured C. virginica in Maine. Candidates: partner farm records, Maine culture studies."
+source = "Jordan, S., Greenhawk, K., McCollough, C., Vanisko, J., Homer, M., 2002. J. Shellfish Res. 21(2):733-741, as reported by Cerco & Noel 2005 (Evaluating Ecosystem Effects of Oyster Restoration in Chesapeake Bay, ERDC report to Maryland DNR), Mortality section: natural mortality 0.22 yr^-1 (0.0006 d^-1)"
+notes = "0.22 / 365 d. Northern Chesapeake Bay market-stock oysters in 1990; 'natural' means non-fishing and so includes disease mortality of that period. No published background mortality for cultured oysters in Maine was found."
 
 [flushing_time_d]
-value = 0.0
+value = 35.0
 units = "d"
-source = "TODO(source)"
-notes = "Flushing or residence time of the water around a lease in the Damariscotta estuary; published estuary residence-time studies or hydrodynamic model output."
+source = "McAlice, B.J., 1977. A preliminary oceanographic survey of the Damariscotta River estuary, Lincoln County, Maine. Maine Sea Grant Technical Report TR-13-77 (NOAA IR noaa/40318), p. 12: average summer flushing time north of Fort Island 'on the order of 5 weeks' (abstract: 4-5 weeks)"
+notes = "5 weeks x 7 d. Summer value from salinity-based (Bowden) method; the segment (Ketchum) method gives lower minimum estimates."
 
 [box_volume_L]
-value = 0.0
+value = 1.234e11
 units = "L"
-source = "TODO(source)"
-notes = "Volume of water exchanging with the lease (lease area x mean depth); site-specific."
-
-[assim_energy_J_per_ug_chl]
-value = 0.0
-units = "J ug^-1"
-source = "TODO(source)"
-notes = "Assimilated energy per ug chlorophyll-a ingested (assimilation efficiency x energy per ug chl). Needs a carbon:chl ratio and energy content from the literature."
+source = "McAlice 1977, Maine Sea Grant TR-13-77, abstract: estuarine portion MLW volume 123.4 x 10^6 m^3"
+notes = "123.4e6 m^3 x 1000 L m^-3. Mean low water volume (tidal prism 56.2 x 10^6 m^3 not added)."
