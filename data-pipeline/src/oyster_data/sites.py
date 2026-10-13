@@ -20,7 +20,7 @@ SITES: list[dict[str, object]] = [
         "lat": 43.93087,
         "lon": -69.58012,
         "region": "maine",
-        "growing_area": None,  # TODO: DMR growing area code, from P1.5
+        "growing_area": "WQ",  # Maine DMR NSSP classification layers 2021-2025: area WQ, Approved
         "notes": "forcing: lobo:node0065 (Maine EPSCoR LOBO, http://maine.loboviz.com). "
                  "Position: median of the buoy's own GPS fixes 2015-2023. "
                  "Gap-fill stations (regression on overlap days, see forcing_report.md): Maine DMR Boothbay Harbor SST; NERACOOS E01 1 m and 10 m temperature/salinity; DMC dock chlorophyll; VIIRS 8-day chlorophyll.",
@@ -31,7 +31,7 @@ SITES: list[dict[str, object]] = [
         "lat": 43.99956,
         "lon": -69.54104,
         "region": "maine",
-        "growing_area": None,  # TODO: DMR growing area code, from P1.5
+        "growing_area": "WQ",  # Maine DMR NSSP classification layers 2021-2025: area WQ, Approved
         "notes": "forcing: lobo:node0066 (Maine EPSCoR LOBO, http://maine.loboviz.com). "
                  "Position: median of the buoy's own GPS fixes 2015-2022. "
                  "Gap-fill stations (regression on overlap days, see forcing_report.md): Maine DMR Boothbay Harbor SST; NERACOOS E01 1 m and 10 m temperature/salinity; DMC dock chlorophyll; VIIRS 8-day chlorophyll.",
