@@ -269,6 +269,7 @@ Done when: templates exist in `docs/farm_templates/` with a one-page explanation
 
 **P6.2 Farm data ingest.** Python converter from those templates into contract files, with anonymized site ids.
 Done when: a filled-in example converts and validates.
+*Status (2026-10-13):* done. `oyster-data farm-ingest FOLDER OUT` (`data-pipeline/src/oyster_data/farm_ingest.py`) writes sites, growth_obs (cohort-date means with n) and mortality_obs contract tables, plus daily logger temperature (days with >= 12 hours of readings), seeding and harvest CSVs. Site id is farm_ + 8 hex digits of SHA-256(farm name, site label); names are not written. The synthetic example in data-pipeline/tests/fixtures/farm_example_synthetic converts and validates (Python and Julia). Logger temperature is not a forcing_daily table because that contract requires salinity; P6.3 merges it into public forcing.
 
 **P6.3 Site recalibration.** Rerun P2.6 calibration with farm data for that site and compare against the public-data version.
 Done when: a script produces the comparison for any farm site.

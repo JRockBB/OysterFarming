@@ -17,6 +17,8 @@ Commands
                              download CO-OPS, CBP DataHub and NERRS data for the Chesapeake growth sites
   forcing                    clean all raw forcing sources, merge, gap-fill and write
                              data/processed/forcing_daily.arrow and forcing_report.md
+  farm-ingest FOLDER OUT      convert filled farm templates (docs/farm_templates) to
+                             contract tables in OUT, with an anonymous site id
 """
 
 from __future__ import annotations
@@ -167,6 +169,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--years", required=True, help="e.g. 2015-2023 or 2016,2018")
     p.add_argument("--overwrite", action="store_true")
     sub.add_parser("forcing", help="clean, merge and gap-fill forcing")
+    fi = sub.add_parser("farm-ingest", help="convert filled farm templates to contract tables")
+    fi.add_argument("folder", type=Path)
+    fi.add_argument("out", type=Path)
     df_ = sub.add_parser("disease-fetch", help="download MD DNR Fall Survey report")
     df_.add_argument("--overwrite", action="store_true")
     sub.add_parser("disease", help="write disease_obs.arrow")
@@ -223,6 +228,10 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "forcing":
         out, report = build_forcing()
         print(f"wrote {out}\nwrote {report}")
+    elif args.command == "farm-ingest":
+        from oyster_data import farm_ingest
+        for name, path in farm_ingest.ingest(args.folder, args.out).items():
+            print(f"wrote {name}: {path}")
     return 0
 
 
