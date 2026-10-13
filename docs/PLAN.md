@@ -177,9 +177,11 @@ Done when: on synthetic data generated from known parameters plus noise, both me
 
 **P2.6 Eastern oyster calibration and validation.** Calibrate on part of the P1.9 data and validate on the rest (hold out whole sites or years, not random points).
 Done when: validation metrics and figures are produced by a script; limitations are written up in `docs/`.
+*Status (2026-10-13):* done. `scripts/p2_6_virginica_calibration.jl` fits X_K on the Patuxent Kingsley-Smith triploid cohort (Lavaud et al. 2017 parameters otherwise unchanged) and holds out York. X_K = 0.56 ug chl-a/L (least squares); Bayesian median 0.99, 95 % 0.16-3.73. Held-out York shell height RMSE 1.84 mm (2.5 %); dry tissue under-predicted (~30 %). A two-parameter fit (X_K, p_Am) was unidentifiable and worse on York, so rejected. Limitations: Chesapeake food (~16 ug/L) is near saturation, so X_K is bounded mainly from above; triploid calibration applied to diploids; Patuxent shape misfit in 2007 (model keeps growing through an observed plateau); Severn not used (no in-river forcing 2005-07). No plotting package yet, so outputs are tables (`outputs/p2_6/metrics.md`).
 
 **P2.7 Time-to-market.** Function returning days from seeding to a market shell height (default 76 mm, as a parameter), and a script running it for every Maine site.
 Done when: a table of time-to-market by site and seeding month is produced. Sanity check: results should broadly match the published UMaine finding that most of the region takes 2–5 years.
+*Status (2026-10-13):* done for the two Damariscotta sites (`scripts/p2_7_time_to_market.jl`, 20 mm seed, 76 mm market): with the calibrated X_K, 2.3-2.9 years at dam_lower and 1.8-2.1 years at dam_upper; at the upper end of the X_K interval market size is not reached within the ~4.3-year forcing window. Consistent with the UMaine 2-5 year finding at the calibrated value; the upper bound is open because X_K is weakly identified.
 
 ---
 

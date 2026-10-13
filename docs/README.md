@@ -65,12 +65,11 @@ Main public data sources: Maine DMR (closures GIS, aquaculture landings), NERRS 
 
 ## Status
 
-As of 2026-10-11 (see PLAN.md task status notes and open questions 8-10):
+As of 2026-10-13 (details in PLAN.md task status notes):
 
-- Done: Phase 0; data contract validators in both languages; Damariscotta forcing from the LOBO buoys with gap filling (P1.1, P1.3, P1.4); Maine landings (P1.6, from NOAA FOSS); parameter loader and standard DEB model with tests (P2.1-P2.3); calibration pipeline (P2.5); farm layer and nitrogen accounting (P3.1-P3.4).
-- Blocked on outside access: NERRS Wells data (CDMO IP registration), Maine DMR closure history (state GIS server down).
-- Waiting on decisions: winter forcing for Maine sites, using French total-mass data (contract change), eastern oyster maturity formulation.
-- Not started: Chesapeake disease data (P1.7), risk layer (Phase 4), decision layer (Phase 5), farm-data readiness (Phase 6).
+- Done: Phase 0; data contract validators; Maine forcing from LOBO buoys with gap filling from measured secondary stations (Boothbay DMR SST, NERACOOS E01, DMC dock and VIIRS chlorophyll); Chesapeake growth cohorts and their measured forcing (CO-OPS, CBP DataHub, NERRS); Maine landings (NOAA FOSS); MD DNR Dermo/MSX bar-year data; standard DEB model with sourced Pacific and eastern oyster parameters; calibration pipeline and eastern oyster X_K calibration with held-out validation (P2.6); Maine time to market (P2.7); farm layer and nitrogen accounting with sourced parameters.
+- Open: X_K is weakly identified (calibration site near food saturation); disease bar coordinates; Wells NERRS (CDMO IP registration); Maine DMR closure history (state GIS down).
+- Not started: risk layer (Phase 4, needs Ragone Calvo et al. 2001 PDF), decision layer (Phase 5), farm-data readiness (Phase 6).
 
 ## Related work to build on, not duplicate
 
