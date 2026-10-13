@@ -1,0 +1,6 @@
+title = "Dermo intensity thresholds used for reporting (P4.3)"
+
+[critical_mean_intensity]
+value = 3.0
+units = "mean intensity, 0-7 scale (all oysters, zeros included)"
+source = "Maryland DNR, Maryland Oyster Population Status Report: 2024 Fall Survey, p. 22 (PDF p. 25): sample mean intensity 3.0 or greater is the 'high range', the 'problematic high intensity category'; 1999-2002 drought years averaged 3.4 and 'contributed to historically high mortalities'"
