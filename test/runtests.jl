@@ -10,5 +10,6 @@ using Test
     include("test_farm.jl")
     include("test_nitrogen.jl")
     include("test_dermo.jl")
+    include("test_stochastic.jl")
     include("test_aqua.jl")
 end

@@ -16,7 +16,7 @@ using ForwardDiff
 using LinearAlgebra: I, Symmetric, diag
 using Optimization: Optimization, OptimizationFunction, OptimizationProblem, AutoForwardDiff
 using OptimizationOptimJL: LBFGS
-using Random: AbstractRNG
+using Random: AbstractRNG, Xoshiro
 using Statistics: mean, quantile
 using Turing: @model, NUTS, MvNormal, Normal, Uniform, arraydist, sample, truncated
 
@@ -30,6 +30,7 @@ include("calibration.jl")
 include("farm.jl")
 include("nitrogen.jl")
 include("dermo.jl")
+include("stochastic.jl")
 
 export ContractError, ColumnSpec, TableSpec, CONTRACT_SPECS
 export validate_table, validate_sites, validate_forcing_daily, validate_closures,
@@ -41,6 +42,7 @@ export DEBParams, with_values, arrhenius_factor, functional_response, salinity_f
 export forcing_for_site, continuous_blocks, longest_block, time_to_market
 export DermoParams, dermo_division_rate, dermo_mortality_rate, dermo_transmission_cells, dermo_step,
        simulate_dermo, rank_to_log10_cells
+export run_ensemble, farm_outcome
 export NitrogenParams, nitrogen_per_oyster_g, nitrogen_removed_g
 export FarmParams, Cohort, HarvestRule, max_ingestion_ug_d, depleted_food, simulate_farm
 export CalibrationProblem, predict_shell_height, sum_squared_error, fit_least_squares, fit_bayesian

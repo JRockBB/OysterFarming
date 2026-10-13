@@ -111,21 +111,26 @@ function depleted_food(X_in::Real, total_max_ingestion_ug_d::Real, X_K::Real, fp
 end
 
 """
-    simulate_farm(p, fp, forcing, cohorts, rule; depletion=true) -> (daily, harvests)
+    simulate_farm(p, fp, forcing, cohorts, rule; depletion=true, closed_dates=Set{Date}(),
+                  extra_mortality_d=d -> 0.0) -> (daily, harvests)
 
 Run cohorts on one lease over consecutive forcing days (one site). Each day:
 (1) food around the lease from [`depleted_food`](@ref) using all live oysters
 (or the inflow food if `depletion=false`); (2) every seeded cohort advances one
-DEB day; (3) background mortality removes a fraction 1 − exp(−m); (4) cohorts at
-market size are harvested within the weekly capacity.
+DEB day; (3) mortality removes a fraction 1 − exp(−(m + m_x)), where m is the
+background rate and m_x = `extra_mortality_d(date)` an optional additional daily
+rate (e.g. disease, PLAN.md P4.6); (4) cohorts at market size are harvested
+within the weekly capacity, except on `closed_dates` (harvest closures).
 
 Returns `daily` (one row per cohort per day after seeding: `date`, `cohort_id`,
 `n_alive`, `n_dead`, `n_harvested`, `shell_height_mm`, `dry_tissue_g`,
-`food_in_ug_l`, `food_ug_l`) and `harvests` (`date`, `cohort_id`, `count`,
+`food_in_ug_l`, `food_ug_l`, `harvest_blocked` = market-size oysters present on a
+closed day) and `harvests` (`date`, `cohort_id`, `count`,
 `shell_height_mm`, `dry_tissue_g`). Counts are expected numbers (real-valued).
 """
 function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractVector{Cohort},
-                       rule::HarvestRule; depletion::Bool=true, food_col::Symbol=:chl_ug_l)
+                       rule::HarvestRule; depletion::Bool=true, food_col::Symbol=:chl_ug_l,
+                       closed_dates::AbstractSet{Date}=Set{Date}(), extra_mortality_d::Function=d -> 0.0)
     df = DataFrame(forcing; copycols=false)
     n = nrow(df)
     n > 0 || throw(ArgumentError("forcing is empty"))
@@ -142,11 +147,10 @@ function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractV
     steppers = Vector{Union{Nothing,IndividualStepper}}(nothing, k)
     alive = zeros(k); dead = zeros(k); harvested = zeros(k)
     V = zeros(k); E = zeros(k); E_R = zeros(k)
-    survival = exp(-fp.mortality_rate_d)
 
     daily = DataFrame(date=Date[], cohort_id=String[], n_alive=Float64[], n_dead=Float64[],
                       n_harvested=Float64[], shell_height_mm=Float64[], dry_tissue_g=Float64[],
-                      food_in_ug_l=Float64[], food_ug_l=Float64[])
+                      food_in_ug_l=Float64[], food_ug_l=Float64[], harvest_blocked=Bool[])
     harvests = DataFrame(date=Date[], cohort_id=String[], count=Float64[], shell_height_mm=Float64[],
                          dry_tissue_g=Float64[])
     week = Date(0)
@@ -171,6 +175,10 @@ function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractV
             X = depleted_food(X_in, demand, p.X_K, fp)
         end
         f = functional_response(X, p.X_K)
+        m_x = extra_mortality_d(date)
+        m_x >= 0 || throw(DomainError(m_x, "extra mortality rate must be non-negative"))
+        survival = exp(-(fp.mortality_rate_d + m_x))
+        closed = date in closed_dates
         if firstdayofweek(date) != week
             week = firstdayofweek(date)
             used_this_week = 0.0
@@ -185,7 +193,10 @@ function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractV
             dead[j] += died
             sh = shell_height_mm(V[j], p.delta_M)
             dw = dry_tissue_g(E[j], V[j], E_R[j], p)
-            if sh >= rule.market_shell_height_mm && alive[j] > 0
+            blocked = false
+            if sh >= rule.market_shell_height_mm && alive[j] > 0 && closed
+                blocked = true
+            elseif sh >= rule.market_shell_height_mm && alive[j] > 0
                 take = min(alive[j], rule.weekly_capacity - used_this_week)
                 if take > 0
                     alive[j] -= take
@@ -194,7 +205,7 @@ function simulate_farm(p::DEBParams, fp::FarmParams, forcing, cohorts::AbstractV
                     push!(harvests, (date, cs[j].id, take, sh, dw))
                 end
             end
-            push!(daily, (date, cs[j].id, alive[j], dead[j], harvested[j], sh, dw, X_in, X))
+            push!(daily, (date, cs[j].id, alive[j], dead[j], harvested[j], sh, dw, X_in, X, blocked))
         end
     end
     return daily, harvests
