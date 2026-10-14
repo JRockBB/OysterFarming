@@ -20,6 +20,7 @@ Commands
   closures-fetch [--overwrite] download Maine DMR NSSP classifications for the
                              growing areas of the Maine sites
   closures                   write data/processed/closures.arrow and closures_report.md
+  greatbay-fetch [--overwrite] download NH Great Bay Dermo report and NERRS sondes
   farm-ingest FOLDER OUT      convert filled farm templates (docs/farm_templates) to
                              contract tables in OUT, with an anonymous site id
 """
@@ -40,7 +41,7 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import (boothbay_dmr, dmr_aquaculture, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
+from oyster_data.sources import (nh_greatbay, boothbay_dmr, dmr_aquaculture, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
                                  mddnr_fall_survey, nerrs_ncei, neracoos, viirs_chl, zenodo_growth)
 
 
@@ -155,6 +156,13 @@ def build_forcing(raw_dir: Path = RAW_DIR, out_dir: Path = PROCESSED_DIR) -> tup
     else:
         filled = pd.concat([filled, ches], ignore_index=True)
         reports += ches_reports
+    try:
+        nh, nh_reports = nh_greatbay.build_forcing(raw_dir)
+    except FileNotFoundError as err:
+        print(f"Great Bay sites skipped (run greatbay-fetch): {err}")
+    else:
+        filled = pd.concat([filled, nh], ignore_index=True)
+        reports += nh_reports
     table = to_forcing_table(filled)
     out = out_dir / "forcing_daily.arrow"
     write_contract(table, out, "forcing_daily")
@@ -181,6 +189,8 @@ def main(argv: list[str] | None = None) -> int:
     df_ = sub.add_parser("disease-fetch", help="download MD DNR Fall Survey report")
     df_.add_argument("--overwrite", action="store_true")
     sub.add_parser("disease", help="write disease_obs.arrow")
+    gb = sub.add_parser("greatbay-fetch", help="download the NH Great Bay Dermo report and NERRS sondes")
+    gb.add_argument("--overwrite", action="store_true")
     gf = sub.add_parser("growth-fetch", help="download Zenodo growth data")
     gf.add_argument("--overwrite", action="store_true")
     sub.add_parser("growth", help="write growth_obs.arrow")
@@ -211,9 +221,16 @@ def main(argv: list[str] | None = None) -> int:
             print(f"saved {mddnr_fall_survey.fetch(overwrite=args.overwrite)}")
         except FileExistsError as err:
             print(f"skipped: {err}")
+    elif args.command == "greatbay-fetch":
+        try:
+            print(f"saved {nh_greatbay.fetch_report(overwrite=args.overwrite)}")
+        except FileExistsError as err:
+            print(f"skipped: {err}")
+        print(f"sondes: {len(nh_greatbay.fetch_sondes(overwrite=args.overwrite))} files saved")
     elif args.command == "disease":
         out = PROCESSED_DIR / "disease_obs.arrow"
-        write_contract(mddnr_fall_survey.disease_obs(*mddnr_fall_survey.load_pages()), out, "disease_obs")
+        write_contract(pa.concat_tables([mddnr_fall_survey.disease_obs(*mddnr_fall_survey.load_pages()),
+                                         nh_greatbay.disease_obs()]), out, "disease_obs")
         print(f"wrote {out}")
         out = PROCESSED_DIR / "mortality_obs.arrow"
         write_contract(mddnr_fall_survey.mortality_obs(mddnr_fall_survey.load_mortality_pages()), out, "mortality_obs")

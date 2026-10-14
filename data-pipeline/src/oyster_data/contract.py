@@ -69,7 +69,7 @@ SPECS: dict[str, TableSpec] = {
             Column("name", "string"),
             Column("lat", "float64", lo=-90, hi=90),
             Column("lon", "float64", lo=-180, hi=180),
-            Column("region", "string", allowed=("maine", "chesapeake")),
+            Column("region", "string", allowed=("maine", "chesapeake", "great_bay_nh")),
             Column("growing_area", "string", nullable=True),
             Column("notes", "string", nullable=True),
         ),

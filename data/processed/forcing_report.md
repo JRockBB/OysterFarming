@@ -1195,3 +1195,158 @@ Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
 | variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
 |---|---|---|---|---|---|---|
 | temp_c | coops_8577330_water_temperature | 3120 | -0.021 + 1.031 x | 0.972 | 1.505 | 6724 |
+
+## nh_adams_point
+
+Range 1995-01-01 to 2011-12-31: 6209 days, 3745 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 3358 | 54.1 |
+| temp_c | missing | 2435 | 39.2 |
+| temp_c | regression:nerrs_grborwq_temp_c | 197 | 3.2 |
+| temp_c | linear | 154 | 2.5 |
+| temp_c | regression:nerrs_grbsqwq_temp_c | 45 | 0.7 |
+| temp_c | regression:nerrs_grblrwq_temp_c | 20 | 0.3 |
+| salinity_psu | observed | 3244 | 52.2 |
+| salinity_psu | missing | 2464 | 39.7 |
+| salinity_psu | regression:nerrs_grborwq_salinity_psu | 244 | 3.9 |
+| salinity_psu | linear | 176 | 2.8 |
+| salinity_psu | regression:nerrs_grbsqwq_salinity_psu | 49 | 0.8 |
+| salinity_psu | regression:nerrs_grblrwq_salinity_psu | 32 | 0.5 |
+| chl_ug_l | missing | 6209 | 100.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_grborwq_temp_c | 1918 | 0.742 + 0.905 x | 0.974 | 0.876 | 197 |
+| temp_c | nerrs_grbsqwq_temp_c | 2576 | 1.142 + 0.875 x | 0.981 | 0.760 | 45 |
+| temp_c | nerrs_grblrwq_temp_c | 2406 | 1.771 + 0.840 x | 0.965 | 1.023 | 20 |
+| salinity_psu | nerrs_grborwq_salinity_psu | 1824 | 5.873 + 0.839 x | 0.830 | 2.466 | 244 |
+| salinity_psu | nerrs_grbsqwq_salinity_psu | 2467 | 9.610 + 0.755 x | 0.873 | 2.137 | 49 |
+| salinity_psu | nerrs_grblrwq_salinity_psu | 2288 | 17.037 + 0.521 x | 0.710 | 3.105 | 32 |
+
+## nh_nannie_island
+
+Range 1995-01-01 to 2011-12-31: 6209 days, 3745 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 3358 | 54.1 |
+| temp_c | missing | 2435 | 39.2 |
+| temp_c | regression:nerrs_grborwq_temp_c | 197 | 3.2 |
+| temp_c | linear | 154 | 2.5 |
+| temp_c | regression:nerrs_grbsqwq_temp_c | 45 | 0.7 |
+| temp_c | regression:nerrs_grblrwq_temp_c | 20 | 0.3 |
+| salinity_psu | observed | 3244 | 52.2 |
+| salinity_psu | missing | 2464 | 39.7 |
+| salinity_psu | regression:nerrs_grborwq_salinity_psu | 244 | 3.9 |
+| salinity_psu | linear | 176 | 2.8 |
+| salinity_psu | regression:nerrs_grbsqwq_salinity_psu | 49 | 0.8 |
+| salinity_psu | regression:nerrs_grblrwq_salinity_psu | 32 | 0.5 |
+| chl_ug_l | missing | 6209 | 100.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_grborwq_temp_c | 1918 | 0.742 + 0.905 x | 0.974 | 0.876 | 197 |
+| temp_c | nerrs_grbsqwq_temp_c | 2576 | 1.142 + 0.875 x | 0.981 | 0.760 | 45 |
+| temp_c | nerrs_grblrwq_temp_c | 2406 | 1.771 + 0.840 x | 0.965 | 1.023 | 20 |
+| salinity_psu | nerrs_grborwq_salinity_psu | 1824 | 5.873 + 0.839 x | 0.830 | 2.466 | 244 |
+| salinity_psu | nerrs_grbsqwq_salinity_psu | 2467 | 9.610 + 0.755 x | 0.873 | 2.137 | 49 |
+| salinity_psu | nerrs_grblrwq_salinity_psu | 2288 | 17.037 + 0.521 x | 0.710 | 3.105 | 32 |
+
+## nh_woodman_point
+
+Range 1995-01-01 to 2011-12-31: 6209 days, 3745 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 3358 | 54.1 |
+| temp_c | missing | 2435 | 39.2 |
+| temp_c | regression:nerrs_grborwq_temp_c | 197 | 3.2 |
+| temp_c | linear | 154 | 2.5 |
+| temp_c | regression:nerrs_grbsqwq_temp_c | 45 | 0.7 |
+| temp_c | regression:nerrs_grblrwq_temp_c | 20 | 0.3 |
+| salinity_psu | observed | 3244 | 52.2 |
+| salinity_psu | missing | 2464 | 39.7 |
+| salinity_psu | regression:nerrs_grborwq_salinity_psu | 244 | 3.9 |
+| salinity_psu | linear | 176 | 2.8 |
+| salinity_psu | regression:nerrs_grbsqwq_salinity_psu | 49 | 0.8 |
+| salinity_psu | regression:nerrs_grblrwq_salinity_psu | 32 | 0.5 |
+| chl_ug_l | missing | 6209 | 100.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_grborwq_temp_c | 1918 | 0.742 + 0.905 x | 0.974 | 0.876 | 197 |
+| temp_c | nerrs_grbsqwq_temp_c | 2576 | 1.142 + 0.875 x | 0.981 | 0.760 | 45 |
+| temp_c | nerrs_grblrwq_temp_c | 2406 | 1.771 + 0.840 x | 0.965 | 1.023 | 20 |
+| salinity_psu | nerrs_grborwq_salinity_psu | 1824 | 5.873 + 0.839 x | 0.830 | 2.466 | 244 |
+| salinity_psu | nerrs_grbsqwq_salinity_psu | 2467 | 9.610 + 0.755 x | 0.873 | 2.137 | 49 |
+| salinity_psu | nerrs_grblrwq_salinity_psu | 2288 | 17.037 + 0.521 x | 0.710 | 3.105 | 32 |
+
+## nh_oyster_river
+
+Range 1995-01-01 to 2011-12-31: 6209 days, 3745 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | missing | 2435 | 39.2 |
+| temp_c | observed | 2162 | 34.8 |
+| temp_c | regression:nerrs_grbgbwq_temp_c | 1409 | 22.7 |
+| temp_c | linear | 103 | 1.7 |
+| temp_c | regression:nerrs_grbsqwq_temp_c | 77 | 1.2 |
+| temp_c | regression:nerrs_grblrwq_temp_c | 23 | 0.4 |
+| salinity_psu | missing | 2464 | 39.7 |
+| salinity_psu | observed | 2120 | 34.1 |
+| salinity_psu | regression:nerrs_grbgbwq_salinity_psu | 1389 | 22.4 |
+| salinity_psu | linear | 110 | 1.8 |
+| salinity_psu | regression:nerrs_grbsqwq_salinity_psu | 88 | 1.4 |
+| salinity_psu | regression:nerrs_grblrwq_salinity_psu | 38 | 0.6 |
+| chl_ug_l | missing | 6209 | 100.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_grbgbwq_temp_c | 1918 | -0.374 + 1.076 x | 0.974 | 0.955 | 1409 |
+| temp_c | nerrs_grbsqwq_temp_c | 1991 | 0.553 + 0.963 x | 0.983 | 0.772 | 77 |
+| temp_c | nerrs_grblrwq_temp_c | 1956 | 1.210 + 0.924 x | 0.968 | 1.075 | 23 |
+| salinity_psu | nerrs_grbgbwq_salinity_psu | 1824 | -2.538 + 0.990 x | 0.830 | 2.679 | 1389 |
+| salinity_psu | nerrs_grbsqwq_salinity_psu | 1938 | 5.108 + 0.854 x | 0.911 | 1.960 | 88 |
+| salinity_psu | nerrs_grblrwq_salinity_psu | 1916 | 13.418 + 0.618 x | 0.765 | 3.151 | 38 |
+
+## nh_squamscott_river
+
+Range 1995-01-01 to 2011-12-31: 6209 days, 3745 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 2861 | 46.1 |
+| temp_c | missing | 2435 | 39.2 |
+| temp_c | regression:nerrs_grbgbwq_temp_c | 630 | 10.1 |
+| temp_c | linear | 229 | 3.7 |
+| temp_c | regression:nerrs_grborwq_temp_c | 36 | 0.6 |
+| temp_c | regression:nerrs_grblrwq_temp_c | 18 | 0.3 |
+| salinity_psu | observed | 2798 | 45.1 |
+| salinity_psu | missing | 2464 | 39.7 |
+| salinity_psu | regression:nerrs_grbgbwq_salinity_psu | 617 | 9.9 |
+| salinity_psu | linear | 239 | 3.8 |
+| salinity_psu | regression:nerrs_grborwq_salinity_psu | 53 | 0.9 |
+| salinity_psu | regression:nerrs_grblrwq_salinity_psu | 38 | 0.6 |
+| chl_ug_l | missing | 6209 | 100.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | nerrs_grbgbwq_temp_c | 2576 | -0.960 + 1.120 x | 0.981 | 0.859 | 630 |
+| temp_c | nerrs_grborwq_temp_c | 1991 | -0.292 + 1.022 x | 0.983 | 0.796 | 36 |
+| temp_c | nerrs_grblrwq_temp_c | 2346 | 0.769 + 0.950 x | 0.983 | 0.790 | 18 |
+| salinity_psu | nerrs_grbgbwq_salinity_psu | 2467 | -8.895 + 1.157 x | 0.873 | 2.645 | 617 |
+| salinity_psu | nerrs_grborwq_salinity_psu | 1938 | -3.944 + 1.066 x | 0.911 | 2.190 | 53 |
+| salinity_psu | nerrs_grblrwq_salinity_psu | 2280 | 9.699 + 0.719 x | 0.885 | 2.476 | 38 |

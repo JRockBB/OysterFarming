@@ -69,7 +69,7 @@ const CONTRACT_SPECS = Dict{String,TableSpec}(
         ColumnSpec("name", :string),
         ColumnSpec("lat", :float64; lo=-90, hi=90),
         ColumnSpec("lon", :float64; lo=-180, hi=180),
-        ColumnSpec("region", :string; allowed_str=["maine", "chesapeake"]),
+        ColumnSpec("region", :string; allowed_str=["maine", "chesapeake", "great_bay_nh"]),
         ColumnSpec("growing_area", :string; nullable=true),
         ColumnSpec("notes", :string; nullable=true),
     ]; unique_key=["site_id"]),
