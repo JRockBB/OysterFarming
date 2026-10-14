@@ -46,7 +46,7 @@ export forcing_for_site, continuous_blocks, longest_block, time_to_market
 export DermoParams, dermo_division_rate, dermo_mortality_rate, dermo_transmission_cells, dermo_step,
        simulate_dermo, rank_to_log10_cells, cells_to_intensity, dermo_excess_mortality_d
 export run_ensemble, farm_outcome
-export EconParams, farm_cashflows, npv
+export EconParams, farm_cashflows, npv, price_at, capital_outlay
 export FarmDecision, DecisionSetup, evaluate_decision, grid_search, weighted_quantile
 export VibrioRule, in_vibrio_control, vibrio_capacity, vibrio_handling_cost
 export NitrogenParams, nitrogen_per_oyster_g, nitrogen_removed_g

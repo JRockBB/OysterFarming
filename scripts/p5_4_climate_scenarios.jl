@@ -7,8 +7,8 @@
 #   growth: params/deb_c_virginica.toml with calibrated X_K (params/deb_c_virginica_xk.toml), 20 mm seed, 76 mm market
 #   economics: X_K posterior-quantile scenarios and the scenario inputs of scripts/p5_3_grid_search.jl
 #   Dermo: published Ragone Calvo et al. (2001) model (screen only, see PLAN.md P4.2/P4.3)
-# The farm table carries the P5.3 caveats (harvest capacity, one price for all sizes, horizon truncation,
-# Maryland costs); compare scenarios with each other, not as absolute values.
+# The farm table carries the P5.3 caveats (MAA-derived harvest capacity, horizon truncation with no value for
+# unharvested stock, 2019 Maine costs); compare scenarios with each other, not as absolute values.
 #
 # Usage: julia --project scripts/p5_4_climate_scenarios.jl [dT1 dT2 ...]
 # Writes outputs/p5_4/scenarios.md and .arrow.
@@ -24,11 +24,14 @@ const SEED_MM = 20.0
 const MARKET_MM = 76.0
 const INIT_FOOD_DAYS = 14
 # Farm scenario inputs, as in scripts/p5_3_grid_search.jl
-const WEEKLY_CAPACITY = 10_000.0
+# Weekly harvest capacity, derived from the MAA 2020 benchmarking Tables: employee hours per week
+# (Table 13: 2.8 full-time x 38 h + 2.5 part-time x 23.1 h = 164.2 h) x 65 singles harvested per hour of labor
+# (Table 42, established suspended farms) = 10,670 oysters/week. Table 13 covers all Maine shellfish and seaweed farms.
+const WEEKLY_CAPACITY = 10_670.0
 const N_COHORTS = 2
 const RISK_Q = 0.1
-const SEED_MONTHS = [5, 7, 10]
-const SEEDS = [400_000.0, 1_600_000.0]
+const SEED_MONTHS = [4, 5, 7, 10]
+const SEEDS = [100_000.0, 200_000.0, 400_000.0, 800_000.0]
 
 P(file) = load_params(joinpath(ROOT, "params", file))
 vir = P("deb_c_virginica.toml")
@@ -38,7 +41,7 @@ qs = sort([k for k in keys(xk) if startswith(k, "X_K_posterior_q")])
 length(qs) == 5 || error("rerun scripts/p2_6_virginica_calibration.jl to export X_K posterior quantiles")
 scenarios = [(0.2, DEBParams(vir; X_K=xk[k].value)) for k in qs]
 farm = FarmParams(merge(P("farm_damariscotta.toml"), P("deb_c_virginica_clearance.toml")))
-econ = EconParams(P("economics_reference_farm.toml"))
+econ = EconParams(P("economics_maine_maa.toml"))
 nitro = NitrogenParams(P("nitrogen_chesapeake_bmp.toml"))
 vib = VibrioRule(P("vibrio_maine.toml"))
 dermo = DermoParams(P("dermo_ragone_calvo2001.toml"))

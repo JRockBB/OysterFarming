@@ -1,0 +1,76 @@
+title = "Maine oyster farm economics (PLAN.md P5.1 revision)"
+notes = "Costs and price from the Maine Aquaculture Association benchmarking study: Engle, C.R., van Senten, J., Schwarz, M.H., Brayden, B., Belle, S. (2020) Benchmarks for Mussel, Oyster, Scallop, and Seaweed Culture in Maine, Maine Aquaculture Association, July 2020 (2019 survey; files 'Maine Aquaculture Industry Benchmarking Tables.pdf' and '...Report.pdf'). Values are means for established (> 5 years) suspended-culture oyster farms, in about 2019 dollars. Size price differences from UMass Dartmouth (2015), Massachusetts Shellfish Aquaculture Economic Impact Study, p. 18. Replaces params/economics_reference_farm.toml (Maryland 2018) for Maine runs; that file is kept."
+
+[price_per_oyster]
+value = 0.72
+units = "USD per oyster"
+source = "MAA 2020 benchmarking Tables, Table 33 (p. 36): market price, weighted average, established suspended oyster farms, mean 0.72 (median 0.76, range 0.55-0.85)"
+notes = "All-size average. Used only if no size tiers are read; the tiers below are scaled so their Massachusetts sales mix reproduces this average."
+
+[petite_min_shell_height_mm]
+value = 63.5
+units = "mm"
+source = "UMass Dartmouth 2015, Massachusetts Shellfish Aquaculture Economic Impact Study (https://seagrant.whoi.edu/wp-content/uploads/2015/01/MA-Aquaculture-Economic-Impact-Study-2015.pdf), p. 17 (pdf p. 20): petites 2.5-3 inches"
+notes = "2.5 in = 63.5 mm. Oysters below this size get no price (no sales class)."
+
+[legal_min_shell_height_mm]
+value = 76.2
+units = "mm"
+source = "UMass Dartmouth 2015, p. 17 (pdf p. 20): legal 3 inches and up"
+notes = "3 in = 76.2 mm. The report's 'Other (Large/Jumbo/XL)' class (0.5 % of volume, 0.51 USD) has no stated size boundary and is not used."
+
+[price_legal]
+value = 0.7400
+units = "USD per oyster"
+source = "Derived: 0.72 (MAA Table 33) / (w_p * 0.52/0.60 + w_l), with Massachusetts 2013 class prices (petite 0.52, legal 0.60 USD) and volumes (petite 3,855,783; legal 15,175,345) from UMass Dartmouth 2015, p. 18 (pdf p. 21); w_p = 0.2026, w_l = 0.7974"
+notes = "Keeps the Massachusetts petite/legal price ratio (0.867) and makes the volume-weighted average equal the Maine mean price."
+
+[price_petite]
+value = 0.6413
+units = "USD per oyster"
+source = "Derived: price_legal * 0.52/0.60 (UMass Dartmouth 2015, p. 18)"
+
+[seed_cost_per_seed]
+value = 0.009
+units = "USD per seed"
+source = "Engle & van Senten, Economic Analysis of Oyster Production in Maryland (NOAA IR noaa/37917), Table 11: triploid seed 0.009 USD each"
+notes = "MAA reports seed only per harvested oyster (0.01 USD, Table 27), not per seed bought, so the per-seed Maryland price is kept."
+
+[variable_cost_per_oyster]
+value = 0.5311
+units = "USD per harvested oyster"
+source = "MAA 2020 benchmarking Tables, Table 27 (p. 30), established suspended oyster farms, means in USD per single: labor 0.37, repairs 0.01, electricity 0.002, fuel 0.01, other variable 0.02, marketing 0.08, operating interest 0.0001, management 0.02, insurance 0.01, lease/permit 0.002, legal & accounting 0.006, taxes 0.001"
+notes = "Derived sum (0.5311), excluding seed (charged per seed) and depreciation (capital is charged up front). The study reports ownership costs per oyster, so they are included here instead of as a yearly fixed cost. Cross-check: COGS 0.51 USD per single (Table 30)."
+
+[fixed_cost_per_year]
+value = 0.0
+units = "USD per year"
+source = "MAA 2020 benchmarking Tables, Table 27: ownership costs are reported per oyster and are included in variable_cost_per_oyster"
+
+[capital_investment]
+value = 0.0
+units = "USD"
+source = "No farm-level fixed capital: capital scales with acres planted (capital_per_acre)"
+
+[capital_per_acre]
+value = 40395.0
+units = "USD per planted acre"
+source = "MAA 2020 benchmarking Tables, Table 24 (p. 27): startup costs per acre planted, established suspended oyster farms, mean 40,395 (median 34,778)"
+notes = "Charged once at the start of the horizon; straight-line salvage value credited at the end (capital_life_years)."
+
+[seeds_per_acre]
+value = 214985.0
+units = "seeds per planted acre per year"
+source = "MAA 2020 benchmarking Tables, Table 24 (p. 27): number of seed purchased per acre, established suspended oyster farms, mean 214,985 (median 159,109)"
+
+[capital_life_years]
+value = 10.0
+units = "yr"
+source = "Engle & van Senten, Economic Analysis of Oyster Production in Maryland (NOAA IR noaa/37917), Table 12: useful lives of capital items 4-15 years, median 10"
+notes = "MAA gives no item lives. Used for straight-line salvage value at the end of the model horizon."
+
+[discount_rate]
+value = 0.10
+units = "yr^-1"
+source = "Engle & van Senten, NOAA IR noaa/37917, Table 11: interest on operating capital and on capital invested at 0.10"
+notes = "MAA does not state a discount rate; the Maryland budget's rate is kept."

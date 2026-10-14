@@ -3,12 +3,12 @@
 #
 # Biology: params/deb_c_virginica.toml with X_K at the 0.1/0.3/0.5/0.7/0.9 posterior quantiles from
 # params/deb_c_virginica_xk.toml (each weighted 0.2). Diploid settings (spawning rule active).
-# Farm: params/farm_damariscotta.toml (+ clearance rate); economics: params/economics_reference_farm.toml;
+# Farm: params/farm_damariscotta.toml (+ clearance rate); economics: params/economics_maine_maa.toml;
 # nitrogen: params/nitrogen_chesapeake_bmp.toml (diploid tissue regression); Vibrio: params/vibrio_maine.toml.
 # Forcing: longest unbroken block of data/processed/forcing_daily.arrow for the site.
 #
 # Scenario inputs (not parameters; change below): seed size 20 mm, 2 yearly cohorts, weekly harvest capacity
-# 10,000 oysters, no Vibrio capacity reduction and no Vibrio handling cost (no published estimate), risk
+# 10,670 oysters (MAA-derived), no Vibrio capacity reduction and no Vibrio handling cost (no published estimate), risk
 # quantile 0.1 for the lower-NPV objective.
 #
 # Usage: julia --project scripts/p5_3_grid_search.jl [site_id]
@@ -23,7 +23,10 @@ site = isempty(ARGS) ? "dam_upper" : ARGS[1]
 
 const SEED_MM = 20.0
 const N_COHORTS = 2
-const WEEKLY_CAPACITY = 10_000.0
+# Weekly harvest capacity, derived from the MAA 2020 benchmarking Tables: employee hours per week
+# (Table 13: 2.8 full-time x 38 h + 2.5 part-time x 23.1 h = 164.2 h) x 65 singles harvested per hour of labor
+# (Table 42, established suspended farms) = 10,670 oysters/week. Table 13 covers all Maine shellfish and seaweed farms.
+const WEEKLY_CAPACITY = 10_670.0
 const VIBRIO_CAPACITY_FACTOR = 1.0
 const VIBRIO_COST_PER_OYSTER = 0.0
 const RISK_Q = 0.1
@@ -42,7 +45,7 @@ setup = DecisionSetup(longest_block(forcing_for_site(read_contract(joinpath(ROOT
                                                                          "forcing_daily.arrow"), "forcing_daily"), site)),
                       scenarios,
                       FarmParams(merge(P("farm_damariscotta.toml"), P("deb_c_virginica_clearance.toml"))),
-                      EconParams(P("economics_reference_farm.toml")), NitrogenParams(P("nitrogen_chesapeake_bmp.toml")),
+                      EconParams(P("economics_maine_maa.toml")), NitrogenParams(P("nitrogen_chesapeake_bmp.toml")),
                       VibrioRule(P("vibrio_maine.toml")), WEEKLY_CAPACITY, VIBRIO_CAPACITY_FACTOR,
                       VIBRIO_COST_PER_OYSTER, SEED_MM, N_COHORTS, RISK_Q)
 
