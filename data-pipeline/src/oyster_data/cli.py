@@ -95,7 +95,7 @@ def cmd_secondary_fetch(overwrite: bool) -> int:
 
 def cmd_chesapeake_fetch(overwrite: bool) -> int:
     jobs = []
-    for site in chesapeake_sites.SITES + chesapeake_sites.BAR_SITES:
+    for site in chesapeake_sites.SITES + chesapeake_sites.BAR_SITES + chesapeake_sites.BAR_SITES_EXTRA:
         first, last = int(site.start[:4]), int(site.end[:4])
         for st in (site.coops_station, *site.coops_secondaries):
             jobs += [(lambda st=st, y=y: coops.fetch_year(st, y, overwrite=overwrite))

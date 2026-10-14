@@ -10,7 +10,9 @@ Rules (processing choices, recorded here and in forcing_report.md):
    given for a variable (in priority order), fit ``site = a + b * station`` by
    ordinary least squares on days where the site was observed and the station
    has data (at least ``MIN_OVERLAP_DAYS``), then fill remaining gaps on days the
-   station has data. Fit statistics are reported.
+   station has data. Filled values are clipped to the range observed at the site,
+   so a fitted line cannot extrapolate beyond measured conditions (e.g. below the
+   freezing point). Fit statistics are reported.
 4. Remaining gaps: the same site's day-of-year climatology, the mean of observed
    values within +/- ``CLIM_HALF_WINDOW_DAYS`` days of that day of year (circular
    across the new year), pooled over all years. Used only where no secondary
@@ -141,7 +143,8 @@ def fill_series(series: pd.Series, max_linear: int = MAX_LINEAR_GAP_DAYS,
         fit.station = name
         st = station.reindex(values.index)
         gap = values.isna() & st.notna()
-        values.loc[gap] = fit.intercept + fit.slope * st[gap]
+        lo, hi = series.min(), series.max()
+        values.loc[gap] = (fit.intercept + fit.slope * st[gap]).clip(lower=lo, upper=hi)
         method.loc[gap] = REGRESSION_PREFIX + name
         fit.n_filled = int(gap.sum())
         fits.append(fit)

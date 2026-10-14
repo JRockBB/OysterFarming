@@ -89,7 +89,8 @@ def test_regression_fill_from_secondary() -> None:
     site.iloc[100:140] = np.nan
     vals, meth, fits = gapfill.fill_series(site, secondaries=[("stationA", station)])
     assert (meth.iloc[100:140] == "regression:stationA").all()
-    assert np.allclose(vals.iloc[100:140], 1 + 2 * station.iloc[100:140])
+    # filled values are clipped to the observed range; the gap trough is ~1e-4 below the observed minimum
+    assert np.allclose(vals.iloc[100:140], 1 + 2 * station.iloc[100:140], atol=1e-3)
     assert len(fits) == 1 and fits[0].r2 > 0.999 and fits[0].n_filled == 40
     assert fits[0].slope == pytest.approx(2) and fits[0].intercept == pytest.approx(1)
 
@@ -129,3 +130,16 @@ def test_final_pass_bridges_short_gap_between_filled_values() -> None:
     vals, meth, _ = gapfill.fill_series(site, secondaries=[("st", station)], climatology_fill=False)
     assert (meth.iloc[90:95] == "linear").all()
     assert vals.iloc[50:150].notna().all()
+
+
+def test_regression_fill_is_clipped_to_observed_range():
+    # SYNTHETIC: station runs colder than anything observed at the site
+    import numpy as np
+    import pandas as pd
+    from oyster_data import gapfill
+    idx = pd.date_range("2020-01-01", periods=100, freq="D")
+    station = pd.Series(np.linspace(-5.0, 15.0, 100), index=idx)
+    site = station * 0.5 + 2.0
+    site.iloc[:20] = np.nan                       # gap where the station is coldest
+    filled, method, fits = gapfill.fill_series(site, secondaries=[("st", station)])
+    assert fits and filled.iloc[:20].min() >= site.min()

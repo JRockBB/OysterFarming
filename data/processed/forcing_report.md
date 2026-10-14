@@ -310,3 +310,888 @@ Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
 |---|---|---|---|---|---|---|
 | temp_c | coops_8571892_water_temperature | 4995 | 0.415 + 0.986 x | 0.970 | 1.577 | 4508 |
 | temp_c | coops_8577330_water_temperature | 5186 | -0.852 + 1.035 x | 0.936 | 2.311 | 266 |
+
+## mddnr_holland_point
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 5388 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8571892_water_temperature | 7962 | 77.4 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 5324 | 51.7 |
+| salinity_psu | missing | 4651 | 45.2 |
+| salinity_psu | observed | 305 | 3.0 |
+| salinity_psu | regression:cbp_CB4.2W_salinity_psu | 8 | 0.1 |
+| chl_ug_l | linear | 5340 | 51.9 |
+| chl_ug_l | missing | 4651 | 45.2 |
+| chl_ug_l | observed | 289 | 2.8 |
+| chl_ug_l | regression:cbp_CB4.2W_chl_ug_l | 8 | 0.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 1613 | 1.778 + 0.975 x | 0.986 | 1.020 | 7962 |
+| salinity_psu | cbp_CB4.2W_salinity_psu | 304 | -0.643 + 0.993 x | 0.922 | 0.829 | 8 |
+| chl_ug_l | cbp_CB4.2W_chl_ug_l | 288 | 7.891 + 0.558 x | 0.255 | 11.064 | 8 |
+
+## mddnr_stone_rock
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9279 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 5319 | 51.7 |
+| salinity_psu | regression:cbp_CB4.2C_salinity_psu | 4234 | 41.2 |
+| salinity_psu | missing | 432 | 4.2 |
+| salinity_psu | observed | 303 | 2.9 |
+| chl_ug_l | linear | 5333 | 51.8 |
+| chl_ug_l | regression:cbp_CB4.2C_chl_ug_l | 4234 | 41.2 |
+| chl_ug_l | missing | 432 | 4.2 |
+| chl_ug_l | observed | 289 | 2.8 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_CB4.2C_salinity_psu | 303 | 1.777 + 0.894 x | 0.933 | 0.709 | 4234 |
+| chl_ug_l | cbp_CB4.2C_chl_ug_l | 289 | 0.999 + 0.746 x | 0.583 | 4.594 | 4234 |
+
+## mddnr_flag_pond
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10050 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9872 | 96.0 |
+| temp_c | regression:coops_8571892_water_temperature | 196 | 1.9 |
+| temp_c | missing | 155 | 1.5 |
+| temp_c | linear | 65 | 0.6 |
+| salinity_psu | linear | 9539 | 92.7 |
+| salinity_psu | observed | 415 | 4.0 |
+| salinity_psu | regression:cbp_LE1.2_salinity_psu | 251 | 2.4 |
+| salinity_psu | missing | 83 | 0.8 |
+| chl_ug_l | linear | 9539 | 92.7 |
+| chl_ug_l | observed | 415 | 4.0 |
+| chl_ug_l | regression:cbp_LE1.2_chl_ug_l | 222 | 2.2 |
+| chl_ug_l | missing | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 9329 | 1.340 + 0.930 x | 0.961 | 1.699 | 196 |
+| salinity_psu | cbp_LE1.2_salinity_psu | 409 | 1.057 + 1.022 x | 0.805 | 1.431 | 251 |
+| chl_ug_l | cbp_LE1.2_chl_ug_l | 408 | 6.606 + 0.281 x | 0.176 | 5.944 | 222 |
+
+## mddnr_butler
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9918 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 10068 | 97.9 |
+| temp_c | regression:coops_8577330_water_temperature | 151 | 1.5 |
+| temp_c | linear | 69 | 0.7 |
+| salinity_psu | linear | 9481 | 92.2 |
+| salinity_psu | observed | 415 | 4.0 |
+| salinity_psu | missing | 370 | 3.6 |
+| salinity_psu | regression:cbp_LE2.3_salinity_psu | 22 | 0.2 |
+| chl_ug_l | linear | 9481 | 92.2 |
+| chl_ug_l | observed | 415 | 4.0 |
+| chl_ug_l | missing | 370 | 3.6 |
+| chl_ug_l | regression:cbp_LE2.3_chl_ug_l | 22 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9654 | 0.601 + 0.963 x | 0.909 | 2.614 | 151 |
+| salinity_psu | cbp_LE2.3_salinity_psu | 406 | 1.920 + 0.913 x | 0.867 | 1.132 | 22 |
+| chl_ug_l | cbp_LE2.3_chl_ug_l | 407 | 2.267 + 0.692 x | 0.625 | 3.166 | 22 |
+
+## mddnr_buoy_rock
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9998 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8573364_water_temperature | 8500 | 82.6 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 121 | 1.2 |
+| temp_c | linear | 46 | 0.4 |
+| salinity_psu | linear | 9734 | 94.6 |
+| salinity_psu | observed | 348 | 3.4 |
+| salinity_psu | missing | 181 | 1.8 |
+| salinity_psu | regression:cbp_XGG8251_salinity_psu | 25 | 0.2 |
+| chl_ug_l | linear | 9643 | 93.7 |
+| chl_ug_l | observed | 343 | 3.3 |
+| chl_ug_l | missing | 277 | 2.7 |
+| chl_ug_l | regression:cbp_XGG8251_chl_ug_l | 25 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8573364_water_temperature | 1412 | 1.869 + 0.971 x | 0.987 | 0.974 | 8500 |
+| salinity_psu | cbp_XGG8251_salinity_psu | 347 | -0.103 + 0.968 x | 0.897 | 0.967 | 25 |
+| chl_ug_l | cbp_XGG8251_chl_ug_l | 337 | 4.650 + 0.814 x | 0.428 | 7.288 | 25 |
+
+## mddnr_old_field
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9998 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9917 | 96.4 |
+| temp_c | regression:coops_8575512_water_temperature | 205 | 2.0 |
+| temp_c | missing | 121 | 1.2 |
+| temp_c | linear | 45 | 0.4 |
+| salinity_psu | linear | 9734 | 94.6 |
+| salinity_psu | observed | 348 | 3.4 |
+| salinity_psu | missing | 181 | 1.8 |
+| salinity_psu | regression:cbp_XGG8251_salinity_psu | 25 | 0.2 |
+| chl_ug_l | linear | 9643 | 93.7 |
+| chl_ug_l | observed | 343 | 3.3 |
+| chl_ug_l | missing | 277 | 2.7 |
+| chl_ug_l | regression:cbp_XGG8251_chl_ug_l | 25 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1412 | -1.680 + 1.017 x | 0.987 | 0.997 | 205 |
+| salinity_psu | cbp_XGG8251_salinity_psu | 347 | -0.103 + 0.968 x | 0.897 | 0.967 | 25 |
+| chl_ug_l | cbp_XGG8251_chl_ug_l | 337 | 4.650 + 0.814 x | 0.428 | 7.288 | 25 |
+
+## mddnr_bugby
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9998 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8573364_water_temperature | 8500 | 82.6 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 121 | 1.2 |
+| temp_c | linear | 46 | 0.4 |
+| salinity_psu | linear | 9737 | 94.6 |
+| salinity_psu | observed | 345 | 3.4 |
+| salinity_psu | missing | 181 | 1.8 |
+| salinity_psu | regression:cbp_XGG8251_salinity_psu | 25 | 0.2 |
+| chl_ug_l | linear | 9646 | 93.8 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 277 | 2.7 |
+| chl_ug_l | regression:cbp_XGG8251_chl_ug_l | 25 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8573364_water_temperature | 1412 | 1.869 + 0.971 x | 0.987 | 0.974 | 8500 |
+| salinity_psu | cbp_XGG8251_salinity_psu | 344 | 3.295 + 0.897 x | 0.877 | 0.994 | 25 |
+| chl_ug_l | cbp_XGG8251_chl_ug_l | 334 | 6.020 + 0.507 x | 0.255 | 6.659 | 25 |
+
+## mddnr_parsons_island
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9998 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8573364_water_temperature | 8500 | 82.6 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 121 | 1.2 |
+| temp_c | linear | 46 | 0.4 |
+| salinity_psu | linear | 9737 | 94.6 |
+| salinity_psu | observed | 345 | 3.4 |
+| salinity_psu | missing | 181 | 1.8 |
+| salinity_psu | regression:cbp_XGG8251_salinity_psu | 25 | 0.2 |
+| chl_ug_l | linear | 9646 | 93.8 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 277 | 2.7 |
+| chl_ug_l | regression:cbp_XGG8251_chl_ug_l | 25 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8573364_water_temperature | 1412 | 1.869 + 0.971 x | 0.987 | 0.974 | 8500 |
+| salinity_psu | cbp_XGG8251_salinity_psu | 344 | 3.295 + 0.897 x | 0.877 | 0.994 | 25 |
+| chl_ug_l | cbp_XGG8251_chl_ug_l | 334 | 6.020 + 0.507 x | 0.255 | 6.659 | 25 |
+
+## mddnr_hollicutt_noose
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9279 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8571892_water_temperature | 7962 | 77.4 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 5332 | 51.8 |
+| salinity_psu | regression:cbp_CB4.1C_salinity_psu | 4234 | 41.2 |
+| salinity_psu | missing | 432 | 4.2 |
+| salinity_psu | observed | 290 | 2.8 |
+| chl_ug_l | linear | 5332 | 51.8 |
+| chl_ug_l | regression:cbp_CB4.1C_chl_ug_l | 4234 | 41.2 |
+| chl_ug_l | missing | 432 | 4.2 |
+| chl_ug_l | observed | 290 | 2.8 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 1613 | 1.778 + 0.975 x | 0.986 | 1.020 | 7962 |
+| salinity_psu | cbp_CB4.1C_salinity_psu | 290 | 1.306 + 0.911 x | 0.946 | 0.698 | 4234 |
+| chl_ug_l | cbp_CB4.1C_chl_ug_l | 290 | 4.099 + 0.689 x | 0.432 | 7.395 | 4234 |
+
+## mddnr_bruffs_island
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9446 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8571892_water_temperature | 7962 | 77.4 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 9737 | 94.6 |
+| salinity_psu | observed | 345 | 3.4 |
+| salinity_psu | missing | 181 | 1.8 |
+| salinity_psu | regression:cbp_XGG8251_salinity_psu | 25 | 0.2 |
+| chl_ug_l | linear | 9646 | 93.8 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 277 | 2.7 |
+| chl_ug_l | regression:cbp_XGG8251_chl_ug_l | 25 | 0.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 1613 | 1.778 + 0.975 x | 0.986 | 1.020 | 7962 |
+| salinity_psu | cbp_XGG8251_salinity_psu | 344 | 3.295 + 0.897 x | 0.877 | 0.994 | 25 |
+| chl_ug_l | cbp_XGG8251_chl_ug_l | 334 | 6.020 + 0.507 x | 0.255 | 6.659 | 25 |
+
+## mddnr_turtle_back
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9505 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8571892_water_temperature | 7962 | 77.4 |
+| temp_c | observed | 1621 | 15.8 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 9799 | 95.2 |
+| salinity_psu | observed | 345 | 3.4 |
+| salinity_psu | missing | 122 | 1.2 |
+| salinity_psu | regression:cbp_CB4.1E_salinity_psu | 22 | 0.2 |
+| chl_ug_l | linear | 9708 | 94.4 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 191 | 1.9 |
+| chl_ug_l | regression:cbp_CB4.1E_chl_ug_l | 49 | 0.5 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 1613 | 1.778 + 0.975 x | 0.986 | 1.020 | 7962 |
+| salinity_psu | cbp_CB4.1E_salinity_psu | 206 | 2.763 + 0.795 x | 0.897 | 0.807 | 22 |
+| chl_ug_l | cbp_CB4.1E_chl_ug_l | 204 | 6.724 + 0.515 x | 0.252 | 7.223 | 49 |
+
+## mddnr_long_point
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9509 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9737 | 94.6 |
+| salinity_psu | observed | 345 | 3.4 |
+| salinity_psu | missing | 118 | 1.1 |
+| salinity_psu | regression:cbp_EE2.1_salinity_psu | 88 | 0.9 |
+| chl_ug_l | linear | 9646 | 93.8 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 214 | 2.1 |
+| chl_ug_l | regression:cbp_EE2.1_chl_ug_l | 88 | 0.9 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_EE2.1_salinity_psu | 333 | 0.156 + 0.972 x | 0.930 | 0.756 | 88 |
+| chl_ug_l | cbp_EE2.1_chl_ug_l | 329 | 5.368 + 0.657 x | 0.354 | 6.303 | 88 |
+
+## mddnr_cook_point
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9756 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | regression:coops_8577330_water_temperature | 509 | 4.9 |
+| temp_c | missing | 155 | 1.5 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 9485 | 92.2 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | regression:cbp_CB4.2E_salinity_psu | 84 | 0.8 |
+| chl_ug_l | linear | 9457 | 91.9 |
+| chl_ug_l | missing | 383 | 3.7 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | regression:cbp_CB4.2E_chl_ug_l | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9329 | -0.748 + 1.033 x | 0.961 | 1.790 | 509 |
+| salinity_psu | cbp_CB4.2E_salinity_psu | 205 | 1.799 + 0.816 x | 0.880 | 0.841 | 84 |
+| chl_ug_l | cbp_CB4.2E_chl_ug_l | 202 | 4.784 + 0.783 x | 0.358 | 6.132 | 112 |
+
+## mddnr_royston
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9250 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9485 | 92.2 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | regression:cbp_CB4.2E_salinity_psu | 84 | 0.8 |
+| chl_ug_l | linear | 9457 | 91.9 |
+| chl_ug_l | missing | 383 | 3.7 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | regression:cbp_CB4.2E_chl_ug_l | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_CB4.2E_salinity_psu | 205 | 1.799 + 0.816 x | 0.880 | 0.841 | 84 |
+| chl_ug_l | cbp_CB4.2E_chl_ug_l | 202 | 4.784 + 0.783 x | 0.358 | 6.132 | 112 |
+
+## mddnr_lighthouse
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9510 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9416 | 91.5 |
+| salinity_psu | regression:cbp_ET5.2_salinity_psu | 413 | 4.0 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | missing | 117 | 1.1 |
+| chl_ug_l | linear | 9388 | 91.3 |
+| chl_ug_l | regression:cbp_ET5.2_chl_ug_l | 350 | 3.4 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | missing | 214 | 2.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_ET5.2_salinity_psu | 342 | 3.210 + 0.931 x | 0.793 | 1.283 | 413 |
+| chl_ug_l | cbp_ET5.2_chl_ug_l | 334 | 8.295 + 0.256 x | 0.150 | 6.668 | 350 |
+
+## mddnr_tilghman_wharf
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9250 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9485 | 92.2 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | regression:cbp_CB4.2E_salinity_psu | 84 | 0.8 |
+| chl_ug_l | linear | 9457 | 91.9 |
+| chl_ug_l | missing | 383 | 3.7 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | regression:cbp_CB4.2E_chl_ug_l | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_CB4.2E_salinity_psu | 205 | 1.799 + 0.816 x | 0.880 | 0.841 | 84 |
+| chl_ug_l | cbp_CB4.2E_chl_ug_l | 202 | 4.784 + 0.783 x | 0.358 | 6.132 | 112 |
+
+## mddnr_deep_neck
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9250 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9485 | 92.2 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | regression:cbp_CB4.1E_salinity_psu | 84 | 0.8 |
+| chl_ug_l | linear | 9457 | 91.9 |
+| chl_ug_l | missing | 383 | 3.7 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | regression:cbp_CB4.1E_chl_ug_l | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+| salinity_psu | cbp_CB4.1E_salinity_psu | 205 | 3.289 + 0.752 x | 0.861 | 0.906 | 84 |
+| chl_ug_l | cbp_CB4.1E_chl_ug_l | 202 | 5.077 + 0.534 x | 0.340 | 6.217 | 112 |
+
+## mddnr_double_mills
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9105 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | missing | 661 | 6.4 |
+| temp_c | linear | 39 | 0.4 |
+| temp_c | regression:coops_8575512_water_temperature | 8 | 0.1 |
+| salinity_psu | linear | 9416 | 91.5 |
+| salinity_psu | missing | 530 | 5.2 |
+| salinity_psu | observed | 342 | 3.3 |
+| chl_ug_l | linear | 9388 | 91.3 |
+| chl_ug_l | missing | 564 | 5.5 |
+| chl_ug_l | observed | 336 | 3.3 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8575512_water_temperature | 1613 | -1.556 + 1.011 x | 0.986 | 1.038 | 8 |
+
+## mddnr_cason
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9756 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | regression:coops_8577330_water_temperature | 509 | 4.9 |
+| temp_c | missing | 155 | 1.5 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 9465 | 92.0 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 359 | 3.5 |
+| salinity_psu | regression:cbp_CB4.3E_salinity_psu | 87 | 0.8 |
+| chl_ug_l | linear | 9397 | 91.3 |
+| chl_ug_l | observed | 355 | 3.5 |
+| chl_ug_l | missing | 314 | 3.1 |
+| chl_ug_l | regression:cbp_CB4.3E_chl_ug_l | 222 | 2.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9329 | -0.748 + 1.033 x | 0.961 | 1.790 | 509 |
+| salinity_psu | cbp_CB4.3E_salinity_psu | 225 | 3.747 + 0.760 x | 0.829 | 1.015 | 87 |
+| chl_ug_l | cbp_CB4.3E_chl_ug_l | 221 | 3.345 + 0.765 x | 0.271 | 7.217 | 222 |
+
+## mddnr_ragged_point_little_choptank
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9756 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9580 | 93.1 |
+| temp_c | regression:coops_8577330_water_temperature | 509 | 4.9 |
+| temp_c | missing | 155 | 1.5 |
+| temp_c | linear | 44 | 0.4 |
+| salinity_psu | linear | 9465 | 92.0 |
+| salinity_psu | missing | 377 | 3.7 |
+| salinity_psu | observed | 359 | 3.5 |
+| salinity_psu | regression:cbp_CB4.3E_salinity_psu | 87 | 0.8 |
+| chl_ug_l | linear | 9397 | 91.3 |
+| chl_ug_l | observed | 355 | 3.5 |
+| chl_ug_l | missing | 314 | 3.1 |
+| chl_ug_l | regression:cbp_CB4.3E_chl_ug_l | 222 | 2.2 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9329 | -0.748 + 1.033 x | 0.961 | 1.790 | 509 |
+| salinity_psu | cbp_CB4.3E_salinity_psu | 225 | 3.747 + 0.760 x | 0.829 | 1.015 | 87 |
+| chl_ug_l | cbp_CB4.3E_chl_ug_l | 221 | 3.345 + 0.765 x | 0.271 | 7.217 | 222 |
+
+## mddnr_norman_addition
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9732 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8577330_water_temperature | 4597 | 44.7 |
+| temp_c | missing | 255 | 2.5 |
+| temp_c | linear | 128 | 1.2 |
+| salinity_psu | linear | 9646 | 93.8 |
+| salinity_psu | observed | 341 | 3.3 |
+| salinity_psu | missing | 301 | 2.9 |
+| chl_ug_l | linear | 9555 | 92.9 |
+| chl_ug_l | missing | 398 | 3.9 |
+| chl_ug_l | observed | 335 | 3.3 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 5186 | -0.852 + 1.035 x | 0.936 | 2.311 | 4597 |
+
+## mddnr_wilson_shoals
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9720 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8571892_water_temperature | 4508 | 43.8 |
+| temp_c | missing | 363 | 3.5 |
+| temp_c | linear | 109 | 1.1 |
+| salinity_psu | linear | 9506 | 92.4 |
+| salinity_psu | observed | 342 | 3.3 |
+| salinity_psu | regression:cbp_EE3.0_salinity_psu | 235 | 2.3 |
+| salinity_psu | missing | 205 | 2.0 |
+| chl_ug_l | linear | 9352 | 90.9 |
+| chl_ug_l | observed | 336 | 3.3 |
+| chl_ug_l | missing | 302 | 2.9 |
+| chl_ug_l | regression:cbp_EE3.0_chl_ug_l | 298 | 2.9 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 4995 | 0.415 + 0.986 x | 0.970 | 1.577 | 4508 |
+| salinity_psu | cbp_EE3.0_salinity_psu | 339 | -6.378 + 1.098 x | 0.722 | 1.790 | 235 |
+| chl_ug_l | cbp_EE3.0_chl_ug_l | 333 | 11.089 + 0.163 x | 0.023 | 8.145 | 298 |
+
+## mddnr_georges
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9786 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8571892_water_temperature | 4508 | 43.8 |
+| temp_c | missing | 363 | 3.5 |
+| temp_c | linear | 109 | 1.1 |
+| salinity_psu | linear | 9703 | 94.3 |
+| salinity_psu | observed | 343 | 3.3 |
+| salinity_psu | missing | 139 | 1.4 |
+| salinity_psu | regression:cbp_ET9.1_salinity_psu | 103 | 1.0 |
+| chl_ug_l | linear | 9611 | 93.4 |
+| chl_ug_l | observed | 340 | 3.3 |
+| chl_ug_l | missing | 234 | 2.3 |
+| chl_ug_l | regression:cbp_ET9.1_chl_ug_l | 103 | 1.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8571892_water_temperature | 4995 | 0.415 + 0.986 x | 0.970 | 1.577 | 4508 |
+| salinity_psu | cbp_ET9.1_salinity_psu | 343 | -2.409 + 1.054 x | 0.918 | 0.781 | 103 |
+| chl_ug_l | cbp_ET9.1_chl_ug_l | 340 | 2.542 + 0.925 x | 0.567 | 4.387 | 103 |
+
+## mddnr_holland_straits
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10070 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8635750_water_temperature | 4729 | 46.0 |
+| temp_c | linear | 145 | 1.4 |
+| temp_c | missing | 106 | 1.0 |
+| salinity_psu | linear | 9635 | 93.7 |
+| salinity_psu | observed | 336 | 3.3 |
+| salinity_psu | regression:cbp_CB5.2_salinity_psu | 205 | 2.0 |
+| salinity_psu | missing | 112 | 1.1 |
+| chl_ug_l | linear | 9481 | 92.2 |
+| chl_ug_l | regression:cbp_CB5.2_chl_ug_l | 365 | 3.5 |
+| chl_ug_l | observed | 330 | 3.2 |
+| chl_ug_l | missing | 112 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 5244 | -0.443 + 1.027 x | 0.980 | 1.288 | 4729 |
+| salinity_psu | cbp_CB5.2_salinity_psu | 327 | 3.704 + 0.739 x | 0.775 | 1.268 | 205 |
+| chl_ug_l | cbp_CB5.2_chl_ug_l | 321 | 3.059 + 0.812 x | 0.269 | 6.318 | 365 |
+
+## mddnr_back_cove
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9792 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8635750_water_temperature | 4729 | 46.0 |
+| temp_c | linear | 145 | 1.4 |
+| temp_c | missing | 106 | 1.0 |
+| salinity_psu | linear | 9579 | 93.1 |
+| salinity_psu | missing | 390 | 3.8 |
+| salinity_psu | observed | 319 | 3.1 |
+| chl_ug_l | linear | 9461 | 92.0 |
+| chl_ug_l | missing | 512 | 5.0 |
+| chl_ug_l | observed | 315 | 3.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 5244 | -0.443 + 1.027 x | 0.980 | 1.288 | 4729 |
+
+## mddnr_piney_island_east
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10043 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8635750_water_temperature | 4729 | 46.0 |
+| temp_c | linear | 145 | 1.4 |
+| temp_c | missing | 106 | 1.0 |
+| salinity_psu | linear | 9579 | 93.1 |
+| salinity_psu | observed | 319 | 3.1 |
+| salinity_psu | regression:cbp_ET9.1_salinity_psu | 251 | 2.4 |
+| salinity_psu | missing | 139 | 1.4 |
+| chl_ug_l | linear | 9461 | 92.0 |
+| chl_ug_l | observed | 315 | 3.1 |
+| chl_ug_l | regression:cbp_ET9.1_chl_ug_l | 278 | 2.7 |
+| chl_ug_l | missing | 234 | 2.3 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 5244 | -0.443 + 1.027 x | 0.980 | 1.288 | 4729 |
+| salinity_psu | cbp_ET9.1_salinity_psu | 318 | 1.402 + 0.978 x | 0.914 | 0.754 | 251 |
+| chl_ug_l | cbp_ET9.1_chl_ug_l | 314 | 1.868 + 0.929 x | 0.359 | 7.034 | 278 |
+
+## mddnr_old_womans_leg
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9792 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8635750_water_temperature | 4729 | 46.0 |
+| temp_c | linear | 145 | 1.4 |
+| temp_c | missing | 106 | 1.0 |
+| salinity_psu | linear | 9579 | 93.1 |
+| salinity_psu | missing | 390 | 3.8 |
+| salinity_psu | observed | 319 | 3.1 |
+| chl_ug_l | linear | 9461 | 92.0 |
+| chl_ug_l | missing | 512 | 5.0 |
+| chl_ug_l | observed | 315 | 3.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 5244 | -0.443 + 1.027 x | 0.980 | 1.288 | 4729 |
+
+## mddnr_marumsco
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9545 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 5308 | 51.6 |
+| temp_c | regression:coops_8635750_water_temperature | 4729 | 46.0 |
+| temp_c | linear | 145 | 1.4 |
+| temp_c | missing | 106 | 1.0 |
+| salinity_psu | linear | 7905 | 76.8 |
+| salinity_psu | regression:cbp_EE3.3_salinity_psu | 1425 | 13.9 |
+| salinity_psu | missing | 637 | 6.2 |
+| salinity_psu | observed | 321 | 3.1 |
+| chl_ug_l | linear | 7803 | 75.8 |
+| chl_ug_l | regression:cbp_EE3.3_chl_ug_l | 1473 | 14.3 |
+| chl_ug_l | missing | 704 | 6.8 |
+| chl_ug_l | observed | 308 | 3.0 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 5244 | -0.443 + 1.027 x | 0.980 | 1.288 | 4729 |
+| salinity_psu | cbp_EE3.3_salinity_psu | 271 | 1.166 + 0.942 x | 0.864 | 0.860 | 1425 |
+| chl_ug_l | cbp_EE3.3_chl_ug_l | 253 | 1.066 + 1.036 x | 0.661 | 3.600 | 1473 |
+
+## mddnr_chicken_cock
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10179 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 10068 | 97.9 |
+| temp_c | regression:coops_8577330_water_temperature | 151 | 1.5 |
+| temp_c | linear | 69 | 0.7 |
+| salinity_psu | linear | 9183 | 89.3 |
+| salinity_psu | regression:cbp_LE2.2_salinity_psu | 602 | 5.9 |
+| salinity_psu | observed | 394 | 3.8 |
+| salinity_psu | missing | 109 | 1.1 |
+| chl_ug_l | linear | 9182 | 89.2 |
+| chl_ug_l | regression:cbp_LE2.2_chl_ug_l | 602 | 5.9 |
+| chl_ug_l | observed | 395 | 3.8 |
+| chl_ug_l | missing | 109 | 1.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9654 | 0.601 + 0.963 x | 0.909 | 2.614 | 151 |
+| salinity_psu | cbp_LE2.2_salinity_psu | 391 | 3.972 + 0.871 x | 0.840 | 1.264 | 602 |
+| chl_ug_l | cbp_LE2.2_chl_ug_l | 392 | 7.956 + 0.153 x | 0.183 | 5.398 | 602 |
+
+## mddnr_pagan
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10199 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 9872 | 96.0 |
+| temp_c | regression:coops_8635750_water_temperature | 353 | 3.4 |
+| temp_c | linear | 63 | 0.6 |
+| salinity_psu | linear | 9733 | 94.6 |
+| salinity_psu | observed | 430 | 4.2 |
+| salinity_psu | missing | 89 | 0.9 |
+| salinity_psu | regression:cbp_LE2.2_salinity_psu | 36 | 0.3 |
+| chl_ug_l | linear | 9704 | 94.3 |
+| chl_ug_l | observed | 424 | 4.1 |
+| chl_ug_l | missing | 115 | 1.1 |
+| chl_ug_l | regression:cbp_LE2.2_chl_ug_l | 45 | 0.4 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8635750_water_temperature | 9654 | 0.915 + 0.944 x | 0.909 | 2.588 | 353 |
+| salinity_psu | cbp_LE2.2_salinity_psu | 424 | 4.117 + 0.803 x | 0.796 | 1.346 | 36 |
+| chl_ug_l | cbp_LE2.2_chl_ug_l | 419 | 10.526 + 0.207 x | 0.088 | 9.638 | 45 |
+
+## mddnr_mills_west
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9758 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8577330_water_temperature | 6724 | 65.4 |
+| temp_c | observed | 3138 | 30.5 |
+| temp_c | missing | 353 | 3.4 |
+| temp_c | linear | 73 | 0.7 |
+| salinity_psu | linear | 9683 | 94.1 |
+| salinity_psu | observed | 428 | 4.2 |
+| salinity_psu | missing | 177 | 1.7 |
+| chl_ug_l | linear | 9519 | 92.5 |
+| chl_ug_l | observed | 420 | 4.1 |
+| chl_ug_l | missing | 349 | 3.4 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 3120 | -0.021 + 1.031 x | 0.972 | 1.505 | 6724 |
+
+## mddnr_cornfield_harbor
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9918 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 10068 | 97.9 |
+| temp_c | regression:coops_8577330_water_temperature | 151 | 1.5 |
+| temp_c | linear | 69 | 0.7 |
+| salinity_psu | linear | 9121 | 88.7 |
+| salinity_psu | regression:cbp_CB5.2_salinity_psu | 403 | 3.9 |
+| salinity_psu | observed | 394 | 3.8 |
+| salinity_psu | missing | 370 | 3.6 |
+| chl_ug_l | linear | 9120 | 88.6 |
+| chl_ug_l | regression:cbp_CB5.2_chl_ug_l | 403 | 3.9 |
+| chl_ug_l | observed | 395 | 3.8 |
+| chl_ug_l | missing | 370 | 3.6 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9654 | 0.601 + 0.963 x | 0.909 | 2.614 | 151 |
+| salinity_psu | cbp_CB5.2_salinity_psu | 394 | -0.052 + 0.950 x | 0.868 | 1.151 | 403 |
+| chl_ug_l | cbp_CB5.2_chl_ug_l | 395 | 1.675 + 0.912 x | 0.629 | 3.631 | 403 |
+
+## mddnr_ragged_point_potomac
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 10068 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | observed | 10068 | 97.9 |
+| temp_c | regression:coops_8577330_water_temperature | 151 | 1.5 |
+| temp_c | linear | 69 | 0.7 |
+| salinity_psu | linear | 9640 | 93.7 |
+| salinity_psu | observed | 428 | 4.2 |
+| salinity_psu | missing | 220 | 2.1 |
+| chl_ug_l | linear | 9645 | 93.8 |
+| chl_ug_l | observed | 423 | 4.1 |
+| chl_ug_l | missing | 220 | 2.1 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 9654 | 0.601 + 0.963 x | 0.909 | 2.614 | 151 |
+
+## mddnr_lower_cedar_point
+
+Range 1996-10-01 to 2024-11-30: 10288 days, 9758 rows written.
+
+| variable | method | days | % |
+|---|---|---|---|
+| temp_c | regression:coops_8577330_water_temperature | 6724 | 65.4 |
+| temp_c | observed | 3138 | 30.5 |
+| temp_c | missing | 353 | 3.4 |
+| temp_c | linear | 73 | 0.7 |
+| salinity_psu | linear | 9683 | 94.1 |
+| salinity_psu | observed | 428 | 4.2 |
+| salinity_psu | missing | 177 | 1.7 |
+| chl_ug_l | linear | 9519 | 92.5 |
+| chl_ug_l | observed | 420 | 4.1 |
+| chl_ug_l | missing | 349 | 3.4 |
+
+Longest climatology-filled run (days): temp_c 0, salinity_psu 0, chl_ug_l 0
+
+| variable | station | overlap days | site = a + b * station | R² | RMSE | days filled |
+|---|---|---|---|---|---|---|
+| temp_c | coops_8577330_water_temperature | 3120 | -0.021 + 1.031 x | 0.972 | 1.505 | 6724 |

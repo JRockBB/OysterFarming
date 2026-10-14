@@ -92,7 +92,7 @@ def test_cbp_fetch_saves_one_file_per_chunk_and_skips_existing(tmp_path):
 def test_bar_sites_use_known_stations_and_registered_sites():
     from oyster_data.sources import chesapeake_sites, mddnr_fall_survey
     bars = {r["site_id"] for r in mddnr_fall_survey.site_rows()}
-    for s in chesapeake_sites.BAR_SITES:
+    for s in chesapeake_sites.BAR_SITES + chesapeake_sites.BAR_SITES_EXTRA:
         assert s.site_id in bars
         assert s.coops_station in coops.STATIONS
         assert all(st in coops.STATIONS for st in s.coops_secondaries)

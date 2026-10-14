@@ -31,9 +31,45 @@ from oyster_data.raw import http_get, save_raw
 BASE = "https://datahub.chesapeakebay.net/api/WaterQuality"
 RAW_SUBDIR = "cbp_datahub"
 SUBSTANCES = {"WTEMP": ("temp_c", 123), "SALINITY": ("salinity_psu", 83), "CHLA": ("chl_ug_l", 21)}
-STATIONS = {"LE1.3": 1309, "YRK005.40": 1991, "WT7.1": 1730, "LE4.2": 1325,
-            "CB5.1W": 1171, "LE1.1": 1307, "CB3.2": 1153, "CB3.3W": 1156, "ET5.2": 1257,
-            "EE3.1": 1235, "EE3.0": 1234}
+# DataHub station ids from https://datahub.chesapeakebay.net/api/GeographicAttribute/Station
+STATIONS = {
+    "LE1.3": 1309,
+    "YRK005.40": 1991,
+    "WT7.1": 1730,
+    "LE4.2": 1325,
+    "CB5.1W": 1171,
+    "LE1.1": 1307,
+    "CB3.2": 1153,
+    "CB3.3W": 1156,
+    "ET5.2": 1257,
+    "EE3.1": 1235,
+    "EE3.0": 1234,
+    "CB4.1W": 1162,
+    "CB4.2W": 1165,
+    "CB4.2E": 1164,
+    "CB4.2C": 1163,
+    "CB4.4": 1169,
+    "LE1.2": 1308,
+    "CB5.2": 1172,
+    "LE2.3": 1312,
+    "ET4.2": 1253,
+    "XGG8251": 1888,
+    "EE1.1": 1231,
+    "CB4.1E": 1161,
+    "CB4.1C": 1160,
+    "EE2.1": 1232,
+    "EE2.2": 1233,
+    "CB4.3E": 1167,
+    "ET6.2": 1259,
+    "ET8.1": 1261,
+    "ET9.1": 1262,
+    "EE3.2": 1236,
+    "EE3.4": 1238,
+    "EE3.3": 1237,
+    "LE2.2": 1311,
+    "LE1.4": 1310,
+    "RET2.4": 1479,
+}
 UPPER_LAYERS = {"S", "AP"}
 
 
