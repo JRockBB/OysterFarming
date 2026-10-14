@@ -8,7 +8,7 @@
 #   prevalence (same source) at level 15 (just above RFTM detection); 1996-1998 is spin-up. Great Bay runs start
 #   1995-01-01 uninfected (Dermo was first reported in Great Bay in fall 1995; NH F&G 2015 report p. 4); the
 #   background import epsilon_GB starts at the fitted arrival day.
-# - Fitted (Nelder-Mead on log/logit scales, 4 starts): beta, mu, host (shared), epsilon_MD, epsilon_GB, arrival
+# - Fitted (Nelder-Mead on log/logit scales, parameters clamped to bounds, 6 starts): beta, mu, host (shared), epsilon_MD, epsilon_GB, arrival
 #   day for Great Bay (shared by its beds). Objective: mean squared prevalence error in Maryland + mean in Great Bay
 #   (each region weighted equally).
 # - Tests: (1) leave one Great Bay bed out (refit on the rest, predict the held-out bed); (2) leave one Maryland
@@ -143,10 +143,13 @@ function fit(sites; starts=4, seed=20261014, θinit=nothing)
     best = (θ=Float64[], f=Inf)
     inits = θinit === nothing ? [LB .+ rand(rng, 6) .* (UB .- LB) for _ in 1:starts] : [θinit]
     for θ0 in inits
-        prob = OptimizationProblem((θ, _) -> objective(θ, sites), θ0; lb=LB, ub=UB)
+        # Nelder-Mead is unbounded in Optimization.jl (bounds would switch to a gradient method), so the
+        # parameters are clamped to [LB, UB] inside the objective.
+        prob = OptimizationProblem((θ, _) -> objective(clamp.(θ, LB, UB), sites), θ0)
         sol = solve(prob, NelderMead(); maxiters=1500)
-        f = objective(sol.u, sites)
-        f < best.f && (best = (θ=copy(sol.u), f=f))
+        θc = clamp.(sol.u, LB, UB)
+        f = objective(θc, sites)
+        f < best.f && (best = (θ=θc, f=f))
     end
     return best
 end
