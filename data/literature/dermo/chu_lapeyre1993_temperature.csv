@@ -1,0 +1,8 @@
+# Chu & La Peyre 1993 Dis Aquat Org 16:223-234 (DOI 10.3354/dao016223): prevalence from abstract/p226 text; weighted prevalence (WP, Ray 0-5 scale, sum of codes / n) digitized from Chu 1996 J. Shellfish Res. 15:57-66 Fig. 4B (p.61), +/- ~0.05.
+# Rappahannock R. VA oysters (P. marinus-negative at start, collected at 5.5 C / 4 ppt), York River water 17.5 ppt, acclimated 20 d at T, shell-cavity inoculation 1e6 trophozoites (tissue-isolated meronts), Ray FTM rectum at 46 d. n = 40-44 per temperature. Unchallenged controls: prevalence 0 except 20 C (~2%, one light infection).
+# Mortality not reported in DAO paper.
+temp_C,salinity_ppt,dose_cells_per_oyster,days_post_challenge,n,prevalence_pct,weighted_prevalence_0to5,origin
+10,17.5,1000000,46,40-44,23,0.12,text; WP digitized
+15,17.5,1000000,46,40-44,46,0.47,text; WP digitized
+20,17.5,1000000,46,40-44,91,1.25,text; WP digitized
+25,17.5,1000000,46,40-44,100,1.78,text; WP digitized

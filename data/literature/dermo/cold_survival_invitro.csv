@@ -1,0 +1,17 @@
+# In vitro survival / proliferation of P. marinus at low temperature. Abstract-level numbers only (full texts paywalled).
+source,doi,isolate,temp_C,salinity_ppt,duration_d,transfer,viability_pct,proliferation,notes
+La Peyre et al. 2008 Parasitology 135:505-519 (abstract),10.1017/S0031182008004150,3 P. marinus isolates,28,culture medium (~24-25?),30,control,,yes (reference),
+La Peyre et al. 2008,10.1017/S0031182008004150,3 P. marinus isolates,15,(medium),30,direct from 28,,reduced vs 28 C (metabolic activity and proliferation declined),values in paper figures (paywalled)
+La Peyre et al. 2008,10.1017/S0031182008004150,3 P. marinus isolates,4,(medium),30,direct from 28,49,none; limited metabolic activity,
+La Peyre et al. 2008,10.1017/S0031182008004150,P. marinus,2-6,(medium),30,progressive from 18 C at 0.5 C/d,77,not reported in abstract,'highest under progressive transfer'
+La Peyre et al. 2008,10.1017/S0031182008004150,P. marinus,2-6,(medium),60,progressive from 18 C at 0.5 C/d,54,,maintained up to 4 months
+La Peyre et al. 2010 JIP 105:176-181 (abstract),10.1016/j.jip.2010.06.010,P. marinus,2,3.5,30,acclimated to T at 7 ppt then to 3.5 ppt,0,,
+La Peyre et al. 2010,10.1016/j.jip.2010.06.010,P. marinus,10,3.5,60,as above,0,,
+La Peyre et al. 2010,10.1016/j.jip.2010.06.010,P. marinus,2,7,90,acclimated,0.6 +/- 0.7,,
+La Peyre et al. 2010,10.1016/j.jip.2010.06.010,P. marinus,10,7,90,acclimated,0.2 +/- 0.2,,
+La Peyre et al. 2010,10.1016/j.jip.2010.06.010,P. marinus,2 and 10,15 and 25,90,acclimated,'not among largest decreases' (values paywalled),,synergy: big losses only when BOTH low T and low S -> at 15-25 ppt cells persist at 2-10 C
+Gauthier & Vasta 1995 JIP 66:156-168 (via La Peyre 1996 review),10.1006/jipa.1995.1079,P. marinus,4-20,~35 acclimation,10,,,no significant growth (OD600),
+Dungan & Hamilton 1995 JEM 42:379-388 (via La Peyre 1996 review),10.1111/j.1550-7408.1995.tb01598.x,ATCC 50439,10,~22 (650 mOsm acclim.),2-3,,,proliferation detected (MTS assay); increasing with T 10-35 C,
+Ford & Chintala 2006 JEMBE 339:226-235 (abstract via secondary sources),10.1016/j.jembe.2006.08.004,MA + NJ (north) vs SC (south) isolates,5-35 (7 temps),,,,,net proliferation similar among regions at 5-20 C (no cold adaptation); SC faster at 25-35 C,tetrazolium assay; numbers paywalled
+Chu & Greene 1989 JIP 53:260-268 (via Chu 1996/1999 reviews),10.1016/0022-2011(89)90016-5,prezoosporangia (hypnospores),4,,,,,survive 4 C and zoosporulate after transfer to 28 C; survive up to 4 d at 9 C; sporulation favoured 28-30 C; inhibited <6 ppt,
+Queiroga et al. 2016 Parasitology 143:475-487,10.1017/S0031182015001602,Brazil isolate,15,20,15,direct from 25,67.5 (58.3 at d7),none (1.0 -> 1.1e6/ml),recovered and proliferated after return to 25 C

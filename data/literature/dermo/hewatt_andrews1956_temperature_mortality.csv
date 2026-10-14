@@ -1,0 +1,5 @@
+# Hewatt & Andrews 1956 Proc. Natl. Shellfish. Assoc. 46:129-133 (archive.org proceedingsofnat46nati; pp.129-131). Oysters fed infected tissue mince twice (1 wk apart) in York River water (salinity not stated; lower York ~ 18-22 ppt), then held ~6 weeks. 50 oysters per series. Nonendemic = James R. Wreck Shoal; endemic = Rappahannock R.
+series,origin,environment,temp_C,n,deaths_6wk,mortality_pct,notes
+V-M-1+V-M-2,both,closed lab vat,15,100,10,10,"9 of 10 gapers infected (3 moderate/heavy); live samples Aug 23/31: all nonendemic lightly infected, endemic 0/5 then 2/5 -> infection persists but progression arrested"
+V-M-3+V-M-4,both,closed lab vat,28,100,99,99,all deaths within first 4 weeks
+V-M-5+V-M-6,both,pier tray (flow-through river),26-30,100,53,53,37 of 53 deaths in nonendemic group

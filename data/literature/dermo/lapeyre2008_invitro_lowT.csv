@@ -1,0 +1,56 @@
+# La Peyre, Casas, Villalba & La Peyre 2008 Parasitology 135:505-519 (user PDF peyre2008.pdf). P. marinus isolates pm1-3 = GTLA-5/33/34 from Grand Terre, Louisiana (Gulf origin). Medium JL-ODRP-2A, 775 mOsm/kg (~25 ppt equivalent).
+# Study 1: 2e5 cells/ml, 100 ul/well, direct transfer 28 C -> 4, 15, 28 C. Viability = neutral red (>=200 cells, 2 wells); density = hemocytometer (3 wells). Study 2: isolate pm2 only, triplicate wells, viability every 30 d to 120 d.
+# Values from text where given (source=text), otherwise digitized by eye from Figs 1-2 (p509) and Fig 7 (p512): +/-3% viability, +/-0.05e6 cells/ml at 4-15 C, +/-0.5e6 at 28 C. Fig 7C 'day' counts from start of 0.5 C/d cooling from 18 C (test T reached day 24 (6 C), 28 (4 C), 32 (2 C)).
+# r_net derived here = ln(N_end/N_0)/days.
+study,isolate,regime,temp_C,salinity_equiv_ppt,day,viability_pct,density_1e6_per_ml,derived_or_note,source_loc
+1,pm1,direct from 28,4,25,0,100,0.18,,Figs 1-2
+1,pm1,direct from 28,4,25,6,91,0.21,,Figs 1-2
+1,pm1,direct from 28,4,25,18,67,0.22,,Figs 1-2
+1,pm1,direct from 28,4,25,30,54,0.21,no proliferation; no schizogony at 4 C,Figs 1-2
+1,pm2,direct from 28,4,25,30,50,0.22,,Figs 1-2
+1,pm3,direct from 28,4,25,6,76,,,Fig 1
+1,pm3,direct from 28,4,25,18,47,,,Fig 1
+1,pm3,direct from 28,4,25,30,44,0.16,,Figs 1-2
+1,P. marinus mean,direct from 28,4,25,30,49,,intrinsic metabolic activity fell ~90% by d30; cumulative MA <232 fu,text p505 + p516
+1,pm (3 isolates),direct from 28,15,25,8,88-92,0.25-0.30,,Figs 1-2
+1,pm (3 isolates),direct from 28,15,25,16,78-87,<0.45,,text p509 + Fig 2
+1,pm1,direct from 28,15,25,24,99,1.7,r_net d0-24 = 0.094/d (0.17/d over d16-24); significant only from d20,Fig 2 + text p509
+1,pm2,direct from 28,15,25,24,99,0.62,r_net d0-24 = 0.052/d; significant only at d24,Fig 2
+1,pm3,direct from 28,15,25,24,99,0.31,r_net d0-24 = 0.023/d; no significant increase,Fig 2
+1,pm (3 isolates),direct from 28,15,25,24,,,first schizonts d24 at 15 C vs d8 at 28 C,text p510
+1,pm (3 isolates),control,28,25,6,100,3.5,r_net d0-6 ~0.48/d,Fig 2
+1,pm (3 isolates),control,28,25,10,100,>6.9,,text p509
+1,pm (3 isolates),control,28,25,14,100,11-15,,Fig 2
+2,pm2,direct from 28,6,25,30,59,,,Fig 7A
+2,pm2,direct from 28,6,25,60,40,,,Fig 7A
+2,pm2,direct from 28,6,25,90,9,,,Fig 7A
+2,pm2,direct from 28,6,25,120,8,,,Fig 7A
+2,pm2,direct from 28,4,25,30,59,,,Fig 7A
+2,pm2,direct from 28,4,25,60,35,,,Fig 7A
+2,pm2,direct from 28,4,25,90,9,,,Fig 7A
+2,pm2,direct from 28,4,25,120,4,,,Fig 7A
+2,pm2,direct from 28,2,25,30,37,,,Fig 7A
+2,pm2,direct from 28,2,25,60,18,,,Fig 7A
+2,pm2,direct from 28,2,25,90,0,,,Fig 7A
+2,pm2,direct from 28,2,25,120,0,,,Fig 7A
+2,pm2,direct from 18,6,25,30,72,,,Fig 7B
+2,pm2,direct from 18,6,25,60,66,,,Fig 7B
+2,pm2,direct from 18,6,25,90,20,,,Fig 7B
+2,pm2,direct from 18,6,25,120,6,,,Fig 7B
+2,pm2,direct from 18,4,25,30,67,,,Fig 7B
+2,pm2,direct from 18,4,25,60,49,,,Fig 7B
+2,pm2,direct from 18,4,25,90,16,,,Fig 7B
+2,pm2,direct from 18,4,25,120,7,,,Fig 7B
+2,pm2,direct from 18,2,25,30,60,,,Fig 7B
+2,pm2,direct from 18,2,25,60,43,,,Fig 7B
+2,pm2,direct from 18,2,25,90,26,,,Fig 7B
+2,pm2,direct from 18,2,25,120,2,,,Fig 7B
+2,pm2,acclimated 0.5 C/d from 18,2-6 pooled,25,24-32 (end of cooling),90.7 (SD 1.9),,,text p513
+2,pm2,acclimated 0.5 C/d from 18,2-6 pooled,25,60 (~30 d at test T),77.7 (SD 6.8),,,text p513
+2,pm2,acclimated 0.5 C/d from 18,2-6 pooled,25,90 (~60 d at test T),54.4 (SD 9.4),,,text p513
+2,pm2,acclimated 0.5 C/d from 18,2-6 pooled,25,120 (~90 d at test T),25.1 (SD 9.9),,86% loss of viable cells after ~3 mo at 2 C (text p514),text p513
+2,pm2,acclimated 0.5 C/d from 18,6,25,60/90/120,82/63/26,,,Fig 7C
+2,pm2,acclimated 0.5 C/d from 18,4,25,60/90/120,77/54/35,,,Fig 7C
+2,pm2,acclimated 0.5 C/d from 18,2,25,60/90/120,74/45/15,,2 C significantly lower than 4 and 6 C,Fig 7C
+2,pm2,control,28,25,120,88.0 (SD 4.6),,,text p512
+2,pm2,control,18,25,120,77.9 (SD 5.3),,,text p512

@@ -1,0 +1,11 @@
+# Chu & Volety 1997 DAO 28:61-68 Table 1 (p.65): % mortality of Damariscotta oysters during 67-d acclimation (BEFORE P. marinus challenge; no dead oyster infected) -> host osmotic/thermal stress, not Dermo
+salinity_ppt,temp_C,dead,total,mortality_pct
+3,10,10,45,22
+3,15,12,45,27
+3,25,34,45,76
+10,10,1,45,2
+10,15,2,45,4
+10,25,0,45,0
+20,10,1,45,2
+20,15,0,45,0
+20,25,1,45,2

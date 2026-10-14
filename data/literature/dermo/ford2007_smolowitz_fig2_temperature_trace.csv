@@ -1,0 +1,1856 @@
+# Ford & Smolowitz 2007 Fig 2 water temperature traces (logger + hand), vector-path vertices. LIS sites (Milford/Westport) = NOAA Milford shore station substitute. +/-0.1 C plotting precision.
+site,date,temp_C
+Wellfleet MA,1996-06-10,22.08
+Wellfleet MA,1996-06-14,22.08
+Wellfleet MA,1996-06-14,22.3
+Wellfleet MA,1996-06-28,22.3
+Wellfleet MA,1996-06-28,22.49
+Wellfleet MA,1996-07-07,22.49
+Wellfleet MA,1996-07-07,22.71
+Wellfleet MA,1996-07-16,22.71
+Wellfleet MA,1996-07-16,22.92
+Wellfleet MA,1996-07-25,22.92
+Wellfleet MA,1996-07-25,23.12
+Wellfleet MA,1996-08-13,23.12
+Wellfleet MA,1996-08-13,22.71
+Wellfleet MA,1996-08-18,22.71
+Wellfleet MA,1996-08-18,22.49
+Wellfleet MA,1996-08-22,22.3
+Wellfleet MA,1996-08-22,22.08
+Wellfleet MA,1996-08-27,21.87
+Wellfleet MA,1996-08-27,21.67
+Wellfleet MA,1996-09-01,21.46
+Wellfleet MA,1996-09-01,21.04
+Wellfleet MA,1996-09-05,21.04
+Wellfleet MA,1996-09-05,20.63
+Wellfleet MA,1996-09-09,20.42
+Wellfleet MA,1996-09-09,19.79
+Wellfleet MA,1996-09-14,19.79
+Wellfleet MA,1996-09-14,18.96
+Wellfleet MA,1996-09-19,18.75
+Wellfleet MA,1996-09-19,18.13
+Wellfleet MA,1996-09-23,17.91
+Wellfleet MA,1996-09-23,17.28
+Wellfleet MA,1996-09-28,17.09
+Wellfleet MA,1996-09-28,16.24
+Wellfleet MA,1996-10-02,16.05
+Wellfleet MA,1996-10-02,15.42
+Wellfleet MA,1996-10-07,15.42
+Wellfleet MA,1996-10-07,14.58
+Wellfleet MA,1996-10-12,14.38
+Wellfleet MA,1996-10-12,13.54
+Wellfleet MA,1996-10-16,13.54
+Wellfleet MA,1996-10-16,12.91
+Wellfleet MA,1996-10-21,12.71
+Wellfleet MA,1996-10-21,11.87
+Wellfleet MA,1996-10-26,11.87
+Wellfleet MA,1996-10-26,11.04
+Wellfleet MA,1996-10-30,11.04
+Wellfleet MA,1996-10-30,10.21
+Wellfleet MA,1996-11-04,9.99
+Wellfleet MA,1996-11-04,9.17
+Wellfleet MA,1996-11-08,8.95
+Wellfleet MA,1996-11-08,8.33
+Wellfleet MA,1996-11-13,8.13
+Wellfleet MA,1996-11-13,7.7
+Wellfleet MA,1996-11-17,7.5
+Wellfleet MA,1996-11-17,7.08
+Wellfleet MA,1996-11-21,7.08
+Wellfleet MA,1996-11-21,6.88
+Wellfleet MA,1996-11-26,6.66
+Wellfleet MA,1996-12-01,6.46
+Wellfleet MA,1996-12-01,6.25
+Wellfleet MA,1996-12-05,6.25
+Wellfleet MA,1996-12-05,6.04
+Wellfleet MA,1996-12-10,6.04
+Wellfleet MA,1996-12-10,5.84
+Wellfleet MA,1996-12-15,5.84
+Wellfleet MA,1996-12-15,5.41
+Wellfleet MA,1996-12-19,5.41
+Wellfleet MA,1996-12-19,5.0
+Wellfleet MA,1996-12-24,5.0
+Wellfleet MA,1996-12-24,4.78
+Wellfleet MA,1996-12-29,4.59
+Wellfleet MA,1996-12-29,4.37
+Wellfleet MA,1997-01-02,4.17
+Wellfleet MA,1997-01-02,3.96
+Wellfleet MA,1997-01-07,3.75
+Wellfleet MA,1997-01-07,3.54
+Wellfleet MA,1997-01-11,3.54
+Wellfleet MA,1997-01-11,3.12
+Wellfleet MA,1997-01-16,3.12
+Wellfleet MA,1997-01-16,1.67
+Wellfleet MA,1997-01-21,1.67
+Wellfleet MA,1997-01-21,1.45
+Wellfleet MA,1997-01-25,1.45
+Wellfleet MA,1997-01-25,1.67
+Wellfleet MA,1997-01-30,1.88
+Wellfleet MA,1997-01-30,2.29
+Wellfleet MA,1997-02-03,2.51
+Wellfleet MA,1997-02-03,2.7
+Wellfleet MA,1997-02-07,2.92
+Wellfleet MA,1997-02-07,3.33
+Wellfleet MA,1997-02-12,3.75
+Wellfleet MA,1997-02-16,4.17
+Wellfleet MA,1997-02-16,4.37
+Wellfleet MA,1997-02-20,4.78
+Wellfleet MA,1997-02-24,5.21
+Wellfleet MA,1997-02-28,5.62
+Wellfleet MA,1997-02-28,6.25
+Wellfleet MA,1997-03-10,7.08
+Wellfleet MA,1997-03-14,7.7
+Wellfleet MA,1997-03-19,8.33
+Wellfleet MA,1997-03-24,8.76
+Wellfleet MA,1997-03-28,9.37
+Wellfleet MA,1997-04-07,10.62
+Wellfleet MA,1997-04-11,11.25
+Wellfleet MA,1997-04-16,11.87
+Wellfleet MA,1997-04-20,12.5
+Wellfleet MA,1997-04-29,13.75
+Wellfleet MA,1997-05-04,14.38
+Wellfleet MA,1997-05-08,15.01
+Wellfleet MA,1997-05-13,15.62
+Wellfleet MA,1997-05-17,16.24
+Wellfleet MA,1997-05-27,17.5
+Wellfleet MA,1997-05-31,18.13
+Wellfleet MA,1997-06-05,18.54
+Wellfleet MA,1997-06-09,19.16
+Wellfleet MA,1997-06-19,20.42
+Wellfleet MA,1997-06-23,20.83
+Wellfleet MA,1997-06-28,21.46
+Wellfleet MA,1997-07-02,21.87
+Wellfleet MA,1997-07-07,22.3
+Wellfleet MA,1997-07-07,22.71
+Wellfleet MA,1997-07-16,23.53
+Wellfleet MA,1997-07-21,23.96
+Wellfleet MA,1997-07-21,24.38
+Wellfleet MA,1997-07-30,24.79
+Wellfleet MA,1997-07-30,25.41
+Wellfleet MA,1997-08-04,25.63
+Wellfleet MA,1997-08-04,25.83
+Wellfleet MA,1997-08-08,25.83
+Wellfleet MA,1997-08-08,26.25
+Wellfleet MA,1997-08-13,26.25
+Wellfleet MA,1997-08-13,26.45
+Wellfleet MA,1997-08-13,26.25
+Wellfleet MA,1997-08-18,26.25
+Wellfleet MA,1997-08-18,25.22
+Wellfleet MA,1997-08-13,25.0
+Wellfleet MA,1997-08-13,21.46
+Wellfleet MA,1997-08-18,21.46
+Wellfleet MA,1997-08-18,20.63
+Wellfleet MA,1997-08-22,20.63
+Wellfleet MA,1997-08-22,20.2
+Wellfleet MA,1997-08-27,20.2
+Wellfleet MA,1997-08-27,19.79
+Wellfleet MA,1997-09-01,19.58
+Wellfleet MA,1997-09-01,19.38
+Wellfleet MA,1997-09-05,19.38
+Wellfleet MA,1997-09-05,18.96
+Wellfleet MA,1997-09-09,18.96
+Wellfleet MA,1997-09-09,18.75
+Wellfleet MA,1997-09-14,18.54
+Wellfleet MA,1997-09-14,18.13
+Wellfleet MA,1997-09-18,17.91
+Wellfleet MA,1997-09-18,17.5
+Wellfleet MA,1997-09-23,17.28
+Wellfleet MA,1997-09-23,16.46
+Wellfleet MA,1997-09-28,16.46
+Wellfleet MA,1997-09-28,15.42
+Wellfleet MA,1997-10-02,15.21
+Wellfleet MA,1997-10-02,14.17
+Wellfleet MA,1997-10-07,13.95
+Wellfleet MA,1997-10-07,13.13
+Wellfleet MA,1997-10-11,12.91
+Wellfleet MA,1997-10-11,12.5
+Wellfleet MA,1997-10-16,12.29
+Wellfleet MA,1997-10-16,12.09
+Wellfleet MA,1997-10-21,12.09
+Wellfleet MA,1997-10-21,11.87
+Wellfleet MA,1997-10-25,11.87
+Wellfleet MA,1997-10-25,11.66
+Wellfleet MA,1997-11-12,11.66
+Cotuit MA,1996-06-14,22.92
+Cotuit MA,1996-07-07,22.92
+Cotuit MA,1996-07-07,23.12
+Cotuit MA,1996-07-16,23.12
+Cotuit MA,1996-07-16,23.33
+Cotuit MA,1996-07-25,23.33
+Cotuit MA,1996-07-25,23.53
+Cotuit MA,1996-08-04,23.53
+Cotuit MA,1996-08-04,23.75
+Cotuit MA,1996-08-08,23.53
+Cotuit MA,1996-08-13,23.53
+Cotuit MA,1996-08-13,23.12
+Cotuit MA,1996-08-18,23.12
+Cotuit MA,1996-08-18,22.49
+Cotuit MA,1996-08-22,22.49
+Cotuit MA,1996-08-22,21.87
+Cotuit MA,1996-08-27,21.67
+Cotuit MA,1996-08-27,21.26
+Cotuit MA,1996-09-01,21.04
+Cotuit MA,1996-09-01,20.2
+Cotuit MA,1996-09-05,20.2
+Cotuit MA,1996-09-05,19.58
+Cotuit MA,1996-09-09,19.38
+Cotuit MA,1996-09-09,18.75
+Cotuit MA,1996-09-14,18.54
+Cotuit MA,1996-09-14,17.71
+Cotuit MA,1996-09-19,17.71
+Cotuit MA,1996-09-19,17.09
+Cotuit MA,1996-09-23,17.09
+Cotuit MA,1996-09-23,16.46
+Cotuit MA,1996-09-28,16.46
+Cotuit MA,1996-09-28,15.83
+Cotuit MA,1996-10-02,15.83
+Cotuit MA,1996-10-02,15.42
+Cotuit MA,1996-10-07,15.21
+Cotuit MA,1996-10-07,14.58
+Cotuit MA,1996-10-12,14.58
+Cotuit MA,1996-10-12,13.95
+Cotuit MA,1996-10-16,13.75
+Cotuit MA,1996-10-16,13.13
+Cotuit MA,1996-10-21,12.91
+Cotuit MA,1996-10-21,11.87
+Cotuit MA,1996-10-26,11.66
+Cotuit MA,1996-10-26,10.84
+Cotuit MA,1996-10-30,10.62
+Cotuit MA,1996-10-30,9.37
+Cotuit MA,1996-11-04,9.17
+Cotuit MA,1996-11-04,8.13
+Cotuit MA,1996-11-08,7.92
+Cotuit MA,1996-11-08,7.29
+Cotuit MA,1996-11-13,7.08
+Cotuit MA,1996-11-13,6.46
+Cotuit MA,1996-11-17,6.25
+Cotuit MA,1996-11-17,5.84
+Cotuit MA,1996-11-21,5.62
+Cotuit MA,1996-11-21,5.21
+Cotuit MA,1996-11-26,5.0
+Cotuit MA,1996-11-26,4.59
+Cotuit MA,1996-12-01,4.37
+Cotuit MA,1996-12-01,3.96
+Cotuit MA,1996-12-05,3.75
+Cotuit MA,1996-12-05,3.54
+Cotuit MA,1996-12-10,3.33
+Cotuit MA,1996-12-10,2.92
+Cotuit MA,1996-12-15,2.92
+Cotuit MA,1996-12-15,2.51
+Cotuit MA,1996-12-19,2.51
+Cotuit MA,1996-12-19,2.29
+Cotuit MA,1996-12-24,2.08
+Cotuit MA,1996-12-24,1.88
+Cotuit MA,1996-12-29,1.88
+Cotuit MA,1996-12-29,1.67
+Cotuit MA,1997-01-16,1.67
+Cotuit MA,1997-01-21,1.88
+Cotuit MA,1997-01-25,1.88
+Cotuit MA,1997-01-25,2.08
+Cotuit MA,1997-01-30,2.08
+Cotuit MA,1997-01-30,2.29
+Cotuit MA,1997-02-07,2.7
+Cotuit MA,1997-02-07,2.92
+Cotuit MA,1997-02-12,2.92
+Cotuit MA,1997-02-16,3.12
+Cotuit MA,1997-02-16,3.33
+Cotuit MA,1997-02-20,3.54
+Cotuit MA,1997-02-20,3.75
+Cotuit MA,1997-02-24,3.96
+Cotuit MA,1997-02-24,4.17
+Cotuit MA,1997-03-05,4.59
+Cotuit MA,1997-03-05,4.78
+Cotuit MA,1997-03-10,5.0
+Cotuit MA,1997-03-10,5.41
+Cotuit MA,1997-03-14,5.62
+Cotuit MA,1997-03-14,5.84
+Cotuit MA,1997-03-19,6.04
+Cotuit MA,1997-03-19,6.25
+Cotuit MA,1997-03-24,6.46
+Cotuit MA,1997-03-24,6.66
+Cotuit MA,1997-03-28,6.88
+Cotuit MA,1997-03-28,7.29
+Cotuit MA,1997-04-02,7.5
+Cotuit MA,1997-04-02,7.7
+Cotuit MA,1997-04-07,7.7
+Cotuit MA,1997-04-07,8.13
+Cotuit MA,1997-04-11,8.33
+Cotuit MA,1997-04-11,8.76
+Cotuit MA,1997-04-16,8.95
+Cotuit MA,1997-04-16,9.17
+Cotuit MA,1997-04-20,9.37
+Cotuit MA,1997-04-20,9.58
+Cotuit MA,1997-04-24,9.79
+Cotuit MA,1997-04-24,9.99
+Cotuit MA,1997-04-29,10.21
+Cotuit MA,1997-04-29,10.62
+Cotuit MA,1997-05-04,10.84
+Cotuit MA,1997-05-04,11.46
+Cotuit MA,1997-05-08,11.46
+Cotuit MA,1997-05-08,12.5
+Cotuit MA,1997-05-13,12.71
+Cotuit MA,1997-05-13,14.17
+Cotuit MA,1997-05-18,14.38
+Cotuit MA,1997-05-18,16.05
+Cotuit MA,1997-05-22,16.24
+Cotuit MA,1997-05-22,17.71
+Cotuit MA,1997-05-27,17.91
+Cotuit MA,1997-05-27,19.16
+Cotuit MA,1997-06-01,19.58
+Cotuit MA,1997-06-01,20.63
+Cotuit MA,1997-06-05,20.83
+Cotuit MA,1997-06-05,21.87
+Cotuit MA,1997-06-09,22.08
+Cotuit MA,1997-06-09,22.71
+Cotuit MA,1997-06-14,22.92
+Cotuit MA,1997-06-14,23.75
+Cotuit MA,1997-06-19,23.75
+Cotuit MA,1997-06-19,24.16
+Cotuit MA,1997-06-23,24.16
+Cotuit MA,1997-06-23,24.38
+Cotuit MA,1997-07-02,24.38
+Cotuit MA,1997-07-02,24.16
+Cotuit MA,1997-07-07,24.16
+Cotuit MA,1997-07-07,23.96
+Cotuit MA,1997-07-21,23.96
+Cotuit MA,1997-07-21,24.16
+Cotuit MA,1997-07-30,24.16
+Cotuit MA,1997-07-30,24.38
+Cotuit MA,1997-08-13,24.38
+Cotuit MA,1997-08-13,24.16
+Cotuit MA,1997-08-18,24.16
+Cotuit MA,1997-08-18,23.75
+Cotuit MA,1997-08-22,23.75
+Cotuit MA,1997-08-22,23.33
+Cotuit MA,1997-08-27,23.33
+Cotuit MA,1997-08-27,22.92
+Cotuit MA,1997-09-01,22.71
+Cotuit MA,1997-09-01,22.08
+Cotuit MA,1997-09-05,22.08
+Cotuit MA,1997-09-05,21.46
+Cotuit MA,1997-09-09,21.46
+Cotuit MA,1997-09-09,20.83
+Cotuit MA,1997-09-14,20.63
+Cotuit MA,1997-09-14,19.79
+Cotuit MA,1997-09-18,19.58
+Cotuit MA,1997-09-18,18.96
+Cotuit MA,1997-09-23,18.75
+Cotuit MA,1997-09-23,17.91
+Cotuit MA,1997-09-28,17.71
+Cotuit MA,1997-09-28,16.87
+Cotuit MA,1997-10-02,16.67
+Cotuit MA,1997-10-02,16.05
+Cotuit MA,1997-10-07,15.83
+Cotuit MA,1997-10-07,14.79
+Cotuit MA,1997-10-12,14.58
+Cotuit MA,1997-10-12,13.75
+Cotuit MA,1997-10-16,13.75
+Cotuit MA,1997-10-16,12.91
+Cotuit MA,1997-10-21,12.71
+Cotuit MA,1997-10-21,12.09
+Cotuit MA,1997-10-25,11.87
+Cotuit MA,1997-10-25,11.04
+Cotuit MA,1997-10-30,10.84
+Cotuit MA,1997-10-30,9.99
+Cotuit MA,1997-11-04,9.79
+Cotuit MA,1997-11-04,8.76
+Cotuit MA,1997-11-08,8.54
+Cotuit MA,1997-11-08,7.7
+Cotuit MA,1997-11-12,7.7
+Cotuit MA,1997-11-12,7.08
+Cotuit MA,1997-11-17,6.88
+Cotuit MA,1997-11-17,6.46
+Cotuit MA,1997-11-21,6.46
+Cotuit MA,1997-11-21,6.25
+Cotuit MA,1997-11-26,6.25
+Cotuit MA,1997-11-26,6.04
+Cotuit MA,1997-12-01,6.04
+Cotuit MA,1997-12-05,5.84
+Cotuit MA,1997-12-10,5.84
+Cotuit MA,1997-12-10,5.62
+Cotuit MA,1997-12-15,5.62
+Cotuit MA,1997-12-15,5.21
+Cotuit MA,1997-12-19,5.0
+Cotuit MA,1997-12-19,4.59
+Cotuit MA,1997-12-24,4.37
+Cotuit MA,1997-12-24,3.54
+Cotuit MA,1997-12-28,3.54
+Cotuit MA,1997-12-28,2.7
+Cotuit MA,1998-01-02,2.51
+Cotuit MA,1998-01-02,1.88
+Cotuit MA,1998-01-07,1.88
+Cotuit MA,1998-01-07,1.25
+Cotuit MA,1998-01-11,1.25
+Cotuit MA,1998-01-11,1.04
+Cotuit MA,1998-01-25,1.04
+Cotuit MA,1998-01-25,1.25
+Cotuit MA,1998-01-30,1.45
+Cotuit MA,1998-01-30,1.67
+Cotuit MA,1998-02-03,1.67
+Cotuit MA,1998-02-03,2.08
+Cotuit MA,1998-02-07,2.29
+Cotuit MA,1998-02-07,2.51
+Cotuit MA,1998-02-12,2.51
+Cotuit MA,1998-02-12,2.92
+Cotuit MA,1998-02-16,2.92
+Cotuit MA,1998-02-20,2.7
+Cotuit MA,1998-02-20,2.92
+Cotuit MA,1998-02-24,2.92
+Cotuit MA,1998-02-24,3.33
+Cotuit MA,1998-02-28,3.54
+Cotuit MA,1998-02-28,3.96
+Cotuit MA,1998-03-05,4.17
+Cotuit MA,1998-03-05,4.59
+Cotuit MA,1998-03-10,5.0
+Cotuit MA,1998-03-10,5.41
+Cotuit MA,1998-03-14,5.84
+Cotuit MA,1998-03-14,6.25
+Cotuit MA,1998-03-19,6.46
+Cotuit MA,1998-03-19,6.88
+Cotuit MA,1998-03-24,7.29
+Cotuit MA,1998-03-28,7.7
+Cotuit MA,1998-03-28,8.13
+Cotuit MA,1998-04-02,8.54
+Cotuit MA,1998-04-02,8.95
+Cotuit MA,1998-04-06,9.37
+Cotuit MA,1998-04-06,9.79
+Cotuit MA,1998-04-11,10.21
+Cotuit MA,1998-04-16,10.84
+Cotuit MA,1998-04-16,11.25
+Cotuit MA,1998-04-20,11.66
+Cotuit MA,1998-04-25,12.29
+Cotuit MA,1998-04-25,12.71
+Cotuit MA,1998-04-29,13.32
+Cotuit MA,1998-05-03,13.75
+Cotuit MA,1998-05-03,14.38
+Cotuit MA,1998-05-08,15.01
+Cotuit MA,1998-05-13,15.42
+Cotuit MA,1998-05-13,16.05
+Cotuit MA,1998-05-17,16.67
+Cotuit MA,1998-05-22,17.28
+Cotuit MA,1998-05-27,17.91
+Cotuit MA,1998-05-27,18.34
+Cotuit MA,1998-05-31,18.96
+Cotuit MA,1998-06-05,19.58
+Cotuit MA,1998-06-09,20.2
+Cotuit MA,1998-06-14,20.83
+Cotuit MA,1998-06-14,21.46
+Cotuit MA,1998-06-19,22.08
+Cotuit MA,1998-06-23,22.71
+Cotuit MA,1998-06-28,23.53
+Cotuit MA,1998-07-02,24.16
+Cotuit MA,1998-07-02,24.79
+Cotuit MA,1998-07-07,25.41
+Cotuit MA,1998-07-11,26.04
+Martha's Vineyard MA (Butler's Neck),1996-06-14,22.49
+Martha's Vineyard MA (Butler's Neck),1996-06-19,22.49
+Martha's Vineyard MA (Butler's Neck),1996-06-19,22.71
+Martha's Vineyard MA (Butler's Neck),1996-06-28,22.71
+Martha's Vineyard MA (Butler's Neck),1996-06-28,22.91
+Martha's Vineyard MA (Butler's Neck),1996-07-11,22.91
+Martha's Vineyard MA (Butler's Neck),1996-07-11,23.12
+Martha's Vineyard MA (Butler's Neck),1996-07-21,23.12
+Martha's Vineyard MA (Butler's Neck),1996-07-21,23.32
+Martha's Vineyard MA (Butler's Neck),1996-07-25,23.32
+Martha's Vineyard MA (Butler's Neck),1996-07-25,23.53
+Martha's Vineyard MA (Butler's Neck),1996-07-30,23.53
+Martha's Vineyard MA (Butler's Neck),1996-07-30,23.75
+Martha's Vineyard MA (Butler's Neck),1996-08-04,23.75
+Martha's Vineyard MA (Butler's Neck),1996-08-08,23.95
+Martha's Vineyard MA (Butler's Neck),1996-08-08,23.75
+Martha's Vineyard MA (Butler's Neck),1996-08-13,23.75
+Martha's Vineyard MA (Butler's Neck),1996-08-18,23.53
+Martha's Vineyard MA (Butler's Neck),1996-08-18,23.32
+Martha's Vineyard MA (Butler's Neck),1996-08-22,23.32
+Martha's Vineyard MA (Butler's Neck),1996-08-22,23.12
+Martha's Vineyard MA (Butler's Neck),1996-08-27,22.91
+Martha's Vineyard MA (Butler's Neck),1996-08-27,22.71
+Martha's Vineyard MA (Butler's Neck),1996-09-01,22.49
+Martha's Vineyard MA (Butler's Neck),1996-09-01,22.08
+Martha's Vineyard MA (Butler's Neck),1996-09-05,22.08
+Martha's Vineyard MA (Butler's Neck),1996-09-05,21.46
+Martha's Vineyard MA (Butler's Neck),1996-09-09,21.24
+Martha's Vineyard MA (Butler's Neck),1996-09-09,20.62
+Martha's Vineyard MA (Butler's Neck),1996-09-14,20.62
+Martha's Vineyard MA (Butler's Neck),1996-09-14,19.79
+Martha's Vineyard MA (Butler's Neck),1996-09-19,19.79
+Martha's Vineyard MA (Butler's Neck),1996-09-19,19.16
+Martha's Vineyard MA (Butler's Neck),1996-09-23,19.16
+Martha's Vineyard MA (Butler's Neck),1996-09-23,18.54
+Martha's Vineyard MA (Butler's Neck),1996-09-28,18.54
+Martha's Vineyard MA (Butler's Neck),1996-09-28,17.91
+Martha's Vineyard MA (Butler's Neck),1996-10-02,17.7
+Martha's Vineyard MA (Butler's Neck),1996-10-02,17.07
+Martha's Vineyard MA (Butler's Neck),1996-10-07,17.07
+Martha's Vineyard MA (Butler's Neck),1996-10-07,16.46
+Martha's Vineyard MA (Butler's Neck),1996-10-12,16.24
+Martha's Vineyard MA (Butler's Neck),1996-10-12,15.4
+Martha's Vineyard MA (Butler's Neck),1996-10-16,15.21
+Martha's Vineyard MA (Butler's Neck),1996-10-16,14.37
+Martha's Vineyard MA (Butler's Neck),1996-10-21,14.17
+Martha's Vineyard MA (Butler's Neck),1996-10-21,13.33
+Martha's Vineyard MA (Butler's Neck),1996-10-26,13.11
+Martha's Vineyard MA (Butler's Neck),1996-10-26,12.07
+Martha's Vineyard MA (Butler's Neck),1996-10-30,11.87
+Martha's Vineyard MA (Butler's Neck),1996-10-30,10.82
+Martha's Vineyard MA (Butler's Neck),1996-11-04,10.62
+Martha's Vineyard MA (Butler's Neck),1996-11-04,10.0
+Martha's Vineyard MA (Butler's Neck),1996-11-08,9.78
+Martha's Vineyard MA (Butler's Neck),1996-11-08,9.37
+Martha's Vineyard MA (Butler's Neck),1996-11-13,9.15
+Martha's Vineyard MA (Butler's Neck),1996-11-13,8.53
+Martha's Vineyard MA (Butler's Neck),1996-11-17,8.53
+Martha's Vineyard MA (Butler's Neck),1996-11-17,8.12
+Martha's Vineyard MA (Butler's Neck),1996-11-22,7.92
+Martha's Vineyard MA (Butler's Neck),1996-11-22,7.7
+Martha's Vineyard MA (Butler's Neck),1996-11-26,7.7
+Martha's Vineyard MA (Butler's Neck),1996-11-26,7.49
+Martha's Vineyard MA (Butler's Neck),1996-12-01,7.49
+Martha's Vineyard MA (Butler's Neck),1996-12-05,7.29
+Martha's Vineyard MA (Butler's Neck),1996-12-10,7.29
+Martha's Vineyard MA (Butler's Neck),1996-12-10,7.08
+Martha's Vineyard MA (Butler's Neck),1996-12-15,7.08
+Martha's Vineyard MA (Butler's Neck),1996-12-15,6.66
+Martha's Vineyard MA (Butler's Neck),1996-12-19,6.66
+Martha's Vineyard MA (Butler's Neck),1996-12-19,6.04
+Martha's Vineyard MA (Butler's Neck),1996-12-24,6.04
+Martha's Vineyard MA (Butler's Neck),1996-12-24,5.41
+Martha's Vineyard MA (Butler's Neck),1996-12-29,5.41
+Martha's Vineyard MA (Butler's Neck),1996-12-29,4.78
+Martha's Vineyard MA (Butler's Neck),1997-01-02,4.78
+Martha's Vineyard MA (Butler's Neck),1997-01-02,4.16
+Martha's Vineyard MA (Butler's Neck),1997-01-07,3.96
+Martha's Vineyard MA (Butler's Neck),1997-01-07,3.53
+Martha's Vineyard MA (Butler's Neck),1997-01-12,3.53
+Martha's Vineyard MA (Butler's Neck),1997-01-12,3.12
+Martha's Vineyard MA (Butler's Neck),1997-01-16,3.12
+Martha's Vineyard MA (Butler's Neck),1997-01-16,2.9
+Martha's Vineyard MA (Butler's Neck),1997-01-26,2.9
+Martha's Vineyard MA (Butler's Neck),1997-01-26,3.12
+Martha's Vineyard MA (Butler's Neck),1997-01-30,3.12
+Martha's Vineyard MA (Butler's Neck),1997-01-30,3.33
+Martha's Vineyard MA (Butler's Neck),1997-02-03,3.33
+Martha's Vineyard MA (Butler's Neck),1997-02-03,3.75
+Martha's Vineyard MA (Butler's Neck),1997-02-07,3.75
+Martha's Vineyard MA (Butler's Neck),1997-02-07,4.16
+Martha's Vineyard MA (Butler's Neck),1997-02-12,4.16
+Martha's Vineyard MA (Butler's Neck),1997-02-12,4.57
+Martha's Vineyard MA (Butler's Neck),1997-02-16,4.57
+Martha's Vineyard MA (Butler's Neck),1997-02-16,5.0
+Martha's Vineyard MA (Butler's Neck),1997-02-20,5.0
+Martha's Vineyard MA (Butler's Neck),1997-02-20,5.2
+Martha's Vineyard MA (Butler's Neck),1997-02-24,5.2
+Martha's Vineyard MA (Butler's Neck),1997-02-24,5.41
+Martha's Vineyard MA (Butler's Neck),1997-03-01,5.41
+Martha's Vineyard MA (Butler's Neck),1997-03-01,5.62
+Martha's Vineyard MA (Butler's Neck),1997-03-05,5.62
+Martha's Vineyard MA (Butler's Neck),1997-03-05,5.82
+Martha's Vineyard MA (Butler's Neck),1997-03-10,5.82
+Martha's Vineyard MA (Butler's Neck),1997-03-10,6.04
+Martha's Vineyard MA (Butler's Neck),1997-03-15,6.04
+Martha's Vineyard MA (Butler's Neck),1997-03-15,6.45
+Martha's Vineyard MA (Butler's Neck),1997-03-19,6.45
+Martha's Vineyard MA (Butler's Neck),1997-03-19,6.86
+Martha's Vineyard MA (Butler's Neck),1997-03-24,7.08
+Martha's Vineyard MA (Butler's Neck),1997-03-24,7.7
+Martha's Vineyard MA (Butler's Neck),1997-03-28,7.7
+Martha's Vineyard MA (Butler's Neck),1997-03-28,8.33
+Martha's Vineyard MA (Butler's Neck),1997-04-02,8.53
+Martha's Vineyard MA (Butler's Neck),1997-04-02,8.95
+Martha's Vineyard MA (Butler's Neck),1997-04-07,8.95
+Martha's Vineyard MA (Butler's Neck),1997-04-07,9.58
+Martha's Vineyard MA (Butler's Neck),1997-04-11,9.58
+Martha's Vineyard MA (Butler's Neck),1997-04-11,10.0
+Martha's Vineyard MA (Butler's Neck),1997-04-16,10.21
+Martha's Vineyard MA (Butler's Neck),1997-04-16,10.82
+Martha's Vineyard MA (Butler's Neck),1997-04-20,10.82
+Martha's Vineyard MA (Butler's Neck),1997-04-20,11.45
+Martha's Vineyard MA (Butler's Neck),1997-04-24,11.66
+Martha's Vineyard MA (Butler's Neck),1997-04-24,12.29
+Martha's Vineyard MA (Butler's Neck),1997-04-29,12.29
+Martha's Vineyard MA (Butler's Neck),1997-04-29,12.91
+Martha's Vineyard MA (Butler's Neck),1997-05-04,13.11
+Martha's Vineyard MA (Butler's Neck),1997-05-04,13.54
+Martha's Vineyard MA (Butler's Neck),1997-05-08,13.74
+Martha's Vineyard MA (Butler's Neck),1997-05-08,14.37
+Martha's Vineyard MA (Butler's Neck),1997-05-13,14.58
+Martha's Vineyard MA (Butler's Neck),1997-05-13,15.4
+Martha's Vineyard MA (Butler's Neck),1997-05-18,15.62
+Martha's Vineyard MA (Butler's Neck),1997-05-18,16.24
+Martha's Vineyard MA (Butler's Neck),1997-05-22,16.46
+Martha's Vineyard MA (Butler's Neck),1997-05-22,17.07
+Martha's Vineyard MA (Butler's Neck),1997-05-27,17.07
+Martha's Vineyard MA (Butler's Neck),1997-05-27,17.7
+Martha's Vineyard MA (Butler's Neck),1997-06-01,17.91
+Martha's Vineyard MA (Butler's Neck),1997-06-01,18.75
+Martha's Vineyard MA (Butler's Neck),1997-06-05,18.95
+Martha's Vineyard MA (Butler's Neck),1997-06-05,19.58
+Martha's Vineyard MA (Butler's Neck),1997-06-10,19.79
+Martha's Vineyard MA (Butler's Neck),1997-06-10,20.62
+Martha's Vineyard MA (Butler's Neck),1997-06-14,20.83
+Martha's Vineyard MA (Butler's Neck),1997-06-14,21.66
+Martha's Vineyard MA (Butler's Neck),1997-06-19,21.87
+Martha's Vineyard MA (Butler's Neck),1997-06-19,22.71
+Martha's Vineyard MA (Butler's Neck),1997-06-23,22.91
+Martha's Vineyard MA (Butler's Neck),1997-06-23,23.95
+Martha's Vineyard MA (Butler's Neck),1997-06-28,24.16
+Martha's Vineyard MA (Butler's Neck),1997-06-28,25.0
+Martha's Vineyard MA (Butler's Neck),1997-07-02,25.0
+Martha's Vineyard MA (Butler's Neck),1997-07-02,25.61
+Martha's Vineyard MA (Butler's Neck),1997-07-07,25.61
+Martha's Vineyard MA (Butler's Neck),1997-07-07,26.04
+Martha's Vineyard MA (Butler's Neck),1997-07-11,26.24
+Martha's Vineyard MA (Butler's Neck),1997-07-11,26.45
+Martha's Vineyard MA (Butler's Neck),1997-07-21,26.45
+Martha's Vineyard MA (Butler's Neck),1997-07-21,26.04
+Martha's Vineyard MA (Butler's Neck),1997-07-25,26.04
+Martha's Vineyard MA (Butler's Neck),1997-07-25,25.41
+Martha's Vineyard MA (Butler's Neck),1997-07-30,25.41
+Martha's Vineyard MA (Butler's Neck),1997-07-30,24.58
+Martha's Vineyard MA (Butler's Neck),1997-08-04,24.58
+Martha's Vineyard MA (Butler's Neck),1997-08-04,23.95
+Martha's Vineyard MA (Butler's Neck),1997-08-08,23.75
+Martha's Vineyard MA (Butler's Neck),1997-08-08,22.91
+Martha's Vineyard MA (Butler's Neck),1997-08-13,22.91
+Martha's Vineyard MA (Butler's Neck),1997-08-13,22.28
+Martha's Vineyard MA (Butler's Neck),1997-08-18,22.28
+Martha's Vineyard MA (Butler's Neck),1997-08-18,21.87
+Martha's Vineyard MA (Butler's Neck),1997-08-22,21.66
+Martha's Vineyard MA (Butler's Neck),1997-08-22,21.46
+Martha's Vineyard MA (Butler's Neck),1997-08-27,21.46
+Martha's Vineyard MA (Butler's Neck),1997-08-27,21.05
+Martha's Vineyard MA (Butler's Neck),1997-09-01,21.05
+Martha's Vineyard MA (Butler's Neck),1997-09-01,20.83
+Martha's Vineyard MA (Butler's Neck),1997-09-05,20.83
+Martha's Vineyard MA (Butler's Neck),1997-09-05,20.42
+Martha's Vineyard MA (Butler's Neck),1997-09-09,20.42
+Martha's Vineyard MA (Butler's Neck),1997-09-09,20.2
+Martha's Vineyard MA (Butler's Neck),1997-09-14,20.2
+Martha's Vineyard MA (Butler's Neck),1997-09-14,19.99
+Martha's Vineyard MA (Butler's Neck),1997-09-19,19.79
+Martha's Vineyard MA (Butler's Neck),1997-09-23,19.79
+Martha's Vineyard MA (Butler's Neck),1997-09-23,19.58
+Martha's Vineyard MA (Butler's Neck),1997-09-28,19.58
+Martha's Vineyard MA (Butler's Neck),1997-09-28,19.36
+Martha's Vineyard MA (Butler's Neck),1997-10-02,19.36
+Martha's Vineyard MA (Butler's Neck),1997-10-02,18.95
+Martha's Vineyard MA (Butler's Neck),1997-10-07,18.95
+Martha's Vineyard MA (Butler's Neck),1997-10-07,18.54
+Martha's Vineyard MA (Butler's Neck),1997-10-12,18.54
+Martha's Vineyard MA (Butler's Neck),1997-10-12,17.91
+Martha's Vineyard MA (Butler's Neck),1997-10-16,17.91
+Martha's Vineyard MA (Butler's Neck),1997-10-16,17.07
+Martha's Vineyard MA (Butler's Neck),1997-10-21,16.87
+Martha's Vineyard MA (Butler's Neck),1997-10-21,15.83
+Martha's Vineyard MA (Butler's Neck),1997-10-25,15.4
+Martha's Vineyard MA (Butler's Neck),1997-10-25,13.95
+Martha's Vineyard MA (Butler's Neck),1997-10-30,13.74
+Martha's Vineyard MA (Butler's Neck),1997-10-30,12.07
+Martha's Vineyard MA (Butler's Neck),1997-11-04,11.87
+Martha's Vineyard MA (Butler's Neck),1997-11-04,10.62
+Martha's Vineyard MA (Butler's Neck),1997-11-08,10.41
+Martha's Vineyard MA (Butler's Neck),1997-11-08,8.95
+Martha's Vineyard MA (Butler's Neck),1997-11-12,8.74
+Martha's Vineyard MA (Butler's Neck),1997-11-12,7.49
+Martha's Vineyard MA (Butler's Neck),1997-11-17,7.49
+Martha's Vineyard MA (Butler's Neck),1997-11-17,5.82
+Martha's Vineyard MA (Butler's Neck),1997-11-22,5.62
+Martha's Vineyard MA (Butler's Neck),1997-11-22,4.78
+Martha's Vineyard MA (Butler's Neck),1997-11-26,4.78
+Martha's Vineyard MA (Butler's Neck),1997-11-26,4.57
+Martha's Vineyard MA (Butler's Neck),1997-12-10,4.57
+Martha's Vineyard MA (Butler's Neck),1997-12-15,4.78
+Martha's Vineyard MA (Butler's Neck),1997-12-19,5.0
+Martha's Vineyard MA (Butler's Neck),1997-12-24,5.2
+Martha's Vineyard MA (Butler's Neck),1997-12-29,5.2
+Martha's Vineyard MA (Butler's Neck),1997-12-29,5.41
+Martha's Vineyard MA (Butler's Neck),1998-01-02,5.62
+Martha's Vineyard MA (Butler's Neck),1998-01-07,5.82
+Martha's Vineyard MA (Butler's Neck),1998-01-12,6.04
+Martha's Vineyard MA (Butler's Neck),1998-01-16,6.25
+Martha's Vineyard MA (Butler's Neck),1998-01-21,6.45
+Martha's Vineyard MA (Butler's Neck),1998-01-25,6.66
+Martha's Vineyard MA (Butler's Neck),1998-01-25,6.86
+Martha's Vineyard MA (Butler's Neck),1998-02-03,7.29
+Martha's Vineyard MA (Butler's Neck),1998-02-07,7.29
+Martha's Vineyard MA (Butler's Neck),1998-02-07,7.49
+Martha's Vineyard MA (Butler's Neck),1998-02-20,8.12
+Martha's Vineyard MA (Butler's Neck),1998-02-20,8.33
+Martha's Vineyard MA (Butler's Neck),1998-02-24,8.53
+Martha's Vineyard MA (Butler's Neck),1998-03-01,8.74
+Martha's Vineyard MA (Butler's Neck),1998-03-05,8.95
+Martha's Vineyard MA (Butler's Neck),1998-03-05,9.15
+Martha's Vineyard MA (Butler's Neck),1998-03-10,9.37
+Martha's Vineyard MA (Butler's Neck),1998-03-14,9.58
+Martha's Vineyard MA (Butler's Neck),1998-03-19,9.78
+Martha's Vineyard MA (Butler's Neck),1998-03-19,10.0
+Martha's Vineyard MA (Butler's Neck),1998-03-28,10.41
+Martha's Vineyard MA (Butler's Neck),1998-03-28,10.62
+Martha's Vineyard MA (Butler's Neck),1998-04-02,10.82
+Martha's Vineyard MA (Butler's Neck),1998-04-07,11.04
+Martha's Vineyard MA (Butler's Neck),1998-04-07,11.25
+Martha's Vineyard MA (Butler's Neck),1998-04-11,11.45
+Martha's Vineyard MA (Butler's Neck),1998-04-11,11.66
+Martha's Vineyard MA (Butler's Neck),1998-04-16,11.87
+Martha's Vineyard MA (Butler's Neck),1998-04-16,12.07
+Martha's Vineyard MA (Butler's Neck),1998-04-20,12.29
+Martha's Vineyard MA (Butler's Neck),1998-04-25,12.5
+Martha's Vineyard MA (Butler's Neck),1998-04-25,12.91
+Martha's Vineyard MA (Butler's Neck),1998-04-29,12.91
+Martha's Vineyard MA (Butler's Neck),1998-04-29,13.33
+Martha's Vineyard MA (Butler's Neck),1998-05-03,13.54
+Martha's Vineyard MA (Butler's Neck),1998-05-03,14.17
+Martha's Vineyard MA (Butler's Neck),1998-05-08,14.37
+Martha's Vineyard MA (Butler's Neck),1998-05-08,15.62
+Martha's Vineyard MA (Butler's Neck),1998-05-13,15.83
+Martha's Vineyard MA (Butler's Neck),1998-05-13,17.29
+Martha's Vineyard MA (Butler's Neck),1998-05-17,17.29
+Martha's Vineyard MA (Butler's Neck),1998-05-17,17.91
+Martha's Vineyard MA (Butler's Neck),1998-05-22,18.13
+Martha's Vineyard MA (Butler's Neck),1998-05-22,18.54
+Martha's Vineyard MA (Butler's Neck),1998-05-27,18.75
+Martha's Vineyard MA (Butler's Neck),1998-05-27,18.95
+Martha's Vineyard MA (Butler's Neck),1998-05-31,19.16
+Martha's Vineyard MA (Butler's Neck),1998-05-31,19.58
+Martha's Vineyard MA (Butler's Neck),1998-06-05,19.58
+Martha's Vineyard MA (Butler's Neck),1998-06-05,19.99
+Martha's Vineyard MA (Butler's Neck),1998-06-10,20.2
+Martha's Vineyard MA (Butler's Neck),1998-06-10,20.42
+Martha's Vineyard MA (Butler's Neck),1998-06-14,20.62
+Martha's Vineyard MA (Butler's Neck),1998-06-14,20.83
+Oyster Bay NY,1996-07-23,22.49
+Oyster Bay NY,1996-07-23,22.91
+Oyster Bay NY,1996-07-27,22.91
+Oyster Bay NY,1996-07-27,23.53
+Oyster Bay NY,1996-08-01,23.53
+Oyster Bay NY,1996-08-01,23.95
+Oyster Bay NY,1996-08-05,23.95
+Oyster Bay NY,1996-08-05,24.16
+Oyster Bay NY,1996-08-13,24.16
+Oyster Bay NY,1996-08-13,23.95
+Oyster Bay NY,1996-08-17,23.95
+Oyster Bay NY,1996-08-17,23.75
+Oyster Bay NY,1996-08-21,23.75
+Oyster Bay NY,1996-08-21,23.32
+Oyster Bay NY,1996-08-25,23.32
+Oyster Bay NY,1996-08-25,22.91
+Oyster Bay NY,1996-08-29,22.91
+Oyster Bay NY,1996-08-29,22.49
+Oyster Bay NY,1996-09-03,22.28
+Oyster Bay NY,1996-09-03,22.08
+Oyster Bay NY,1996-09-07,21.87
+Oyster Bay NY,1996-09-07,21.46
+Oyster Bay NY,1996-09-11,21.46
+Oyster Bay NY,1996-09-11,21.05
+Oyster Bay NY,1996-09-15,20.83
+Oyster Bay NY,1996-09-15,20.2
+Oyster Bay NY,1996-09-18,20.2
+Oyster Bay NY,1996-09-18,19.58
+Oyster Bay NY,1996-09-23,19.58
+Oyster Bay NY,1996-09-23,18.75
+Oyster Bay NY,1996-09-27,18.75
+Oyster Bay NY,1996-09-27,17.91
+Oyster Bay NY,1996-09-30,17.91
+Oyster Bay NY,1996-09-30,17.29
+Oyster Bay NY,1996-10-05,17.07
+Oyster Bay NY,1996-10-05,16.24
+Oyster Bay NY,1996-10-09,16.03
+Oyster Bay NY,1996-10-09,15.4
+Oyster Bay NY,1996-10-13,15.21
+Oyster Bay NY,1996-10-13,14.79
+Oyster Bay NY,1996-10-17,14.58
+Oyster Bay NY,1996-10-17,13.95
+Oyster Bay NY,1996-10-21,13.74
+Oyster Bay NY,1996-10-21,13.11
+Oyster Bay NY,1996-10-25,13.11
+Oyster Bay NY,1996-10-25,12.5
+Oyster Bay NY,1996-10-30,12.29
+Oyster Bay NY,1996-10-30,11.66
+Oyster Bay NY,1996-11-02,11.45
+Oyster Bay NY,1996-11-02,11.04
+Oyster Bay NY,1996-11-07,10.82
+Oyster Bay NY,1996-11-07,10.21
+Oyster Bay NY,1996-11-11,10.0
+Oyster Bay NY,1996-11-11,9.58
+Oyster Bay NY,1996-11-14,9.37
+Oyster Bay NY,1996-11-14,8.74
+Oyster Bay NY,1996-11-19,8.74
+Oyster Bay NY,1996-11-19,8.12
+Oyster Bay NY,1996-11-23,7.92
+Oyster Bay NY,1996-11-23,7.29
+Oyster Bay NY,1996-11-26,7.08
+Oyster Bay NY,1996-11-26,6.66
+Oyster Bay NY,1996-12-01,6.66
+Oyster Bay NY,1996-12-01,6.25
+Oyster Bay NY,1996-12-05,6.25
+Oyster Bay NY,1996-12-05,5.82
+Oyster Bay NY,1996-12-09,5.82
+Oyster Bay NY,1996-12-09,5.62
+Oyster Bay NY,1996-12-13,5.41
+Oyster Bay NY,1996-12-17,5.2
+Oyster Bay NY,1996-12-21,5.0
+Oyster Bay NY,1996-12-25,4.78
+Oyster Bay NY,1996-12-29,4.57
+Oyster Bay NY,1997-01-03,4.57
+Oyster Bay NY,1997-01-03,4.37
+Oyster Bay NY,1997-01-07,4.37
+Oyster Bay NY,1997-01-07,4.16
+Oyster Bay NY,1997-01-11,4.16
+Oyster Bay NY,1997-01-15,3.96
+Oyster Bay NY,1997-01-19,3.75
+Oyster Bay NY,1997-01-23,3.75
+Oyster Bay NY,1997-01-23,3.53
+Oyster Bay NY,1997-01-31,3.53
+Oyster Bay NY,1997-01-31,3.33
+Oyster Bay NY,1997-02-04,3.33
+Oyster Bay NY,1997-02-08,3.12
+Oyster Bay NY,1997-03-03,3.12
+Oyster Bay NY,1997-03-03,3.53
+Oyster Bay NY,1997-03-07,3.53
+Oyster Bay NY,1997-03-07,3.96
+Oyster Bay NY,1997-03-11,3.96
+Oyster Bay NY,1997-03-11,4.37
+Oyster Bay NY,1997-03-15,4.37
+Oyster Bay NY,1997-03-15,4.78
+Oyster Bay NY,1997-03-19,5.0
+Oyster Bay NY,1997-03-19,5.2
+Oyster Bay NY,1997-03-23,5.41
+Oyster Bay NY,1997-03-23,5.62
+Oyster Bay NY,1997-03-27,5.82
+Oyster Bay NY,1997-03-27,6.25
+Oyster Bay NY,1997-04-01,6.25
+Oyster Bay NY,1997-04-01,6.66
+Oyster Bay NY,1997-04-05,6.66
+Oyster Bay NY,1997-04-05,7.08
+Oyster Bay NY,1997-04-08,7.29
+Oyster Bay NY,1997-04-08,7.49
+Oyster Bay NY,1997-04-13,7.7
+Oyster Bay NY,1997-04-13,8.12
+Oyster Bay NY,1997-04-17,8.33
+Oyster Bay NY,1997-04-17,8.74
+Oyster Bay NY,1997-04-21,8.95
+Oyster Bay NY,1997-04-21,9.58
+Oyster Bay NY,1997-04-25,9.58
+Oyster Bay NY,1997-04-25,10.21
+Oyster Bay NY,1997-04-28,10.41
+Oyster Bay NY,1997-04-28,11.04
+Oyster Bay NY,1997-05-03,11.25
+Oyster Bay NY,1997-05-03,11.87
+Oyster Bay NY,1997-05-07,12.07
+Oyster Bay NY,1997-05-07,12.5
+Oyster Bay NY,1997-05-11,12.7
+Oyster Bay NY,1997-05-11,13.11
+Oyster Bay NY,1997-05-15,13.33
+Oyster Bay NY,1997-05-15,13.54
+Oyster Bay NY,1997-05-19,13.54
+Oyster Bay NY,1997-05-19,13.95
+Oyster Bay NY,1997-05-23,13.95
+Oyster Bay NY,1997-05-23,14.17
+Oyster Bay NY,1997-05-27,14.37
+Oyster Bay NY,1997-05-27,14.58
+Oyster Bay NY,1997-06-01,14.58
+Oyster Bay NY,1997-06-01,15.21
+Oyster Bay NY,1997-06-04,15.21
+Oyster Bay NY,1997-06-04,15.83
+Oyster Bay NY,1997-06-09,16.03
+Oyster Bay NY,1997-06-09,16.46
+Oyster Bay NY,1997-06-12,16.66
+Oyster Bay NY,1997-06-12,17.5
+Oyster Bay NY,1997-06-16,17.7
+Oyster Bay NY,1997-06-16,18.32
+Oyster Bay NY,1997-06-21,18.54
+Oyster Bay NY,1997-06-21,19.16
+Oyster Bay NY,1997-06-24,19.36
+Oyster Bay NY,1997-06-24,20.2
+Oyster Bay NY,1997-06-29,20.42
+Oyster Bay NY,1997-06-29,21.05
+Oyster Bay NY,1997-07-03,21.05
+Oyster Bay NY,1997-07-03,21.87
+Oyster Bay NY,1997-07-07,21.87
+Oyster Bay NY,1997-07-07,22.28
+Oyster Bay NY,1997-07-11,22.49
+Oyster Bay NY,1997-07-11,22.91
+Oyster Bay NY,1997-07-15,22.91
+Oyster Bay NY,1997-07-15,23.12
+Oyster Bay NY,1997-07-19,23.12
+Oyster Bay NY,1997-07-19,23.32
+Oyster Bay NY,1997-07-23,23.32
+Oyster Bay NY,1997-07-23,23.12
+Oyster Bay NY,1997-07-31,23.12
+Oyster Bay NY,1997-07-31,22.91
+Oyster Bay NY,1997-08-05,22.91
+Oyster Bay NY,1997-08-05,22.71
+Oyster Bay NY,1997-08-09,22.49
+Oyster Bay NY,1997-08-09,22.28
+Oyster Bay NY,1997-08-13,22.28
+Oyster Bay NY,1997-08-13,21.87
+Oyster Bay NY,1997-08-17,21.87
+Oyster Bay NY,1997-08-17,21.66
+Oyster Bay NY,1997-08-21,21.66
+Oyster Bay NY,1997-08-21,21.46
+Oyster Bay NY,1997-08-25,21.46
+Oyster Bay NY,1997-08-25,21.24
+Oyster Bay NY,1997-08-30,21.24
+Oyster Bay NY,1997-08-30,21.05
+Oyster Bay NY,1997-09-02,21.05
+Oyster Bay NY,1997-09-02,20.83
+Oyster Bay NY,1997-09-07,20.83
+Oyster Bay NY,1997-09-07,20.62
+Oyster Bay NY,1997-09-10,20.42
+Oyster Bay NY,1997-09-10,20.2
+Oyster Bay NY,1997-09-14,20.2
+Oyster Bay NY,1997-09-14,19.79
+Oyster Bay NY,1997-09-19,19.58
+Oyster Bay NY,1997-09-19,19.16
+Oyster Bay NY,1997-09-22,19.16
+Oyster Bay NY,1997-09-22,18.75
+Oyster Bay NY,1997-09-27,18.54
+Oyster Bay NY,1997-09-27,18.13
+Oyster Bay NY,1997-10-01,18.13
+Oyster Bay NY,1997-10-01,17.5
+Oyster Bay NY,1997-10-05,17.29
+Oyster Bay NY,1997-10-05,16.87
+Oyster Bay NY,1997-10-09,16.66
+Oyster Bay NY,1997-10-09,16.03
+Oyster Bay NY,1997-10-13,15.83
+Oyster Bay NY,1997-10-13,15.21
+Oyster Bay NY,1997-10-17,14.99
+Oyster Bay NY,1997-10-17,14.58
+Oyster Bay NY,1997-10-21,14.37
+Oyster Bay NY,1997-10-21,13.74
+Oyster Bay NY,1997-10-25,13.54
+Oyster Bay NY,1997-10-25,12.91
+Oyster Bay NY,1997-10-29,12.7
+Oyster Bay NY,1997-10-29,12.07
+Oyster Bay NY,1997-11-03,11.87
+Oyster Bay NY,1997-11-03,11.25
+Oyster Bay NY,1997-11-06,11.04
+Oyster Bay NY,1997-11-06,10.41
+Oyster Bay NY,1997-11-11,10.21
+Oyster Bay NY,1997-11-11,9.58
+Oyster Bay NY,1997-11-15,9.37
+Oyster Bay NY,1997-11-15,8.53
+Oyster Bay NY,1997-11-18,8.33
+Oyster Bay NY,1997-11-18,7.49
+Oyster Bay NY,1997-11-23,7.49
+Oyster Bay NY,1997-11-23,6.86
+Oyster Bay NY,1997-11-27,6.66
+Oyster Bay NY,1997-11-27,6.04
+Oyster Bay NY,1997-11-30,6.04
+Oyster Bay NY,1997-11-30,5.62
+Oyster Bay NY,1997-12-05,5.41
+Oyster Bay NY,1997-12-05,5.0
+Oyster Bay NY,1997-12-09,5.0
+Oyster Bay NY,1997-12-09,4.57
+Oyster Bay NY,1997-12-13,4.57
+Oyster Bay NY,1997-12-09,4.57
+Oyster Bay NY,1997-12-13,4.57
+Oyster Bay NY,1997-12-09,4.57
+Oyster Bay NY,1997-12-21,4.57
+Oyster Bay NY,1997-12-21,4.37
+Oyster Bay NY,1997-12-25,4.37
+Oyster Bay NY,1997-12-30,4.16
+Oyster Bay NY,1998-01-02,4.16
+Oyster Bay NY,1998-01-02,3.96
+Oyster Bay NY,1998-01-11,3.96
+Oyster Bay NY,1998-01-11,3.75
+Oyster Bay NY,1998-01-23,3.75
+Oyster Bay NY,1998-01-23,3.53
+Oyster Bay NY,1998-02-08,3.53
+Oyster Bay NY,1998-02-08,3.75
+Oyster Bay NY,1998-02-15,3.75
+Oyster Bay NY,1998-02-19,3.96
+Oyster Bay NY,1998-02-23,3.96
+Oyster Bay NY,1998-02-27,4.16
+Oyster Bay NY,1998-02-27,4.37
+Oyster Bay NY,1998-03-03,4.37
+Oyster Bay NY,1998-03-03,4.57
+Oyster Bay NY,1998-03-07,4.57
+Oyster Bay NY,1998-03-07,5.0
+Oyster Bay NY,1998-03-11,5.0
+Oyster Bay NY,1998-03-11,5.41
+Oyster Bay NY,1998-03-15,5.41
+Oyster Bay NY,1998-03-15,5.82
+Oyster Bay NY,1998-03-19,6.04
+Oyster Bay NY,1998-03-19,6.25
+Oyster Bay NY,1998-03-23,6.25
+Oyster Bay NY,1998-03-23,6.66
+Oyster Bay NY,1998-03-27,6.86
+Oyster Bay NY,1998-03-27,7.08
+Oyster Bay NY,1998-03-31,7.29
+Oyster Bay NY,1998-03-31,7.7
+Oyster Bay NY,1998-04-05,7.92
+Oyster Bay NY,1998-04-05,8.33
+Oyster Bay NY,1998-04-09,8.53
+Oyster Bay NY,1998-04-09,8.74
+Oyster Bay NY,1998-04-12,8.95
+Oyster Bay NY,1998-04-12,9.58
+Oyster Bay NY,1998-04-17,9.78
+Oyster Bay NY,1998-04-17,10.41
+Oyster Bay NY,1998-04-20,10.62
+Oyster Bay NY,1998-04-20,11.45
+Oyster Bay NY,1998-04-24,11.66
+Oyster Bay NY,1998-04-24,12.91
+Oyster Bay NY,1998-04-29,13.11
+Oyster Bay NY,1998-04-29,14.58
+Oyster Bay NY,1998-05-02,14.79
+Oyster Bay NY,1998-05-02,16.66
+Oyster Bay NY,1998-05-07,16.66
+Oyster Bay NY,1998-05-07,17.7
+Milford CT,1996-05-13,11.25
+Milford CT,1996-05-13,12.5
+Milford CT,1996-05-19,12.71
+Milford CT,1996-05-19,14.58
+Milford CT,1996-05-25,14.79
+Milford CT,1996-05-25,16.05
+Milford CT,1996-05-30,16.26
+Milford CT,1996-05-30,17.3
+Milford CT,1996-06-06,17.5
+Milford CT,1996-06-06,18.34
+Milford CT,1996-06-12,18.55
+Milford CT,1996-06-12,19.38
+Milford CT,1996-06-18,19.38
+Milford CT,1996-06-18,20.0
+Milford CT,1996-06-24,20.22
+Milford CT,1996-06-24,20.63
+Milford CT,1996-07-01,20.63
+Milford CT,1996-07-01,20.84
+Milford CT,1996-07-07,20.84
+Milford CT,1996-07-07,21.04
+Milford CT,1996-07-13,21.26
+Milford CT,1996-07-13,21.46
+Milford CT,1996-07-19,21.46
+Milford CT,1996-07-19,21.88
+Milford CT,1996-07-25,21.88
+Milford CT,1996-07-25,22.3
+Milford CT,1996-08-01,22.3
+Milford CT,1996-08-01,22.71
+Milford CT,1996-08-06,22.71
+Milford CT,1996-08-06,22.92
+Milford CT,1996-08-18,22.92
+Milford CT,1996-08-18,22.51
+Milford CT,1996-08-23,22.51
+Milford CT,1996-08-23,22.08
+Milford CT,1996-08-29,22.08
+Milford CT,1996-08-29,21.67
+Milford CT,1996-09-04,21.46
+Milford CT,1996-09-04,20.63
+Milford CT,1996-09-10,20.63
+Milford CT,1996-09-10,19.79
+Milford CT,1996-09-16,19.59
+Milford CT,1996-09-16,18.96
+Milford CT,1996-09-23,18.96
+Milford CT,1996-09-23,18.13
+Milford CT,1996-09-29,18.13
+Milford CT,1996-09-29,17.3
+Milford CT,1996-10-05,17.3
+Milford CT,1996-10-05,16.46
+Milford CT,1996-10-10,16.46
+Milford CT,1996-10-10,15.63
+Milford CT,1996-10-17,15.63
+Milford CT,1996-10-17,14.79
+Milford CT,1996-10-23,14.58
+Milford CT,1996-10-23,13.75
+Milford CT,1996-10-28,13.54
+Milford CT,1996-10-28,12.5
+Milford CT,1996-11-04,12.3
+Milford CT,1996-11-04,11.46
+Milford CT,1996-11-10,11.46
+Milford CT,1996-11-10,10.84
+Milford CT,1996-11-16,10.62
+Milford CT,1996-11-16,10.01
+Milford CT,1996-11-22,10.01
+Milford CT,1996-11-22,9.38
+Milford CT,1996-11-29,9.38
+Milford CT,1996-11-29,8.76
+Milford CT,1996-12-04,8.76
+Milford CT,1996-12-04,8.13
+Milford CT,1996-12-11,7.92
+Milford CT,1996-12-11,7.29
+Milford CT,1996-12-16,7.29
+Milford CT,1996-12-16,6.46
+Milford CT,1996-12-23,6.46
+Milford CT,1996-12-23,5.62
+Milford CT,1996-12-29,5.42
+Milford CT,1996-12-29,4.59
+Milford CT,1997-01-04,4.59
+Milford CT,1997-01-04,3.55
+Milford CT,1997-01-10,3.55
+Milford CT,1997-01-10,2.92
+Milford CT,1997-01-16,2.92
+Milford CT,1997-01-16,2.7
+Milford CT,1997-01-29,2.7
+Milford CT,1997-01-29,2.92
+Milford CT,1997-02-04,2.92
+Milford CT,1997-02-04,3.13
+Milford CT,1997-02-10,3.13
+Milford CT,1997-02-10,3.33
+Milford CT,1997-02-16,3.33
+Milford CT,1997-02-16,3.55
+Milford CT,1997-03-01,3.55
+Milford CT,1997-03-01,3.76
+Milford CT,1997-03-07,3.76
+Milford CT,1997-03-07,3.96
+Milford CT,1997-03-12,3.96
+Milford CT,1997-03-12,4.37
+Milford CT,1997-03-19,4.37
+Milford CT,1997-03-19,5.0
+Milford CT,1997-03-25,5.0
+Milford CT,1997-03-25,5.42
+Milford CT,1997-03-30,5.62
+Milford CT,1997-03-30,6.05
+Milford CT,1997-04-06,6.25
+Milford CT,1997-04-06,6.88
+Milford CT,1997-04-12,6.88
+Milford CT,1997-04-12,7.92
+Milford CT,1997-04-18,7.92
+Milford CT,1997-04-18,9.17
+Milford CT,1997-04-24,9.38
+Milford CT,1997-04-24,10.21
+Milford CT,1997-04-30,10.42
+Milford CT,1997-04-30,11.05
+Milford CT,1997-05-07,11.25
+Milford CT,1997-05-07,12.09
+Milford CT,1997-05-13,12.09
+Milford CT,1997-05-13,12.91
+Milford CT,1997-05-18,12.91
+Milford CT,1997-05-18,13.97
+Milford CT,1997-05-25,13.97
+Milford CT,1997-05-25,14.79
+Milford CT,1997-05-31,15.01
+Milford CT,1997-05-31,15.63
+Milford CT,1997-06-06,15.83
+Milford CT,1997-06-06,16.26
+Milford CT,1997-06-12,16.46
+Milford CT,1997-06-12,16.87
+Milford CT,1997-06-18,17.08
+Milford CT,1997-06-18,17.5
+Milford CT,1997-06-24,17.71
+Milford CT,1997-06-24,18.13
+Milford CT,1997-07-01,18.34
+Milford CT,1997-07-01,18.75
+Milford CT,1997-07-07,18.96
+Milford CT,1997-07-07,19.38
+Milford CT,1997-07-13,19.59
+Milford CT,1997-07-13,20.0
+Milford CT,1997-07-19,20.22
+Milford CT,1997-07-19,20.63
+Milford CT,1997-07-25,20.84
+Milford CT,1997-07-25,21.26
+Milford CT,1997-08-01,21.26
+Milford CT,1997-08-01,21.67
+Milford CT,1997-08-06,21.88
+Milford CT,1997-08-06,22.08
+Milford CT,1997-08-12,22.08
+Milford CT,1997-08-12,22.51
+Milford CT,1997-08-17,22.51
+Milford CT,1997-08-17,22.71
+Milford CT,1997-08-23,22.71
+Milford CT,1997-08-23,22.92
+Milford CT,1997-08-28,22.92
+Milford CT,1997-08-28,22.71
+Milford CT,1997-09-04,22.71
+Milford CT,1997-09-04,22.08
+Milford CT,1997-09-10,22.08
+Milford CT,1997-09-10,21.26
+Milford CT,1997-09-16,21.26
+Milford CT,1997-09-16,20.41
+Milford CT,1997-09-22,20.41
+Milford CT,1997-09-22,19.79
+Milford CT,1997-09-28,19.79
+Milford CT,1997-09-28,19.16
+Milford CT,1997-10-05,19.16
+Milford CT,1997-10-05,18.55
+Milford CT,1997-10-11,18.55
+Milford CT,1997-10-11,17.5
+Milford CT,1997-10-16,17.3
+Milford CT,1997-10-16,16.26
+Milford CT,1997-10-23,16.05
+Milford CT,1997-10-23,15.21
+Milford CT,1997-10-29,15.01
+Milford CT,1997-10-29,14.17
+Milford CT,1997-11-04,13.97
+Milford CT,1997-11-04,12.91
+Milford CT,1997-11-10,12.71
+Milford CT,1997-11-10,11.46
+Milford CT,1997-11-16,11.25
+Milford CT,1997-11-16,9.58
+Milford CT,1997-11-22,9.38
+Milford CT,1997-11-22,8.13
+Milford CT,1997-11-29,8.13
+Milford CT,1997-11-29,7.09
+Milford CT,1997-12-04,6.88
+Milford CT,1997-12-04,6.25
+Milford CT,1997-12-11,6.05
+Milford CT,1997-12-11,5.62
+Milford CT,1997-12-17,5.62
+Milford CT,1997-12-17,5.42
+Milford CT,1997-12-22,5.42
+Milford CT,1997-12-29,5.62
+Milford CT,1997-12-29,5.84
+Milford CT,1998-01-04,5.84
+Milford CT,1998-01-04,6.05
+Milford CT,1998-01-16,6.05
+Milford CT,1998-01-16,5.62
+Milford CT,1998-01-22,5.42
+Milford CT,1998-01-22,5.0
+Milford CT,1998-01-29,5.0
+Milford CT,1998-01-29,4.37
+Milford CT,1998-02-04,4.37
+Milford CT,1998-02-04,4.17
+Milford CT,1998-02-10,3.96
+Milford CT,1998-02-16,3.96
+Milford CT,1998-02-16,3.76
+Milford CT,1998-02-28,3.76
+Milford CT,1998-02-28,3.96
+Milford CT,1998-03-13,3.96
+Milford CT,1998-03-13,4.37
+Milford CT,1998-03-18,4.37
+Milford CT,1998-03-18,4.8
+Milford CT,1998-03-25,5.0
+Milford CT,1998-03-25,6.05
+Milford CT,1998-03-30,6.25
+Milford CT,1998-03-30,7.92
+Milford CT,1998-04-06,8.13
+Milford CT,1998-04-06,9.58
+Milford CT,1998-04-12,9.79
+Milford CT,1998-04-12,11.05
+Milford CT,1998-04-18,11.25
+Milford CT,1998-04-18,12.3
+Milford CT,1998-04-24,12.5
+Milford CT,1998-04-24,13.34
+Milford CT,1998-05-01,13.54
+Milford CT,1998-05-01,14.17
+Milford CT,1998-05-05,14.38
+Milford CT,1998-05-05,15.01
+Milford CT,1998-05-12,15.21
+Milford CT,1998-05-12,15.83
+Milford CT,1998-05-18,16.05
+Milford CT,1998-05-18,16.67
+Milford CT,1998-05-23,16.67
+Milford CT,1998-05-23,17.08
+Westport CT,1996-05-14,11.04
+Westport CT,1996-05-14,12.29
+Westport CT,1996-05-21,12.5
+Westport CT,1996-05-21,14.58
+Westport CT,1996-05-27,14.78
+Westport CT,1996-05-27,16.03
+Westport CT,1996-06-01,16.24
+Westport CT,1996-06-01,17.28
+Westport CT,1996-06-08,17.5
+Westport CT,1996-06-08,18.32
+Westport CT,1996-06-14,18.54
+Westport CT,1996-06-14,19.36
+Westport CT,1996-06-20,19.36
+Westport CT,1996-06-20,19.99
+Westport CT,1996-06-27,19.99
+Westport CT,1996-06-27,20.42
+Westport CT,1996-07-03,20.42
+Westport CT,1996-07-03,20.61
+Westport CT,1996-07-09,20.83
+Westport CT,1996-07-15,21.04
+Westport CT,1996-07-15,21.24
+Westport CT,1996-07-21,21.24
+Westport CT,1996-07-21,21.66
+Westport CT,1996-07-27,21.66
+Westport CT,1996-07-27,22.08
+Westport CT,1996-08-03,22.08
+Westport CT,1996-08-03,22.49
+Westport CT,1996-08-08,22.49
+Westport CT,1996-08-08,22.71
+Westport CT,1996-08-20,22.71
+Westport CT,1996-08-20,22.28
+Westport CT,1996-08-25,22.28
+Westport CT,1996-08-25,21.87
+Westport CT,1996-08-31,21.87
+Westport CT,1996-08-31,21.46
+Westport CT,1996-09-06,21.24
+Westport CT,1996-09-06,20.61
+Westport CT,1996-09-12,20.42
+Westport CT,1996-09-12,19.58
+Westport CT,1996-09-18,19.58
+Westport CT,1996-09-18,18.95
+Westport CT,1996-09-24,18.75
+Westport CT,1996-09-24,18.13
+Westport CT,1996-10-01,17.91
+Westport CT,1996-10-01,17.28
+Westport CT,1996-10-07,17.07
+Westport CT,1996-10-07,16.24
+Westport CT,1996-10-12,16.24
+Westport CT,1996-10-12,15.4
+Westport CT,1996-10-19,15.4
+Westport CT,1996-10-19,14.58
+Westport CT,1996-10-25,14.37
+Westport CT,1996-10-25,13.54
+Westport CT,1996-10-30,13.32
+Westport CT,1996-10-30,12.5
+Westport CT,1996-11-06,12.29
+Westport CT,1996-11-06,11.45
+Westport CT,1996-11-12,11.45
+Westport CT,1996-11-12,10.62
+Westport CT,1996-11-18,10.62
+Westport CT,1996-11-18,9.99
+Westport CT,1996-11-24,9.78
+Westport CT,1996-11-24,9.37
+Westport CT,1996-11-30,9.15
+Westport CT,1996-11-30,8.53
+Westport CT,1996-12-07,8.53
+Westport CT,1996-12-07,7.92
+Westport CT,1996-12-13,7.7
+Westport CT,1996-12-13,7.29
+Westport CT,1996-12-18,7.08
+Westport CT,1996-12-18,6.45
+Westport CT,1996-12-25,6.25
+Westport CT,1996-12-25,5.41
+Westport CT,1996-12-31,5.41
+Westport CT,1996-12-31,4.57
+Westport CT,1997-01-06,4.37
+Westport CT,1997-01-06,3.33
+Westport CT,1997-01-12,3.33
+Westport CT,1997-01-12,2.7
+Westport CT,1997-01-24,2.7
+Westport CT,1997-01-24,2.49
+Westport CT,1997-01-31,2.7
+Westport CT,1997-02-06,2.7
+Westport CT,1997-02-06,2.9
+Westport CT,1997-02-12,2.9
+Westport CT,1997-02-12,3.12
+Westport CT,1997-02-18,3.33
+Westport CT,1997-02-24,3.33
+Westport CT,1997-02-24,3.53
+Westport CT,1997-03-09,3.53
+Westport CT,1997-03-09,3.75
+Westport CT,1997-03-14,3.75
+Westport CT,1997-03-14,4.16
+Westport CT,1997-03-21,4.16
+Westport CT,1997-03-21,4.78
+Westport CT,1997-03-27,5.0
+Westport CT,1997-03-27,5.41
+Westport CT,1997-04-02,5.41
+Westport CT,1997-04-02,6.04
+Westport CT,1997-04-08,6.04
+Westport CT,1997-04-08,6.66
+Westport CT,1997-04-14,6.66
+Westport CT,1997-04-14,7.7
+Westport CT,1997-04-20,7.7
+Westport CT,1997-04-20,8.95
+Westport CT,1997-04-26,9.15
+Westport CT,1997-04-26,9.99
+Westport CT,1997-05-02,10.21
+Westport CT,1997-05-02,11.04
+Westport CT,1997-05-09,11.25
+Westport CT,1997-05-09,12.07
+Westport CT,1997-05-15,12.07
+Westport CT,1997-05-15,12.91
+Westport CT,1997-05-20,12.91
+Westport CT,1997-05-20,13.74
+Westport CT,1997-05-27,13.95
+Westport CT,1997-05-27,14.58
+Westport CT,1997-06-02,14.78
+Westport CT,1997-06-02,15.4
+Westport CT,1997-06-08,15.62
+Westport CT,1997-06-08,16.03
+Westport CT,1997-06-14,16.24
+Westport CT,1997-06-14,16.66
+Westport CT,1997-06-20,16.87
+Westport CT,1997-06-20,17.28
+Westport CT,1997-06-26,17.5
+Westport CT,1997-06-26,17.91
+Westport CT,1997-07-03,18.13
+Westport CT,1997-07-03,18.54
+Westport CT,1997-07-09,18.75
+Westport CT,1997-07-09,19.36
+Westport CT,1997-07-15,19.36
+Westport CT,1997-07-15,19.79
+Westport CT,1997-07-21,19.99
+Westport CT,1997-07-21,20.42
+Westport CT,1997-07-27,20.61
+Westport CT,1997-07-27,21.04
+Westport CT,1997-08-03,21.24
+Westport CT,1997-08-03,21.66
+Westport CT,1997-08-08,21.66
+Westport CT,1997-08-08,22.08
+Westport CT,1997-08-14,22.08
+Westport CT,1997-08-14,22.49
+Westport CT,1997-08-19,22.49
+Westport CT,1997-08-25,22.71
+Westport CT,1997-08-29,22.71
+Westport CT,1997-08-29,22.49
+Westport CT,1997-09-05,22.49
+Westport CT,1997-09-05,21.87
+Westport CT,1997-09-11,21.87
+Westport CT,1997-09-11,21.04
+Westport CT,1997-09-17,21.04
+Westport CT,1997-09-17,20.42
+Westport CT,1997-09-24,20.2
+Westport CT,1997-09-24,19.79
+Westport CT,1997-09-29,19.58
+Westport CT,1997-09-29,19.16
+Westport CT,1997-10-06,18.95
+Westport CT,1997-10-06,18.32
+Westport CT,1997-10-12,18.32
+Westport CT,1997-10-12,17.28
+Westport CT,1997-10-17,17.07
+Westport CT,1997-10-17,16.03
+Westport CT,1997-10-24,15.83
+Westport CT,1997-10-24,14.99
+Westport CT,1997-10-29,14.78
+Westport CT,1997-10-29,13.95
+Westport CT,1997-11-05,13.74
+Westport CT,1997-11-05,12.91
+Westport CT,1997-11-11,12.7
+Westport CT,1997-11-11,11.45
+Westport CT,1997-11-17,11.25
+Westport CT,1997-11-17,9.37
+Westport CT,1997-11-23,9.15
+Westport CT,1997-11-23,8.12
+Westport CT,1997-11-30,7.92
+Westport CT,1997-11-30,6.86
+Westport CT,1997-12-05,6.86
+Westport CT,1997-12-05,6.04
+Westport CT,1997-12-12,5.82
+Westport CT,1997-12-12,5.41
+Westport CT,1997-12-18,5.41
+Westport CT,1997-12-18,5.2
+Westport CT,1997-12-23,5.2
+Westport CT,1997-12-30,5.41
+Westport CT,1997-12-30,5.62
+Westport CT,1998-01-05,5.62
+Westport CT,1998-01-05,5.82
+Westport CT,1998-01-17,5.82
+Westport CT,1998-01-17,5.41
+Westport CT,1998-01-23,5.41
+Westport CT,1998-01-23,5.0
+Westport CT,1998-01-30,4.78
+Westport CT,1998-01-30,4.37
+Westport CT,1998-02-05,4.37
+Westport CT,1998-02-05,4.16
+Westport CT,1998-02-11,3.96
+Westport CT,1998-02-17,3.96
+Westport CT,1998-02-17,3.75
+Westport CT,1998-03-08,3.75
+Westport CT,1998-03-08,3.96
+Westport CT,1998-03-13,3.96
+Westport CT,1998-03-13,4.16
+Westport CT,1998-03-19,4.37
+Westport CT,1998-03-19,4.78
+Westport CT,1998-03-26,5.0
+Westport CT,1998-03-26,5.82
+Westport CT,1998-03-31,6.04
+Westport CT,1998-03-31,7.7
+Westport CT,1998-04-07,7.92
+Westport CT,1998-04-07,9.37
+Westport CT,1998-04-13,9.58
+Westport CT,1998-04-13,10.82
+Westport CT,1998-04-19,11.04
+Westport CT,1998-04-19,12.07
+Westport CT,1998-04-25,12.29
+Westport CT,1998-04-25,13.11
+Westport CT,1998-05-02,13.32
+Westport CT,1998-05-02,13.95
+Westport CT,1998-05-07,14.17
+Westport CT,1998-05-07,14.78
+Westport CT,1998-05-14,14.99
+Westport CT,1998-05-14,15.83
+Westport CT,1998-05-19,16.03
+Westport CT,1998-05-19,16.46
+Westport CT,1998-05-25,16.66
+Westport CT,1998-05-25,17.07
+Great Sound NJ,1996-06-23,25.2
+Great Sound NJ,1996-06-23,25.01
+Great Sound NJ,1996-06-28,25.01
+Great Sound NJ,1996-06-28,24.79
+Great Sound NJ,1996-07-02,24.79
+Great Sound NJ,1996-07-02,24.58
+Great Sound NJ,1996-07-16,24.58
+Great Sound NJ,1996-07-16,24.79
+Great Sound NJ,1996-07-21,24.79
+Great Sound NJ,1996-07-21,25.01
+Great Sound NJ,1996-07-25,25.2
+Great Sound NJ,1996-07-30,25.42
+Great Sound NJ,1996-07-30,25.62
+Great Sound NJ,1996-08-18,25.62
+Great Sound NJ,1996-08-18,25.42
+Great Sound NJ,1996-08-22,25.2
+Great Sound NJ,1996-08-22,25.01
+Great Sound NJ,1996-08-27,25.01
+Great Sound NJ,1996-08-27,24.58
+Great Sound NJ,1996-09-01,24.58
+Great Sound NJ,1996-09-01,24.17
+Great Sound NJ,1996-09-05,23.95
+Great Sound NJ,1996-09-05,23.54
+Great Sound NJ,1996-09-09,23.54
+Great Sound NJ,1996-09-09,22.91
+Great Sound NJ,1996-09-14,22.71
+Great Sound NJ,1996-09-14,21.87
+Great Sound NJ,1996-09-19,21.66
+Great Sound NJ,1996-09-19,21.04
+Great Sound NJ,1996-09-23,20.84
+Great Sound NJ,1996-09-23,19.8
+Great Sound NJ,1996-09-28,19.58
+Great Sound NJ,1996-09-28,18.55
+Great Sound NJ,1996-10-02,18.55
+Great Sound NJ,1996-10-02,17.71
+Great Sound NJ,1996-10-07,17.51
+Great Sound NJ,1996-10-07,16.47
+Great Sound NJ,1996-10-12,16.25
+Great Sound NJ,1996-10-12,15.41
+Great Sound NJ,1996-10-16,15.41
+Great Sound NJ,1996-10-16,14.59
+Great Sound NJ,1996-10-21,14.59
+Great Sound NJ,1996-10-21,13.75
+Great Sound NJ,1996-10-26,13.75
+Great Sound NJ,1996-10-26,12.92
+Great Sound NJ,1996-10-30,12.71
+Great Sound NJ,1996-10-30,11.89
+Great Sound NJ,1996-11-04,11.67
+Great Sound NJ,1996-11-04,10.63
+Great Sound NJ,1996-11-08,10.63
+Great Sound NJ,1996-11-08,8.54
+Great Sound NJ,1996-11-13,8.54
+Great Sound NJ,1996-11-08,8.54
+Great Sound NJ,1996-11-08,8.34
+Great Sound NJ,1996-11-13,8.34
+Great Sound NJ,1996-11-13,7.09
+Great Sound NJ,1996-11-26,7.09
+Great Sound NJ,1996-11-26,6.87
+Great Sound NJ,1996-12-10,6.87
+Great Sound NJ,1996-12-10,6.68
+Great Sound NJ,1996-12-15,6.68
+Great Sound NJ,1996-12-15,6.46
+Great Sound NJ,1996-12-19,6.46
+Great Sound NJ,1996-12-19,6.05
+Great Sound NJ,1996-12-24,6.05
+Great Sound NJ,1996-12-24,5.64
+Great Sound NJ,1996-12-29,5.64
+Great Sound NJ,1996-12-29,5.21
+Great Sound NJ,1997-01-02,5.01
+Great Sound NJ,1997-01-02,4.8
+Great Sound NJ,1997-01-07,4.8
+Great Sound NJ,1997-01-07,4.38
+Great Sound NJ,1997-01-12,4.38
+Great Sound NJ,1997-01-12,4.17
+Great Sound NJ,1997-01-21,3.76
+Great Sound NJ,1997-01-25,3.76
+Great Sound NJ,1997-01-25,3.55
+Great Sound NJ,1997-02-03,3.55
+Great Sound NJ,1997-02-03,3.76
+Great Sound NJ,1997-02-07,3.76
+Great Sound NJ,1997-02-07,3.97
+Great Sound NJ,1997-02-12,3.97
+Great Sound NJ,1997-02-12,4.38
+Great Sound NJ,1997-02-16,4.38
+Great Sound NJ,1997-02-16,4.8
+Great Sound NJ,1997-02-20,4.8
+Great Sound NJ,1997-02-20,5.21
+Great Sound NJ,1997-02-24,5.42
+Great Sound NJ,1997-02-24,5.84
+Great Sound NJ,1997-03-01,5.84
+Great Sound NJ,1997-03-01,6.26
+Great Sound NJ,1997-03-05,6.46
+Great Sound NJ,1997-03-05,7.09
+Great Sound NJ,1997-03-10,7.09
+Great Sound NJ,1997-03-10,7.5
+Great Sound NJ,1997-03-14,7.71
+Great Sound NJ,1997-03-14,8.13
+Great Sound NJ,1997-03-19,8.34
+Great Sound NJ,1997-03-19,8.75
+Great Sound NJ,1997-03-24,8.97
+Great Sound NJ,1997-03-24,9.17
+Great Sound NJ,1997-03-28,9.38
+Great Sound NJ,1997-03-28,9.59
+Great Sound NJ,1997-04-02,9.79
+Great Sound NJ,1997-04-02,10.22
+Great Sound NJ,1997-04-07,10.42
+Great Sound NJ,1997-04-07,10.63
+Great Sound NJ,1997-04-11,10.83
+Great Sound NJ,1997-04-11,11.04
+Great Sound NJ,1997-04-16,11.26
+Great Sound NJ,1997-04-16,11.46
+Great Sound NJ,1997-04-20,11.67
+Great Sound NJ,1997-04-20,11.89
+Great Sound NJ,1997-04-24,12.08
+Great Sound NJ,1997-04-24,12.51
+Great Sound NJ,1997-04-29,12.71
+Great Sound NJ,1997-04-29,12.92
+Great Sound NJ,1997-05-04,13.12
+Great Sound NJ,1997-05-04,13.55
+Great Sound NJ,1997-05-08,13.75
+Great Sound NJ,1997-05-08,13.96
+Great Sound NJ,1997-05-13,14.18
+Great Sound NJ,1997-05-13,14.59
+Great Sound NJ,1997-05-18,15.0
+Great Sound NJ,1997-05-18,15.41
+Great Sound NJ,1997-05-22,15.63
+Great Sound NJ,1997-05-22,16.04
+Great Sound NJ,1997-05-27,16.47
+Great Sound NJ,1997-05-27,16.88
+Great Sound NJ,1997-05-31,17.29
+Great Sound NJ,1997-05-31,18.13
+Great Sound NJ,1997-06-05,18.33
+Great Sound NJ,1997-06-05,19.37
+Great Sound NJ,1997-06-10,19.8
+Great Sound NJ,1997-06-10,21.46
+Great Sound NJ,1997-06-14,21.87
+Great Sound NJ,1997-06-14,23.54
+Great Sound NJ,1997-06-19,23.76
+Great Sound NJ,1997-06-19,25.83
+Great Sound NJ,1997-06-23,26.04
+Great Sound NJ,1997-06-23,27.28
+Great Sound NJ,1997-06-28,27.28
+Great Sound NJ,1997-06-28,27.91
+Great Sound NJ,1997-07-02,27.91
+Great Sound NJ,1997-07-07,27.71
+Great Sound NJ,1997-07-07,27.28
+Great Sound NJ,1997-07-11,27.08
+Great Sound NJ,1997-07-11,26.24
+Great Sound NJ,1997-07-16,26.24
+Great Sound NJ,1997-07-16,25.42
+Great Sound NJ,1997-07-21,25.2
+Great Sound NJ,1997-07-21,24.38
+Great Sound NJ,1997-07-25,24.17
+Great Sound NJ,1997-07-25,23.54
+Great Sound NJ,1997-07-30,23.54
+Great Sound NJ,1997-07-30,23.13
+Great Sound NJ,1997-08-04,23.13
+Great Sound NJ,1997-08-04,22.91
+Great Sound NJ,1997-08-08,22.71
+Great Sound NJ,1997-08-08,22.5
+Great Sound NJ,1997-08-18,22.5
+Great Sound NJ,1997-08-18,22.29
+Great Sound NJ,1997-08-22,22.29
+Great Sound NJ,1997-08-22,21.87
+Great Sound NJ,1997-08-27,21.87
+Great Sound NJ,1997-08-27,21.46
+Great Sound NJ,1997-09-01,21.46
+Great Sound NJ,1997-09-01,20.84
+Great Sound NJ,1997-09-05,20.84
+Great Sound NJ,1997-09-05,20.21
+Great Sound NJ,1997-09-09,20.21
+Great Sound NJ,1997-09-09,19.8
+Great Sound NJ,1997-09-14,19.58
+Great Sound NJ,1997-09-14,19.17
+Great Sound NJ,1997-09-19,18.96
+Great Sound NJ,1997-09-19,18.33
+Great Sound NJ,1997-09-23,18.13
+Great Sound NJ,1997-09-23,17.51
+Great Sound NJ,1997-09-28,17.29
+Great Sound NJ,1997-09-28,16.04
+Great Sound NJ,1997-10-02,15.84
+Great Sound NJ,1997-10-02,14.59
+Great Sound NJ,1997-10-07,14.38
+Great Sound NJ,1997-10-07,13.55
+Great Sound NJ,1997-10-11,13.55
+Great Sound NJ,1997-10-11,12.92
+Great Sound NJ,1997-10-16,12.71
+Great Sound NJ,1997-10-16,12.51
+Great Sound NJ,1997-10-21,12.3
+Great Sound NJ,1997-10-21,12.08
+Great Sound NJ,1997-10-25,11.89
+Great Sound NJ,1997-10-25,11.67
+Great Sound NJ,1997-10-30,11.67
+Great Sound NJ,1997-10-30,11.46
+Great Sound NJ,1997-11-04,11.46
+Great Sound NJ,1997-11-04,11.26
+Great Sound NJ,1997-11-12,11.26
+Great Sound NJ,1997-11-12,11.04
+Great Sound NJ,1997-11-21,11.04
+Great Sound NJ,1997-11-26,10.83
+Great Sound NJ,1998-01-07,10.83
+Great Sound NJ,1998-01-11,11.04
+Great Sound NJ,1998-01-30,11.04
+Great Sound NJ,1998-02-03,11.26
+Great Sound NJ,1998-02-12,11.26
+Great Sound NJ,1998-02-16,11.46
+Great Sound NJ,1998-02-24,11.46
+Great Sound NJ,1998-02-28,11.67
+Great Sound NJ,1998-03-10,11.67
+Great Sound NJ,1998-03-14,11.89
+Great Sound NJ,1998-03-19,11.89
+Great Sound NJ,1998-03-24,12.08
+Great Sound NJ,1998-03-28,12.08
+Great Sound NJ,1998-04-02,12.3
+Great Sound NJ,1998-04-07,12.3
+Great Sound NJ,1998-04-07,12.51
+Great Sound NJ,1998-04-11,12.51
+Great Sound NJ,1998-04-11,12.71
+Great Sound NJ,1998-04-16,12.71
+Great Sound NJ,1998-04-16,12.92
+Great Sound NJ,1998-04-20,12.92
+Great Sound NJ,1998-04-20,13.34
+Great Sound NJ,1998-04-16,13.34
+Great Sound NJ,1998-04-16,13.75
+Great Sound NJ,1998-04-11,13.75
+Great Sound NJ,1998-04-11,15.0
+Great Sound NJ,1998-04-16,15.22
+Great Sound NJ,1998-04-16,15.84
+Great Sound NJ,1998-04-20,15.84
+Great Sound NJ,1998-04-20,16.25
+Great Sound NJ,1998-04-24,16.47
+Great Sound NJ,1998-04-24,16.88
+Great Sound NJ,1998-04-29,16.88
+Great Sound NJ,1998-04-29,17.29
+Great Sound NJ,1998-05-03,17.51
+Great Sound NJ,1998-05-03,17.71
+Great Sound NJ,1998-05-08,17.92
+Great Sound NJ,1998-05-08,18.13
+Great Sound NJ,1998-05-13,18.33
+Great Sound NJ,1998-05-13,18.96
+Great Sound NJ,1998-05-17,18.96
+Great Sound NJ,1998-05-17,19.58
+Great Sound NJ,1998-05-22,19.8
+Great Sound NJ,1998-05-22,20.62
+Great Sound NJ,1998-05-27,20.62
+Great Sound NJ,1998-05-27,21.46
+Great Sound NJ,1998-05-31,21.66
+Great Sound NJ,1998-05-31,22.09
+Delaware Bay NJ,1996-06-14,21.87
+Delaware Bay NJ,1996-06-14,22.09
+Delaware Bay NJ,1996-06-19,22.09
+Delaware Bay NJ,1996-06-19,22.29
+Delaware Bay NJ,1996-06-23,22.29
+Delaware Bay NJ,1996-06-23,22.71
+Delaware Bay NJ,1996-06-28,22.71
+Delaware Bay NJ,1996-06-28,22.91
+Delaware Bay NJ,1996-07-02,22.91
+Delaware Bay NJ,1996-07-02,23.13
+Delaware Bay NJ,1996-07-07,23.13
+Delaware Bay NJ,1996-07-07,23.33
+Delaware Bay NJ,1996-07-11,23.54
+Delaware Bay NJ,1996-07-11,23.76
+Delaware Bay NJ,1996-07-16,23.76
+Delaware Bay NJ,1996-07-16,23.95
+Delaware Bay NJ,1996-07-21,23.95
+Delaware Bay NJ,1996-07-25,24.17
+Delaware Bay NJ,1996-07-30,24.17
+Delaware Bay NJ,1996-07-30,24.38
+Delaware Bay NJ,1996-09-01,24.38
+Delaware Bay NJ,1996-09-01,24.17
+Delaware Bay NJ,1996-09-05,24.17
+Delaware Bay NJ,1996-09-05,23.95
+Delaware Bay NJ,1996-09-09,23.95
+Delaware Bay NJ,1996-09-09,23.76
+Delaware Bay NJ,1996-09-14,23.54
+Delaware Bay NJ,1996-09-14,22.91
+Delaware Bay NJ,1996-09-19,22.91
+Delaware Bay NJ,1996-09-19,22.09
+Delaware Bay NJ,1996-09-23,22.09
+Delaware Bay NJ,1996-09-23,21.04
+Delaware Bay NJ,1996-09-28,20.84
+Delaware Bay NJ,1996-09-28,19.8
+Delaware Bay NJ,1996-10-02,19.58
+Delaware Bay NJ,1996-10-02,18.55
+Delaware Bay NJ,1996-10-07,18.33
+Delaware Bay NJ,1996-10-07,17.29
+Delaware Bay NJ,1996-10-12,17.08
+Delaware Bay NJ,1996-10-12,16.04
+Delaware Bay NJ,1996-10-16,16.04
+Delaware Bay NJ,1996-10-16,15.22
+Delaware Bay NJ,1996-10-21,15.22
+Delaware Bay NJ,1996-10-21,14.38
+Delaware Bay NJ,1996-10-26,14.38
+Delaware Bay NJ,1996-10-26,13.75
+Delaware Bay NJ,1996-10-30,13.55
+Delaware Bay NJ,1996-10-30,12.71
+Delaware Bay NJ,1996-11-04,12.71
+Delaware Bay NJ,1996-11-04,11.67
+Delaware Bay NJ,1996-11-08,11.67
+Delaware Bay NJ,1996-11-08,10.83
+Delaware Bay NJ,1996-11-13,10.83
+Delaware Bay NJ,1996-11-13,10.01
+Delaware Bay NJ,1996-11-17,10.01
+Delaware Bay NJ,1996-11-17,9.38
+Delaware Bay NJ,1996-11-21,9.17
+Delaware Bay NJ,1996-11-21,8.75
+Delaware Bay NJ,1996-11-26,8.54
+Delaware Bay NJ,1996-11-26,8.13
+Delaware Bay NJ,1996-12-01,7.93
+Delaware Bay NJ,1996-12-01,7.3
+Delaware Bay NJ,1996-12-05,7.3
+Delaware Bay NJ,1996-12-05,6.87
+Delaware Bay NJ,1996-12-10,6.68
+Delaware Bay NJ,1996-12-10,6.26
+Delaware Bay NJ,1996-12-15,6.05
+Delaware Bay NJ,1996-12-15,5.64
+Delaware Bay NJ,1996-12-19,5.42
+Delaware Bay NJ,1996-12-19,5.01
+Delaware Bay NJ,1996-12-24,4.8
+Delaware Bay NJ,1996-12-24,4.38
+Delaware Bay NJ,1996-12-29,4.17
+Delaware Bay NJ,1996-12-29,3.76
+Delaware Bay NJ,1997-01-02,3.76
+Delaware Bay NJ,1997-01-02,3.35
+Delaware Bay NJ,1997-01-07,3.35
+Delaware Bay NJ,1997-01-07,2.92
+Delaware Bay NJ,1997-01-11,2.92
+Delaware Bay NJ,1997-01-11,2.72
+Delaware Bay NJ,1997-01-21,2.29
+Delaware Bay NJ,1997-01-25,2.29
+Delaware Bay NJ,1997-01-25,2.09
+Delaware Bay NJ,1997-02-03,2.09
+Delaware Bay NJ,1997-02-03,2.29
+Delaware Bay NJ,1997-02-07,2.29
+Delaware Bay NJ,1997-02-07,2.51
+Delaware Bay NJ,1997-02-12,2.51
+Delaware Bay NJ,1997-02-12,2.92
+Delaware Bay NJ,1997-02-16,2.92
+Delaware Bay NJ,1997-02-16,3.35
+Delaware Bay NJ,1997-02-20,3.55
+Delaware Bay NJ,1997-02-20,4.17
+Delaware Bay NJ,1997-02-24,4.17
+Delaware Bay NJ,1997-02-24,4.8
+Delaware Bay NJ,1997-02-28,5.01
+Delaware Bay NJ,1997-02-28,5.64
+Delaware Bay NJ,1997-03-05,5.64
+Delaware Bay NJ,1997-03-05,6.26
+Delaware Bay NJ,1997-03-10,6.46
+Delaware Bay NJ,1997-03-10,6.87
+Delaware Bay NJ,1997-03-14,6.87
+Delaware Bay NJ,1997-03-14,7.3
+Delaware Bay NJ,1997-03-19,7.3
+Delaware Bay NJ,1997-03-19,7.71
+Delaware Bay NJ,1997-03-24,7.71
+Delaware Bay NJ,1997-03-24,8.13
+Delaware Bay NJ,1997-03-28,8.13
+Delaware Bay NJ,1997-03-28,8.75
+Delaware Bay NJ,1997-04-02,8.75
+Delaware Bay NJ,1997-04-02,9.17
+Delaware Bay NJ,1997-04-07,9.17
+Delaware Bay NJ,1997-04-07,9.59
+Delaware Bay NJ,1997-04-11,9.59
+Delaware Bay NJ,1997-04-11,10.01
+Delaware Bay NJ,1997-04-16,10.01
+Delaware Bay NJ,1997-04-16,10.42
+Delaware Bay NJ,1997-04-20,10.42
+Delaware Bay NJ,1997-04-20,10.63
+Delaware Bay NJ,1997-04-24,10.83
+Delaware Bay NJ,1997-04-24,11.26
+Delaware Bay NJ,1997-04-29,11.26
+Delaware Bay NJ,1997-04-29,11.46
+Delaware Bay NJ,1997-05-04,11.67
+Delaware Bay NJ,1997-05-04,12.08
+Delaware Bay NJ,1997-05-08,12.08
+Delaware Bay NJ,1997-05-08,12.51
+Delaware Bay NJ,1997-05-13,12.71
+Delaware Bay NJ,1997-05-13,12.92
+Delaware Bay NJ,1997-05-18,13.12
+Delaware Bay NJ,1997-05-18,13.55
+Delaware Bay NJ,1997-05-22,13.75
+Delaware Bay NJ,1997-05-22,14.18
+Delaware Bay NJ,1997-05-27,14.18
+Delaware Bay NJ,1997-05-27,14.79
+Delaware Bay NJ,1997-06-01,15.0
+Delaware Bay NJ,1997-06-01,15.63
+Delaware Bay NJ,1997-06-05,15.84
+Delaware Bay NJ,1997-06-05,16.67
+Delaware Bay NJ,1997-06-09,16.88
+Delaware Bay NJ,1997-06-09,18.76
+Delaware Bay NJ,1997-06-14,18.96
+Delaware Bay NJ,1997-06-14,20.62
+Delaware Bay NJ,1997-06-19,20.62
+Delaware Bay NJ,1997-06-19,21.87
+Delaware Bay NJ,1997-06-23,22.09
+Delaware Bay NJ,1997-06-23,23.13
+Delaware Bay NJ,1997-06-28,23.33
+Delaware Bay NJ,1997-06-28,24.17
+Delaware Bay NJ,1997-07-02,24.17
+Delaware Bay NJ,1997-07-02,24.58

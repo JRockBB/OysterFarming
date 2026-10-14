@@ -1,0 +1,17 @@
+# Ford, Chintala & Bushek 2002 Dis Aquat Org 51:187-201, Table 2 (p.193). Hatchery C. virginica from Mook Sea Farm, Damariscotta ME (held 10 C/25 ppt before), challenged at 26-28 C, 25 ppt with 1e6 P. marinus per g wet tissue (shell-cavity injection; autumn trial mixed 4 dosing methods). Burdens are log10(x+1) cells per g wet wt, mean (SEM); total-body RFTM. Early dead <=3 wk post-challenge; late dead >3 wk. Trial lengths ~12 wk.
+# Discussion p.199: 'Oysters died with parasite burdens of 10^6 to 10^7 in most trials, but with burdens of around 10^4 in Expt II'; lethal density for wild-type and cultured parasites similar (10^6-10^7 g-1 wwt).
+trial,parasite,group,n,log10_burden_mean,sem,virulence_index_mean,vi_sem
+summer,cultured,all,48,,,4.19,0.336
+summer,cultured,late_dead,3,5.36,1.867,,
+summer,cultured,survivors,35,4.68,0.234,,
+summer,wild-type,all,48,,,7.31,0.308
+summer,wild-type,early_dead,9,3.22,0.159,,
+summer,wild-type,late_dead,21,6.71,0.141,,
+summer,wild-type,survivors,10,5.35,0.305,,
+autumn,cultured,all,38,,,3.37,0.215
+autumn,cultured,early_dead,10,4.72,0.446,,
+autumn,cultured,late_dead,6,5.77,0.374,,
+autumn,cultured,survivors,32,4.14,0.238,,
+autumn,wild-type,all,40,,,5.65,0.292
+autumn,wild-type,early_dead,16,5.06,0.263,,
+autumn,wild-type,late_dead,32,6.05,0.112,,

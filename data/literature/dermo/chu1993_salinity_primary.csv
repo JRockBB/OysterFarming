@@ -1,0 +1,11 @@
+# Chu, La Peyre & Burreson 1993 J Invertebr Pathol 62:226-232 (user PDF chu1993.pdf; scanned, read from rendered pages). SUPERSEDES chu1993_salinity.csv (built from secondary sources).
+# TEMPERATURE: Methods p227 '21.0 +/- 1.0 C'; Abstract and Table 1 note '22.0 +/- 1.0 C'. Oysters: Deep Water Shoal, James River VA (ambient 3 ppt, 19 C) collected 20 Oct 1989; 5/40 (12.5%) light field infections at collection.
+# Salinity raised 3 ppt per 2 d to 3, 10, 20 ppt; challenged 9 Nov 1989 with 1e6 trophozoites (homogenized infected tissue) in 0.1 ml into shell cavity; sampled 14 Dec 1989 (35 d). 2 replicate aquaria per salinity, 19-24 oysters per group.
+# Diagnosis RFTM rectal tissue 4-5 d; intensity negative/light/moderate/heavy (code scale not stated; probably 0-3). Prevalence from text p228; WP digitized from Fig 2 p228 (+/-0.05).
+salinity_ppt,group,temp_C,days_post_challenge,n,prevalence_pct,weighted_prevalence,heavy_infections,deaths,source_loc
+3,control,21-22,35,24,4,0.03,no,0,text p228 + Figs 1-2
+3,challenged,21-22,35,24,50,0.62,no,0,text p228 + Figs 1-2
+10,control,21-22,35,20,19,0.28,yes,3,text p228 + Figs 1-2
+10,challenged,21-22,35,20,79,1.76,yes,1,text p228 + Figs 1-2
+20,control,21-22,35,20,35,0.78,yes,0,text p228 + Figs 1-2
+20,challenged,21-22,35,19,82,1.87,yes,1,text p228 + Figs 1-2

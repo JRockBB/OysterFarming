@@ -1,0 +1,17 @@
+# Gauthier & Vasta 1995 J Invertebr Pathol 66:156-168 (user PDF gauthier1995.pdf; scanned). In vitro trophozoites, Chesapeake (Maryland) isolate, DME:Ham's F12 + FBS medium.
+# Growth = OD600 of cells resuspended in isotonic saline after (default) 10 d at the test condition, no medium change; seeding 1e6 cells/ml, 1 ml/well, 24-well plates. OD600 linear with hemocytometer counts for OD<=1 (Fig 1).
+# Temperatures tested were ONLY 4, 20, 28, 32, 38 C (no 10 or 15 C). Bars digitized by eye from Fig 5 and Fig 6 (p162): +/-0.005 OD (Fig 5), +/-0.01 OD (Fig 6). Error = SE, n = 8. Temperature expt in optimized medium (salinity not restated, ~24-30 ppt); salinity expt at 28 C.
+experiment,temp_C,salinity_ppt,duration_d,OD600_mean,SE,n,source_loc,notes
+temperature,4,~24-30 (optimum medium),10,0.026,0.004,8,Fig 5 p162,not significantly different from 20 C (text p160)
+temperature,20,~24-30,10,0.035,0.004,8,Fig 5,no significant growth vs 4 C over 10 d by OD600
+temperature,28,~24-30,10,0.197,0.008,8,Fig 5,
+temperature,32,~24-30,10,0.255,0.008,8,Fig 5,optimum 28-32 C; cells >8 d at 32 C less healthy
+temperature,38,~24-30,10,0.015,0.002,8,Fig 5,not significantly above 20 C
+salinity,28,12,10,0.32,0.01,8,Fig 6 p162,
+salinity,28,18,10,0.66,0.02,8,Fig 6,significantly lower than 24-30
+salinity,28,24,10,0.73,0.01,8,Fig 6,
+salinity,28,30,10,0.73,0.02,8,Fig 6,
+salinity,28,36,10,0.70,0.02,8,Fig 6,24/30/36 not significantly different (text p160)
+salinity,28,42,10,0.53,0.01,8,Fig 6,
+log-phase doubling (initial medium),28,23,,24 h,,,text p157,DME:F12 + 5% oyster plasma + 10% FBS
+virulence of cultured cells in Maine (Mook Sea Farm) hatchery oysters,26,30,35,4 of 4 challenged oysters dead by 5 wk with heavy infections; 4 controls uninfected,,4+4,text p159 + p163,2 biweekly injections of 1e6 cultured trophozoites

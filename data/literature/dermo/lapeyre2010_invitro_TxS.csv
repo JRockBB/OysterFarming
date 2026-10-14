@@ -1,0 +1,50 @@
+# La Peyre, Casas, Gayle & La Peyre 2010 J Invertebr Pathol 105:176-181 (user PDF lapeyre2010.pdf). Isolate P-1 (La Peyre et al. 1993; Gulf origin), kept >1 yr in 7, 15 or 25 ppt-equivalent medium (230, 450, 775 mOsm/kg) at 28 C.
+# Acclimation 0.5 C/d from 28 C to 10 C (36 d) or 2 C (52 d) at each salinity; then reseeded at 1e6 viable cells/ml, 4 replicate wells; viability (neutral red) and density on days 1, 30, 60, 90. 3.5 ppt (110 mOsm) = cells from 7 ppt transferred after acclimation.
+# Values in text are exact (source=text); others digitized by eye from Fig 1 (p178), +/-3%. Density changed <30% at 2 and 10 C (no proliferation, little lysis); at 28 C density rose most at 25 ppt (Fig 2).
+# k_loss_per_d derived here = ln(V_day1/V_day90)/89.
+salinity_ppt,temp_C,day,viability_pct,sd,source,notes
+25,28,1,96,,Fig 1,
+25,28,30,100,,Fig 1,
+25,28,60,98,,Fig 1,
+25,28,90,98,,Fig 1,>90% throughout (text)
+25,10,1,99,,Fig 1,after 36-d acclimation
+25,10,30,89,,Fig 1,
+25,10,60,61,,Fig 1,
+25,10,90,43.2,13.1,text,k_loss 0.0093/d (d1-90)
+25,2,1,95,,Fig 1,after 52-d acclimation
+25,2,30,88,,Fig 1,~6% drop d1-30 (text)
+25,2,60,45,,Fig 1,~50% drop d30-60 (text)
+25,2,90,21.9,0.7,text,k_loss 0.0165/d (d1-90); ~0.022/d over d30-60
+15,28,1,79,,Fig 1,
+15,28,30,99,,Fig 1,
+15,28,60,97,,Fig 1,
+15,28,90,95,,Fig 1,
+15,10,1,95,,Fig 1,
+15,10,30,90,,Fig 1,
+15,10,60,75,,Fig 1,
+15,10,90,41.9,6.8,text,k_loss 0.0091/d
+15,2,1,94,,Fig 1,
+15,2,30,90,,Fig 1,
+15,2,60,44,,Fig 1,
+15,2,90,27.8,4.9,text,k_loss 0.0137/d
+7,28,1,94.6,2.4,text,
+7,28,30,94,,Fig 1,
+7,28,60,87.8,3.4,text,
+7,28,90,86,,Fig 1,
+7,10,1,68.7,3.7,text,viability already reduced at end of acclimation
+7,10,30,40.6,1.2,text,
+7,10,60,9.2,1.8,text,
+7,10,90,0.2,0.2,text,
+7,2,1,74.4,4.9,text,
+7,2,30,17.3,3.4,text,
+7,2,60,3.5,0.7,text,
+7,2,90,0.6,0.7,text,
+3.5,28,1,90.4,1.7,text,from 7 ppt at 28 C (91.2% at <1 h)
+3.5,28,30,45.3,2.8,text,
+3.5,28,60,22.9,7.7,text,
+3.5,28,90,15.6,0.6,text,
+3.5,10,1,27.0,1.8,text,32.4% at <1 h after transfer
+3.5,10,30,5.6,,text,
+3.5,10,60,0,,text,
+3.5,2,1,19.1,1.9,text,35.4% at <1 h after transfer
+3.5,2,30,0,,text,

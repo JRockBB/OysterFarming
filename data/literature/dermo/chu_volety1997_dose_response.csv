@@ -1,0 +1,18 @@
+source,figure,expt,days_post_challenge,temp_C,salinity_ppt,stage,dose_cells_per_oyster,route,n,prevalence_pct,weighted_prevalence_0_1_3_5,value_origin,oyster_origin
+Chu&Volety1997 DAO28:61-68,Fig1 / text p63,1,92,24.5,13.6,meront,0,shell cavity,14-15,0,0,text,Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p63,1,92,24.5,13.6,meront,10,shell cavity,14-15,0,0,text,Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p63,1,92,24.5,13.6,meront,100,shell cavity,14-15,13,0.13,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p63,1,92,24.5,13.6,meront,10000,shell cavity,14-15,50,0.48,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p63,1,92,24.5,13.6,meront,100000,shell cavity,14-15,71,1.07,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p64,1,92,24.5,13.6,prezoosporangium,10,shell cavity,14-15,0,0,text,Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p64,1,92,24.5,13.6,prezoosporangium,100,shell cavity,14-15,14,0.27,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p64,1,92,24.5,13.6,prezoosporangium,10000,shell cavity,14-15,20,0.20,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig1 / text p64,1,92,24.5,13.6,prezoosporangium,100000,shell cavity,14-15,33,0.32,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p63,2,60,22.0,20.6,meront,10,shell cavity,14-15,0,0,text,Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p63,2,60,22.0,20.6,meront,100,shell cavity,14-15,13,0.13,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p63,2,60,22.0,20.6,meront,10000,shell cavity,14-15,67,0.67,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p63,2,60,22.0,20.6,meront,100000,shell cavity,14-15,80,2.0,text(prev);digitized(WP; bar exceeds axis top 2.0),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p64,2,60,22.0,20.6,prezoosporangium,10,shell cavity,14-15,0,0,text,Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p64,2,60,22.0,20.6,prezoosporangium,100,shell cavity,14-15,7,0.07,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p64,2,60,22.0,20.6,prezoosporangium,10000,shell cavity,14-15,29,0.28,text(prev);digitized(WP),Damariscotta R. ME
+Chu&Volety1997 DAO28:61-68,Fig2 / text p64,2,60,22.0,20.6,prezoosporangium,100000,shell cavity,14-15,53,0.68,text(prev);digitized(WP),Damariscotta R. ME

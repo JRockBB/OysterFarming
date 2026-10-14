@@ -1,0 +1,348 @@
+# Ford & Smolowitz 2007 Mar Biol 151:119-133. Values recovered from the PDF vector paths (marker centres) -> exact to plotting precision (~+/-0.5% prevalence, +/-0.02 WP, +/-2 d in date). Dates: frame spans 1 Jun 1996-1 Sep 1998 (+/-3 d); Oyster Bay panels (both figs) span only 24 months - start assumed 1 Jun 1996 (+/-1 month uncertain); Fig2 Milford/Westport panels (36-month axis) re-mapped to Fig3 sampling dates (different axis). value_snapped_n25 = prevalence rounded to multiples of 4% (n=25).
+# Fig2 prevalence = RFTM rectal+mantle, n=25 oysters/sample; Fig3 WP = mean Ray/Mackin 0-5 intensity incl. uninfected (plotted on 0-4 axis); mortality = cumulative %, disease only.
+figure,site,date,variable,value,value_snapped_n25
+Fig2,Cotuit MA,1996-06-12,prevalence_pct,0.0,0
+Fig2,Cotuit MA,1996-07-13,prevalence_pct,0.0,0
+Fig2,Cotuit MA,1996-08-22,prevalence_pct,35.9,36
+Fig2,Cotuit MA,1996-09-12,prevalence_pct,15.4,16
+Fig2,Cotuit MA,1996-10-09,prevalence_pct,63.4,64
+Fig2,Cotuit MA,1996-11-12,prevalence_pct,39.7,40
+Fig2,Cotuit MA,1997-01-04,prevalence_pct,31.5,32
+Fig2,Cotuit MA,1997-01-23,prevalence_pct,23.3,24
+Fig2,Cotuit MA,1997-02-07,prevalence_pct,19.6,20
+Fig2,Cotuit MA,1997-02-24,prevalence_pct,19.6,20
+Fig2,Cotuit MA,1997-03-10,prevalence_pct,15.4,16
+Fig2,Cotuit MA,1997-03-26,prevalence_pct,3.9,4
+Fig2,Cotuit MA,1997-04-09,prevalence_pct,11.8,12
+Fig2,Cotuit MA,1997-04-25,prevalence_pct,19.6,20
+Fig2,Cotuit MA,1997-05-06,prevalence_pct,7.9,8
+Fig2,Cotuit MA,1997-05-20,prevalence_pct,7.9,8
+Fig2,Cotuit MA,1997-06-02,prevalence_pct,19.6,20
+Fig2,Cotuit MA,1997-06-16,prevalence_pct,19.6,20
+Fig2,Cotuit MA,1997-06-29,prevalence_pct,27.8,28
+Fig2,Cotuit MA,1997-07-14,prevalence_pct,35.9,36
+Fig2,Cotuit MA,1997-08-01,prevalence_pct,59.7,60
+Fig2,Cotuit MA,1997-08-25,prevalence_pct,71.5,72
+Fig2,Cotuit MA,1997-09-09,prevalence_pct,71.5,72
+Fig2,Cotuit MA,1997-10-06,prevalence_pct,79.7,80
+Fig2,Cotuit MA,1997-10-21,prevalence_pct,87.5,88
+Fig2,Cotuit MA,1997-11-19,prevalence_pct,87.5,88
+Fig2,Cotuit MA,1997-12-17,prevalence_pct,95.4,96
+Fig2,Cotuit MA,1998-03-07,prevalence_pct,95.4,96
+Fig2,Cotuit MA,1998-06-07,prevalence_pct,71.5,72
+Fig2,Delaware Bay NJ,1996-12-03,prevalence_pct,59.7,60
+Fig2,Delaware Bay NJ,1997-04-15,prevalence_pct,12.7,12
+Fig2,Delaware Bay NJ,1997-06-23,prevalence_pct,59.7,60
+Fig2,Delaware Bay NJ,1997-07-20,prevalence_pct,52.6,52
+Fig2,Delaware Bay NJ,1997-08-26,prevalence_pct,86.8,88
+Fig2,Delaware Bay NJ,1997-09-25,prevalence_pct,92.5,92
+Fig2,Delaware Bay NJ,1997-11-19,prevalence_pct,72.9,72
+Fig2,Great Sound NJ,1996-06-25,prevalence_pct,15.9,16
+Fig2,Great Sound NJ,1996-08-01,prevalence_pct,11.1,12
+Fig2,Great Sound NJ,1996-09-12,prevalence_pct,55.6,56
+Fig2,Great Sound NJ,1996-10-14,prevalence_pct,67.8,68
+Fig2,Great Sound NJ,1996-11-10,prevalence_pct,51.5,52
+Fig2,Great Sound NJ,1997-03-24,prevalence_pct,11.5,12
+Fig2,Great Sound NJ,1997-05-29,prevalence_pct,27.5,28
+Fig2,Great Sound NJ,1997-06-29,prevalence_pct,87.9,88
+Fig2,Great Sound NJ,1997-07-29,prevalence_pct,95.7,96
+Fig2,Great Sound NJ,1997-08-26,prevalence_pct,99.7,100
+Fig2,Great Sound NJ,1997-09-23,prevalence_pct,99.7,100
+Fig2,Great Sound NJ,1997-11-10,prevalence_pct,95.7,96
+Fig2,Great Sound NJ,1998-04-06,prevalence_pct,67.8,68
+Fig2,Great Sound NJ,1998-06-03,prevalence_pct,95.7,96
+Fig2,Martha's Vineyard MA (Butler's Neck),1996-08-06,prevalence_pct,3.9,4
+Fig2,Martha's Vineyard MA (Butler's Neck),1996-08-29,prevalence_pct,11.8,12
+Fig2,Martha's Vineyard MA (Butler's Neck),1996-09-12,prevalence_pct,55.4,56
+Fig2,Martha's Vineyard MA (Butler's Neck),1996-10-04,prevalence_pct,71.5,72
+Fig2,Martha's Vineyard MA (Butler's Neck),1996-11-19,prevalence_pct,79.7,80
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-04-04,prevalence_pct,35.9,36
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-06-09,prevalence_pct,31.5,32
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-07-09,prevalence_pct,71.5,72
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-08-06,prevalence_pct,95.4,96
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-09-07,prevalence_pct,99.3,100
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-10-05,prevalence_pct,99.3,100
+Fig2,Martha's Vineyard MA (Butler's Neck),1997-11-06,prevalence_pct,99.3,100
+Fig2,Martha's Vineyard MA (Butler's Neck),1998-04-09,prevalence_pct,15.4,16
+Fig2,Martha's Vineyard MA (Butler's Neck),1998-06-02,prevalence_pct,35.9,36
+Fig2,Milford CT,1996-06-12,prevalence_pct,39.6,40
+Fig2,Milford CT,1996-07-15,prevalence_pct,11.9,12
+Fig2,Milford CT,1996-08-20,prevalence_pct,0.0,0
+Fig2,Milford CT,1996-09-26,prevalence_pct,43.5,44
+Fig2,Milford CT,1996-11-01,prevalence_pct,23.4,24
+Fig2,Milford CT,1997-03-24,prevalence_pct,4.0,4
+Fig2,Milford CT,1997-05-22,prevalence_pct,19.2,20
+Fig2,Milford CT,1997-06-30,prevalence_pct,4.0,4
+Fig2,Milford CT,1997-08-22,prevalence_pct,39.6,40
+Fig2,Milford CT,1997-10-02,prevalence_pct,51.4,52
+Fig2,Milford CT,1997-11-10,prevalence_pct,39.6,40
+Fig2,Milford CT,1998-04-08,prevalence_pct,35.5,36
+Fig2,Milford CT,1998-06-17,prevalence_pct,4.0,4
+Fig2,Oyster Bay NY,1996-07-08,prevalence_pct,43.9,44
+Fig2,Oyster Bay NY,1996-08-15,prevalence_pct,27.8,28
+Fig2,Oyster Bay NY,1996-09-19,prevalence_pct,39.7,40
+Fig2,Oyster Bay NY,1996-11-07,prevalence_pct,35.9,36
+Fig2,Oyster Bay NY,1997-03-17,prevalence_pct,23.3,24
+Fig2,Oyster Bay NY,1997-05-21,prevalence_pct,0.0,0
+Fig2,Oyster Bay NY,1997-06-24,prevalence_pct,15.4,16
+Fig2,Oyster Bay NY,1997-07-30,prevalence_pct,0.0,0
+Fig2,Oyster Bay NY,1997-08-27,prevalence_pct,79.7,80
+Fig2,Oyster Bay NY,1997-09-24,prevalence_pct,99.3,100
+Fig2,Oyster Bay NY,1997-11-12,prevalence_pct,67.4,68
+Fig2,Oyster Bay NY,1998-04-03,prevalence_pct,55.4,56
+Fig2,Oyster Bay NY,1998-05-27,prevalence_pct,27.8,28
+Fig2,Wellfleet MA,1996-06-12,prevalence_pct,0.0,0
+Fig2,Wellfleet MA,1996-07-23,prevalence_pct,0.0,0
+Fig2,Wellfleet MA,1996-08-29,prevalence_pct,43.9,44
+Fig2,Wellfleet MA,1996-09-25,prevalence_pct,39.7,40
+Fig2,Wellfleet MA,1996-10-18,prevalence_pct,51.8,52
+Fig2,Wellfleet MA,1996-11-19,prevalence_pct,75.6,76
+Fig2,Wellfleet MA,1997-03-17,prevalence_pct,31.5,32
+Fig2,Wellfleet MA,1997-06-25,prevalence_pct,7.9,8
+Fig2,Wellfleet MA,1997-07-23,prevalence_pct,31.5,32
+Fig2,Wellfleet MA,1997-08-18,prevalence_pct,71.5,72
+Fig2,Wellfleet MA,1997-09-18,prevalence_pct,99.4,100
+Fig2,Wellfleet MA,1997-10-13,prevalence_pct,91.5,92
+Fig2,Wellfleet MA,1997-11-10,prevalence_pct,95.4,96
+Fig2,Wellfleet MA,1998-04-27,prevalence_pct,27.8,28
+Fig2,Wellfleet MA,1998-06-21,prevalence_pct,51.8,52
+Fig2,Westport CT,1996-06-14,prevalence_pct,71.5,72
+Fig2,Westport CT,1996-07-17,prevalence_pct,55.7,56
+Fig2,Westport CT,1996-08-22,prevalence_pct,95.4,96
+Fig2,Westport CT,1996-09-28,prevalence_pct,83.9,84
+Fig2,Westport CT,1996-11-15,prevalence_pct,95.4,96
+Fig2,Westport CT,1997-04-10,prevalence_pct,40.0,40
+Fig2,Westport CT,1997-05-24,prevalence_pct,63.4,64
+Fig2,Westport CT,1997-07-02,prevalence_pct,63.4,64
+Fig2,Westport CT,1997-08-25,prevalence_pct,91.8,92
+Fig2,Westport CT,1997-10-03,prevalence_pct,99.7,100
+Fig2,Westport CT,1997-11-11,prevalence_pct,83.9,84
+Fig2,Westport CT,1998-04-09,prevalence_pct,83.9,84
+Fig2,Westport CT,1998-06-16,prevalence_pct,75.9,76
+Fig3,Cotuit MA,1996-06-12,cumulative_mortality_pct,-0.3,
+Fig3,Cotuit MA,1996-07-13,cumulative_mortality_pct,-0.3,
+Fig3,Cotuit MA,1996-08-20,cumulative_mortality_pct,1.7,
+Fig3,Cotuit MA,1996-09-12,cumulative_mortality_pct,2.5,
+Fig3,Cotuit MA,1996-10-09,cumulative_mortality_pct,4.2,
+Fig3,Cotuit MA,1996-11-13,cumulative_mortality_pct,8.7,
+Fig3,Cotuit MA,1997-01-04,cumulative_mortality_pct,10.8,
+Fig3,Cotuit MA,1997-02-07,cumulative_mortality_pct,12.2,
+Fig3,Cotuit MA,1997-02-24,cumulative_mortality_pct,12.2,
+Fig3,Cotuit MA,1997-03-26,cumulative_mortality_pct,13.6,
+Fig3,Cotuit MA,1997-04-08,cumulative_mortality_pct,14.2,
+Fig3,Cotuit MA,1997-05-06,cumulative_mortality_pct,15.6,
+Fig3,Cotuit MA,1997-05-20,cumulative_mortality_pct,15.9,
+Fig3,Cotuit MA,1997-06-16,cumulative_mortality_pct,18.4,
+Fig3,Cotuit MA,1997-07-14,cumulative_mortality_pct,21.9,
+Fig3,Cotuit MA,1997-08-01,cumulative_mortality_pct,27.5,
+Fig3,Cotuit MA,1997-08-24,cumulative_mortality_pct,40.6,
+Fig3,Cotuit MA,1997-09-23,cumulative_mortality_pct,52.5,
+Fig3,Cotuit MA,1997-10-06,cumulative_mortality_pct,62.2,
+Fig3,Cotuit MA,1997-10-21,cumulative_mortality_pct,62.8,
+Fig3,Cotuit MA,1997-11-19,cumulative_mortality_pct,65.6,
+Fig3,Cotuit MA,1997-12-17,cumulative_mortality_pct,66.4,
+Fig3,Cotuit MA,1998-03-07,cumulative_mortality_pct,66.4,
+Fig3,Cotuit MA,1998-06-07,cumulative_mortality_pct,69.1,
+Fig3,Cotuit MA,1996-06-12,weighted_prevalence_0to5,0.0,
+Fig3,Cotuit MA,1996-07-13,weighted_prevalence_0to5,0.0,
+Fig3,Cotuit MA,1996-08-22,weighted_prevalence_0to5,0.39,
+Fig3,Cotuit MA,1996-09-12,weighted_prevalence_0to5,0.29,
+Fig3,Cotuit MA,1996-10-09,weighted_prevalence_0to5,1.49,
+Fig3,Cotuit MA,1996-11-13,weighted_prevalence_0to5,0.58,
+Fig3,Cotuit MA,1997-01-04,weighted_prevalence_0to5,0.39,
+Fig3,Cotuit MA,1997-02-07,weighted_prevalence_0to5,0.08,
+Fig3,Cotuit MA,1997-02-24,weighted_prevalence_0to5,0.08,
+Fig3,Cotuit MA,1997-03-26,weighted_prevalence_0to5,0.0,
+Fig3,Cotuit MA,1997-04-06,weighted_prevalence_0to5,0.08,
+Fig3,Cotuit MA,1997-05-08,weighted_prevalence_0to5,0.0,
+Fig3,Cotuit MA,1997-05-17,weighted_prevalence_0to5,0.0,
+Fig3,Cotuit MA,1997-06-16,weighted_prevalence_0to5,0.18,
+Fig3,Cotuit MA,1997-07-14,weighted_prevalence_0to5,0.49,
+Fig3,Cotuit MA,1997-07-30,weighted_prevalence_0to5,0.99,
+Fig3,Cotuit MA,1997-08-24,weighted_prevalence_0to5,1.29,
+Fig3,Cotuit MA,1997-09-23,weighted_prevalence_0to5,0.79,
+Fig3,Cotuit MA,1997-10-06,weighted_prevalence_0to5,1.39,
+Fig3,Cotuit MA,1997-10-21,weighted_prevalence_0to5,1.39,
+Fig3,Cotuit MA,1997-11-19,weighted_prevalence_0to5,1.39,
+Fig3,Cotuit MA,1997-12-14,weighted_prevalence_0to5,1.89,
+Fig3,Cotuit MA,1998-03-10,weighted_prevalence_0to5,1.29,
+Fig3,Cotuit MA,1998-06-07,weighted_prevalence_0to5,1.29,
+Fig3,Delaware Bay NJ,1996-12-03,cumulative_mortality_pct,-0.3,
+Fig3,Delaware Bay NJ,1997-04-15,cumulative_mortality_pct,10.1,
+Fig3,Delaware Bay NJ,1997-06-20,cumulative_mortality_pct,12.2,
+Fig3,Delaware Bay NJ,1997-07-20,cumulative_mortality_pct,12.9,
+Fig3,Delaware Bay NJ,1997-08-29,cumulative_mortality_pct,37.9,
+Fig3,Delaware Bay NJ,1997-09-25,cumulative_mortality_pct,51.1,
+Fig3,Delaware Bay NJ,1997-11-19,cumulative_mortality_pct,53.9,
+Fig3,Delaware Bay NJ,1996-12-03,weighted_prevalence_0to5,1.79,
+Fig3,Delaware Bay NJ,1997-04-15,weighted_prevalence_0to5,0.19,
+Fig3,Delaware Bay NJ,1997-06-23,weighted_prevalence_0to5,0.5,
+Fig3,Delaware Bay NJ,1997-07-20,weighted_prevalence_0to5,0.79,
+Fig3,Delaware Bay NJ,1997-08-27,weighted_prevalence_0to5,2.1,
+Fig3,Delaware Bay NJ,1997-09-25,weighted_prevalence_0to5,1.19,
+Fig3,Delaware Bay NJ,1997-11-19,weighted_prevalence_0to5,0.4,
+Fig3,Great Sound NJ,1996-06-27,cumulative_mortality_pct,-0.3,
+Fig3,Great Sound NJ,1996-08-01,cumulative_mortality_pct,1.1,
+Fig3,Great Sound NJ,1996-09-11,cumulative_mortality_pct,8.0,
+Fig3,Great Sound NJ,1996-10-15,cumulative_mortality_pct,5.9,
+Fig3,Great Sound NJ,1996-11-15,cumulative_mortality_pct,8.7,
+Fig3,Great Sound NJ,1997-03-26,cumulative_mortality_pct,10.8,
+Fig3,Great Sound NJ,1997-05-29,cumulative_mortality_pct,12.2,
+Fig3,Great Sound NJ,1997-06-29,cumulative_mortality_pct,15.0,
+Fig3,Great Sound NJ,1997-08-01,cumulative_mortality_pct,19.8,
+Fig3,Great Sound NJ,1997-08-29,cumulative_mortality_pct,26.7,
+Fig3,Great Sound NJ,1997-09-25,cumulative_mortality_pct,35.1,
+Fig3,Great Sound NJ,1997-11-10,cumulative_mortality_pct,40.0,
+Fig3,Great Sound NJ,1998-04-09,cumulative_mortality_pct,44.2,
+Fig3,Great Sound NJ,1998-06-05,cumulative_mortality_pct,46.9,
+Fig3,Great Sound NJ,1996-06-27,weighted_prevalence_0to5,0.4,
+Fig3,Great Sound NJ,1996-08-01,weighted_prevalence_0to5,0.1,
+Fig3,Great Sound NJ,1996-09-11,weighted_prevalence_0to5,1.0,
+Fig3,Great Sound NJ,1996-10-15,weighted_prevalence_0to5,1.1,
+Fig3,Great Sound NJ,1996-11-12,weighted_prevalence_0to5,0.5,
+Fig3,Great Sound NJ,1997-03-26,weighted_prevalence_0to5,0.1,
+Fig3,Great Sound NJ,1997-05-29,weighted_prevalence_0to5,0.5,
+Fig3,Great Sound NJ,1997-06-29,weighted_prevalence_0to5,2.2,
+Fig3,Great Sound NJ,1997-08-01,weighted_prevalence_0to5,1.7,
+Fig3,Great Sound NJ,1997-08-27,weighted_prevalence_0to5,2.7,
+Fig3,Great Sound NJ,1997-09-25,weighted_prevalence_0to5,2.2,
+Fig3,Great Sound NJ,1997-11-12,weighted_prevalence_0to5,2.1,
+Fig3,Great Sound NJ,1998-04-09,weighted_prevalence_0to5,0.79,
+Fig3,Great Sound NJ,1998-06-05,weighted_prevalence_0to5,3.2,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-08-08,cumulative_mortality_pct,1.8,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-09-01,cumulative_mortality_pct,7.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-09-16,cumulative_mortality_pct,12.2,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-10-05,cumulative_mortality_pct,12.2,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-11-19,cumulative_mortality_pct,13.9,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-04-04,cumulative_mortality_pct,16.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-06-12,cumulative_mortality_pct,21.2,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-07-11,cumulative_mortality_pct,26.8,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-08-10,cumulative_mortality_pct,35.8,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-09-07,cumulative_mortality_pct,60.8,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-10-04,cumulative_mortality_pct,65.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-11-06,cumulative_mortality_pct,69.2,
+Fig3,Martha's Vineyard MA (Butler's Neck),1998-04-08,cumulative_mortality_pct,74.7,
+Fig3,Martha's Vineyard MA (Butler's Neck),1998-06-02,cumulative_mortality_pct,78.9,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-08-08,weighted_prevalence_0to5,0.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-09-01,weighted_prevalence_0to5,0.29,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-09-14,weighted_prevalence_0to5,0.9,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-10-05,weighted_prevalence_0to5,1.29,
+Fig3,Martha's Vineyard MA (Butler's Neck),1996-11-21,weighted_prevalence_0to5,1.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-04-06,weighted_prevalence_0to5,0.29,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-06-12,weighted_prevalence_0to5,0.29,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-07-11,weighted_prevalence_0to5,0.79,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-08-08,weighted_prevalence_0to5,1.79,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-09-07,weighted_prevalence_0to5,2.1,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-10-04,weighted_prevalence_0to5,2.19,
+Fig3,Martha's Vineyard MA (Butler's Neck),1997-11-06,weighted_prevalence_0to5,3.0,
+Fig3,Martha's Vineyard MA (Butler's Neck),1998-04-10,weighted_prevalence_0to5,0.19,
+Fig3,Martha's Vineyard MA (Butler's Neck),1998-06-05,weighted_prevalence_0to5,0.29,
+Fig3,Milford CT,1996-06-12,cumulative_mortality_pct,-0.3,
+Fig3,Milford CT,1996-07-16,cumulative_mortality_pct,21.3,
+Fig3,Milford CT,1996-08-20,cumulative_mortality_pct,21.3,
+Fig3,Milford CT,1996-09-25,cumulative_mortality_pct,21.3,
+Fig3,Milford CT,1996-11-01,cumulative_mortality_pct,21.9,
+Fig3,Milford CT,1997-03-26,cumulative_mortality_pct,23.0,
+Fig3,Milford CT,1997-05-20,cumulative_mortality_pct,23.9,
+Fig3,Milford CT,1997-06-29,cumulative_mortality_pct,24.7,
+Fig3,Milford CT,1997-08-24,cumulative_mortality_pct,28.1,
+Fig3,Milford CT,1997-10-04,cumulative_mortality_pct,28.1,
+Fig3,Milford CT,1997-11-10,cumulative_mortality_pct,28.9,
+Fig3,Milford CT,1998-04-09,cumulative_mortality_pct,29.9,
+Fig3,Milford CT,1998-06-16,cumulative_mortality_pct,32.0,
+Fig3,Milford CT,1996-06-12,weighted_prevalence_0to5,0.2,
+Fig3,Milford CT,1996-07-16,weighted_prevalence_0to5,0.1,
+Fig3,Milford CT,1996-08-20,weighted_prevalence_0to5,0.0,
+Fig3,Milford CT,1996-09-25,weighted_prevalence_0to5,0.4,
+Fig3,Milford CT,1996-11-04,weighted_prevalence_0to5,0.29,
+Fig3,Milford CT,1997-03-23,weighted_prevalence_0to5,0.2,
+Fig3,Milford CT,1997-05-22,weighted_prevalence_0to5,0.29,
+Fig3,Milford CT,1997-06-29,weighted_prevalence_0to5,0.0,
+Fig3,Milford CT,1997-08-24,weighted_prevalence_0to5,0.9,
+Fig3,Milford CT,1997-10-04,weighted_prevalence_0to5,0.7,
+Fig3,Milford CT,1997-11-10,weighted_prevalence_0to5,0.5,
+Fig3,Milford CT,1998-04-09,weighted_prevalence_0to5,0.2,
+Fig3,Milford CT,1998-06-16,weighted_prevalence_0to5,0.0,
+Fig3,Oyster Bay NY,1996-07-08,cumulative_mortality_pct,-0.3,
+Fig3,Oyster Bay NY,1996-08-15,cumulative_mortality_pct,-0.3,
+Fig3,Oyster Bay NY,1996-09-18,cumulative_mortality_pct,1.0,
+Fig3,Oyster Bay NY,1996-11-06,cumulative_mortality_pct,3.2,
+Fig3,Oyster Bay NY,1997-03-17,cumulative_mortality_pct,3.9,
+Fig3,Oyster Bay NY,1997-05-21,cumulative_mortality_pct,10.1,
+Fig3,Oyster Bay NY,1997-06-24,cumulative_mortality_pct,12.2,
+Fig3,Oyster Bay NY,1997-07-29,cumulative_mortality_pct,37.1,
+Fig3,Oyster Bay NY,1997-08-27,cumulative_mortality_pct,44.8,
+Fig3,Oyster Bay NY,1997-09-25,cumulative_mortality_pct,51.1,
+Fig3,Oyster Bay NY,1997-11-13,cumulative_mortality_pct,58.1,
+Fig3,Oyster Bay NY,1998-04-02,cumulative_mortality_pct,72.9,
+Fig3,Oyster Bay NY,1998-05-25,cumulative_mortality_pct,72.9,
+Fig3,Oyster Bay NY,1996-07-08,weighted_prevalence_0to5,0.19,
+Fig3,Oyster Bay NY,1996-08-15,weighted_prevalence_0to5,0.1,
+Fig3,Oyster Bay NY,1996-09-18,weighted_prevalence_0to5,0.5,
+Fig3,Oyster Bay NY,1996-11-06,weighted_prevalence_0to5,0.29,
+Fig3,Oyster Bay NY,1997-03-17,weighted_prevalence_0to5,0.19,
+Fig3,Oyster Bay NY,1997-05-19,weighted_prevalence_0to5,0.0,
+Fig3,Oyster Bay NY,1997-06-24,weighted_prevalence_0to5,0.1,
+Fig3,Oyster Bay NY,1997-07-27,weighted_prevalence_0to5,0.0,
+Fig3,Oyster Bay NY,1997-08-29,weighted_prevalence_0to5,1.1,
+Fig3,Oyster Bay NY,1997-09-25,weighted_prevalence_0to5,1.9,
+Fig3,Oyster Bay NY,1997-11-13,weighted_prevalence_0to5,1.0,
+Fig3,Oyster Bay NY,1998-04-02,weighted_prevalence_0to5,0.9,
+Fig3,Oyster Bay NY,1998-05-27,weighted_prevalence_0to5,0.6,
+Fig3,Wellfleet MA,1996-06-14,cumulative_mortality_pct,-0.3,
+Fig3,Wellfleet MA,1996-07-25,cumulative_mortality_pct,2.8,
+Fig3,Wellfleet MA,1996-09-01,cumulative_mortality_pct,12.8,
+Fig3,Wellfleet MA,1996-09-28,cumulative_mortality_pct,12.8,
+Fig3,Wellfleet MA,1996-10-18,cumulative_mortality_pct,13.9,
+Fig3,Wellfleet MA,1996-11-19,cumulative_mortality_pct,16.0,
+Fig3,Wellfleet MA,1997-03-19,cumulative_mortality_pct,16.0,
+Fig3,Wellfleet MA,1997-06-25,cumulative_mortality_pct,16.0,
+Fig3,Wellfleet MA,1997-07-25,cumulative_mortality_pct,22.9,
+Fig3,Wellfleet MA,1997-08-19,cumulative_mortality_pct,27.8,
+Fig3,Wellfleet MA,1997-09-21,cumulative_mortality_pct,34.7,
+Fig3,Wellfleet MA,1997-10-16,cumulative_mortality_pct,36.8,
+Fig3,Wellfleet MA,1997-11-13,cumulative_mortality_pct,37.8,
+Fig3,Wellfleet MA,1998-04-28,cumulative_mortality_pct,57.0,
+Fig3,Wellfleet MA,1998-06-22,cumulative_mortality_pct,58.0,
+Fig3,Wellfleet MA,1996-06-14,weighted_prevalence_0to5,0.0,
+Fig3,Wellfleet MA,1996-07-25,weighted_prevalence_0to5,0.0,
+Fig3,Wellfleet MA,1996-09-03,weighted_prevalence_0to5,0.89,
+Fig3,Wellfleet MA,1996-09-28,weighted_prevalence_0to5,0.79,
+Fig3,Wellfleet MA,1996-10-20,weighted_prevalence_0to5,0.68,
+Fig3,Wellfleet MA,1996-11-21,weighted_prevalence_0to5,0.79,
+Fig3,Wellfleet MA,1997-03-21,weighted_prevalence_0to5,0.18,
+Fig3,Wellfleet MA,1997-06-27,weighted_prevalence_0to5,0.08,
+Fig3,Wellfleet MA,1997-07-25,weighted_prevalence_0to5,0.39,
+Fig3,Wellfleet MA,1997-08-22,weighted_prevalence_0to5,1.49,
+Fig3,Wellfleet MA,1997-09-23,weighted_prevalence_0to5,2.79,
+Fig3,Wellfleet MA,1997-10-18,weighted_prevalence_0to5,2.18,
+Fig3,Wellfleet MA,1997-11-13,weighted_prevalence_0to5,1.79,
+Fig3,Wellfleet MA,1998-04-29,weighted_prevalence_0to5,0.18,
+Fig3,Wellfleet MA,1998-06-25,weighted_prevalence_0to5,0.89,
+Fig3,Westport CT,1996-06-11,cumulative_mortality_pct,1.1,
+Fig3,Westport CT,1996-07-18,cumulative_mortality_pct,3.1,
+Fig3,Westport CT,1996-08-25,cumulative_mortality_pct,17.8,
+Fig3,Westport CT,1996-09-25,cumulative_mortality_pct,19.1,
+Fig3,Westport CT,1996-11-15,cumulative_mortality_pct,21.3,
+Fig3,Westport CT,1997-04-13,cumulative_mortality_pct,23.0,
+Fig3,Westport CT,1997-05-24,cumulative_mortality_pct,23.9,
+Fig3,Westport CT,1997-06-20,cumulative_mortality_pct,86.3,
+Fig3,Westport CT,1997-06-29,cumulative_mortality_pct,26.1,
+Fig3,Westport CT,1997-08-27,cumulative_mortality_pct,48.0,
+Fig3,Westport CT,1997-10-04,cumulative_mortality_pct,56.9,
+Fig3,Westport CT,1997-11-12,cumulative_mortality_pct,58.7,
+Fig3,Westport CT,1998-04-09,cumulative_mortality_pct,66.0,
+Fig3,Westport CT,1998-06-17,cumulative_mortality_pct,71.3,
+Fig3,Westport CT,1996-06-14,weighted_prevalence_0to5,0.6,
+Fig3,Westport CT,1996-07-18,weighted_prevalence_0to5,0.5,
+Fig3,Westport CT,1996-08-25,weighted_prevalence_0to5,3.1,
+Fig3,Westport CT,1996-09-28,weighted_prevalence_0to5,2.5,
+Fig3,Westport CT,1996-11-15,weighted_prevalence_0to5,2.8,
+Fig3,Westport CT,1997-04-11,weighted_prevalence_0to5,0.6,
+Fig3,Westport CT,1997-05-24,weighted_prevalence_0to5,0.79,
+Fig3,Westport CT,1997-06-29,weighted_prevalence_0to5,1.0,
+Fig3,Westport CT,1997-08-27,weighted_prevalence_0to5,2.8,
+Fig3,Westport CT,1997-10-04,weighted_prevalence_0to5,2.8,
+Fig3,Westport CT,1997-11-12,weighted_prevalence_0to5,1.79,
+Fig3,Westport CT,1998-04-09,weighted_prevalence_0to5,1.9,
+Fig3,Westport CT,1998-06-17,weighted_prevalence_0to5,1.9,

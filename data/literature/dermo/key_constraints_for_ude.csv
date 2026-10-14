@@ -1,0 +1,25 @@
+# Condensed constraints for the 'known physics' part of a Dermo UDE. Each row points to a CSV / source in this directory. Units as stated.
+quantity,temp_C,salinity_ppt,value,units,kind,source
+in vitro max specific growth (log phase),28,15-35,0.82-0.84,d^-1 (doubling ~0.83 d) after ~6-d lag,in vitro,La Peyre et al. 2006 DAO 71:59 (lapeyre2006_invitro_salinity.csv)
+in vitro growth at 7 ppt,28,7,~0 (no net growth over 28 d),d^-1,in vitro,La Peyre et al. 2006
+in vitro growth at 11 ppt,28,11,0.10-0.21,d^-1,in vitro,La Peyre et al. 2006
+in vitro log-phase doubling (acclimated),28,12.7-27,22.8-25.9,h,in vitro,O'Farrell et al. 2000 JSR 19:139
+in vitro log-phase doubling (acclimated),28,6.5-9.7,35.2-35.7,h,in vitro,O'Farrell et al. 2000
+in vitro log-phase doubling (optimal),28,~28,13 (D&H 1995); 17 (La Peyre & Faisal); ~24 (G&V 1993),h,in vitro,La Peyre 1996 JSR 15:89 review
+in vitro proliferation 4-20 C,4-20,~24-35,none detectable over 10 d (OD assay) vs detectable at 10 C (MTS assay); similar among N and S isolates 5-20 C,qualitative,in vitro,G&V 1995; D&H 1995; Ford & Chintala 2006 (paywalled)
+in vitro proliferation 15 C,15,20,net ~0.006 over 15 d (viability 58-68%),d^-1,in vitro,Queiroga et al. 2016 (tropical isolate)
+in vitro survival 4 C,4,medium,49% viable after 30 d; no proliferation,%,in vitro,La Peyre et al. 2008 (abstract)
+in vitro survival 2-6 C (gradual cooling),2-6,medium,77% (30 d); 54% (60 d),%,in vitro,La Peyre et al. 2008 (abstract)
+in vitro survival low T + low S,2 / 10,3.5,0% by d30 (2 C) / d60 (10 C),%,in vitro,La Peyre et al. 2010 (abstract)
+in vivo progression vs T (prevalence 46 d after 1e6 cells),10/15/20/25,17.5,23/46/91/100 (WP 0.12/0.47/1.25/1.78),% and 0-5 WP,lab in vivo,Chu & La Peyre 1993 (chu_lapeyre1993_temperature.csv)
+in vivo progression vs T x S x dose (Damariscotta oysters),10-25,3-20,see CSV; 10 C/20 ppt/2.5e4 cells -> ~27% light infections at 60 d,%,lab in vivo,Chu & Volety 1997 (chu_volety1997_TxS.csv)
+in vivo progression vs S (established infections),23,6/9/12/20,no progression at 6-9; retarded 12; progressing 20; mortality 9.1/11.6/21.1/27.8% in 56 d,%,lab in vivo,Ragone & Burreson 1993 (ragone_burreson1993_salinity.csv)
+arrest at 15 C,15,York R.,10% mortality in 6 wk vs 99% at 28 C; light infections persist,%,lab in vivo,Hewatt & Andrews 1956
+winter persistence,~3-10 (field),19-23,FTM prevalence 100->32% Nov-May but 30 d at 25 C restores to 71-100%,%,field + lab warm-up,Ragone Calvo & Burreson 1994
+minimum infective dose (shell cavity),22-24.5,13.6-20.6,1e2 meronts/oyster (0% at 10; 13% at 1e2; 50-67% at 1e4; 71-80% at 1e5),cells/oyster,lab in vivo,Chu & Volety 1997 (chu_volety1997_dose_response.csv)
+infection acquisition per 15-d natural exposure,4-29,18-22,0-71% (peak Aug-Sep at 24-28 C; 16% in Feb at ~4 C),% per deployment,field sentinel + lab warm-up,Ragone Calvo et al. 2003 (ragone_calvo2003_sentinel_transmission.csv)
+fecal shedding vs burden,26-28,25,log10(feces cells/d) = 0.667 log10(body cells) - 0.752,log-log,lab,Bushek et al. 2002 (bushek2002_fecal_shedding.csv)
+release T effect,23-25 vs 30-32,5-25,76% of oysters release more at 30-32 C; salinity no effect on release,qualitative,lab,Gignoux-Wolfsohn et al. 2021 (bioRxiv 2020.11.03.366781)
+lethal burden,26-28,25,1e6-1e7 (most trials); ~1e4 in one trial,cells per g wet tissue,lab,Ford et al. 2002 DAO 51:187 (ford2002_lethal_burden.csv)
+days to death vs shedding,26-28,25,days = -5.235 log10(feces cells/d) + 37.752,d,lab,Bushek et al. 2002
+in vivo doubling time (field pond),28-32,17,1-10 h at low density; ~1 d at 1e4 and ~1 yr at 1e7 cells/g dry wt (text); printed eq. inconsistent,h,field in vivo,Saunders et al. 1993 JSR 12:229

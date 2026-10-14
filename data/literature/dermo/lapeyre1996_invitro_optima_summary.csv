@@ -1,0 +1,11 @@
+# La Peyre 1996 J. Shellfish Res. 15(1):89-101, Table 3 (p.93) and text p.93-94 (archive.org JSR v15, PDF page 99). Summary of in vitro optimisation studies. Ref1 = Dungan & Hamilton 1995 J Eukaryot Microbiol 42:379-388 (MTS tetrazolium assay, 48-72 h); Ref2 = Gauthier & Vasta 1995 J Invertebr Pathol 66:156-168 (OD600, ~10 d); Ref3 = La Peyre & Faisal (1995/1996, BSA-free JL-ODRP-1, haemocytometer counts, 15 d).
+condition,reference,levels_tested,recommended,notes
+temperature_C,Dungan&Hamilton1995,"4,10,15,20,25,28,35,40",28,"proliferation increased with T between 10 and 35 C; proliferation detected at 10 C (MTS assay); log-phase doubling 13 h (ATCC 50439, optimal conditions)"
+temperature_C,Gauthier&Vasta1995,"4,20,28,32,38",28-32,"max growth 32 C (cells less healthy); NO significant growth between 4 and 20 C over 10 d (OD assay); log-phase doubling ~24 h (G&V 1993)"
+temperature_C,LaPeyre&Faisal,"4,17,22,28,36",28,"36 C: cells enlarge, do not divide, die; 17 C: slow enlargement, larger before dividing; log-phase doubling 17 h (isolate Perkinsus-1); text p.95: proliferates at 6 ppt and 17 C 'albeit slowly'"
+osmolality_mOsm,Dungan&Hamilton1995,"320,480,640,800,960,1120,1920",800,"near-optimal 475-959 mOsm (~17-34 ppt), max 794 (~28 ppt); cells acclimated at 650 mOsm then transferred"
+osmolality_mOsm,LaPeyre&Faisal,"372,661,963,1273",661,"growth greater at 661 (~24 ppt) than 372 (~14) or 963 (~34); acclimated at 724 mOsm"
+salinity_ppt,Gauthier&Vasta1995,"12,18,24,30,36,42",24-36,"growth significantly lower at 18 than 24 or 30, not lower at 36; acclimated at 960 mOsm (~35 ppt)"
+acclimation,LaPeyre unpubl / O'Farrell 1995,"341 mOsm (12.7 ppt) >1 yr",,"growth rate similar to cells at 724 mOsm after long acclimation"
+acute_hypo-osmotic_shock,Burreson et al. 1994,"630 -> 136 mOsm",,"10% viable after 24 h"
+acute_hypo-osmotic_shock,O'Farrell et al. 1995,"168 -> 56 mOsm (2.5 ppt)",,"60% survive if previously acclimated to 168 mOsm"

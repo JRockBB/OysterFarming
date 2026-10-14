@@ -1,0 +1,22 @@
+# Chu & Volety 1997 Dis Aquat Org 28:61-68, Fig. 4 (p.64). Oysters from Damariscotta River ME (Jan 1993; 0 degC, 32 ppt), acclimated 67 d, shell-cavity inoculation of freshly isolated meronts, sampled 60 d post-challenge. n=15 per cell at challenge.
+# n per group = 7-15 (3-4 at 25 C / 3 ppt, heavy acclimation mortality) per Chu 1996 JSR 15:57-66 Fig 6 caption; the column n below gives 15 = maximum.
+# DIGITIZED BY EYE from a 3-D perspective bar chart: prevalence +/- ~7 percentage points, weighted prevalence (scale 0,1,3,5) +/- ~0.3. Controls (dose 0) all 0. Back row 25C, middle 15C, front 10C.
+temp_C,salinity_ppt,dose_meronts_per_oyster,n,prevalence_pct_approx,weighted_prevalence_approx
+25,3,2500,3-4,50,0.4
+25,3,25000,3-4,67,1.5
+25,10,2500,15,53,0.9
+25,10,25000,15,100,3.2
+25,20,2500,15,80,2.1
+25,20,25000,15,100,3.4
+15,3,2500,15,0,0
+15,3,25000,15,20,0.2
+15,10,2500,15,7,0.1
+15,10,25000,15,40,0.4
+15,20,2500,15,13,0.1
+15,20,25000,15,67,0.6
+10,3,2500,15,0,0
+10,3,25000,15,13-20,0.1
+10,10,2500,15,0,0
+10,10,25000,15,27,0.25
+10,20,2500,15,7,0.05
+10,20,25000,15,27,0.25

@@ -1,0 +1,52 @@
+# Ford & Smolowitz 2007 Mar Biol 151:119-133 (user PDF ford2006.pdf). Tables 1-5, Fig 5 and key text numbers. NO MAINE SITES: northernmost site is Wellfleet Harbor MA (Cape Cod Bay, ~41.9 N). The word Maine does not occur in the paper.
+# Design: oysters deployed June 1996, sampled to June 1998 (Delaware Bay Dec 1996-Nov 1997); monthly late May-Nov plus once in March; n=25 per sample; RFTM rectal+mantle, Ray/Mackin 0-5; WP includes uninfected. Mostly naive groups except Delaware Bay and Long Island Sound (exposed >=1 yr before).
+# Fig 5 R2 values: Wellfleet from vector paths (exact); others read by eye (+/-0.03).
+item,site,value,units,source_loc
+location/culture,Wellfleet Harbor MA,shallow open bay E side of Cape Cod Bay; intertidal on-bottom trays; 1995 year-class hatchery + native set; light Pm since early 1990s,,Table 1 p121
+location/culture,Cotuit Harbor MA,small embayment S Cape Cod (Nantucket Sound); subtidal on-bottom bags; 1995 hatchery; Pm since early 1990s without reported mortality,,Table 1
+location/culture,Edgartown Great Pond Martha's Vineyard MA (Butler's Neck; Mashacket Cove),enclosed coastal pond with intermittent ocean opening; subtidal trays; 1995 natives; Pm discovered 1994,,Table 1
+location/culture,Long Island Sound CT (Westport; Milford),commercial leases; large high-salinity water body; subtidal; 1994 natives; heavy Pm since 1992,,Table 1
+location/culture,Oyster Bay NY,embayment on N shore of LIS; 1996 hatchery,,Table 1
+location/culture,Great Sound NJ,shallow intertidal embayment N of Cape May; racks/bags; 1995 hatchery,,Table 1
+location/culture,Delaware Bay NJ,lower bay lease; mixed year classes transplanted autumn 1996,,Table 1
+salinity range 1996-98,Delaware Bay NJ,14-26,ppt,Table 3 p127
+salinity range 1996-98,Great Sound NJ,28-31,ppt,Table 3
+salinity range 1996-98,Oyster Bay NY,21-27,ppt,Table 3
+salinity range 1996-98,Cotuit Harbor MA,25-27,ppt,Table 3
+salinity range 1996-98,Wellfleet MA,30-32,ppt,Table 3
+salinity range 1996-98,Edgartown MA,6-24 (6-14 when pond closed; rarely >20 when open),ppt,Table 3 + text p126
+salinity (general),all except MV and DB,20-35 mostly high end,ppt,text p125
+time above 20 C,all sites,2.5 to >3 months,months,text p124
+Jul-Aug mean temperature,all except LIS (and Oyster Bay 1997),approaching or exceeding 25,C,text p124
+winter 1996-97 duration <10 C,all sites,5-6,months,text p124
+winter 1996-97 duration <5 C,all sites,2-3 (shortest Great Sound; longest NY and MA),months,text p124
+winter minimum ranking 1996-97,all sites,coldest Cotuit MA; warmest Great Sound NJ,,text p124
+summer proliferation window,NE shallow embayments,>18-20 C for 10-14 weeks (vs ~20 weeks lower Chesapeake),weeks,text p130
+peak prevalence year 1,most sites,60-80,%,text p123
+peak prevalence year 2,most sites,100,%,text p123
+peak WP year 1,most sites,1.0-1.5,0-5 scale,text p123
+peak WP year 2,most sites,2.0-3.0,0-5 scale,text p123
+advanced infections (3-5) at peaks,most sites,30-70,% of oysters,text p126
+seasonal minimum,all,April-May (sometimes into July),,text p123
+peak timing year 1,Great Sound NJ vs Wellfleet/MV MA,Sep-Oct vs Oct-Nov,,text p123
+peak timing year 2,Great Sound NJ vs MA,June (persisting to Nov) vs Aug-Sep,,text p123
+mortality year 1,most sites,<20,% cumulative,text p123
+cumulative mortality after 2 yr,all but Milford,60-80,%,text p123-124
+cumulative mortality after 2 yr,Milford CT,~30 (never heavily infected),%,text p124
+best lag temperature->WP,4 MA sites,4-5 months (R2 >=0.80),,text p125 + Fig 5
+best lag temperature->WP,other sites,3 months (R2 >=0.80; Oyster Bay <0.80),,text p125 + Fig 5
+Fig5 R2 lag1..6,Wellfleet MA,0.04/0.36/0.76/0.81/0.69/0.55,R2,Fig 5 (vector)
+Fig5 R2 lag1..6,Cotuit MA,~0.0/0.23/0.64/0.81/0.77/0.66,R2,Fig 5
+Fig5 R2 lag1..6,Mashacket Cove MA,0.03/0.40/0.74/0.90/0.91/0.70,R2,Fig 5
+Fig5 R2 lag1..6,Butler's Neck MA,~0.02/0.42/0.74/0.87/0.91/0.84,R2,Fig 5
+Fig5 R2 lag1..6,Oyster Bay NY,0.17/0.58/0.76/0.67/0.50/0.34,R2,Fig 5
+Fig5 R2 lag1..6,Great Sound NJ,0.49/0.66/0.84/0.52/0.20/0.00,R2,Fig 5
+Fig5 R2 lag1..6,Delaware Bay NJ,0.01/0.51/0.87/0.82/0.52/0.24,R2,Fig 5
+SST trend 1992-2002 Feb (slope C/yr; N; P),Woods Hole MA,0.150; 8; 0.38 (ns),C/yr,Table 2 p127
+SST trend 1992-2002 Aug,Woods Hole MA,0.192; 9; 0.025,C/yr,Table 2
+SST trend 1992-2002 Feb,Bivalve NJ,0.321; 11; 0.014,C/yr,Table 2
+SST trend 1992-2002 Aug,Bivalve NJ,0.196; 9; 0.036,C/yr,Table 2
+condition index ratio advanced(4-5)/light(0-2),8 sites year-2 autumn+spring,0.51-0.93,ratio,Table 5 p128
+significant negative CI-intensity correlations,121 samples,23 (19%); 96% in year 2,,Table 4 p128
+historic Delaware Bay 1955-58 (failed establishment),Delaware Bay,max prevalence 30%; WP rarely >1.0; died out during cold winters,,text p128-129
+H. nelsoni (MSX),CT and NY sites,70-90% prevalence by autumn 1997 (epizootic); low in NJ and MA (<=16-24%),,text p126-127

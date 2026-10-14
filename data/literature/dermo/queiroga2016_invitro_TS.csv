@@ -1,0 +1,14 @@
+# Queiroga et al. 2016 Parasitology 143(4):475-487, open access PMC4800715, DOI 10.1017/S0031182015001602. P. marinus isolate CR-PB192 from C. rhizophorae, NE Brazil (tropical; NOT a C. virginica isolate). Start 1e6 cells/ml in DME-Ham F12; 4 replicates. Values from Results text (mean +/- SE). Derived net r = ln(N15/1.0)/15.
+experiment,temp_C,salinity_psu,day,density_1e6_per_ml,se,viability_pct,derived_net_r_per_day_0_15
+temperature,15,20,15,1.1,0.01,67.5 (d15; 58.3 at d7; 87.1 at 48h),0.006
+temperature,25,20,15,9.3,0.70,97.4,0.149
+temperature,35,20,15,1.53,0.05,91.7,0.028
+temperature_recovery_7d_at_25C,15->25,20,22,3.3,0.10,96.9,
+temperature_recovery_7d_at_25C,25,20,22,8.1,0.50,,
+temperature_recovery_7d_at_25C,35->25,20,22,1.7,0.05,68.3,
+salinity,25,5,15,2.1,0.20,,0.049
+salinity,25,20,15,3.7,0.10,,0.087
+salinity,25,35,15,2.5,0.10,,0.061
+salinity_recovery,25,5->20,22,4.4,0.20,,
+salinity_recovery,25,20,22,7.3,0.20,,
+salinity_recovery,25,35->20,22,7.2,0.04,,

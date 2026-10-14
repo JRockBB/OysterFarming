@@ -1,0 +1,11 @@
+# Bushek, Ford & Chintala 2002 Dis Aquat Org 51:217-225. All at 26-28 C, 25 ppt; Damariscotta (Mook Sea Farm) hatchery oysters, ~5.3 g wet tissue.
+quantity,value,units,source_location,notes
+fecal_vs_body_burden_slope,0.667,log10(cells oyster^-1 d^-1 in feces) per log10(cells oyster^-1 in tissue),Fig 3 p221,"y=0.667x-0.752, r2=0.61, N=29, day 84, x range 2.3-7.2"
+fecal_vs_body_burden_intercept,-0.752,log10(cells oyster^-1 d^-1),Fig 3 p221,
+days_to_death_vs_fecal_slope,-5.235,d per log10(cells oyster^-1 d^-1 in feces),Fig 4 p222,"y=-5.235x+37.752, r2=0.44, N=12"
+days_to_death_vs_fecal_intercept,37.752,d,Fig 4 p222,
+fraction_of_dose_recovered_in_feces_pseudofeces,<0.05,fraction,abstract,
+fraction_shed_first_2d_cultured,0.036,fraction,p222,
+fraction_shed_first_2d_wildtype,0.0011,fraction,p222,
+daily_discharge_day1,10^2.9-10^3.4,cells oyster^-1 d^-1,p219,pseudofeces-feces; falling to 10^1.0-10^1.6 by day 7; feces rising to 10^2.8 by day 84
+live_fecal_release_vs_cadaver_release,0.089,ratio (5-mo Delaware Bay model),p221,assumes dead-oyster burden 1e6 per g wwt

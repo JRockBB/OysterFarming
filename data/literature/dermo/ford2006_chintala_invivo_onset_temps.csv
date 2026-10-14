@@ -1,0 +1,16 @@
+# Ford & Chintala 2006 JEMBE 339:226 Table 5 (p232): water temperature at which the seasonal rise in P. marinus prevalence was first detected in the field (estimated from plotted temperature + prevalence). Authors argue in vitro net proliferation starts ~15 C but RFTM detects reliably only at 1e3-1e4 cells/g wet wt, so the visible rise lags to ~20-23 C.
+site,year,date,onset_temp_C,source
+Wellfleet Harbor MA,1997,15 July,23,Ford & Smolowitz 2007
+Cotuit Harbor MA,1997,15 June,23,Ford & Smolowitz 2007
+Butler's Neck Martha's Vineyard MA,1997,30 June,22,Ford & Smolowitz 2007
+Mashacket Cove Martha's Vineyard MA,1997,30 June,23,Ford & Smolowitz 2007
+Long Island Sound CT (various),1997,15-30 May,13-16,Brousseau et al. 1998
+Oyster Bay NY,1997,15 August,22-23,Ford & Smolowitz 2007
+Great Sound NJ,1997,15 May,15,Ford & Smolowitz 2007
+Delaware Bay NJ,1991-93,1-15 June,20-22,Bushek et al. 1994; Ford unpubl.
+Delaware Bay NJ,1997,1 June,18-20,Canzonier 1998
+Lower Chesapeake Bay VA,1984-94,15 May-30 June,20-23,Burreson & Ragone Calvo 1996
+Wando River SC,1981-82,1 April,20,Burrell et al. 1981
+North Inlet SC,1988,15 April,20,Crosby & Roberts 1990
+Gulf coast FL (various),1967-68,15 May-15 July,27-32,Quick & Mackin 1971
+Galveston Bay TX,1979-81,30 March,18-20,Soniat 1985

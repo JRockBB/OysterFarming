@@ -1,0 +1,7 @@
+# O'Farrell, La Peyre, Paynter & Burreson 2000 J. Shellfish Res. 19(1):139-145 (archive.org JSR v19; Results p.141). P. marinus in BSA-free JL-ODRP-1 at 28 C, gradually acclimated to each osmolality. Log-phase doubling times (h); lag to log phase (d). ppt = authors' conversion.
+osmolality_mOsm,salinity_ppt,temp_C,lag_days,doubling_time_h,derived_r_per_day,acute_shock_to_56mOsm_mortality_pct
+168,6.5,28,4,35.2,0.473,41
+256,9.7,28,4,35.7,0.466,
+341,12.7,28,2,22.8,0.730,100
+433,16.0,28,2,25.9,0.642,100
+737,27.0,28,2,24.4,0.682,100

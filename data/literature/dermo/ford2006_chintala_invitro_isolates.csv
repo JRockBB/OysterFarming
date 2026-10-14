@@ -1,0 +1,27 @@
+# Ford & Chintala 2006 J Exp Mar Biol Ecol 339:226-235 (user PDF 'ford2006 (1).pdf'). 9 isolates: MA (Wareham River W2B, W8A; 26 C/24 ppt at collection), NJ (Delaware Bay, 4 isolates; 25-25.5 C/17 ppt), SC (North Inlet, 3 isolates; 30-32 C/33-35 ppt). Cultures kept at 25 C at collection-site salinity (17/24/33 ppt).
+# Assay: CellTiter 96 AQ tetrazolium (A490), 2e4 cells/100 ul/well, 72 h at 5-35 C, 5 wells x 3 plates per isolate x temperature, whole experiment repeated 4 times; points = regional means of 4 expts (+/-SEM).
+# Fig 4A (raw absorbance) and Fig 4B (ratio to Time-0) digitized by eye (p231; +/-0.03). Assay reflects biovolume/mitochondrial activity; standard curves saturate (Table 2), so ratios compress growth.
+# r_net_per_d = ln(ratio)/3 d derived here. Table 3 Time-0 absorbance: MA 1.55, NJ 1.39, SC 0.99.
+region,salinity_ppt,temp_C,A490_raw,ratio_to_T0,ratio_SEM_approx,r_net_per_d,source_loc,notes
+MA,24,5,1.07,0.75,0.13,-0.10,Fig 4,ratio <1: decline/inactivity (25% for MA; text p231)
+MA,24,10,1.10,0.76,0.10,-0.09,Fig 4,
+MA,24,15,1.70,1.21,0.20,0.06,Fig 4,net proliferation first at 15 C in all isolates
+MA,24,20,1.73,1.32,0.30,0.09,Fig 4,
+MA,24,25,1.62,1.30,0.38,0.09,Fig 4,
+MA,24,30,1.55,1.19,0.29,0.06,Fig 4,
+MA,24,35,1.61,1.25,0.32,0.07,Fig 4,
+NJ,17,5,0.85,0.61,0.06,-0.16,Fig 4,35% decline
+NJ,17,10,0.88,0.62,0.05,-0.16,Fig 4,
+NJ,17,15,1.72,1.33,0.19,0.10,Fig 4,
+NJ,17,20,1.85,1.44,0.20,0.12,Fig 4,
+NJ,17,25,1.72,1.35,0.33,0.10,Fig 4,
+NJ,17,30,1.70,1.28,0.20,0.08,Fig 4,
+NJ,17,35,1.68,1.29,0.28,0.08,Fig 4,
+SC,33,5,0.61,0.65,0.05,-0.14,Fig 4,
+SC,33,10,0.61,0.64,0.05,-0.15,Fig 4,
+SC,33,15,1.16,1.22,0.20,0.07,Fig 4,
+SC,33,20,1.43,1.53,0.12,0.14,Fig 4,
+SC,33,25,1.73,1.95,0.22,0.22,Fig 4,SC > MA/NJ at 25-35 C
+SC,33,30,1.64,1.84,0.16,0.20,Fig 4,
+SC,33,35,1.63,1.85,0.18,0.21,Fig 4,
+MD (Dungan & Hamilton 1995 replot),21,5/10/15/20/25/30/35,0.43/0.60/1.35/1.65/~1.68/~1.70/1.80,,,,Fig 4A,different seeding density; only shape comparable

@@ -1,0 +1,19 @@
+# Ragone & Burreson 1993 J. Shellfish Res. 12(1):1-7 (archive.org journalofshellfi12nati). Naturally infected James River oysters (initial prevalence 80%), lab 23.3 +/- 1.9 C, 6/9/12/20 ppt, 56 d; 5 tanks x 30 oysters per salinity. Mean cumulative mortality (%) from Results text p.3. Uninfected controls (end): 0% at 6, 4% at 9, 12% at 12, 4% at 20 ppt.
+# Infection intensity: did not progress at 6 and 9 ppt; retarded at 12 ppt; progressed at 20 ppt (Fig. 2-3, categorical). Prevalence 76-100% at all salinities and all days.
+salinity_ppt,temp_C,day,cum_mortality_pct
+6,23.3,14,0.7
+9,23.3,14,2.0
+12,23.3,14,2.0
+20,23.3,14,7.3
+6,23.3,28,1.5
+9,23.3,28,6.8
+12,23.3,28,10.1
+20,23.3,28,17.7
+6,23.3,42,2.5
+9,23.3,42,8.8
+12,23.3,42,16.4
+20,23.3,42,21.1
+6,23.3,56,9.1
+9,23.3,56,11.6
+12,23.3,56,21.1
+20,23.3,56,27.8

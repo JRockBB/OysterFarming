@@ -1,0 +1,38 @@
+# Chu & Greene 1989 J Invertebr Pathol 53:260-268 (user PDF chu1989.pdf, text layer). In vitro PREZOOSPORANGIA (hypnospores from RFTM-incubated tissue) and ZOOSPORES, not trophozoites.
+# Presporangia 0.1-0.7e6 per 25-ml Petri plate, duplicate plates (some unreplicated). Oct 1987-Apr 1988, VIMS.
+# Temperatures as measured: 4 C = 3.60+/-0.7; 18 C = 17.60+/-2.66; 20 C = 20+/-1.37; 28 C = 28.3+/-0.58. Abstract says '4 C for a time period 64 days' - body (Table 3, Discussion) supports only 4 d (4-7 d with Perkins 1966); treat 64 as typo/OCR.
+measure,temp_C,salinity_ppt,duration,value,units,n,source_loc,notes
+days to spore-tube/motile cells inside sporangia,4,22,8 d obs,no development,days,2 plates x 3 expts,Table 1 p264,
+days to spore-tube/motile cells,18-20,22,,2-11 (York R water); 3-8 (artificial SW),days,3 expts,Table 1 p264,
+days to spore-tube/motile cells,28,22,,2-3,days,3 expts,Table 1 p264,
+days to sporulation (zoospore release),4,22,8 d,none,days,,Table 2 p264,never sporulated at 4 C unless moved to 28 C
+days to sporulation,18-20,22,,2-8,days,3 expts,Table 2 p264,
+days to sporulation,28,22,,2-3,days,3 expts,Table 2 p264,
+sporulation after 1 d at 4 C then 28 C,4->28,22,1 d cold,3,days at 28 C to sporulate,2 expts,Table 3 p264,
+sporulation after 2 d at 4 C,4->28,22,2 d cold,1-6,days at 28 C,2 expts,Table 3,
+sporulation after 3 d at 4 C,4->28,22,3 d cold,4-6,days at 28 C,3 expts,Table 3,
+sporulation after 4 d at 4 C,4->28,22,4 d cold,1 of 3 plates sporulated (3 d); 2 of 3 failed,,3 expts,Table 3,
+frozen <=0 C 1 d then 28 C,0->28,22,1 d,no sporulation; many dead sporangia,,1 expt,text p264,Expt VIII
+% sporangia with spore tube,4,22,,0.0,% of 1115 counted,,Table 5 p265,
+% sporangia with spore tube,18,22,,1.8,% of 1389,,Table 5,
+% sporangia with spore tube,20,22,,1.9,% of 1170,,Table 5,
+% sporangia with spore tube,28,22,,3.7,% of 941,,Table 5,
+% sporangia with motile cells,4,22,,0.0,%,,Table 5,
+% sporangia with motile cells,18,22,,2.4,%,,Table 5,
+% sporangia with motile cells,20,22,,4.0,%,,Table 5,16.6e6 zoospores released from the 20 C plates (text p266)
+% sporangia with motile cells,28,22,,11.2,%,,Table 5,
+days to sporulation vs salinity,28,2-4,,no sporulation,days,expts V-IX,Table 4 p265,
+days to sporulation vs salinity,28,6,,3-5,days,,Table 4,
+days to sporulation vs salinity,28,8,,3-7,days,,Table 4,
+days to sporulation vs salinity,28,10-12,,2-3,days,,Table 4,
+days to sporulation vs salinity,28,22-24,,2-4,days,,Table 4,
+days to sporulation vs salinity,28,32-34,,2-3,days,,Table 4,
+% spore tube / % motile cells,28,2.75,,0 / 0,%,804 counted,Table 6 p265,
+% spore tube / % motile cells,28,7.3,,0.4 / 0.5,%,1165,Table 6,
+% spore tube / % motile cells,28,11.5,,2.9 / 2.9,%,306,Table 6,
+% spore tube / % motile cells,28,23.4,,2.6 / 2.9,%,1223,Table 6,
+% spore tube / % motile cells,28,32,,2.4 / 3.3,%,928,Table 6,32 ppt as good as 11.5-23 ppt
+zoospore survival,20-28,4-32,,3-28,days,,text p265,
+zoospore survival 28->20 C,20,22,,3-4,days,,text p265,
+zoospore survival 28->4 C,4,22,,died within 1 d,days,,text p265,zoospores cold-intolerant
+zoospore survival 32 ppt -> 3/8/12 ppt,28,3-12,,died next day; 22 and 32 ppt survived 3 d,days,,text p265,

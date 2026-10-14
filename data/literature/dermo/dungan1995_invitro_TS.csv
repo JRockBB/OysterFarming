@@ -1,0 +1,24 @@
+# Dungan & Hamilton 1995 J Eukaryot Microbiol 42:379-388 (user PDF dungan1995.pdf). Isolate CRTW-3HE (ATCC 50439), Tilghman, Maryland (Chesapeake). In vitro, DME/F12 + 10% FBS.
+# Assay: MTS/PMS tetrazolium absorbance (490 nm), proportional to cell BIOVOLUME (Fig 8: A = 4.741*biovolume[ul/well] + 0.009, R2 0.974), not cell number. 72 h exposures, n = 24 wells, mean +/- SD.
+# Temperature expt (Fig 2 p382): 5e5 cells/well, 665 mOsm (~21 ppt), pH 7.5; BASE = 1 h post-inoculation at 28 C. Osmolality expt (Fig 4 p383): 1e5 cells/well, 28 C, pH 7.0; BASE = 650 mOsm at 1 h.
+# Digitized by eye from rendered figures: +/-0.02 absorbance. ratio_to_base and r_net_per_d = ln(A/A_base)/3 d derived here; at 5e5 cells/well cultures reach stationary phase within 72 h at >=15 C (cf. Fig 1), so rates at >=15 C are LOWER BOUNDS (saturation).
+# Salinity equivalents use the paper's 960 mOsm = 30 ppt (Table 1 actual osmolalities 339, 415, 631, 794, 959, 1185, 1282, 1932).
+experiment,temp_C,osmolality_mOsm,salinity_equiv_ppt,duration_h,A490_mean,A490_SD,n,ratio_to_base,r_net_per_d,source_loc,notes
+temperature,BASE(28 C 1 h),665,21,1,0.46,0.07,24,1.00,,Fig 2,baseline
+temperature,4,665,21,72,0.44,0.04,24,0.96,-0.01,Fig 2,no net proliferation (text p382-383)
+temperature,10,665,21,72,0.60,0.08,24,1.30,0.09,Fig 2,significantly > base: net proliferation at 10 C
+temperature,15,665,21,72,1.37,0.26,24,2.98,0.36,Fig 2,sharpest increase between 10 and 15 C
+temperature,20,665,21,72,1.67,0.08,24,3.63,0.43,Fig 2,
+temperature,28,665,21,72,1.73,0.12,24,3.76,0.44,Fig 2,
+temperature,35,665,21,72,1.80,0.15,24,3.91,0.45,Fig 2,maximum
+temperature,40,665,21,72,0.64,0.21,24,1.39,0.11,Fig 2,precipitous decline; possibly lethal
+osmolality,28,BASE(650 1 h),20,1,0.12,0.045,24,1.00,,Fig 4,baseline
+osmolality,28,340,10,72,0.35,0.05,24,2.9,0.36,Fig 4,
+osmolality,28,475,15,72,0.69,0.08,24,5.8,0.58,Fig 4,
+osmolality,28,640,20,72,0.75,0.09,24,6.3,0.61,Fig 4,
+osmolality,28,790,25,72,0.81,0.06,24,6.8,0.64,Fig 4,maximum (790 mOsm ~24-25 ppt)
+osmolality,28,960,30,72,0.69,0.05,24,5.8,0.58,Fig 4,85% of maximum absorbance
+osmolality,28,1185,37,72,0.565,0.065,24,4.7,0.52,Fig 4,70% of maximum
+osmolality,28,1280,40,72,0.55,0.055,24,4.6,0.51,Fig 4,
+osmolality,28,1930,60,72,0.28,0.05,24,2.3,0.28,Fig 4,
+log-phase doubling (optimized),28,800,25,,13 h,,,,,text p385,biovolume doubling; 800 mOsm DME/F12 + 5% FBS pH 7.0

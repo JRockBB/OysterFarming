@@ -1,0 +1,10 @@
+# La Peyre, Casas & La Peyre 2006 Dis Aquat Org 71:59-74 (DOI 10.3354/dao071059). P. marinus isolate GTLA-33 (Louisiana), in vitro, 28 C, after acclimation to test salinity (Expt 2). Densities from text pp.67-68 (mean +/- SD, 1e6 cells/ml; n = replicate flasks, 3 per paper methods - check). Rates derived here: r = ln(N2/N1)/(t2-t1).
+# Text: 'P. marinus cell density was greatest at 15, 25 and 35 and lowest at 7 and 11'; schizogony starts day 6 at 15-35, day 8 at 11, <1% cells dividing at 7.
+salinity_ppt,temp_C,day_a,density_a_1e6_per_ml,day_b,density_b_1e6_per_ml,derived_r_per_day,derived_doubling_d,note
+7,28,0,0.21,28,0.16,-0.010,NA,no significant change over 28 d (no net growth)
+11,28,0,0.21,12,0.67,0.097,7.2,lag then growth
+11,28,12,0.67,16,1.53,0.206,3.4,no further increase after d16
+15,28,6,0.17,10,4.90,0.840,0.83,exponential phase after 6-d lag
+25,28,10,7.77,14,6.83,NA,NA,peak density d10 (initial ~0.2 assumed similar to other salinities -> r(0-10) ~0.37/d if N0=0.2; NOT stated in paper for P. marinus at 25)
+35,28,6,0.18,10,4.85,0.823,0.84,exponential phase after 6-d lag
+35,28,6,0.18,8,1.93,1.186,0.58,d6-8 sub-interval
