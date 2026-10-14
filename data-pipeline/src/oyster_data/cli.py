@@ -17,6 +17,9 @@ Commands
                              download CO-OPS, CBP DataHub and NERRS data for the Chesapeake growth sites
   forcing                    clean all raw forcing sources, merge, gap-fill and write
                              data/processed/forcing_daily.arrow and forcing_report.md
+  closures-fetch [--overwrite] download Maine DMR NSSP classifications for the
+                             growing areas of the Maine sites
+  closures                   write data/processed/closures.arrow and closures_report.md
   farm-ingest FOLDER OUT      convert filled farm templates (docs/farm_templates) to
                              contract tables in OUT, with an anonymous site id
 """
@@ -169,6 +172,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--years", required=True, help="e.g. 2015-2023 or 2016,2018")
     p.add_argument("--overwrite", action="store_true")
     sub.add_parser("forcing", help="clean, merge and gap-fill forcing")
+    cl = sub.add_parser("closures-fetch", help="download NSSP classifications")
+    cl.add_argument("--overwrite", action="store_true")
+    sub.add_parser("closures", help="write closures.arrow")
     fi = sub.add_parser("farm-ingest", help="convert filled farm templates to contract tables")
     fi.add_argument("folder", type=Path)
     fi.add_argument("out", type=Path)
@@ -228,6 +234,24 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "forcing":
         out, report = build_forcing()
         print(f"wrote {out}\nwrote {report}")
+    elif args.command in ("closures-fetch", "closures"):
+        from oyster_data.sources import dmr_nssp
+        from oyster_data.sites import sites_table
+        areas = sorted({r["growing_area"] for r in sites_table().to_pylist()
+                        if r["region"] == "maine" and r["growing_area"]})
+        if args.command == "closures-fetch":
+            for ga in areas:
+                try:
+                    print(f"saved {dmr_nssp.fetch(2025, ga, overwrite=args.overwrite)}")
+                except FileExistsError as err:
+                    print(f"skipped: {err}")
+        else:
+            table, notes = dmr_nssp.to_closures(areas)
+            out = PROCESSED_DIR / "closures.arrow"
+            write_contract(table, out, "closures")
+            rep = PROCESSED_DIR / "closures_report.md"
+            rep.write_text(dmr_nssp.report(table, notes, areas), encoding="utf-8")
+            print(f"wrote {out}\nwrote {rep}")
     elif args.command == "farm-ingest":
         from oyster_data import farm_ingest
         for name, path in farm_ingest.ingest(args.folder, args.out).items():
