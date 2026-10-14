@@ -1,0 +1,101 @@
+title = "Perkinsus marinus model of Hofmann et al. (1995) and Powell et al. (1996), parasite part (PLAN.md P4.1b)"
+notes = "Part I: Hofmann, E.E., Powell, E.N., Klinck, J.M., Saunders, G. (1995) Modeling diseased oyster populations I. Modelling Perkinsus marinus infections in oysters. J. Shellfish Res. 14(1):121-151. Part II: Powell, E.N., Klinck, J.M., Hofmann, E.E. (1996) Modeling diseased oyster populations II. Triggering mechanisms for Perkinsus marinus epizootics. J. Shellfish Res. 15(1):141-165. Read from page images of the journal volumes on archive.org. Only the parasite and transmission parts are used; host growth, recruitment and non-Dermo mortality are supplied by the caller (see src/dermo_powell.jl)."
+
+[r_d0]
+value = 0.555
+units = "d^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base specific parasite division rate (S >= 10 ppt); same value Powell et al. 1996 Table 4"
+
+[r_d1]
+value = 0.555
+units = "d^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base specific parasite division rate for S < 10 ppt (eq. 10)"
+
+[alpha]
+value = 0.06931
+units = "degC^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): Q10 conversion for division (Q10 = 2)"
+
+[T0]
+value = 20.0
+units = "degC"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base temperature"
+
+[S0]
+value = 20.0
+units = "ppt"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base salinity"
+
+[beta]
+value = 2.454e8
+units = "g AFDW cell^-1 (as printed)"
+source = "Hofmann et al. 1995, Table 3 (p. 127) and eq. 11: parasite density scaling factor"
+
+[gamma]
+value = -1.5
+units = "1"
+source = "Hofmann et al. 1995, Table 3 (p. 127) and eq. 11: parasite density scaling exponent"
+
+[halving_time_h]
+value = 60.0
+units = "h"
+source = "Hofmann et al. 1995, p. 143: parasite population halving time at 20 degC and 20 ppt 'the normal 60 hours' (Fig. 2b); r_m0 = ln(2) * 24 / halving_time_h"
+notes = "Table 3 lists r_m0 = 0.555 d^-1 (a 30 h halving time) marked 'value modified in some simulations'. The papers use 30 h (Biloxi Bay), 60 h (standard, Galveston and Chesapeake), 80 h and 120 h (North Inlet; Powell et al. 1996 p. 144). The P4.2b test chooses among these four values."
+
+[delta]
+value = 0.08153
+units = "degC^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): Q10 conversion for parasite mortality (eqs. 12-13)"
+notes = "Eq. 12 as printed makes r_m independent of temperature below 30 degC, contradicting Fig. 2b. Used as r_m = r_m0 * exp(10 delta) * exp(-delta (S/S0)(max(T,10) - 10)), the reading that reproduces Fig. 2b-c (r_m = r_m0 at 20 degC, 20 ppt; constant below 10 degC)."
+
+[upsilon]
+value = 5.0
+units = "g wet wt (g dry wt)^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): weight conversion factor"
+
+[tau]
+value = 1409.9
+units = "cells (g wet wt)^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): infection level scaling factor (Choi et al. 1989 conversion, eq. 23)"
+
+[phi]
+value = 0.64296
+units = "1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): infection level scaling factor (eq. 23): Mackin rank M = log10(C / (upsilon tau W)) / phi"
+
+[r_tb]
+value = 0.2
+units = "yr^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base interpopulation transmission rate (eq. 24)"
+
+[r_t0]
+value = 12.0
+units = "yr^-1"
+source = "Hofmann et al. 1995, Table 3 (p. 127): base intrapopulation transmission rate (eq. 24)"
+
+[infective_load]
+value = 2.5e5
+units = "cells (g wet wt)^-1"
+source = "Hofmann et al. 1995, eqs. 24-28 (p. 130): IL, total cell density at which the cell-density transmission term saturates"
+notes = "Equals tau * 10^(3.5 phi). The papers divide total cells per oyster by IL; used here as total cells / total wet weight so the units match."
+
+[oyster_density_sat]
+value = 4000.0
+units = "oysters m^-2"
+source = "Hofmann et al. 1995, eqs. 24-28 (p. 130): OD, oyster density at which the density transmission term saturates"
+
+[detection_cells]
+value = 4096.0
+units = "cells per oyster"
+source = "Hofmann et al. 1995, p. 133, and Powell et al. 1996, p. 153: infections of 2^12 cells or fewer are scored negative by the thioglycollate assay"
+
+[size_class_afdw_g]
+value = [1.3e-7, 0.028, 0.10, 0.39, 0.98, 1.44, 1.94, 3.53, 5.52, 7.95, 12.93, 25.91]
+units = "g AFDW (class boundaries, 11 classes)"
+source = "Powell et al. 1996, Table 1 (p. 144); Hofmann et al. 1995, Table 1"
+notes = "Class lengths 0.3-25, 25-35, 35-50, 50-63.5, 63.5-70, 70-76, 76-88.9, 88.9-100, 100-110, 110-125, 125-150 mm. Class weight W_j = median (midpoint) of the band."
+
+[lethal_doublings]
+value = [21, 23, 24, 25, 26, 26, 26, 27, 27, 27, 27]
+units = "parasite doublings from one cell"
+source = "Powell et al. 1996, Table 1 (p. 144): mortality level (population doublings required to reach the lethal density) for size classes 1-11"

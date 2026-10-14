@@ -30,6 +30,7 @@ include("calibration.jl")
 include("farm.jl")
 include("nitrogen.jl")
 include("dermo.jl")
+include("dermo_powell.jl")
 include("stochastic.jl")
 include("vibrio.jl")
 include("economics.jl")
@@ -43,6 +44,8 @@ export DEBParams, with_values, arrhenius_factor, functional_response, salinity_f
        shell_height_mm, dry_tissue_g, gonado_somatic_index, spawns, initial_state,
        simulate_individual, IndividualStepper, advance_day!
 export forcing_for_site, continuous_blocks, longest_block, time_to_market
+export PowellDermoParams, powell_cells, powell_division_rate, powell_mortality_rate, powell_net_rate,
+       powell_mackin, powell_transmission_rate, powell_step!, powell_summary, simulate_powell_dermo, POWELL_N_LEVELS
 export DermoParams, dermo_division_rate, dermo_mortality_rate, dermo_transmission_cells, dermo_step,
        simulate_dermo, rank_to_log10_cells, cells_to_intensity, dermo_excess_mortality_d
 export run_ensemble, farm_outcome
