@@ -64,3 +64,36 @@ function time_to_market(p::DEBParams, forcing, seed_date::Date, u0::NamedTuple;
     i = findfirst(>=(market_shell_height_mm), out.shell_height_mm)
     return i === nothing ? nothing : i
 end
+
+"""
+    cycle_years(df, source_years, n_years; start_year=first(source_years)) -> DataFrame
+
+Build an `n_years`-long daily forcing series by repeating the complete calendar years
+`source_years` of a single-site table in order (year 1 = source_years[1], ...), re-dated to
+consecutive calendar years from `start_year`. Used to run farms longer than the measured
+record (PLAN.md P5.3); it treats the measured years as a representative weather sequence.
+Leap days: a 366-day source year placed in a non-leap year drops 29 February; a 365-day source
+year placed in a leap year repeats 28 February. Every source year must be complete.
+"""
+function cycle_years(df, source_years::AbstractVector{<:Integer}, n_years::Integer;
+                     start_year::Integer=first(source_years))
+    n_years >= 1 || throw(ArgumentError("n_years must be at least 1"))
+    src = DataFrame(df; copycols=false)
+    parts = DataFrame[]
+    for i in 1:n_years
+        sy = source_years[mod1(i, length(source_years))]
+        ty = start_year + i - 1
+        s = src[year.(src.date) .== sy, :]
+        nrow(s) == daysinyear(sy) || throw(ArgumentError("source year $sy is not complete"))
+        if isleapyear(sy) && !isleapyear(ty)
+            s = s[.!((month.(s.date) .== 2) .& (day.(s.date) .== 29)), :]
+        elseif !isleapyear(sy) && isleapyear(ty)
+            i28 = findfirst(d -> month(d) == 2 && day(d) == 28, s.date)
+            s = vcat(s[1:i28, :], s[i28:i28, :], s[i28+1:end, :])
+        end
+        s = copy(s)
+        s.date = collect(Date(ty, 1, 1):Day(1):Date(ty, 12, 31))
+        push!(parts, s)
+    end
+    return vcat(parts...)
+end

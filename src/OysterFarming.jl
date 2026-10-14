@@ -43,7 +43,7 @@ export Param, ParamError, load_params, param_value
 export DEBParams, with_values, arrhenius_factor, functional_response, salinity_factor, deb_fluxes,
        shell_height_mm, dry_tissue_g, gonado_somatic_index, spawns, initial_state,
        simulate_individual, IndividualStepper, advance_day!
-export forcing_for_site, continuous_blocks, longest_block, time_to_market
+export forcing_for_site, continuous_blocks, longest_block, time_to_market, cycle_years
 export PowellDermoParams, powell_cells, powell_division_rate, powell_mortality_rate, powell_net_rate,
        powell_mackin, powell_transmission_rate, powell_step!, powell_summary, simulate_powell_dermo, POWELL_N_LEVELS
 export DermoParams, dermo_division_rate, dermo_mortality_rate, dermo_transmission_cells, dermo_step,

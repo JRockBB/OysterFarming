@@ -33,3 +33,18 @@ end
     gappy = forcing[[1:30; 200:n], :]
     @test time_to_market(p, gappy, d[1], u0) === nothing   # stops at the gap
 end
+
+@testset "cycle_years" begin
+    # SYNTHETIC daily series 2016-2017; value = day index so re-dating can be checked
+    d = collect(Date(2016, 1, 1):Day(1):Date(2017, 12, 31))
+    f = DataFrame(site_id="x", date=d, temp_c=Float64.(1:length(d)))
+    c = cycle_years(f, [2016, 2017], 5)
+    @test first(c.date) == Date(2016, 1, 1) && last(c.date) == Date(2020, 12, 31)
+    @test all(diff(c.date) .== Day(1))
+    @test nrow(c) == sum(daysinyear(y) for y in 2016:2020)
+    @test c.temp_c[c.date .== Date(2018, 3, 1)] == f.temp_c[f.date .== Date(2016, 3, 1)]   # 2016 placed in 2018, Feb 29 dropped
+    @test c.temp_c[c.date .== Date(2020, 2, 29)] == f.temp_c[f.date .== Date(2016, 2, 29)]  # 2016 again in 2020 (leap)
+    g = cycle_years(f, [2017], 4; start_year=2019)       # 2017 placed in leap 2020: Feb 28 repeated
+    @test g.temp_c[g.date .== Date(2020, 2, 29)] == f.temp_c[f.date .== Date(2017, 2, 28)]
+    @test_throws ArgumentError cycle_years(f[1:100, :], [2016], 2)
+end

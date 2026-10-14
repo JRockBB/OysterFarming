@@ -28,10 +28,19 @@ const INIT_FOOD_DAYS = 14
 # (Table 13: 2.8 full-time x 38 h + 2.5 part-time x 23.1 h = 164.2 h) x 65 singles harvested per hour of labor
 # (Table 42, established suspended farms) = 10,670 oysters/week. Table 13 covers all Maine shellfish and seaweed farms.
 const WEEKLY_CAPACITY = 10_670.0
-const N_COHORTS = 2
+const N_COHORTS = 8
+
+# Farm horizon: the measured block has only a few complete years, so the complete calendar years are cycled in
+# order (cycle_years) to a HORIZON_YEARS-long farm, equal to the capital life in the economics file (so no salvage
+# credit), with one cohort seeded each year for N_COHORTS years. Assumes the measured years are representative.
+const HORIZON_YEARS = 10
+"Complete, gap-free calendar years of a forcing block."
+full_years(b) = [y for y in unique(year.(b.date)) if count(year.(b.date) .== y) == daysinyear(y) &&
+                 !any(ismissing, b.chl_ug_l[year.(b.date) .== y])]
+farm_forcing(b) = cycle_years(b, full_years(b), HORIZON_YEARS)
 const RISK_Q = 0.1
 const SEED_MONTHS = [4, 5, 7, 10]
-const SEEDS = [100_000.0, 200_000.0, 400_000.0, 800_000.0]
+const SEEDS = [200_000.0, 400_000.0, 800_000.0, 1_600_000.0]
 
 P(file) = load_params(joinpath(ROOT, "params", file))
 vir = P("deb_c_virginica.toml")
@@ -77,7 +86,7 @@ for site in SITES
         block = warm(block0, dT)
         may, _, nm = median_years_to_market(block, 5)
         oct, _, no = median_years_to_market(block, 10)
-        setup = DecisionSetup(block, scenarios, farm, econ, nitro, vib, WEEKLY_CAPACITY, 1.0, 0.0,
+        setup = DecisionSetup(farm_forcing(block), scenarios, farm, econ, nitro, vib, WEEKLY_CAPACITY, 1.0, 0.0,
                               SEED_MM, N_COHORTS, RISK_Q)
         g = grid_search(setup; seed_months=SEED_MONTHS, seeds_per_cohort=SEEDS, market_sizes_mm=[MARKET_MM])
         b = first(g)

@@ -7,7 +7,7 @@
 # nitrogen: params/nitrogen_chesapeake_bmp.toml (diploid tissue regression); Vibrio: params/vibrio_maine.toml.
 # Forcing: longest unbroken block of data/processed/forcing_daily.arrow for the site.
 #
-# Scenario inputs (not parameters; change below): seed size 20 mm, 2 yearly cohorts, weekly harvest capacity
+# Scenario inputs (not parameters; change below): seed size 20 mm, 8 yearly cohorts over a 10-year cycled horizon, weekly harvest capacity
 # 10,670 oysters (MAA-derived), no Vibrio capacity reduction and no Vibrio handling cost (no published estimate), risk
 # quantile 0.1 for the lower-NPV objective.
 #
@@ -22,7 +22,16 @@ const OUT = joinpath(ROOT, "outputs", "p5_3")
 site = isempty(ARGS) ? "dam_upper" : ARGS[1]
 
 const SEED_MM = 20.0
-const N_COHORTS = 2
+const N_COHORTS = 8
+
+# Farm horizon: the measured block has only a few complete years, so the complete calendar years are cycled in
+# order (cycle_years) to a HORIZON_YEARS-long farm, equal to the capital life in the economics file (so no salvage
+# credit), with one cohort seeded each year for N_COHORTS years. Assumes the measured years are representative.
+const HORIZON_YEARS = 10
+"Complete, gap-free calendar years of a forcing block."
+full_years(b) = [y for y in unique(year.(b.date)) if count(year.(b.date) .== y) == daysinyear(y) &&
+                 !any(ismissing, b.chl_ug_l[year.(b.date) .== y])]
+farm_forcing(b) = cycle_years(b, full_years(b), HORIZON_YEARS)
 # Weekly harvest capacity, derived from the MAA 2020 benchmarking Tables: employee hours per week
 # (Table 13: 2.8 full-time x 38 h + 2.5 part-time x 23.1 h = 164.2 h) x 65 singles harvested per hour of labor
 # (Table 42, established suspended farms) = 10,670 oysters/week. Table 13 covers all Maine shellfish and seaweed farms.
@@ -41,8 +50,8 @@ qs = sort([k for k in keys(xk) if startswith(k, "X_K_posterior_q")])
 length(qs) == 5 || error("rerun scripts/p2_6_virginica_calibration.jl to export X_K posterior quantiles")
 scenarios = [(0.2, DEBParams(vir; X_K=xk[k].value)) for k in qs]
 
-setup = DecisionSetup(longest_block(forcing_for_site(read_contract(joinpath(ROOT, "data", "processed",
-                                                                         "forcing_daily.arrow"), "forcing_daily"), site)),
+setup = DecisionSetup(farm_forcing(longest_block(forcing_for_site(read_contract(joinpath(ROOT, "data", "processed",
+                                                                         "forcing_daily.arrow"), "forcing_daily"), site))),
                       scenarios,
                       FarmParams(merge(P("farm_damariscotta.toml"), P("deb_c_virginica_clearance.toml"))),
                       EconParams(P("economics_maine_maa.toml")), NitrogenParams(P("nitrogen_chesapeake_bmp.toml")),
