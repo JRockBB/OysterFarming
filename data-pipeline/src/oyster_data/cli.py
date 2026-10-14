@@ -246,7 +246,10 @@ def main(argv: list[str] | None = None) -> int:
                 except FileExistsError as err:
                     print(f"skipped: {err}")
         else:
+            from oyster_data.sources import dmr_closure_events
             table, notes = dmr_nssp.to_closures(areas)
+            table = pa.concat_tables([table, dmr_closure_events.to_closures(areas)])
+            notes = notes + dmr_closure_events.NOTES
             out = PROCESSED_DIR / "closures.arrow"
             write_contract(table, out, "closures")
             rep = PROCESSED_DIR / "closures_report.md"

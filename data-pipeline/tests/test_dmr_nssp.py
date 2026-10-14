@@ -25,3 +25,10 @@ def test_seasonal_rule_expands_per_year():
     assert [(r["start_date"], r["end_date"]) for r in rows] == [
         (date(2016, 10, 31), date(2016, 10, 31)), (date(2017, 6, 1), date(2017, 10, 31)),
         (date(2018, 6, 1), date(2018, 10, 31))]
+
+
+def test_closure_events_validate_and_filter_by_area():
+    from oyster_data.sources import dmr_closure_events
+    t = dmr_closure_events.to_closures(["WQ"])
+    assert t.num_rows == 1 and t.column("end_date")[0].as_py() == date(2021, 6, 28)
+    assert dmr_closure_events.to_closures(["XX"]).num_rows == 0
