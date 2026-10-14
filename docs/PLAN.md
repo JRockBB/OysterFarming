@@ -131,7 +131,7 @@ Done when: file validates; each site lists its forcing source in `notes`.
 
 **P1.2 NERRS fetcher (Wells Reserve).** Download water-quality data (temperature, salinity, and chlorophyll or fluorescence if present) from the NERRS Centralized Data Management Office. Check access requirements first (the web service may need registration); fall back to bulk CSV export.
 Done when: daily-averaged `forcing_daily` rows for Wells stations validate; QC flags from the source are respected.
-*Status (2026-10-11):* blocked on a human step. The CDMO web service answers `Invalid ip` until the caller's IP address is registered with CDMO. Either register the IP or download CSV exports from the CDMO Advanced Query System into `data/raw/nerrs/`; then the parser can be written against a real export.
+*Status (2026-10-11):* blocked on a human step. The CDMO web service answers `Invalid ip` until the caller's IP address is registered with CDMO. Either register the IP or download CSV exports from the CDMO Advanced Query System into `data/raw/nerrs/`; then the parser can be written against a real export. *Update (2026-10-13):* optional, not pursued (user decision). Wells data for 1995-2011 is in the NCEI NERRS archive used by `sources/nerrs_ncei.py` (stations welinwq, welhtwq, wellmwq, welsmwq; nutrient files for chlorophyll) with no registration. Later years need the CDMO zip form, which emails files to the requester. The Damariscotta analysis does not need Wells.
 
 **P1.3 Buoy fetcher (ERDDAP).** Use `erddapy` to pull temperature, salinity and chlorophyll from regional buoys near the chosen sites (start by searching the NERACOOS ERDDAP server; verify the URL).
 Done when: `forcing_daily` rows for at least one Damariscotta-area site validate.
