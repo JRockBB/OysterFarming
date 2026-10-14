@@ -11,6 +11,7 @@ using Test
     include("test_nitrogen.jl")
     include("test_dermo.jl")
     include("test_dermo_powell.jl")
+    include("test_dermo_establishment.jl")
     include("test_stochastic.jl")
     include("test_vibrio.jl")
     include("test_economics.jl")

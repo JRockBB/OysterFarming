@@ -1,0 +1,54 @@
+title = "Lab-anchored parts of the Dermo establishment model (PLAN.md P4.2e)"
+notes = "Fixed (not fitted) inputs of src/dermo_establishment.jl. Rates are net specific rates of change of in vitro P. marinus populations, natural-log basis (d^-1), from the extracted tables in data/literature/dermo/. Between anchor temperatures the rate is interpolated linearly (a modelling choice). In vitro rates omit host defences; the fitted host factor scales positive rates."
+
+[rate_anchor_temp_c]
+value = [6.0, 10.0, 15.0, 28.0]
+units = "degC"
+source = "Anchor temperatures of the measurements below"
+
+[rate_anchor_net_d]
+value = [-0.012, -0.009, 0.056, 0.48]
+units = "d^-1 (natural log)"
+source = "6 degC: La Peyre et al. 2008 (Parasitology 135:505) Fig. 7C, gradual cooling to 2-6 degC, 78/54/25 % viable after ~30/60/90 d -> mean loss ~0.010-0.017 d^-1 (midpoint 0.012); 10 degC: La Peyre et al. 2010 (J. Invertebr. Pathol. 105:176) Fig. 1, 25 ppt, 99/89/61/43.2 % viable on days 1/30/60/90 -> ln(0.432/0.99)/89 = -0.009; 15 degC: La Peyre et al. 2008 Figs. 1-2, net growth 0.02-0.09 d^-1 over days 0-24 (isolate mean ~0.056); 28 degC: La Peyre et al. 2008, ~0.48 d^-1"
+notes = "Below 6 degC the 6 degC value is used; above 28 degC the 28 degC value (Dungan & Hamilton 1995 Fig. 2: no further increase to 35 degC). Ford & Chintala (2006, JEMBE) found northern (MA, NJ) and southern (SC) isolates alike at 5-20 degC, so these rates are used for Maine. Short (72 h) assays at 5-10 degC show faster loss (Ford & Chintala 2006: -0.09 to -0.16 d^-1); the 30-90 d values are used because winter lasts months."
+
+[salinity_anchor_ppt]
+value = [7.0, 11.0, 15.0]
+units = "ppt"
+source = "La Peyre, Casas & La Peyre 2006 (Dis. Aquat. Org. 71:59), 28 degC: no net growth at 7 ppt, slow growth at 11 ppt (r ~0.10-0.21 d^-1), fast and equal at 15, 25 and 35 ppt (r ~0.82-0.84 d^-1)"
+
+[salinity_anchor_factor]
+value = [0.0, 0.19, 1.0]
+units = "fraction of full-salinity growth"
+source = "La Peyre, Casas & La Peyre 2006: 7 ppt -> 0; 11 ppt -> 0.155/0.83 = 0.19 (midpoint of 0.10-0.21 over 0.83); >= 15 ppt -> 1. Linear between anchors; applies to positive rates only. Salinities above 15 ppt are not limiting up to 35 ppt (same source; Gauthier & Vasta 1995 Fig. 6: 24-36 ppt equal)."
+
+[cold_low_salinity_loss_d]
+value = 0.15
+units = "d^-1"
+source = "La Peyre et al. 2010 Fig. 1: at 3.5 ppt and 2 degC viability reached 0 % by day 30 (ln(0.01)/30 ~ -0.15 d^-1); at 7 ppt 0.2-0.6 % by day 90"
+notes = "Applied when the temperature rate is negative: loss = rate - 0.15 * (7 - S)/3.5 for S < 7 ppt (0 extra at 7 ppt, -0.15 extra at 3.5 ppt and below)."
+
+[shed_log10_slope]
+value = 0.667
+units = "1"
+source = "Bushek et al. 2002 (Dis. Aquat. Org. 51:217): log10(cells shed in feces per day) = 0.667 log10(cells in tissue) - 0.752 (r2 = 0.61)"
+
+[shed_log10_intercept]
+value = -0.752
+units = "log10 cells d^-1"
+source = "Bushek et al. 2002, as above"
+
+[detection_cells]
+value = 4096.0
+units = "cells per oyster"
+source = "Hofmann et al. 1995 p. 133 and Powell et al. 1996 p. 153: infections of 2^12 cells or fewer score negative by RFTM"
+
+[lethal_level]
+value = 28
+units = "infection level (2^(level-2) cells)"
+source = "Powell et al. 1996, Table 1: market size class 7 (76-88.9 mm) dies after 26 doublings -> level 28"
+
+[host_afdw_g]
+value = 2.735
+units = "g AFDW"
+source = "Powell et al. 1996, Table 1: midpoint of size class 7 (1.94-3.53 g AFDW)"
