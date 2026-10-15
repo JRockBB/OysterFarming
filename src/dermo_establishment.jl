@@ -93,18 +93,23 @@ function est_mackin(k::Integer, p::EstablishmentParams)
 end
 
 """
-    simulate_establishment(p, T, S, N0, W0; intro_day=1, background_mortality_d=0.0302/365, record=nothing)
-        -> NamedTuple
+    simulate_establishment(p, T, S, N0, W0; intro_day=1, background_mortality_d=0.0302/365, record=nothing,
+                           transmission_mod=(T, S) -> 1.0) -> NamedTuple
 
 Run daily over temperature and salinity vectors `T`, `S`. Background import `epsilon` acts from day
-`intro_day` on. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
+`intro_day` on. `transmission_mod(T, S)` (>= 0) multiplies the waterborne infection rate beta * W
+(PLAN.md P4.2f: a learned or symbolic term); its output type joins the state's element type, so
+ForwardDiff dual numbers in it propagate. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
 true prevalence (`true_prev`) and mean Mackin rank including zeros (`mackin`); `deaths` is the Dermo death
 count per day (oysters m⁻²) and `density` the constant density.
 """
-function simulate_establishment(p::EstablishmentParams{R}, T::AbstractVector, S::AbstractVector,
+function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S::AbstractVector,
                                 N0::AbstractVector, W0::Real; intro_day::Integer=1,
-                                background_mortality_d::Real=0.0302 / 365, record=nothing) where {R}
+                                background_mortality_d::Real=0.0302 / 365, record=nothing,
+                                transmission_mod=(T, S) -> 1.0) where {P}
     nd = length(T)
+    nd > 0 || throw(ArgumentError("forcing is empty"))
+    R = promote_type(P, typeof(transmission_mod(first(T), first(S))))
     length(S) == nd || throw(ArgumentError("T and S differ in length"))
     length(N0) == EST_N_LEVELS || throw(ArgumentError("N0 must have $(EST_N_LEVELS) levels"))
     N = R.(collect(N0)); W = R(W0)
@@ -127,7 +132,7 @@ function simulate_establishment(p::EstablishmentParams{R}, T::AbstractVector, S:
             up[k] = g > 0 ? min(one(R), g) * N[k] : zero(R)
             down[k] = (g < 0 && k > 2) ? min(one(R), 2 * abs(g)) * N[k] : zero(R)
         end
-        lam = p.beta * W + (d >= intro_day ? p.epsilon : zero(R))
+        lam = p.beta * transmission_mod(T[d], S[d]) * W + (d >= intro_day ? p.epsilon : zero(R))
         newinf = min(one(R), lam) * N[1]
         dead = zero(R); released = zero(R)
         N[1] -= newinf; N[2] += newinf

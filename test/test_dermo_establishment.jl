@@ -1,6 +1,8 @@
 # Tests for src/dermo_establishment.jl (PLAN.md P4.2e). Forcing and parameter values below are SYNTHETIC
 # except the lab anchors, which are read from params/dermo_establishment_lab.toml.
 
+using ForwardDiff
+
 @testset "dermo_establishment" begin
     lab = load_params(joinpath(@__DIR__, "..", "params", "dermo_establishment_lab.toml"))
     pw = load_params(joinpath(@__DIR__, "..", "params", "dermo_powell1996.toml"))
@@ -49,4 +51,22 @@
         @test_throws ArgumentError simulate_establishment(p, warm, sal[1:10], N0, 0.0)
         @test_throws ArgumentError simulate_establishment(p, warm, sal, zeros(5), 0.0)
     end
+end
+
+@testset "dermo_establishment transmission modifier (P4.2f)" begin
+    lab = load_params(joinpath(@__DIR__, "..", "params", "dermo_establishment_lab.toml"))
+    pw = load_params(joinpath(@__DIR__, "..", "params", "dermo_powell1996.toml"))
+    mk(b) = EstablishmentParams(lab, pw; beta=b, mu=0.1, epsilon=1e-5, host=1.0)
+    nd = 400
+    T = [12 + 10sin(2pi * (i - 100) / 365) for i in 1:nd]; S = fill(25.0, nd)   # SYNTHETIC forcing
+    N0 = zeros(EST_N_LEVELS); N0[1] = 10.0; N0[15] = 10.0
+    base = simulate_establishment(mk(1e-9), T, S, N0, 0.0; record=[nd])
+    same = simulate_establishment(mk(1e-9), T, S, N0, 0.0; record=[nd], transmission_mod=(t, s) -> 1.0)
+    @test base.prev == same.prev && base.deaths == same.deaths              # default reproduces exactly
+    scaled = simulate_establishment(mk(3e-9), T, S, N0, 0.0; record=[nd])
+    modded = simulate_establishment(mk(1e-9), T, S, N0, 0.0; record=[nd], transmission_mod=(t, s) -> 3.0)
+    @test scaled.true_prev ≈ modded.true_prev                                # constant c == scaling beta by c
+    f(c) = simulate_establishment(mk(1e-9), T, S, N0, 0.0; record=[nd], transmission_mod=(t, s) -> c * s / 25).true_prev[1]
+    g = ForwardDiff.derivative(f, 1.0)
+    @test isfinite(g) && g > 0                                               # duals pass through; more transmission, more infection
 end
