@@ -1,0 +1,7 @@
+[deps]
+Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+OptimizationOptimJL = "36348300-93cb-4f02-beb5-3c3902f8871e"
+OysterFarming = "5f0344d3-ba2e-4c0b-ab33-a2946b2075e5"
+SymbolicRegression = "8254be44-1295-4e6a-a16d-46603ac705cb"
