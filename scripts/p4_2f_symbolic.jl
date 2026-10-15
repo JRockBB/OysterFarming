@@ -48,7 +48,12 @@ front = calculate_pareto_frontier(hof)
 best_loss = minimum(m.loss for m in front)
 chosen = first(m for m in front if m.loss <= 1.05 * best_loss)
 expr_str(m) = string_tree(m.tree, options; variable_names=["S", "T"])
-gsym(t, s) = max(0.0, first(eval_tree_array(chosen.tree, reshape([s, t], 2, 1), options))[1])
+# Compile the chosen formula into a plain Julia function: evaluating the expression tree for every simulated day
+# (about 460,000 site-days per objective) is far too slow.
+const GSYM_EXPR = Meta.parse(expr_str(chosen))
+eval(:(gsym(T, S) = max(0.0, $GSYM_EXPR)))
+@assert isapprox(gsym(20.0, 25.0), first(eval_tree_array(chosen.tree, reshape([25.0, 20.0], 2, 1), options))[1]; rtol=1e-8) ||
+        gsym(20.0, 25.0) == 0.0
 
 # ---- refit mechanistic parameters with the symbolic term, per fold ----
 function objective_sym(φ, sites, arrival)
