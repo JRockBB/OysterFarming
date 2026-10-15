@@ -35,4 +35,13 @@ using DataFrames, Dates
     @test nrow(g) == 8
     @test issorted(g.expected_npv; rev=true)
     @test_throws ArgumentError evaluate_decision(FarmDecision(13, 1.0, 60.0), setup())
+
+    # extra mortality (e.g. a Dermo scenario) lowers harvest; the 12-argument constructor means none
+    base = setup()
+    sick = DecisionSetup(base.forcing, base.scenarios, base.farm, base.econ, base.nitrogen, base.vibrio,
+                         base.weekly_capacity, base.vibrio_capacity_factor, base.vibrio_cost_per_oyster,
+                         base.seed_shell_height_mm, base.n_cohorts, base.risk_quantile, d -> 0.002)
+    rs = evaluate_decision(FarmDecision(5, 50_000, 60.0), sick)
+    @test base.extra_mortality_d(Date(2020, 1, 1)) == 0.0
+    @test rs.expected_harvested < r.expected_harvested
 end

@@ -54,9 +54,24 @@ open(joinpath(OUT, "headline.md"), "w") do io
     println(io, "\nDermo excess mortality is not interpretable as a level: where amplification is 1 the parasite never ",
             "multiplied and the value comes only from the assumed transmission input under the Bushek conversion that ",
             "failed validation (PLAN.md P4.2). Use the division days and amplification columns for the direction of change.")
+    if "dermo_expected_npv" in names(df) && any(!ismissing, df.dermo_expected_npv)
+        println(io, "\n## Dermo upper-bound scenario (PLAN.md P4.2f)\n")
+        println(io, "Daily Dermo mortality from the establishment model with the symbolic transmission formula, parasite present ",
+                "from the start. That model overpredicts Maine prevalence and intensity (observed 2016-17: 34-39 % by qPCR, light), ",
+                "so these are pessimistic bounds on the Dermo cost.\n")
+        println(io, "| site | warming degC | best decision without Dermo | expected NPV without | best decision with Dermo | expected NPV with Dermo | Dermo cost (USD) |")
+        println(io, "|---|---|---|---|---|---|---|")
+        for r in eachrow(df)
+            ismissing(r.dermo_expected_npv) && continue
+            println(io, "| $(r.site) | $(r.warming_c) | $(r.best_seed_month), $(Int(r.best_seeds)) | $(fmt(r.best_expected_npv; d=0)) | ",
+                    "$(r.dermo_seed_month), $(Int(r.dermo_seeds)) | $(fmt(r.dermo_expected_npv; d=0)) | ",
+                    "$(fmt(r.best_expected_npv - r.dermo_expected_npv; d=0)) |")
+        end
+    end
     println(io, "\nReading: warming shortens time to market and raises NPV at both sites (growth is temperature-limited in ",
             "Maine). It also lengthens the season in which Dermo can multiply; at the lower estuary multiplication only ",
-            "starts with about 1 degC of warming. The disease cost is not in the NPV, so the NPV gains are upper bounds.")
+            "starts with about 1 degC of warming. The Dermo upper-bound scenario above gives the most the disease could ",
+            "plausibly cost under the models built here.")
 end
 
 fig = Figure(size=(1000, 750))

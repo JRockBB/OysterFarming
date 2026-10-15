@@ -20,7 +20,10 @@ Everything except the decision: a single-site forcing block, weighted DEB
 parameter scenarios (e.g. X_K posterior quantiles), farm, economic and nitrogen
 parameters, harvest capacity, Vibrio handling (capacity factor and cost per
 oyster during the control period; scenario inputs), seed size, number of yearly
-cohorts, and the risk level for the lower-quantile objective.
+cohorts, and the risk level for the lower-quantile objective. `extra_mortality_d`
+(date -> daily rate, default 0) adds mortality to every cohort through
+[`simulate_farm`](@ref), e.g. Dermo deaths from a disease scenario (PLAN.md P4.2f);
+the 12-argument constructor leaves it at 0.
 """
 struct DecisionSetup
     forcing::DataFrame
@@ -35,7 +38,13 @@ struct DecisionSetup
     seed_shell_height_mm::Float64
     n_cohorts::Int
     risk_quantile::Float64
+    extra_mortality_d::Function
 end
+
+DecisionSetup(forcing, scenarios, farm, econ, nitrogen, vibrio, weekly_capacity, vibrio_capacity_factor,
+              vibrio_cost_per_oyster, seed_shell_height_mm, n_cohorts, risk_quantile) =
+    DecisionSetup(forcing, scenarios, farm, econ, nitrogen, vibrio, weekly_capacity, vibrio_capacity_factor,
+                  vibrio_cost_per_oyster, seed_shell_height_mm, n_cohorts, risk_quantile, d -> 0.0)
 
 "Weighted empirical quantile: smallest x with cumulative weight ≥ q."
 function weighted_quantile(x::AbstractVector, w::AbstractVector, q::Real)
@@ -78,7 +87,8 @@ function evaluate_decision(d::FarmDecision, s::DecisionSetup)
             Cohort("c$i", sd, d.seeds_per_cohort, s.seed_shell_height_mm;
                    seed_scaled_reserve=functional_response(food0, p.X_K))
         end
-        _, h = simulate_farm(p, s.farm, f, cohorts, rule; weekly_capacity_fn=capfn)
+        _, h = simulate_farm(p, s.farm, f, cohorts, rule; weekly_capacity_fn=capfn,
+                             extra_mortality_d=s.extra_mortality_d)
         vib = Dict{Int,Float64}()
         for r in eachrow(h)
             in_vibrio_control(r.date, s.vibrio) &&

@@ -1,0 +1,53 @@
+title = "Dermo establishment model with the symbolic transmission formula (PLAN.md P4.2f)"
+notes = "Transmission multiplier g(T, S) = max(0, exp(g_a - exp(T - S + g_c)) + g_d + g_e * S) on the waterborne infection rate. Passed the held-out Great Bay test by about 1 % (0.207 vs 0.209 persistence); fails in Maryland; its temperature dependence is implausible (highest in cold water). Use only as a 'with Dermo' scenario."
+
+[g_a]
+value = 1.58665
+units = "1"
+source = "Symbolic regression (SymbolicRegression.jl) of the trained UDE network: scripts/p4_2f_symbolic.jl, outputs/p4_2f/symbolic.md"
+
+[g_c]
+value = 10.625
+units = "degC or ppt"
+source = "Symbolic regression (SymbolicRegression.jl) of the trained UDE network: scripts/p4_2f_symbolic.jl, outputs/p4_2f/symbolic.md"
+
+[g_d]
+value = -0.714161
+units = "1"
+source = "Symbolic regression (SymbolicRegression.jl) of the trained UDE network: scripts/p4_2f_symbolic.jl, outputs/p4_2f/symbolic.md"
+
+[g_e]
+value = 0.0790354
+units = "ppt^-1"
+source = "Symbolic regression (SymbolicRegression.jl) of the trained UDE network: scripts/p4_2f_symbolic.jl, outputs/p4_2f/symbolic.md"
+
+[beta]
+value = 2.51769e-9
+units = "m^2 cell^-1 d^-1"
+source = "Refit on Maryland DNR and NH Fish & Game prevalence with the formula: scripts/p4_2f_maine.jl, outputs/p4_2f/maine_formula.md"
+
+[mu]
+value = 0.999741
+units = "d^-1"
+source = "Refit on Maryland DNR and NH Fish & Game prevalence with the formula: scripts/p4_2f_maine.jl, outputs/p4_2f/maine_formula.md"
+
+[host]
+value = 1.0
+units = "1"
+source = "Refit on Maryland DNR and NH Fish & Game prevalence with the formula: scripts/p4_2f_maine.jl, outputs/p4_2f/maine_formula.md"
+
+[epsilon_md]
+value = 0.000126494
+units = "d^-1"
+source = "Refit on Maryland DNR and NH Fish & Game prevalence with the formula: scripts/p4_2f_maine.jl, outputs/p4_2f/maine_formula.md"
+
+[epsilon_gb]
+value = 0.000838355
+units = "d^-1"
+source = "Refit on Maryland DNR and NH Fish & Game prevalence with the formula: scripts/p4_2f_maine.jl, outputs/p4_2f/maine_formula.md"
+
+[gb_arrival_year]
+value = 2003.15
+units = "yr"
+source = "P4.2e full fit, scripts/p4_2e_establishment_fit.jl"
+

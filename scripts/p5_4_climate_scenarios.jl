@@ -79,7 +79,20 @@ end
 rows = DataFrame(site=String[], warming_c=Float64[], mean_temp_c=Float64[],
                  ttm_may_yr=Union{Missing,Float64}[], ttm_oct_yr=Union{Missing,Float64}[], ttm_not_reached=Int[],
                  best_seed_month=Int[], best_seeds=Float64[], best_expected_npv=Float64[], best_lower_npv=Float64[],
-                 best_harvested=Float64[], best_nitrogen_kg=Float64[], dermo_division_days_yr=Float64[])
+                 best_harvested=Float64[], best_nitrogen_kg=Float64[], dermo_division_days_yr=Float64[],
+                 dermo_seed_month=Union{Missing,Int}[], dermo_seeds=Union{Missing,Float64}[],
+                 dermo_expected_npv=Union{Missing,Float64}[], dermo_lower_npv=Union{Missing,Float64}[])
+
+# "With Dermo" upper-bound scenario (PLAN.md P4.2f): daily Dermo mortality from scripts/p4_2f_maine.jl, on the same
+# cycled 10-year dates as the farm runs. That model overpredicts Maine prevalence and intensity (2016-17 qPCR: 34-39 %,
+# light), so these NPVs are pessimistic bounds on the Dermo cost.
+function dermo_mortality(site, dT)
+    path = joinpath(ROOT, "outputs", "p4_2f", "dermo_daily_$(site)_$(dT).arrow")
+    isfile(path) || return nothing
+    t = DataFrame(Arrow.Table(path))
+    m = Dict(zip(t.date, t.dermo_mortality_d))
+    return d -> get(m, d, 0.0)
+end
 for site in SITES
     block0 = longest_block(forcing_for_site(forcing, site))
     for dT in WARMING_C
@@ -94,8 +107,18 @@ for site in SITES
         yrs = unique(year.(block.date))
         div_days = mean(count((year.(block.date) .== y) .& coalesce.(block.temp_c .> dermo.div_T_min_c, false)) for y in yrs
                         if Date(y, 1, 1) >= first(block.date) && Date(y, 12, 31) <= last(block.date))
+        dm = dermo_mortality(site, dT)
+        bd = if dm === nothing
+            missing
+        else
+            sd = DecisionSetup(farm_forcing(block), scenarios, farm, econ, nitro, vib, WEEKLY_CAPACITY, 1.0, 0.0,
+                               SEED_MM, N_COHORTS, RISK_Q, dm)
+            first(grid_search(sd; seed_months=SEED_MONTHS, seeds_per_cohort=SEEDS, market_sizes_mm=[MARKET_MM]))
+        end
         push!(rows, (site, dT, mean(t), may, oct, nm + no, b.seed_month, b.seeds_per_cohort, b.expected_npv,
-                     b.lower_npv, b.expected_harvested, b.expected_nitrogen_kg, div_days))
+                     b.lower_npv, b.expected_harvested, b.expected_nitrogen_kg, div_days,
+                     bd === missing ? missing : bd.seed_month, bd === missing ? missing : bd.seeds_per_cohort,
+                     bd === missing ? missing : bd.expected_npv, bd === missing ? missing : bd.lower_npv))
         println("done $(site) +$(dT)")
     end
 end
@@ -110,13 +133,15 @@ open(joinpath(OUT, "scenarios.md"), "w") do io
             "Farm: best of seed months $(SEED_MONTHS) x seeds/cohort $(Int.(SEEDS)) at $(MARKET_MM) mm by expected NPV over ",
             "X_K posterior quantiles (P5.3 scenario inputs and caveats apply). Dermo: days/yr above the ",
             "$(dermo.div_T_min_c) degC division threshold (P4.3 screen).\n")
-    println(io, "| site | warming degC | mean temp degC | years to market, May seed | years to market, Oct seed | runs not reaching market | best seed month | best seeds/cohort | expected NPV USD | q$(RISK_Q) NPV USD | harvested | N removed kg | Dermo division days/yr |")
-    println(io, "|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    println(io, "| site | warming degC | mean temp degC | years to market, May seed | years to market, Oct seed | runs not reaching market | best seed month | best seeds/cohort | expected NPV USD | q$(RISK_Q) NPV USD | harvested | N removed kg | Dermo division days/yr | with Dermo: best decision | with Dermo: expected NPV USD | with Dermo: q$(RISK_Q) NPV USD |")
+    println(io, "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for r in eachrow(rows)
         println(io, "| $(r.site) | $(r.warming_c) | $(fmt(r.mean_temp_c)) | $(fmt(r.ttm_may_yr)) | $(fmt(r.ttm_oct_yr)) | ",
                 "$(r.ttm_not_reached) | $(r.best_seed_month) | $(Int(r.best_seeds)) | $(fmt(r.best_expected_npv; d=0)) | ",
                 "$(fmt(r.best_lower_npv; d=0)) | $(fmt(r.best_harvested; d=0)) | $(fmt(r.best_nitrogen_kg; d=1)) | ",
-                "$(fmt(r.dermo_division_days_yr; d=1)) |")
+                "$(fmt(r.dermo_division_days_yr; d=1)) | ",
+                "$(ismissing(r.dermo_seed_month) ? "n/a" : "$(r.dermo_seed_month), $(Int(r.dermo_seeds))") | ",
+                "$(fmt(r.dermo_expected_npv; d=0)) | $(fmt(r.dermo_lower_npv; d=0)) |")
     end
 end
 println(read(joinpath(OUT, "scenarios.md"), String))
