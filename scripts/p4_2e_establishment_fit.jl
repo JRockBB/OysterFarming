@@ -228,7 +228,7 @@ open(joinpath(OUT, "fit.md"), "w") do io
             "error Maryland + Great Bay): $(fmt(full.f; d=4)).\n")
     println(io, "| parameter | fitted value |\n|---|---|")
     for (n, v) in zip(names, vals)
-        println(io, "| $n | $(round(v; sigdigits=3)) |")
+        println(io, "| $n | $(n == "Great Bay arrival" ? round(v; digits=2) : round(v; sigdigits=3)) |")
     end
     println(io, "\n## In-sample fit by region\n\n| region | n | RMSE | Pearson | RMSE persistence | RMSE region mean | bias |\n|---|---|---|---|---|---|---|")
     for (reg, sc) in sort(collect(insample))
