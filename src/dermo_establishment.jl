@@ -94,19 +94,21 @@ end
 
 """
     simulate_establishment(p, T, S, N0, W0; intro_day=1, background_mortality_d=0.0302/365, record=nothing,
-                           transmission_mod=(T, S) -> 1.0) -> NamedTuple
+                           transmission_mod=(T, S) -> 1.0, smooth=false) -> NamedTuple
 
 Run daily over temperature and salinity vectors `T`, `S`. Background import `epsilon` acts from day
 `intro_day` on. `transmission_mod(T, S)` (>= 0) multiplies the waterborne infection rate beta * W
 (PLAN.md P4.2f: a learned or symbolic term); its output type joins the state's element type, so
-ForwardDiff dual numbers in it propagate. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
+ForwardDiff dual numbers in it propagate. With `smooth = true` the daily infection probability is
+1 - exp(-rate) and the waterborne pool decays by exp(-mu) per day (exact daily conversions, smooth in the
+parameters, for gradient-based fitting; PLAN.md P4.2g); the default keeps the earlier capped forms. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
 true prevalence (`true_prev`) and mean Mackin rank including zeros (`mackin`); `deaths` is the Dermo death
 count per day (oysters m⁻²) and `density` the constant density.
 """
 function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S::AbstractVector,
                                 N0::AbstractVector, W0::Real; intro_day::Integer=1,
                                 background_mortality_d::Real=0.0302 / 365, record=nothing,
-                                transmission_mod=(T, S) -> 1.0) where {P}
+                                transmission_mod=(T, S) -> 1.0, smooth::Bool=false) where {P}
     nd = length(T)
     nd > 0 || throw(ArgumentError("forcing is empty"))
     R = promote_type(P, typeof(transmission_mod(first(T), first(S))))
@@ -133,7 +135,7 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
             down[k] = (g < 0 && k > 2) ? min(one(R), 2 * abs(g)) * N[k] : zero(R)
         end
         lam = p.beta * transmission_mod(T[d], S[d]) * W + (d >= intro_day ? p.epsilon : zero(R))
-        newinf = min(one(R), lam) * N[1]
+        newinf = (smooth ? 1 - exp(-lam) : min(one(R), lam)) * N[1]
         dead = zero(R); released = zero(R)
         N[1] -= newinf; N[2] += newinf
         for k in 2:EST_N_LEVELS
@@ -149,7 +151,7 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
         for k in 2:EST_N_LEVELS
             shedding += N[k] * shed[k]
         end
-        W = W * (1 - min(one(R), p.mu)) + shedding + released
+        W = W * (smooth ? exp(-p.mu) : 1 - min(one(R), p.mu)) + shedding + released
         # background mortality, then replace all deaths with uninfected oysters
         bg = zero(R)
         for k in 1:EST_N_LEVELS

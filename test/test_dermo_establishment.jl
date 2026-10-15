@@ -70,3 +70,19 @@ end
     g = ForwardDiff.derivative(f, 1.0)
     @test isfinite(g) && g > 0                                               # duals pass through; more transmission, more infection
 end
+
+@testset "dermo_establishment smooth mode (P4.2g)" begin
+    lab = load_params(joinpath(@__DIR__, "..", "params", "dermo_establishment_lab.toml"))
+    pw = load_params(joinpath(@__DIR__, "..", "params", "dermo_powell1996.toml"))
+    p = EstablishmentParams(lab, pw; beta=1e-9, mu=0.05, epsilon=1e-4, host=1.0)
+    nd = 500
+    T = [12 + 10sin(2pi * (i - 100) / 365) for i in 1:nd]; S = fill(25.0, nd)   # SYNTHETIC forcing
+    N0 = zeros(EST_N_LEVELS); N0[1] = 20.0
+    a = simulate_establishment(p, T, S, N0, 0.0; record=[nd])
+    b = simulate_establishment(p, T, S, N0, 0.0; record=[nd], smooth=true)
+    @test isapprox(a.true_prev[1], b.true_prev[1]; rtol=0.05)          # small rates: nearly identical
+    @test sum(b.N) ≈ 20.0 rtol = 1e-10
+    big = EstablishmentParams(lab, pw; beta=1e-9, mu=2.0, epsilon=5.0, host=1.0)
+    c = simulate_establishment(big, T, S, N0, 0.0; record=[2], smooth=true)
+    @test 0 < c.true_prev[1] <= 1                                       # rates above 1 per day stay valid
+end
