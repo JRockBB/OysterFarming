@@ -17,9 +17,12 @@ those rivers; the NERRS sonde position in the same river is used (approximate).
 Forcing: Great Bay NERR (Wells-style SWMP) sondes from the NCEI NERRS archive (``oyster_data.sources.nerrs_ncei``):
 grbgbwq Great Bay (43 04 20 N, 70 52 10 W; 1995-2011), grborwq Oyster River (43.134 N, 70.911 W; 2002-2011),
 grbsqwq Squamscott River (43 02 30 N, 70 55 20 W; 1997-2011), grblrwq Lamprey River (43 04 48 N, 70 56 04 W;
-1998-2011); coordinates from the NERRS FGDC metadata (grbwq04-12.05m.xml). Sondes are removed in winter, so
-there is no winter forcing. Gaps are filled only from measured data (linear <= 7 days, then regression on the
-other sondes); no climatology.
+1998-2011); coordinates from the NERRS FGDC metadata (grbwq04-12.05m.xml). Sondes are removed in winter
+(about 60 % of November-April days have no reading). Gaps are filled only from measured data: linear <= 7 days, then
+regression on measured overlap days with, in order, the other Great Bay sondes, the Wells NERR inlet sonde
+(``welinwq``, water temperature measured year-round 1995-2011, about 35 km south-east) and Great Bay air temperature
+(``grbgbmet`` 2001-2005, ``grbglmet`` 2005-2010; the archive's grbglmet2011.csv is a mis-filed
+water-quality file and is not used); no climatology. Salinity is filled from the other Great Bay sondes, then Wells inlet salinity (regression).
 """
 
 from __future__ import annotations
@@ -47,6 +50,9 @@ SONDES = {"grbgbwq": (43.0722, -70.8694), "grborwq": (43.134, -70.911),
           "grbsqwq": (43.0417, -70.9222), "grblrwq": (43.08, -70.9344)}
 SONDE_YEARS = {"grbgbwq": range(1995, 2012), "grborwq": range(2002, 2012),
                "grbsqwq": range(1997, 2012), "grblrwq": range(1998, 2012)}
+# Winter temperature secondaries (station, variable, years): Wells inlet water temperature and Great Bay air temperature.
+WINTER_SECONDARIES = [("welinwq", "Temp", range(1995, 2012)), ("grbgbmet", "ATemp", range(2001, 2006)),
+                      ("grbglmet", "ATemp", range(2005, 2011))]   # the archive's grbglmet2011.csv is a mis-filed water-quality file
 
 # site_id: (name, lat, lon, primary sonde, location note)
 SITES = {
@@ -138,7 +144,7 @@ def fetch_report(raw_dir: Path = RAW_DIR, get=http_get, overwrite: bool = False)
 
 def fetch_sondes(raw_dir: Path = RAW_DIR, overwrite: bool = False) -> list[Path]:
     out = []
-    for st, years in SONDE_YEARS.items():
+    for st, years in list(SONDE_YEARS.items()) + [(st, yrs) for st, _, yrs in WINTER_SECONDARIES]:
         for y in years:
             try:
                 out.append(nerrs_ncei.fetch_year(st, y, raw_dir=raw_dir, overwrite=overwrite))
@@ -186,6 +192,12 @@ def build_forcing(raw_dir: Path = RAW_DIR) -> tuple[pd.DataFrame, list[gapfill.S
                               "source": f"nerrs:{primary}", "qc_flag": 0})
         secondaries = {v: [(nerrs_ncei.station_name(st, var), load[st][v]) for st in SONDES if st != primary]
                        for v, var in (("temp_c", "Temp"), ("salinity_psu", "Sal"))}
+        secondaries["temp_c"] += [(nerrs_ncei.station_name(st, var), nerrs_ncei.load(st, var, raw_dir).reindex(days))
+                                  for st, var, _ in WINTER_SECONDARIES]
+        # winter salinity: the contract needs salinity on every row, and the Great Bay sondes are all out in winter;
+        # Wells inlet salinity is the only measured year-round series (fit statistics in forcing_report.md)
+        secondaries["salinity_psu"].append((nerrs_ncei.station_name("welinwq", "Sal"),
+                                            nerrs_ncei.load("welinwq", "Sal", raw_dir).reindex(days)))
         df, rep = gapfill.fill_site(daily, sid, secondaries=secondaries, climatology=False)
         parts.append(df)
         reports.append(rep)

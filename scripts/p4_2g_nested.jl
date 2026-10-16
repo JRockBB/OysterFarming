@@ -41,15 +41,11 @@ using Optimization, OptimizationOptimJL
 
 const ROOT = normpath(joinpath(@__DIR__, ".."))
 const OUT = joinpath(ROOT, "outputs", get(ENV, "P42G_DRY", "0") == "1" ? "p4_2g_dry" : "p4_2g")
-const LIT = joinpath(ROOT, "data", "literature", "dermo")
-const DENSITY0 = 20.0
-const BACKGROUND_D = 0.0302 / 365
 const DRY = get(ENV, "P42G_DRY", "0") == "1"     # smoke test: 2 outer folds, 1 configuration, 3 iterations
 const MAXITERS = DRY ? 3 : 100
 const CONFIGS = DRY ? [(H=3, L2=1e-5)] : [(H=3, L2=1e-5), (H=3, L2=1e-3), (H=6, L2=1e-5), (H=6, L2=1e-3)]
 const N_INNER = 3
 const MONO_W = 1.0
-const SYSTEMS = ["md", "gb", "ne", "me"]
 mkpath(OUT)
 const LOG = open(joinpath(OUT, "progress.log"), "a")
 const LOCK = ReentrantLock()
@@ -57,140 +53,7 @@ logln(x...) = lock(LOCK) do
     println(LOG, now(), " ", x...); flush(LOG); println(x...); flush(stdout)
 end
 
-lab = load_params(joinpath(ROOT, "params", "dermo_establishment_lab.toml"))
-pw = load_params(joinpath(ROOT, "params", "dermo_powell1996.toml"))
-forcing = read_contract(joinpath(ROOT, "data", "processed", "forcing_daily.arrow"), "forcing_daily")
-disease = read_contract(joinpath(ROOT, "data", "processed", "disease_obs.arrow"), "disease_obs")
-sites_tbl = read_contract(joinpath(ROOT, "data", "processed", "sites.arrow"), "sites")
-dermo = disease[disease.pathogen .== "P_marinus", :]
-
-struct Site
-    id::String
-    system::String
-    group::String
-    T::Vector{Float64}
-    S::Vector{Float64}
-    N0::Vector{Float64}
-    prev_rec::Vector{Int}
-    prev_obs::Vector{Float64}
-    pcr::Bool                       # true: compare with true prevalence (qPCR); false: RFTM-detectable prevalence
-    wp_rec::Vector{Int}
-    wp_obs::Vector{Float64}
-    prev_persist::Vector{Union{Missing,Float64}}
-end
-
-"Daily T, S over [a, b] from forcing_daily, repeating the last value on days without a row."
-function held(site, a, b)
-    f = forcing_for_site(forcing, site)
-    have = Dict(r.date => (Float64(r.temp_c), Float64(r.salinity_psu)) for r in eachrow(f))
-    last = have[minimum(keys(have))]
-    T = Float64[]; S = Float64[]
-    for d in a:Day(1):b
-        haskey(have, d) && (last = have[d])
-        push!(T, last[1]); push!(S, last[2])
-    end
-    return T, S
-end
-dayidx(d, a) = Dates.value(d - a) + 1
-persist(v) = Union{Missing,Float64}[i == 1 ? missing : v[i-1] for i in eachindex(v)]
-function start_state(p0, level)
-    N0 = zeros(EST_N_LEVELS); N0[1] = DENSITY0 * (1 - p0); N0[level] += DENSITY0 * p0
-    return N0
-end
-
-sites = Site[]
-fsites = Set(forcing.site_id)
-src_of = Dict(r.site_id => r.source for r in eachrow(forcing) if startswith(r.site_id, "mddnr_"))
-notes_of = Dict(r.site_id => coalesce(r.notes, "") for r in eachrow(sites_tbl))
-
-# Maryland
-let a = Date(1996, 10, 1), b = Date(2024, 11, 30)
-    for s in sort(unique(dermo.site_id))
-        (startswith(s, "mddnr_") && s in fsites) || continue
-        o = sort(dermo[(dermo.site_id .== s) .& (year.(dermo.date) .>= 1999), :], :date)
-        nrow(o) < 3 && continue
-        T, S = held(s, a, b)
-        m = match(r"cbp:([A-Z0-9.]+)", src_of[s])
-        grp = "md_" * (m === nothing ? s : m[1])
-        push!(sites, Site(s, "md", grp, T, S, start_state(0.5, 15), dayidx.(o.date, a), Float64.(o.prevalence), false,
-                          Int[], Float64[], persist(Float64.(o.prevalence))))
-    end
-end
-# Great Bay
-let a = Date(1995, 1, 1), b = Date(2011, 12, 31)
-    for s in sort(unique(dermo.site_id))
-        (startswith(s, "nh_") && s in fsites) || continue
-        o = sort(dermo[(dermo.site_id .== s) .& (dermo.date .<= b), :], :date)
-        T, S = held(s, a, b)
-        m = match(r"sonde (grb[a-z]+)", notes_of[s])
-        push!(sites, Site(s, "gb", "gb_" * (m === nothing ? s : m[1]), T, S, start_state(0.0, 15), dayidx.(o.date, a),
-                          Float64.(o.prevalence), false, dayidx.(o.date, a), Float64.(o.intensity_mean),
-                          persist(Float64.(o.prevalence))))
-    end
-end
-# New England (Ford & Smolowitz 2007)
-"Split one CSV line, honouring double-quoted fields that contain commas."
-function csvsplit(l)
-    out = String[]; buf = IOBuffer(); q = false
-    for c in l
-        if c == '"'
-            q = !q
-        elseif c == ',' && !q
-            push!(out, String(take!(buf)))
-        else
-            write(buf, c)
-        end
-    end
-    push!(out, String(take!(buf)))
-    return out
-end
-function read_csv_simple(f)
-    lines = [l for l in readlines(joinpath(LIT, f)) if !startswith(l, "#") && !isempty(strip(l))]
-    hdr = csvsplit(lines[1]); rows = [csvsplit(l) for l in lines[2:end]]
-    return DataFrame([Symbol(h) => [String(r[i]) for r in rows] for (i, h) in enumerate(hdr)])
-end
-fs = read_csv_simple("ford2007_smolowitz_fig2_fig3_digitized.csv")
-tr = read_csv_simple("ford2007_smolowitz_fig2_temperature_trace.csv")
-const NE_SAL = Dict("Wellfleet MA" => 31.0, "Cotuit MA" => 26.0, "Oyster Bay NY" => 24.0, "Great Sound NJ" => 29.5,
-                    "Delaware Bay NJ" => 20.0, "Martha's Vineyard MA (Butler's Neck)" => 15.0,
-                    "Westport CT" => 27.5, "Milford CT" => 27.5)
-for site in sort(unique(fs.site))
-    haskey(NE_SAL, site) || continue
-    t = tr[tr.site .== site, :]
-    nrow(t) == 0 && continue
-    tdates = Date.(t.date); tvals = parse.(Float64, t.temp_C)
-    pv = fs[(fs.site .== site) .& (fs.variable .== "prevalence_pct"), :]
-    wv = fs[(fs.site .== site) .& (fs.variable .== "weighted_prevalence_0to5"), :]
-    pdates = Date.(pv.date); pvals = parse.(Float64, pv.value) ./ 100
-    o = sortperm(pdates); pdates = pdates[o]; pvals = clamp.(pvals[o], 0.0, 1.0)
-    a = pdates[1]; b = max(maximum(pdates), maximum(Date.(wv.date)))
-    days = collect(a:Day(1):b)
-    # daily temperature: mean of trace vertices per date, linear interpolation between dates, held at the ends
-    ud = sort(unique(tdates)); uv = [mean(tvals[tdates .== d]) for d in ud]
-    T = [d <= ud[1] ? uv[1] : d >= ud[end] ? uv[end] :
-         (i = searchsortedlast(ud, d); uv[i] + (uv[i+1] - uv[i]) * Dates.value(d - ud[i]) / Dates.value(ud[i+1] - ud[i])) for d in days]
-    S = fill(NE_SAL[site], length(days))
-    wd = Date.(wv.date); wvals = parse.(Float64, wv.value); keepw = wd .> a
-    grp = site in ("Westport CT", "Milford CT") ? "ne_LIS" : "ne_" * site
-    sid = "ne_" * lowercase(replace(site, r"[^A-Za-z]+" => "_"))
-    push!(sites, Site(sid, "ne", grp, T, S, start_state(pvals[1], 15), dayidx.(pdates[2:end], a), pvals[2:end], false,
-                      dayidx.(wd[keepw], a), wvals[keepw], persist(pvals)[2:end]))
-end
-# Maine (Marquis et al. 2020), if digitized
-const MAINE_FILE = "marquis2020_maine_qpcr_monthly.csv"
-if isfile(joinpath(LIT, MAINE_FILE))
-    me = read_csv_simple(MAINE_FILE)
-    for (site, model_site) in (("Jack's Point", "dam_upper"), ("Prentiss Island", "dam_lower"))
-        r = me[occursin.(lowercase(site), lowercase.(me.site)), :]
-        nrow(r) == 0 && continue
-        d = Date.(r.date); v = parse.(Float64, r.prevalence); o = sortperm(d); d = d[o]; v = v[o]
-        v = any(v .> 1) ? v ./ 100 : v
-        T, S = held(model_site, d[1], d[end])
-        sid = "me_" * lowercase(replace(site, r"[^A-Za-z]+" => "_"))
-        push!(sites, Site(sid, "me", "me_" * model_site, T, S, start_state(v[1], 10), dayidx.(d[2:end], d[1]), v[2:end], true,
-                          Int[], Float64[], persist(v)[2:end]))
-    end
-end
+include(joinpath(@__DIR__, "p4_2g_data.jl"))
 logln("sites by system: ", Dict(sy => count(s -> s.system == sy, sites) for sy in SYSTEMS),
       "; groups: ", length(unique(s.group for s in sites)))
 

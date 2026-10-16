@@ -28,7 +28,8 @@ BASE = ("https://www.ncei.noaa.gov/data/oceans/archive/arc0023/0052765/2.2/data/
 RAW_SUBDIR = "nerrs_ncei"
 GOOD_FLAGS = {"0", "4"}
 MIN_OBS_PER_DAY = 48
-VARIABLES = {"Temp": ("temp_c", -2.0, 35.0), "Sal": ("salinity_psu", 0.0, 45.0)}
+VARIABLES = {"Temp": ("temp_c", -2.0, 35.0), "Sal": ("salinity_psu", 0.0, 45.0),
+             "ATemp": ("air_temp_c", -40.0, 45.0)}   # ATemp: meteorological stations (<station>met<year>.csv)
 
 
 def station_name(station: str, variable: str) -> str:
@@ -57,6 +58,7 @@ def parse(text: str, variable: str) -> pd.Series:
     name, lo, hi = VARIABLES[variable]
     df = pd.read_csv(io.StringIO(text), low_memory=False)
     df.columns = [c.strip() for c in df.columns]
+    df = df.rename(columns={"DatetimeStamp": "DateTimeStamp"})     # meteorological files spell it this way
     flag_col = f"F_{variable}"
     for col in ("DateTimeStamp", variable, flag_col):
         if col not in df:
