@@ -86,3 +86,26 @@ end
     c = simulate_establishment(big, T, S, N0, 0.0; record=[2], smooth=true)
     @test 0 < c.true_prev[1] <= 1                                       # rates above 1 per day stay valid
 end
+
+@testset "dermo_establishment rate_mod and qPCR threshold (P4.2h)" begin
+    lab = load_params(joinpath(@__DIR__, "..", "params", "dermo_establishment_lab.toml"))
+    pw = load_params(joinpath(@__DIR__, "..", "params", "dermo_powell1996.toml"))
+    mk(b, e) = EstablishmentParams(lab, pw; beta=b, mu=0.1, epsilon=e, host=1.0)
+    nd = 500
+    T = [12 + 10sin(2pi * (i - 100) / 365) for i in 1:nd]; S = fill(25.0, nd)   # SYNTHETIC forcing
+    N0 = zeros(EST_N_LEVELS); N0[1] = 20.0
+    base = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true)
+    same = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, rate_mod=ones(nd))
+    @test base.true_prev == same.true_prev
+    tripled = simulate_establishment(mk(3e-9, 3e-4), T, S, N0, 0.0; record=[nd], smooth=true)
+    modded = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, rate_mod=fill(3.0, nd))
+    @test tripled.true_prev ≈ modded.true_prev                 # scales waterborne and import rates together
+    @test_throws ArgumentError simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; rate_mod=ones(3))
+    @test base.pcr_prev ≈ base.true_prev                        # default threshold counts every infected oyster
+    hi = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, pcr_detection_log2=30.0)
+    @test hi.pcr_prev[1] < 1e-6                                 # above any attainable load: nobody tests positive
+    mid = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, pcr_detection_log2=12.0)
+    @test 0 <= mid.pcr_prev[1] <= base.true_prev[1] + 1e-12
+    f(thr) = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, pcr_detection_log2=thr).pcr_prev[1]
+    @test ForwardDiff.derivative(f, 12.0) <= 0                  # raising the threshold cannot raise qPCR prevalence
+end

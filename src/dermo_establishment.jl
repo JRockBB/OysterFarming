@@ -94,24 +94,32 @@ end
 
 """
     simulate_establishment(p, T, S, N0, W0; intro_day=1, background_mortality_d=0.0302/365, record=nothing,
-                           transmission_mod=(T, S) -> 1.0, smooth=false) -> NamedTuple
+                           transmission_mod=(T, S) -> 1.0, smooth=false, rate_mod=nothing,
+                           pcr_detection_log2=-Inf) -> NamedTuple
 
 Run daily over temperature and salinity vectors `T`, `S`. Background import `epsilon` acts from day
 `intro_day` on. `transmission_mod(T, S)` (>= 0) multiplies the waterborne infection rate beta * W
 (PLAN.md P4.2f: a learned or symbolic term); its output type joins the state's element type, so
 ForwardDiff dual numbers in it propagate. With `smooth = true` the daily infection probability is
 1 - exp(-rate) and the waterborne pool decays by exp(-mu) per day (exact daily conversions, smooth in the
-parameters, for gradient-based fitting; PLAN.md P4.2g); the default keeps the earlier capped forms. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
+parameters, for gradient-based fitting; PLAN.md P4.2g); the default keeps the earlier capped forms. `rate_mod` (optional daily vector, >= 0) multiplies the whole infection rate,
+waterborne and import (PLAN.md P4.2h: a learned correction with day-indexed inputs). `pcr_detection_log2` is a
+smooth qPCR detection threshold: an oyster at level k counts as qPCR-positive with weight
+1 / (1 + exp(-(log2 cells_k - threshold) / 0.5)); the default -Inf counts every infected oyster, so `pcr_prev`
+equals `true_prev`. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
 true prevalence (`true_prev`) and mean Mackin rank including zeros (`mackin`); `deaths` is the Dermo death
 count per day (oysters m⁻²) and `density` the constant density.
 """
 function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S::AbstractVector,
                                 N0::AbstractVector, W0::Real; intro_day::Integer=1,
                                 background_mortality_d::Real=0.0302 / 365, record=nothing,
-                                transmission_mod=(T, S) -> 1.0, smooth::Bool=false) where {P}
+                                transmission_mod=(T, S) -> 1.0, smooth::Bool=false, rate_mod=nothing,
+                                pcr_detection_log2::Real=-Inf) where {P}
     nd = length(T)
     nd > 0 || throw(ArgumentError("forcing is empty"))
-    R = promote_type(P, typeof(transmission_mod(first(T), first(S))))
+    R = promote_type(P, typeof(transmission_mod(first(T), first(S))), rate_mod === nothing ? P : eltype(rate_mod),
+                     typeof(pcr_detection_log2))
+    rate_mod === nothing || length(rate_mod) == nd || throw(ArgumentError("rate_mod must have one value per day"))
     length(S) == nd || throw(ArgumentError("T and S differ in length"))
     length(N0) == EST_N_LEVELS || throw(ArgumentError("N0 must have $(EST_N_LEVELS) levels"))
     N = R.(collect(N0)); W = R(W0)
@@ -120,9 +128,10 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
     shed = [k == 1 ? 0.0 : 10.0^p.shed_a * cells[k]^p.shed_b for k in 1:EST_N_LEVELS]
     dlim = [k == 1 ? 1.0 : p.dens_beta * (cells[k] / p.W_afdw)^p.dens_gamma for k in 1:EST_N_LEVELS]
     detect = [cells[k] > p.detection_cells for k in 1:EST_N_LEVELS]
+    wpcr = [k == 1 ? zero(R) : one(R) / (1 + exp(-(log2(cells[k]) - pcr_detection_log2) / 0.5)) for k in 1:EST_N_LEVELS]
     mk = [est_mackin(k, p) for k in 1:EST_N_LEVELS]
     rec = record === nothing ? Int[] : collect(record)
-    prev = zeros(R, length(rec)); tprev = zeros(R, length(rec)); mack = zeros(R, length(rec))
+    prev = zeros(R, length(rec)); tprev = zeros(R, length(rec)); mack = zeros(R, length(rec)); pcrprev = zeros(R, length(rec))
     deaths = zeros(R, nd)
     up = zeros(R, EST_N_LEVELS); down = zeros(R, EST_N_LEVELS)
     L = p.lethal_level
@@ -134,7 +143,8 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
             up[k] = g > 0 ? min(one(R), g) * N[k] : zero(R)
             down[k] = (g < 0 && k > 2) ? min(one(R), 2 * abs(g)) * N[k] : zero(R)
         end
-        lam = p.beta * transmission_mod(T[d], S[d]) * W + (d >= intro_day ? p.epsilon : zero(R))
+        lam = (p.beta * transmission_mod(T[d], S[d]) * W + (d >= intro_day ? p.epsilon : zero(R))) *
+              (rate_mod === nothing ? one(R) : rate_mod[d])
         newinf = (smooth ? 1 - exp(-lam) : min(one(R), lam)) * N[1]
         dead = zero(R); released = zero(R)
         N[1] -= newinf; N[2] += newinf
@@ -164,9 +174,10 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
             tot = sum(N)
             prev[ri] = sum(N[k] for k in 1:EST_N_LEVELS if detect[k]) / tot
             tprev[ri] = (tot - N[1]) / tot
+            pcrprev[ri] = sum(N[k] * wpcr[k] for k in 1:EST_N_LEVELS) / tot
             mack[ri] = sum(N[k] * mk[k] for k in 1:EST_N_LEVELS) / tot
             ri += 1
         end
     end
-    return (prev=prev, true_prev=tprev, mackin=mack, deaths=deaths, density=dens, N=N, W=W)
+    return (prev=prev, true_prev=tprev, pcr_prev=pcrprev, mackin=mack, deaths=deaths, density=dens, N=N, W=W)
 end
