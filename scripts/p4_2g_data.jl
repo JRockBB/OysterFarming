@@ -24,6 +24,7 @@ struct Site
     N0::Vector{Float64}
     prev_rec::Vector{Int}
     prev_obs::Vector{Float64}
+    prev_n::Vector{Float64}        # oysters per survey (binomial likelihoods, P4.2i)
     pcr::Bool                       # true: compare with true prevalence (qPCR); false: RFTM-detectable prevalence
     wp_rec::Vector{Int}
     wp_obs::Vector{Float64}
@@ -63,8 +64,8 @@ let a = Date(1996, 10, 1), b = Date(2024, 11, 30)
         T, S = held(s, a, b)
         m = match(r"cbp:([A-Z0-9.]+)", src_of[s])
         grp = "md_" * (m === nothing ? s : m[1])
-        push!(sites, Site(s, "md", grp, a, T, S, start_state(0.5, 15), dayidx.(o.date, a), Float64.(o.prevalence), false,
-                          Int[], Float64[], persist(Float64.(o.prevalence))))
+        push!(sites, Site(s, "md", grp, a, T, S, start_state(0.5, 15), dayidx.(o.date, a), Float64.(o.prevalence),
+                          fill(30.0, nrow(o)), false, Int[], Float64[], persist(Float64.(o.prevalence))))   # 30 oysters per bar: MD DNR 2024 Fall Survey report p. 14
     end
 end
 # Great Bay
@@ -75,7 +76,7 @@ let a = Date(1995, 1, 1), b = Date(2011, 12, 31)
         T, S = held(s, a, b)
         m = match(r"sonde (grb[a-z]+)", notes_of[s])
         push!(sites, Site(s, "gb", "gb_" * (m === nothing ? s : m[1]), a, T, S, start_state(0.0, 15), dayidx.(o.date, a),
-                          Float64.(o.prevalence), false, dayidx.(o.date, a), Float64.(o.intensity_mean),
+                          Float64.(o.prevalence), Float64.(o.n), false, dayidx.(o.date, a), Float64.(o.intensity_mean),
                           persist(Float64.(o.prevalence))))
     end
 end
@@ -124,7 +125,7 @@ for site in sort(unique(fs.site))
     wd = Date.(wv.date); wvals = parse.(Float64, wv.value); keepw = wd .> a
     grp = site in ("Westport CT", "Milford CT") ? "ne_LIS" : "ne_" * site
     sid = "ne_" * lowercase(replace(site, r"[^A-Za-z]+" => "_"))
-    push!(sites, Site(sid, "ne", grp, a, T, S, start_state(pvals[1], 15), dayidx.(pdates[2:end], a), pvals[2:end], false,
+    push!(sites, Site(sid, "ne", grp, a, T, S, start_state(pvals[1], 15), dayidx.(pdates[2:end], a), pvals[2:end], fill(25.0, length(pvals) - 1), false,   # n = 25 per sample (Ford & Smolowitz 2007)
                       dayidx.(wd[keepw], a), wvals[keepw], persist(pvals)[2:end]))
 end
 # Maine (Marquis et al. 2020), if digitized. Spin-up from 2015-01-01 uninfected with the system's import (a start from
@@ -141,7 +142,7 @@ if isfile(joinpath(LIT, MAINE_FILE))
         v = any(v .> 1) ? v ./ 100 : v
         T, S = held(model_site, MAINE_START, d[end])
         sid = "me_" * lowercase(replace(site, r"[^A-Za-z]+" => "_"))
-        push!(sites, Site(sid, "me", "me_" * model_site, MAINE_START, T, S, start_state(0.0, 1), dayidx.(d, MAINE_START), v, true,
+        push!(sites, Site(sid, "me", "me_" * model_site, MAINE_START, T, S, start_state(0.0, 1), dayidx.(d, MAINE_START), v, fill(24.0, length(v)), true,   # n = 24 per sample (Marquis et al. 2020)
                           Int[], Float64[], persist(v)))
     end
 end
