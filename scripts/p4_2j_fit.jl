@@ -15,8 +15,10 @@
 #            and the sd fitted (no published 0-7 to 0-5 mapping).
 #   copies   Maine log10 qPCR copies per ug DNA: Gaussian on a_q + b_q x model mean log2 cells among qPCR-positive
 #            oysters, with a_q, b_q and the sd fitted.
-# Model: simulate_establishment, smooth mode, allow_clearance = true (infections below one cell are lost), host factor
-#   1; per site beta and I0 (bounded), per system pool decay mu and import epsilon; Great Bay import from 2003.15.
+# Model: simulate_establishment, smooth mode, allow_clearance = true (infections below one cell are lost); per site
+#   beta and I0 (bounded), per system pool decay mu, import epsilon and host factor (a first run with host = 1,
+#   outputs/p4_2j/fit_host1.md, put nearly all infected oysters in classes 4-5 where the data show 0.5-2); Great Bay
+#   import from 2003.15.
 # Fit: per system, LBFGS + forward-mode AD on the summed negative log-likelihood of all its observation types.
 # Report: in-sample prevalence RMSE vs persistence and system mean; within-site year-to-year skill (correlation of
 #   site-demeaned predicted and observed prevalence; the quantity every earlier variant missed); class-distribution
@@ -145,16 +147,18 @@ const CLASS_OF_LEVEL = [k == 1 || RANK[k] == 0 ? 1 : 2 + count(e -> RANK[k] >= e
 const LOG2_CELLS = [k == 1 ? 0.0 : Float64(k - 2) for k in 1:EST_N_LEVELS]
 
 # ---- parameters ----
-const BOX = (beta=(1e-12, 1e-6), I0=(1e-3, 0.999), mu=(1e-3, 3.0), eps=(1e-7, 1e-2), sd=(0.05, 3.0), thr=(0.0, 14.0))
+const BOX = (beta=(1e-12, 1e-6), I0=(1e-3, 0.999), mu=(1e-3, 3.0), eps=(1e-7, 1e-2), sd=(0.05, 3.0), thr=(0.0, 14.0), host=(0.02, 1.0))
 logistic(x) = 1 / (1 + exp(-x))
 boxmap(x, b) = b[1] * (b[2] / b[1])^logistic(x)
 boxinv(v, b) = (q = clamp(log(v / b[1]) / log(b[2] / b[1]), 1e-6, 1 - 1e-6); log(q / (1 - q)))
-# per-system theta: [beta_1..m, I0_1..m, mu, eps, obs params...]; obs params: md: a, b, sd; ne: sd_wp; me: thr, a_q, b_q, sd_q
+# host: the host factor scaling positive in-host growth (lab rates are in vitro); fitted because the class counts
+# constrain how fast infections intensify, which prevalence alone did not
+# per-system theta: [beta_1..m, I0_1..m, mu, eps, host, obs params...]; obs params: md: a, b, sd; ne: sd_wp; me: thr, a_q, b_q, sd_q
 nobs(sy) = sy == "md" ? 3 : sy == "ne" ? 1 : sy == "me" ? 4 : 0
 function unpack(θ, m, sy)
-    o = θ[2m+3:end]
+    o = θ[2m+4:end]
     (beta=[boxmap(θ[i], BOX.beta) for i in 1:m], I0=[boxmap(θ[m+i], BOX.I0) for i in 1:m], mu=boxmap(θ[2m+1], BOX.mu),
-     eps=boxmap(θ[2m+2], BOX.eps),
+     eps=boxmap(θ[2m+2], BOX.eps), host=boxmap(θ[2m+3], BOX.host),
      a=sy == "md" ? o[1] : sy == "me" ? o[2] : 0.0, b=sy == "md" ? o[2] : sy == "me" ? o[3] : 1.0,
      sd=sy == "md" ? boxmap(o[3], BOX.sd) : sy == "ne" ? boxmap(o[1], BOX.sd) : sy == "me" ? boxmap(o[4], BOX.sd) : 1.0,
      thr=sy == "me" ? BOX.thr[2] * logistic(o[1]) : -Inf)      # linear box 0-14 (log2 cells)
@@ -162,7 +166,7 @@ end
 function init_theta(ss, sy)
     m = length(ss)
     θ = vcat(fill(boxinv(1e-9, BOX.beta), m), [boxinv(clamp(s.prev_obs[1], 0.02, 0.98), BOX.I0) for s in ss],
-             [boxinv(0.5, BOX.mu), boxinv(1e-4, BOX.eps)])
+             [boxinv(0.5, BOX.mu), boxinv(1e-4, BOX.eps), boxinv(0.3, BOX.host)])
     sy == "md" && (θ = vcat(θ, [0.0, 1.0, boxinv(0.7, BOX.sd)]))
     sy == "ne" && (θ = vcat(θ, [boxinv(0.5, BOX.sd)]))
     sy == "me" && (θ = vcat(θ, [log(6.0 / 8.0), 0.0, 0.3, boxinv(0.5, BOX.sd)]))   # thr 6 = 14 * logistic(log(6/8))
@@ -170,7 +174,7 @@ function init_theta(ss, sy)
 end
 
 function site_nll(s::Site, o::Vector{Obs}, u)
-    p = EstablishmentParams(lab, pw; beta=u.beta, mu=u.mu, epsilon=u.eps, host=1.0)
+    p = EstablishmentParams(lab, pw; beta=u.beta, mu=u.mu, epsilon=u.eps, host=u.host)
     rec = sort(unique(x.day for x in o))
     intro = s.system == "gb" ? clamp(round(Int, (GB_ARRIVAL - year(s.start)) * 365.25) + 1, 1, length(s.T)) : 1
     r = simulate_establishment(p, s.T, s.S, s.N0, 0.0; intro_day=intro, background_mortality_d=BACKGROUND_D, record=rec,
@@ -213,13 +217,13 @@ function fit_system(sy; iters=ITERS)
     # bound has zero gradient and cannot move back); PRIOR_W = 0.01 is about 1 nat at 10 box-units from centre
     function f(θ, _)
         u = unpack(θ, m, sy)
-        return sum(site_nll(ss[i], obs[ss[i].id], (beta=u.beta[i], I0=u.I0[i], mu=u.mu, eps=u.eps, a=u.a, b=u.b, sd=u.sd, thr=u.thr))
+        return sum(site_nll(ss[i], obs[ss[i].id], (beta=u.beta[i], I0=u.I0[i], mu=u.mu, eps=u.eps, host=u.host, a=u.a, b=u.b, sd=u.sd, thr=u.thr))
                    for i in 1:m) + PRIOR_W * sum(abs2, θ)
     end
     θ0 = init_theta(ss, sy)
     t = @elapsed sol = solve(OptimizationProblem(OptimizationFunction(f, Optimization.AutoForwardDiff()), θ0), LBFGS(); maxiters=iters)
     u = unpack(sol.u, m, sy)
-    println("fit $sy: $m sites, nll $(round(f(sol.u, nothing); digits=1)), mu $(round(u.mu; sigdigits=3)), eps $(round(u.eps; sigdigits=3)), $(round(t / 60; digits=1)) min"); flush(stdout)
+    println("fit $sy: $m sites, nll $(round(f(sol.u, nothing); digits=1)), mu $(round(u.mu; sigdigits=3)), eps $(round(u.eps; sigdigits=3)), host $(round(u.host; sigdigits=3)), $(round(t / 60; digits=1)) min"); flush(stdout)
     return (sites=ss, u=u, nll=f(sol.u, nothing))
 end
 
@@ -227,7 +231,7 @@ function predictions(fit)
     rows = Vector{NamedTuple}()
     for (i, s) in enumerate(fit.sites)
         u = fit.u; o = obs[s.id]
-        p = EstablishmentParams(lab, pw; beta=u.beta[i], mu=u.mu, epsilon=u.eps, host=1.0)
+        p = EstablishmentParams(lab, pw; beta=u.beta[i], mu=u.mu, epsilon=u.eps, host=u.host)
         rec = sort(unique(x.day for x in o))
         intro = s.system == "gb" ? clamp(round(Int, (GB_ARRIVAL - year(s.start)) * 365.25) + 1, 1, length(s.T)) : 1
         r = simulate_establishment(p, s.T, s.S, s.N0, 0.0; intro_day=intro, background_mortality_d=BACKGROUND_D, record=rec,
@@ -295,7 +299,7 @@ open(joinpath(OUT, "fit.md"), "w") do io
             println(io, "| $sy | $cl | $(fmt(oc[j] / sum(oc))) | $(fmt(pcw[j] / sum(pcw))) |")
         end
     end
-    println(io, "\n## Parameters\n\n| system | mu (d^-1) | epsilon (d^-1) | beta q10 / median / q90 | beta at bounds | observation params |\n|---|---|---|---|---|---|")
+    println(io, "\n## Parameters\n\n| system | host factor | mu (d^-1) | epsilon (d^-1) | beta q10 / median / q90 | beta at bounds | observation params |\n|---|---|---|---|---|---|---|")
     for sy in SYS
         haskey(fits, sy) || continue
         u = fits[sy].u; q = quantile(u.beta, [0.1, 0.5, 0.9])
@@ -303,7 +307,7 @@ open(joinpath(OUT, "fit.md"), "w") do io
         extra = sy == "md" ? "0-7 = $(round(u.a; digits=2)) + $(round(u.b; digits=2)) x rank, sd $(round(u.sd; digits=2))" :
                 sy == "ne" ? "WP sd $(round(u.sd; digits=2))" :
                 sy == "me" ? "qPCR threshold 2^$(round(u.thr; digits=1)) cells; log10 copies = $(round(u.a; digits=2)) + $(round(u.b; digits=3)) x log2 cells, sd $(round(u.sd; digits=2))" : ""
-        println(io, "| $sy | $(round(u.mu; sigdigits=3)) | $(round(u.eps; sigdigits=3)) | $(round(q[1]; sigdigits=2)) / $(round(q[2]; sigdigits=2)) / $(round(q[3]; sigdigits=2)) | $atb of $(length(u.beta)) | $extra |")
+        println(io, "| $sy | $(round(u.host; sigdigits=3)) | $(round(u.mu; sigdigits=3)) | $(round(u.eps; sigdigits=3)) | $(round(q[1]; sigdigits=2)) / $(round(q[2]; sigdigits=2)) / $(round(q[3]; sigdigits=2)) | $atb of $(length(u.beta)) | $extra |")
     end
 end
 println(read(joinpath(OUT, "fit.md"), String))

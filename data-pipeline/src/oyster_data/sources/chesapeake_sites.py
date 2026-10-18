@@ -169,14 +169,14 @@ MW_SITES = [
              notes=("CO-OPS Sewells Point 18 km", "CBP WE4.3 11.1 km")),
     ChesSite("mw_cbhg", MW_START, MW_END, "8577330", "LE1.4", cbp_secondary="CB5.1W", coops_secondaries=("8571421",),
              notes=("CO-OPS Solomons 5 km", "CBP LE1.4 2.1 km", "CBP CB5.1W 2.4 km (secondary)")),
-    ChesSite("mw_cbhp", MW_START, MW_END, "8575512", "CB3.3W", cbp_secondary="CB3.3C", coops_secondaries=("8573364",),
-             notes=("CO-OPS Annapolis 6 km", "CBP CB3.3W 4.5 km", "CBP CB3.3C 5.6 km (secondary)")),
-    ChesSite("mw_cbmp", MW_START, MW_END, "8575512", "CB3.3W", cbp_secondary="WT6.1", coops_secondaries=("8573364",),
-             notes=("CO-OPS Annapolis 11 km", "CBP CB3.3W 7.8 km", "CBP WT6.1 8.4 km (secondary)")),
+    ChesSite("mw_cbhp", MW_START, MW_END, "8573364", "CB3.3W", cbp_secondary="CB3.3C", coops_secondaries=("8574680",),
+             notes=("CO-OPS Tolchester 31 km (Annapolis, 6 km, has water temperature only from 2020)", "CBP CB3.3W 4.5 km", "CBP CB3.3C 5.6 km (secondary)")),
+    ChesSite("mw_cbmp", MW_START, MW_END, "8573364", "CB3.3W", cbp_secondary="WT6.1", coops_secondaries=("8574680",),
+             notes=("CO-OPS Tolchester 21 km (Annapolis, 11 km, has water temperature only from 2020)", "CBP CB3.3W 7.8 km", "CBP WT6.1 8.4 km (secondary)")),
     ChesSite("mw_prrp", MW_START, MW_END, "8635750", "LE2.2", coops_secondaries=("8577330",),
              notes=("CO-OPS Lewisetta 21 km", "CBP LE2.2 0.4 km")),
-    ChesSite("mw_prsp", MW_START, MW_END, "8635027", "RET2.4", coops_secondaries=("8577330",),
-             notes=("CO-OPS Dahlgren 10 km", "CBP RET2.4 10.3 km")),
+    ChesSite("mw_prsp", MW_START, MW_END, "8635750", "RET2.4", coops_secondaries=("8577330",),
+             notes=("CO-OPS Lewisetta 42 km (Dahlgren, 10 km, has water temperature only from 2015)", "CBP RET2.4 10.3 km")),
 ]
 
 
