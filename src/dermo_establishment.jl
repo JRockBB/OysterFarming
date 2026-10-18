@@ -95,7 +95,7 @@ end
 """
     simulate_establishment(p, T, S, N0, W0; intro_day=1, background_mortality_d=0.0302/365, record=nothing,
                            transmission_mod=(T, S) -> 1.0, smooth=false, rate_mod=nothing,
-                           pcr_detection_log2=-Inf) -> NamedTuple
+                           pcr_detection_log2=-Inf, record_levels=false, allow_clearance=false) -> NamedTuple
 
 Run daily over temperature and salinity vectors `T`, `S`. Background import `epsilon` acts from day
 `intro_day` on. `transmission_mod(T, S)` (>= 0) multiplies the waterborne infection rate beta * W
@@ -106,7 +106,10 @@ parameters, for gradient-based fitting; PLAN.md P4.2g); the default keeps the ea
 waterborne and import (PLAN.md P4.2h: a learned correction with day-indexed inputs). `pcr_detection_log2` is a
 smooth qPCR detection threshold: an oyster at level k counts as qPCR-positive with weight
 1 / (1 + exp(-(log2 cells_k - threshold) / 0.5)); the default -Inf counts every infected oyster, so `pcr_prev`
-equals `true_prev`. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
+equals `true_prev`. With `record_levels = true` the result also holds `levels`, the level distribution
+(fractions, `EST_N_LEVELS` × records) at the recorded days, for class-count likelihoods (PLAN.md P4.2j). With
+`allow_clearance = true` an oyster at level 2 (one cell) whose parasite population shrinks moves back to level 1,
+i.e. infections below one cell are cleared; the default keeps Powell et al.'s rule that infections are never lost. `record` is a vector of day indices at which to return detectable prevalence (`prev`),
 true prevalence (`true_prev`) and mean Mackin rank including zeros (`mackin`); `deaths` is the Dermo death
 count per day (oysters m⁻²) and `density` the constant density.
 """
@@ -114,7 +117,7 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
                                 N0::AbstractVector, W0::Real; intro_day::Integer=1,
                                 background_mortality_d::Real=0.0302 / 365, record=nothing,
                                 transmission_mod=(T, S) -> 1.0, smooth::Bool=false, rate_mod=nothing,
-                                pcr_detection_log2::Real=-Inf) where {P}
+                                pcr_detection_log2::Real=-Inf, record_levels::Bool=false, allow_clearance::Bool=false) where {P}
     nd = length(T)
     nd > 0 || throw(ArgumentError("forcing is empty"))
     R = promote_type(P, typeof(transmission_mod(first(T), first(S))), rate_mod === nothing ? P : eltype(rate_mod),
@@ -131,6 +134,7 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
     wpcr = [k == 1 ? zero(R) : one(R) / (1 + exp(-(log2(cells[k]) - pcr_detection_log2) / 0.5)) for k in 1:EST_N_LEVELS]
     mk = [est_mackin(k, p) for k in 1:EST_N_LEVELS]
     rec = record === nothing ? Int[] : collect(record)
+    levels = record_levels ? zeros(R, EST_N_LEVELS, length(rec)) : zeros(R, 0, 0)
     prev = zeros(R, length(rec)); tprev = zeros(R, length(rec)); mack = zeros(R, length(rec)); pcrprev = zeros(R, length(rec))
     deaths = zeros(R, nd)
     up = zeros(R, EST_N_LEVELS); down = zeros(R, EST_N_LEVELS)
@@ -141,7 +145,7 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
         for k in 2:EST_N_LEVELS
             g = r0 * min(one(R), dlim[k])
             up[k] = g > 0 ? min(one(R), g) * N[k] : zero(R)
-            down[k] = (g < 0 && k > 2) ? min(one(R), 2 * abs(g)) * N[k] : zero(R)
+            down[k] = (g < 0 && (k > 2 || allow_clearance)) ? min(one(R), 2 * abs(g)) * N[k] : zero(R)
         end
         lam = (p.beta * transmission_mod(T[d], S[d]) * W + (d >= intro_day ? p.epsilon : zero(R))) *
               (rate_mod === nothing ? one(R) : rate_mod[d])
@@ -175,9 +179,10 @@ function simulate_establishment(p::EstablishmentParams{P}, T::AbstractVector, S:
             prev[ri] = sum(N[k] for k in 1:EST_N_LEVELS if detect[k]) / tot
             tprev[ri] = (tot - N[1]) / tot
             pcrprev[ri] = sum(N[k] * wpcr[k] for k in 1:EST_N_LEVELS) / tot
+            record_levels && (levels[:, ri] .= N ./ tot)
             mack[ri] = sum(N[k] * mk[k] for k in 1:EST_N_LEVELS) / tot
             ri += 1
         end
     end
-    return (prev=prev, true_prev=tprev, pcr_prev=pcrprev, mackin=mack, deaths=deaths, density=dens, N=N, W=W)
+    return (prev=prev, true_prev=tprev, pcr_prev=pcrprev, mackin=mack, deaths=deaths, density=dens, N=N, W=W, levels=levels)
 end

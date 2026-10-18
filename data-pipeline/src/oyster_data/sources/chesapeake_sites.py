@@ -155,6 +155,31 @@ BAR_SITES_EXTRA = [
 ]
 
 
+# NOAA Mussel Watch oyster sites in the Chesapeake (P4.2j; per-oyster Dermo scores 1988-2009): nearest long-record CBP
+# station within 15 km, second nearest within 15 km as a regression fill, nearest CO-OPS gauges (straight-line distances).
+MW_START, MW_END = "1987-01-01", "2010-12-31"
+MW_SITES = [
+    ChesSite("mw_cbbo", MW_START, MW_END, "8573364", "CB3.2", cbp_secondary="WT5.1", coops_secondaries=("8574680",),
+             notes=("CO-OPS Tolchester 15 km", "CBP CB3.2 8.5 km", "CBP WT5.1 11.9 km (secondary)")),
+    ChesSite("mw_cbcc", MW_START, MW_END, "8632200", "CB7.3E", cbp_secondary="CB7.2E", coops_secondaries=("8637689",),
+             notes=("CO-OPS Kiptopeke 13 km", "CBP CB7.3E 7.1 km", "CBP CB7.2E 14.1 km (secondary)")),
+    ChesSite("mw_cbcp", MW_START, MW_END, "8571892", "ET5.2", cbp_secondary="EE2.1", coops_secondaries=("8577330",),
+             notes=("CO-OPS Cambridge 6 km", "CBP ET5.2 6.1 km", "CBP EE2.1 13.6 km (secondary)")),
+    ChesSite("mw_cbdp", MW_START, MW_END, "8638610", "WE4.3", coops_secondaries=("8637689",),
+             notes=("CO-OPS Sewells Point 18 km", "CBP WE4.3 11.1 km")),
+    ChesSite("mw_cbhg", MW_START, MW_END, "8577330", "LE1.4", cbp_secondary="CB5.1W", coops_secondaries=("8571421",),
+             notes=("CO-OPS Solomons 5 km", "CBP LE1.4 2.1 km", "CBP CB5.1W 2.4 km (secondary)")),
+    ChesSite("mw_cbhp", MW_START, MW_END, "8575512", "CB3.3W", cbp_secondary="CB3.3C", coops_secondaries=("8573364",),
+             notes=("CO-OPS Annapolis 6 km", "CBP CB3.3W 4.5 km", "CBP CB3.3C 5.6 km (secondary)")),
+    ChesSite("mw_cbmp", MW_START, MW_END, "8575512", "CB3.3W", cbp_secondary="WT6.1", coops_secondaries=("8573364",),
+             notes=("CO-OPS Annapolis 11 km", "CBP CB3.3W 7.8 km", "CBP WT6.1 8.4 km (secondary)")),
+    ChesSite("mw_prrp", MW_START, MW_END, "8635750", "LE2.2", coops_secondaries=("8577330",),
+             notes=("CO-OPS Lewisetta 21 km", "CBP LE2.2 0.4 km")),
+    ChesSite("mw_prsp", MW_START, MW_END, "8635027", "RET2.4", coops_secondaries=("8577330",),
+             notes=("CO-OPS Dahlgren 10 km", "CBP RET2.4 10.3 km")),
+]
+
+
 def build_site(site: ChesSite, raw_dir=RAW_DIR) -> tuple[pd.DataFrame, gapfill.SiteReport]:
     days = pd.date_range(site.start, site.end, freq="D")
     temp = coops.load(site.coops_station, raw_dir).reindex(days)
@@ -189,7 +214,7 @@ def build_site(site: ChesSite, raw_dir=RAW_DIR) -> tuple[pd.DataFrame, gapfill.S
 
 def build_all(raw_dir=RAW_DIR) -> tuple[pd.DataFrame, list[gapfill.SiteReport]]:
     parts, reports = [], []
-    for site in SITES + BAR_SITES + BAR_SITES_EXTRA:
+    for site in SITES + BAR_SITES + BAR_SITES_EXTRA + MW_SITES:
         df, rep = build_site(site, raw_dir)
         parts.append(df)
         reports.append(rep)

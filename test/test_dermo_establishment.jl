@@ -109,3 +109,22 @@ end
     f(thr) = simulate_establishment(mk(1e-9, 1e-4), T, S, N0, 0.0; record=[nd], smooth=true, pcr_detection_log2=thr).pcr_prev[1]
     @test ForwardDiff.derivative(f, 12.0) <= 0                  # raising the threshold cannot raise qPCR prevalence
 end
+
+@testset "dermo_establishment level records and clearance (P4.2j)" begin
+    lab = load_params(joinpath(@__DIR__, "..", "params", "dermo_establishment_lab.toml"))
+    pw = load_params(joinpath(@__DIR__, "..", "params", "dermo_powell1996.toml"))
+    p = EstablishmentParams(lab, pw; beta=1e-9, mu=0.1, epsilon=1e-4, host=1.0)
+    nd = 600
+    T = [12 + 10sin(2pi * (i - 100) / 365) for i in 1:nd]; S = fill(25.0, nd)   # SYNTHETIC forcing
+    N0 = zeros(EST_N_LEVELS); N0[1] = 10.0; N0[8] = 10.0
+    r = simulate_establishment(p, T, S, N0, 0.0; record=[100, nd], smooth=true, record_levels=true)
+    @test size(r.levels) == (EST_N_LEVELS, 2)
+    @test all(isapprox.(sum(r.levels; dims=1), 1.0; atol=1e-12))
+    @test r.true_prev[2] ≈ 1 - r.levels[1, 2]                                   # level 1 is the uninfected fraction
+    @test r.prev[2] ≈ sum(r.levels[k, 2] for k in 2:EST_N_LEVELS if 2.0^(k - 2) > p.detection_cells)
+    cold = fill(4.0, nd)
+    keep = simulate_establishment(p, cold, S, N0, 0.0; record=[nd], smooth=true)
+    clear = simulate_establishment(p, cold, S, N0, 0.0; record=[nd], smooth=true, allow_clearance=true)
+    @test clear.true_prev[1] < keep.true_prev[1]                               # cold water clears light infections
+    @test sum(clear.N) ≈ 20.0 rtol = 1e-10
+end

@@ -41,7 +41,7 @@ from oyster_data.paths import PROCESSED_DIR, RAW_DIR
 from oyster_data.sites import write_sites
 from datetime import date
 
-from oyster_data.sources import (nh_greatbay, boothbay_dmr, dmr_aquaculture, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
+from oyster_data.sources import (mussel_watch, nh_greatbay, boothbay_dmr, dmr_aquaculture, cbp_datahub, chesapeake_sites, coops, dmc_dock, foss, lobo,
                                  mddnr_fall_survey, nerrs_ncei, neracoos, viirs_chl, zenodo_growth)
 
 
@@ -96,7 +96,7 @@ def cmd_secondary_fetch(overwrite: bool) -> int:
 
 def cmd_chesapeake_fetch(overwrite: bool) -> int:
     jobs = []
-    for site in chesapeake_sites.SITES + chesapeake_sites.BAR_SITES + chesapeake_sites.BAR_SITES_EXTRA:
+    for site in chesapeake_sites.SITES + chesapeake_sites.BAR_SITES + chesapeake_sites.BAR_SITES_EXTRA + chesapeake_sites.MW_SITES:
         first, last = int(site.start[:4]), int(site.end[:4])
         for st in (site.coops_station, *site.coops_secondaries):
             jobs += [(lambda st=st, y=y: coops.fetch_year(st, y, overwrite=overwrite))
@@ -230,7 +230,7 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "disease":
         out = PROCESSED_DIR / "disease_obs.arrow"
         write_contract(pa.concat_tables([mddnr_fall_survey.disease_obs(*mddnr_fall_survey.load_pages()),
-                                         nh_greatbay.disease_obs()]), out, "disease_obs")
+                                         nh_greatbay.disease_obs(), mussel_watch.disease_obs()]), out, "disease_obs")
         print(f"wrote {out}")
         out = PROCESSED_DIR / "mortality_obs.arrow"
         write_contract(mddnr_fall_survey.mortality_obs(mddnr_fall_survey.load_mortality_pages()), out, "mortality_obs")

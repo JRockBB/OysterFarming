@@ -1,0 +1,911 @@
+# NOAA National Status and Trends Mussel Watch, East Coast oyster histopathology (per-oyster records), Chesapeake Bay and
+# Potomac River sites within 15 km of a Chesapeake Bay Program water-quality station (9 of 12 Chesapeake sites; CBJR, PRMC,
+# RRRR left out at 16-33 km). Source file MW_EastCoast_Oyster_Histopath.tsv (NOAA NCCOS; downloaded 2026-10-14 by a research
+# agent; see EXTRACTION_NOTES_field.md). dermo_value is the per-oyster Dermo intensity on the Mackin 0-5 scale in thirds;
+# the data dictionary gives no collection date, only Fiscal Year (NS&T bivalve collections are made in the cold season; a
+# nominal date of 1 January of the fiscal year is used by the model scripts, uncertainty about +/- 2 months).
+nst_site,specific_location,state,lat,lon,fiscal_year,sample_id,sample_number,dermo_value,dermo_intensity,length_mm
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,1,0,Negative,10
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,2,0,Negative,11
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,3,0,Negative,10.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,4,0,Negative,11.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,5,0,Negative,11.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,1,0.33,Very light,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,2,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,3,0,Negative,8.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,4,0,Negative,7.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,5,0,Negative,6.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,1,0,Negative,10.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,2,0,Negative,8.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,3,0,Negative,9.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,4,0,Negative,10.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,5,0.33,Very light,10.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,1,0.67,Light,7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,2,0,Negative,4.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,3,0.33,Very light,4.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,4,0,Negative,5.1
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,5,1.33,Light,4.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,1,0,Negative,9.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,2,0,Negative,10.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,3,0,Negative,11.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,4,0,Negative,9.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,5,0,Negative,9.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,1,0,Negative,13.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,2,0,Negative,14.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,3,0,Negative,14.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,4,0,Negative,13.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,5,0,Negative,14.5
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,1,0.33,Very light,8.5
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,2,0,Negative,10.4
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,3,0,Negative,9.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,4,0,Negative,9.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,5,0,Negative,10.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,1,0,Negative,8.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,2,0,Negative,7.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,4,0,Negative,9.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,5,0,Negative,10
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,6,0,Negative,7.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,2,0,Negative,4.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,3,0,Negative,5.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,4,0.33,Very light,5.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,5,4.67,Heavy,5.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,6,2.33,Light/Moderate,4.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,1,0,Negative,8.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,2,0,Negative,9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,3,0,Negative,8.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,4,0,Negative,8.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,6,0,Negative,8.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,2,0,Negative,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,3,0,Negative,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,4,1.33,Light,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,5,5,Heavy,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,6,1.33,Light,6.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,2,0.67,Light,7.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,3,0.67,Light,8.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,4,0.33,Very light,7.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,5,0.33,Very light,8.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,6,5,Heavy,8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,2,0.67,Light,9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,3,0.33,Very light,8.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,4,0.33,Very light,7.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,5,0,Negative,12.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,6,0.33,Very light,8.1
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,1,0,Negative,9
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,2,0,Negative,9.5
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,4,0,Negative,7.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,5,0,Negative,9.6
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,6,0,Negative,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,2,0,Negative,8.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,3,0,Negative,8.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,4,0,Negative,8.9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,5,0,Negative,11.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,6,0,Negative,9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,1,0,Negative,7.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,2,0,Negative,9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,3,0,Negative,9.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,4,0,Negative,7.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,5,0,Negative,8.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,1,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,2,0.33,Very light,6.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,3,0.33,Very light,6.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,4,0.67,Light,5.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,5,0.67,Light,5.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,1,0,Negative,9.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,2,0,Negative,8.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,3,0,Negative,10
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,4,0,Negative,9.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,5,0,Negative,10.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,1,1,Light,6.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,2,1,Light,8.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,3,0.67,Light,8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,4,0.67,Light,5.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,5,0.67,Light,8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,1,1,Light,8.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,2,0.33,Very light,8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,3,3.66,Moderately Heavy,8.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,4,0.33,Very light,7.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,5,0.67,Light,10
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,1,0,Negative,7.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,2,0.33,Very light,8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,3,0,Negative,9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,4,4.67,Heavy,9.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,5,3.66,Moderately Heavy,7.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,1,0,Negative,9.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,2,0,Negative,9.2
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,3,0,Negative,10.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,4,0,Negative,10.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,5,0,Negative,7.6
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,1,0,Negative,7.8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,2,0,Negative,8.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,3,0,Negative,9.7
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,4,0,Negative,10
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,5,0,Negative,11
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,1,0,Negative,9.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,2,0.33,Very light,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,3,0,Negative,8.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,4,0,Negative,9.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,5,0,Negative,10.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,1,0,Negative,6.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,2,0,Negative,7.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,3,0,Negative,7.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,4,0,Negative,8.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,5,0,Negative,8.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,1,0.67,Light,7.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,2,0,Negative,5.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,3,0,Negative,6.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,4,0,Negative,7.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,5,0,Negative,7.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,1,1,Light,8.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,2,4.33,Moderately Heavy,7.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,3,0.67,Light,6.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,4,4,Moderately Heavy,7.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,5,0,Negative,8.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,1,0,Negative,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,2,1,Light,6.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,3,0.33,Very light,6.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,4,0,Negative,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,5,1,Light,5.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,1,0.67,Light,6.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,2,0.33,Very light,7.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,3,0.67,Light,6.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,4,2.33,Light/Moderate,7.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,5,4.33,Moderately Heavy,6.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,1,0.33,Very light,9.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,2,5,Heavy,9.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,3,2.66,Moderate,8.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,4,0.33,Very light,9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,5,0.67,Light,9.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,1,0,Negative,5.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,2,0,Negative,5.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,3,0,Negative,5.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,4,0,Negative,6.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,5,0,Negative,6.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,1,0,Negative,3.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,2,0,Negative,3.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,3,0,Negative,4.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,4,0,Negative,4.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,5,0,Negative,3.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,1,0,Negative,5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,2,4.67,Heavy,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,3,1.33,Light,6.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,4,0.67,Light,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,5,1,Light,6.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,1,0,Negative,5.4
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,2,0.33,Very light,4.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,3,0.33,Very light,5.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,4,0,Negative,5.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,5,0.67,Light,5.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,1,0,Negative,7.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,2,0.67,Light,7.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,3,0,Negative,7.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,4,1.33,Light,7.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,5,0,Negative,9.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,1,0,Negative,5.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,2,0,Negative,7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,3,0,Negative,7.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,4,0,Negative,5.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,5,0,Negative,6.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,1,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,2,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,3,0,Negative,6.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,4,0,Negative,7.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,5,0,Negative,5.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,1,0,Negative,5.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,2,0,Negative,7.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,3,0,Negative,6.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,4,0,Negative,7.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,5,0.33,Very light,6.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,1,0,Negative,5.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,2,0.33,Very light,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,3,0.67,Light,7.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,4,0.33,Very light,8.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,5,0.33,Very light,8.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,1,0,Negative,6.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,2,0,Negative,7.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,3,0,Negative,7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,4,0.33,Very light,6.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,5,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,1,0,Negative,6.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,2,0.33,Very light,6.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,3,0,Negative,5.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,4,0,Negative,6.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,5,0,Negative,7.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,1,0.33,Very light,5.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,2,0,Negative,6.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,3,0,Negative,7.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,4,0,Negative,6.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,5,0,Negative,6.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,1,0,Negative,7.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,2,0,Negative,6.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,3,0,Negative,7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,4,0,Negative,7.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,5,0,Negative,6.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,1,0.33,Very light,6.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,2,0,Negative,7.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,3,2,Light/Moderate,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,4,0.33,Very light,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,5,0.67,Light,7.4
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,1,0,Negative,6.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,2,0,Negative,5.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,3,0,Negative,6.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,4,0,Negative,7.4
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,5,0,Negative,7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,1,0.33,Very light,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,2,0.67,Light,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,3,0,Negative,6.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,4,0,Negative,7.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,5,0,Negative,6.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,1,0,Negative,8.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,2,0,Negative,7.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,3,0,Negative,9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,4,0,Negative,9.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,5,0,Negative,8.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,1,0,Negative,7.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,2,0,Negative,6.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,3,0,Negative,7.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,4,0,Negative,8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,5,0,Negative,7.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,1,0,Negative,6.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,2,0,Negative,6.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,3,0,Negative,6.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,4,0,Negative,6.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,5,0,Negative,7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,1,0,Negative,8.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,2,0,Negative,6.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,3,0,Negative,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,4,0,Negative,7.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,5,0,Negative,7.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,1,0,Negative,7.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,2,0,Negative,5.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,3,0,Negative,7.4
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,4,0,Negative,7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,5,0,Negative,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,1,0,Negative,5.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,2,0,Negative,5.9
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,3,0,Negative,5.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,4,0,Negative,5.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,5,0,Negative,6.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,1,0,Negative,9.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,2,0,Negative,8.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,3,0,Negative,7.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,4,0,Negative,6.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,5,0,Negative,6.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,1,0,Negative,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,2,1,Light,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,3,0.33,Very light,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,4,0,Negative,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,5,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,6,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,7,0,Negative,5.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,8,0,Negative,4.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,9,0,Negative,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,10,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,11,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,12,0,Negative,8.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,13,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,14,0,Negative,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,15,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,16,0,Negative,5.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,17,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,18,0,Negative,6.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,19,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,20,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,1,0,Negative,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,2,0.33,Very light,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,3,0,Negative,5.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,4,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,5,0,Negative,4.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,6,0,Negative,5.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,7,0,Negative,5.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,8,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,9,0.33,Very light,5.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,10,0,Negative,8.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,11,0,Negative,6.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,12,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,13,0,Negative,4.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,14,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,15,0,Negative,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,16,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,17,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,18,0.33,Very light,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,19,0,Negative,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,20,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,1,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,2,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,3,0,Negative,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,4,0,Negative,6.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,5,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,6,0,Negative,6.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,7,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,8,0,Negative,7.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,9,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,10,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,11,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,12,0,Negative,5.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,13,0,Negative,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,14,0,Negative,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,15,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,16,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,17,0,Negative,5.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,18,0,Negative,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,19,0,Negative,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1988,MW1988CBCCCV,20,0,Negative,7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,1,0.33,Very light,4.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,2,0,Negative,5.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,3,1,Light,4.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,4,0,Negative,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,5,1,Light,7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,6,0,Negative,7.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,7,0.33,Very light,7.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,8,0,Negative,5.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,9,0,Negative,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,10,0,Negative,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,11,0,Negative,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,12,0,Negative,6.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,13,1,Light,5.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,14,0,Negative,6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,15,0.33,Very light,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,16,0.33,Very light,6.9
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,17,0,Negative,7.1
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,18,0,Negative,6.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,19,0,Negative,6.9
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,20,0,Negative,5.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,1,0,Negative,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,2,0,Negative,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,3,0,Negative,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,4,0,Negative,8.1
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,5,0,Negative,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,6,1,Light,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,7,0,Negative,6.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,8,0,Negative,5.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,9,0,Negative,7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1988,MW1988CBDPCV,10,1,Light,6.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,1,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,2,0,Negative,7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,3,0,Negative,6.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,4,0,Negative,8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,5,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,6,0,Negative,5.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,7,0,Negative,4.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,8,0,Negative,5.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,9,0,Negative,5.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,10,0,Negative,5.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,11,0,Negative,6.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,12,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,13,0,Negative,6.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,14,0,Negative,6.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,15,0,Negative,5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,16,0,Negative,5.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,17,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,18,0,Negative,5.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,19,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,20,0,Negative,4.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,1,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,2,0,Negative,7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,3,0,Negative,4.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,4,0,Negative,5.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,5,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,6,0,Negative,6.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,7,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,8,0,Negative,6.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,9,0,Negative,5.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,10,0,Negative,4.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,11,0,Negative,5.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,12,0,Negative,4.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,13,0,Negative,6.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,14,0,Negative,5.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,15,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,16,0,Negative,5.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,17,0,Negative,4.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,18,0,Negative,5.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,19,0,Negative,5.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,20,0,Negative,6.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,1,0,Negative,7.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,2,0,Negative,5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,3,0,Negative,4.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,4,0,Negative,4.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,5,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,6,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,7,0,Negative,5.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,8,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,9,0,Negative,5.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,10,0,Negative,4.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,11,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,12,0,Negative,6.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,13,0,Negative,5.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,14,0,Negative,4.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,15,0,Negative,5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,16,0,Negative,4.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,17,0,Negative,4.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,18,0,Negative,5.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,19,0,Negative,5.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1988,MW1988CBHPCV,20,0,Negative,5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,1,0,Negative,12
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,2,0,Negative,9.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,3,0,Negative,8.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,4,0,Negative,11
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,5,0,Negative,6.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,6,0,Negative,5.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,7,0,Negative,7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,8,0,Negative,8.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,9,0,Negative,9.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,10,0,Negative,7.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,11,0,Negative,9.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,12,0,Negative,6.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,13,0,Negative,12.1
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,14,0,Negative,7.2
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,15,0,Negative,11.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,16,0,Negative,8.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,17,0,Negative,7.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,18,0,Negative,6.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,19,0,Negative,8.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,20,0,Negative,15
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,1,0,Negative,6.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,2,0,Negative,7.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,3,0,Negative,7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,4,0,Negative,12.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,5,0,Negative,10.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,6,0,Negative,7.1
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,7,0,Negative,6.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,8,0,Negative,6.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,9,0,Negative,6.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,10,0,Negative,7.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,11,0,Negative,7.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,12,0,Negative,7.2
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,13,0,Negative,9.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,14,0,Negative,8.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,15,0,Negative,12.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,16,0,Negative,8.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,17,0,Negative,9.1
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,18,0,Negative,7.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,19,0,Negative,9.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,20,0,Negative,7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,1,0,Negative,16.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,2,0,Negative,8.2
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,3,0,Negative,7.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,4,0,Negative,9.9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,5,0,Negative,8.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,6,0,Negative,8.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,7,0,Negative,10
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,8,0,Negative,8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,9,0,Negative,7.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,10,0,Negative,8.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,11,0,Negative,8.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,12,0,Negative,8.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,13,0,Negative,7.5
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,14,0,Negative,9
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,15,0,Negative,8.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,16,0,Negative,7.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,17,0,Negative,8.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,18,0,Negative,8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,19,0,Negative,10
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1988,MW1988CBMPCV,20,0,Negative,9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,1,0,Negative,9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,2,0,Negative,10.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,3,0,Negative,8.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,4,0,Negative,7.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,5,0,Negative,7.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,6,0,Negative,5.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,7,0,Negative,7.4
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,8,0,Negative,8.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,9,0,Negative,7.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,10,0,Negative,4.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,11,0,Negative,7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,12,0,Negative,8.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,13,0,Negative,6.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,14,0,Negative,6.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,15,0,Negative,5.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,16,0,Negative,6.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,17,0,Negative,5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,18,0,Negative,6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,19,0,Negative,6.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,20,0,Negative,5.4
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,1,0,Negative,6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,2,0,Negative,7.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,3,0,Negative,5.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,4,0,Negative,6.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,5,0,Negative,6.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,6,0,Negative,6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,7,0,Negative,6.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,8,0,Negative,5.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,9,0,Negative,7.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,10,0,Negative,5.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,11,0,Negative,9.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,12,0,Negative,5.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,13,0,Negative,7.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,14,0,Negative,6.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,15,0,Negative,9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,16,0,Negative,5.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,17,0,Negative,6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,18,0,Negative,6.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,19,0,Negative,5.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,20,0,Negative,5.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,1,0,Negative,5.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,2,0,Negative,5.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,3,0,Negative,7.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,4,0,Negative,5.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,5,0,Negative,5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,6,0,Negative,5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,7,0,Negative,7.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,8,0,Negative,4.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,9,0,Negative,7.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,10,0,Negative,5.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,11,0,Negative,7.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,12,0,Negative,4.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,13,0,Negative,4.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,14,0,Negative,4.4
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,15,0,Negative,5.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,16,0,Negative,4.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,17,0,Negative,5.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,18,0,Negative,5.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1988,MW1988CBHGCV,19,0,Negative,4.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,6,0,Negative,8.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,7,0,Negative,7.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,8,0,Negative,7.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,9,0,Negative,8.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,10,0,Negative,7.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,11,0,Negative,7.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2001,MW2001CBBOCV,12,0,Negative,8.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,6,0,Negative,4.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,7,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,8,0.33,Very light,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,9,0,Negative,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,10,0,Negative,6.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,11,0.33,Very light,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2001,MW2001CBCCCV,12,2.33,Light/Moderate,5.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,6,0,Negative,9.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,7,1.33,Light,8.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,8,0.33,Very light,8.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,9,0,Negative,7.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,10,2.66,Moderate,8.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,11,0.67,Light,8.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2001,MW2001CBCPCV,12,1,Light,9.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,6,1.66,Light/Moderate,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,7,0,Negative,7.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,8,0,Negative,5.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,9,0,Negative,5.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,10,0,Negative,6.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,11,0,Negative,7.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2001,MW2001CBDPCV,12,0.67,Light,4.8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,6,1.33,Light,7.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,7,0.67,Light,6.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,8,0.33,Very light,7.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,9,2.66,Moderate,7.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,10,1.33,Light,7.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,11,0.67,Light,5.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2001,MW2001CBHPCV,12,0.33,Very light,5.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,6,0,Negative,9.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,7,0.33,Very light,10.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,8,0.33,Very light,10.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,9,0.33,Very light,10.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,10,1.66,Light/Moderate,10.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,11,2,Light/Moderate,9.9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2001,MW2001PRSPCV,12,0,Negative,10.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,6,0,Negative,7.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,7,0,Negative,6.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,8,0,Negative,6.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,9,0.33,Very light,6.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,10,0,Negative,6.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,11,0.33,Very light,7.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2003,MW2003CBBOCV,12,0.33,Very light,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,6,0,Negative,3.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,7,0,Negative,4.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,8,0,Negative,3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,9,0,Negative,2.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,10,0,Negative,3.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,11,0,Negative,2.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2003,MW2003CBCCCV,12,0,Negative,2.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,6,5,Heavy,6.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,7,0.33,Very light,5.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,8,1,Light,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,9,1.33,Light,5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,10,0.33,Very light,5.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,11,0,Negative,5.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2003,MW2003CBDPCV,12,5,Heavy,5.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,6,1,Light,5.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,7,0,Negative,4.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,8,0,Negative,4.4
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,9,3.33,Moderate,4.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,10,1,Light,4.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,11,0.33,Very light,4.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2003,MW2003CBHGCV,12,0,Negative,4.9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,6,1,Light,9.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,7,0.33,Very light,9.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,8,0,Negative,8.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,9,0,Negative,6.9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,10,0,Negative,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,11,0.67,Light,10.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2003,MW2003PRSPCV,12,0,Negative,8.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,6,0,Negative,7.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,7,0,Negative,6.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,8,0,Negative,7.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,9,0,Negative,7.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,10,0,Negative,6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,11,0,Negative,5.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2005,MW2005CBBOCV,12,0,Negative,5.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,6,0,Negative,6.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,7,0,Negative,6.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,8,0,Negative,6.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,9,0,Negative,6.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,10,0,Negative,6.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,11,0.33,Very light,6.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2005,MW2005CBCCCV,12,0,Negative,5.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,6,0,Negative,6.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,7,0,Negative,8.1
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,8,0.33,Very light,7.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,9,0,Negative,7.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,10,0,Negative,7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,11,0,Negative,6.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2005,MW2005CBCPCV,12,0,Negative,7.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,6,0,Negative,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,7,0.33,Very light,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,8,4.33,Moderately Heavy,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,9,0.33,Very light,6.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,10,0,Negative,6.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,11,2,Light/Moderate,5.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2005,MW2005CBDPCV,12,1.66,Light/Moderate,6.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,6,0,Negative,5.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,7,0,Negative,6.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,8,0,Negative,7.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,9,0,Negative,6.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,10,0,Negative,6.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,11,0,Negative,7.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,2005,MW2005CBHGCV,12,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,6,0,Negative,6.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,7,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,8,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,9,0,Negative,6.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,10,0,Negative,6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,11,0,Negative,6.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2005,MW2005CBHPCV,12,0,Negative,5.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,6,0,Negative,7.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,7,0,Negative,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,8,0,Negative,9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,9,0,Negative,6.9
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,10,0,Negative,6.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,11,0,Negative,7.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2005,MW2005PRSPCV,12,0,Negative,7.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,6,0,Negative,8.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,7,0,Negative,10.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,8,0,Negative,9.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,9,0,Negative,8.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,10,0,Negative,9.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,11,0,Negative,10.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1995,MW1995CBBOCV,12,0,Negative,9.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,6,0,Negative,6.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,7,0,Negative,6.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,8,0,Negative,7.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,9,1,Light,8.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,10,0,Negative,8.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,11,0.33,Very light,7.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1995,MW1995CBCCCV,12,3.66,Moderately Heavy,7
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,6,0.33,Very light,10.1
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,7,0.33,Very light,11.1
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,8,0,Negative,8.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,9,0,Negative,9.4
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,10,0,Negative,9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,11,0,Negative,9.1
+CBCP,Choptank River,Maryland,38.6073,-76.12,1995,MW1995CBCPCV,12,0,Negative,8.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,6,1,Light,4.8
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,7,0.67,Light,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,8,4.67,Heavy,3.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,9,0.33,Very light,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,10,0,Negative,6.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,11,0,Negative,5.6
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1995,MW1995CBDPCV,12,0,Negative,4.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,6,0,Negative,8.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,7,0,Negative,7.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,8,0.33,Very light,8.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,9,0.67,Light,7.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,11,0,Negative,7.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1995,MW1995CBHPCV,12,0,Negative,6.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,6,0,Negative,11.3
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,7,0,Negative,11.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,8,0,Negative,11.6
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,9,0,Negative,12
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,10,0,Negative,12.1
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,11,0,Negative,12
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1995,MW1995CBMPCV,12,0,Negative,11.6
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,6,0,Negative,11.8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,7,0,Negative,9
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,8,0,Negative,10.7
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,9,0,Negative,9.8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,10,0,Negative,11.1
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,11,0,Negative,9.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1995,MW1995PRRPCV,12,0,Negative,8.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,3,0,Negative,9.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,7,0,Negative,9.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,8,0,Negative,7.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,9,0,Negative,7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,10,0,Negative,7.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,11,0,Negative,9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1997,MW1997CBBOCV,12,0,Negative,7.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,1,0,Negative,5.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,7,0,Negative,4.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,8,0,Negative,5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,9,0,Negative,4.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,10,0.67,Light,4.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,11,0,Negative,4.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1997,MW1997CBCCCV,12,0,Negative,4.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,5,0,Negative,13.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,7,0,Negative,11
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,8,0.33,Very light,8.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,9,0,Negative,8.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,10,0.33,Very light,10.4
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,11,0,Negative,8.6
+CBCP,Choptank River,Maryland,38.6073,-76.12,1997,MW1997CBCPCV,12,0,Negative,10.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,1,0.33,Very light,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,7,0.67,Light,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,8,5,Heavy,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,9,1.33,Light,5.9
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,10,2.66,Moderate,7.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,11,0.33,Very light,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1997,MW1997CBDPCV,12,0,Negative,6.5
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,1,4.33,Moderately Heavy,7.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,7,1,Light,8.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,8,1.33,Light,8.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,9,1,Light,8.3
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,10,0.33,Very light,9.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,11,0.33,Very light,7.8
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1997,MW1997CBHGCV,12,1,Light,8.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,1,0,Negative,13.1
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,7,0.33,Very light,8.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,8,0.33,Very light,7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,9,0,Negative,7.3
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,10,0,Negative,7.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,11,0,Negative,7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1997,MW1997CBHPCV,12,4,Moderately Heavy,11.5
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,3,0,Negative,9.2
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,7,0,Negative,10.6
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,8,0,Negative,9.1
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,9,0,Negative,8.8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,10,0,Negative,9.1
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,11,0,Negative,8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1997,MW1997PRRPCV,12,0,Negative,8.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,1,0,Negative,8.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,7,0,Negative,8.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,8,0,Negative,8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,9,0,Negative,8.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,10,0,Negative,10.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,11,0,Negative,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1997,MW1997PRSPCV,12,0,Negative,8.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,6,0,Negative,9.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,7,0,Negative,8.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,8,0,Negative,8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,9,0,Negative,12.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,10,0,Negative,10.1
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,11,0,Negative,10.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,1999,MW1999CBBOCV,12,0,Negative,8.9
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,6,0,Negative,5.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,7,0,Negative,5.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,8,0,Negative,5.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,9,0,Negative,7.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,10,0,Negative,7.3
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,11,0.33,Very light,5.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,1999,MW1999CBCCCV,12,0,Negative,5.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,6,0,Negative,11
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,7,0,Negative,11.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,8,0,Negative,10.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,9,0,Negative,11.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,10,0,Negative,9.1
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,11,0,Negative,10.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,1999,MW1999CBCPCV,12,0,Negative,11.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,6,0,Negative,5.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,7,0.67,Light,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,8,0.33,Very light,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,9,0,Negative,8.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,10,0,Negative,5.9
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,11,1,Light,6.1
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,1999,MW1999CBDPCV,12,0.67,Light,7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,6,5,Heavy,10.2
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,7,1,Light,11.1
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,8,3,Moderate,8.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,9,0,Negative,9.9
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,10,0,Negative,10.6
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,11,0.33,Very light,7.7
+CBHG,Hog Point,Maryland,38.3123,-76.3978,1999,MW1999CBHGCV,12,0.33,Very light,8.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,6,0.67,Light,8
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,7,2.33,Light/Moderate,8.5
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,8,0.33,Very light,9.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,9,0.33,Very light,9.2
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,10,0,Negative,9.7
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,11,0,Negative,11
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,1999,MW1999CBHPCV,12,0.67,Light,10.4
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,6,0,Negative,7.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,7,0,Negative,10.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,8,0,Negative,9.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,9,0,Negative,10.7
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,10,0,Negative,9.8
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,11,0,Negative,10
+CBMP,Mountain Point Bar,Maryland,39.072,-76.4127,1999,MW1999CBMPCV,12,0,Negative,9
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,6,0,Negative,8.7
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,7,0,Negative,8.8
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,8,0,Negative,10.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,9,0,Negative,8.9
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,10,0,Negative,9.3
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,11,0,Negative,8.9
+PRRP,Ragged Point,Maryland,38.155,-76.6008,1999,MW1999PRRPCV,12,0,Negative,10.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,6,0,Negative,9.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,7,0,Negative,10.5
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,8,0,Negative,11.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,9,0,Negative,9.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,10,0,Negative,10.1
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,11,0,Negative,11
+PRSP,Swan Point,Maryland,38.2817,-76.9337,1999,MW1999PRSPCV,12,0,Negative,10.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,6,0,Negative,6.7
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,7,0,Negative,7.2
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,8,0,Negative,7.3
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,9,0,Negative,6.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,10,0,Negative,7.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,11,0,Negative,7.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2007,MW2007CBBOCV,12,0,Negative,7.8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,6,0.33,Very light,6.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,7,0,Negative,8.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,8,0.33,Very light,6.6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,9,0,Negative,6.4
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,10,2,Light/Moderate,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,11,0.67,Light,6.7
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2007,MW2007CBCCCV,12,0.67,Light,6.5
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,6,0,Negative,8.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,7,0.33,Very light,9.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,8,0,Negative,8.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,9,0,Negative,8.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,10,0.33,Very light,7.7
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,11,0,Negative,5.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2007,MW2007CBCPCV,12,0,Negative,9.3
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,6,1.33,Light,6.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,7,0.67,Light,7.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,8,0,Negative,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,9,0.67,Light,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,10,0.33,Very light,6.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,11,0.33,Very light,6.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2007,MW2007CBDPCV,12,0,Negative,6.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,6,0,Negative,9.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,7,0,Negative,9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,8,0,Negative,7.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,9,0,Negative,8.4
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,10,0,Negative,6.9
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,11,0,Negative,8.6
+CBHP,Hackett Point Bar,Maryland,38.9695,-76.4147,2007,MW2007CBHPCV,12,0,Negative,8.3
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,6,0,Negative,6.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,7,0,Negative,8.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,8,0,Negative,9.2
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,9,0,Negative,7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,10,0,Negative,6.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,11,0,Negative,7.6
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2007,MW2007PRSPCV,12,0,Negative,7.6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,6,0,Negative,7.9
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,7,0,Negative,6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,8,0,Negative,5.5
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,9,0,Negative,6
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,10,0,Negative,7.4
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,11,0,Negative,7.8
+CBBO,Bodkin Point,Maryland,39.1573,-76.4048,2009,MW2009CBBOCV,12,0,Negative,7.1
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,6,0,Negative,7.5
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,7,0,Negative,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,8,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,9,0,Negative,8
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,10,0,Negative,6.2
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,11,0.67,Light,6
+CBCC,Cape Charles,Virginia,37.2845,-76.0153,2009,MW2009CBCCCV,12,0,Negative,6.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,6,0,Negative,6.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,7,0,Negative,7.3
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,8,0,Negative,8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,9,0,Negative,7.2
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,10,0,Negative,6.8
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,11,0,Negative,6.9
+CBCP,Choptank River,Maryland,38.6073,-76.12,2009,MW2009CBCPCV,12,0,Negative,7.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,6,0,Negative,4.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,7,0,Negative,4.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,8,0,Negative,5.2
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,9,0,Negative,5.5
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,10,0,Negative,5.4
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,11,0,Negative,5.7
+CBDP,Dandy Point,Virginia,37.0983,-76.2948,2009,MW2009CBDPCV,12,0,Negative,5.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,6,0,Negative,9.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,7,0,Negative,7.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,8,0,Negative,7.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,9,0,Negative,8.7
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,10,0,Negative,8.4
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,11,0,Negative,6.8
+PRSP,Swan Point,Maryland,38.2817,-76.9337,2009,MW2009PRSPCV,12,0,Negative,9.5

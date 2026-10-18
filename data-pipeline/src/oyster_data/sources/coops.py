@@ -29,6 +29,8 @@ STATIONS = {
     "8573364": "Tolchester Beach, MD",
     "8571892": "Cambridge, MD",
     "8571421": "Bishops Head, MD",
+    "8632200": "Kiptopeke, VA",
+    "8638610": "Sewells Point, VA",
     "8635750": "Lewisetta, VA",
     "8635027": "Dahlgren, VA",
     "8575512": "Annapolis, MD",

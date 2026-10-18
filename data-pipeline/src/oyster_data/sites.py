@@ -71,9 +71,10 @@ SITES: list[dict[str, object]] = [
 def sites_table() -> pa.Table:
     from oyster_data.sources.mddnr_fall_survey import site_rows as disease_bar_rows
     from oyster_data.sources.nh_greatbay import site_rows as greatbay_rows
+    from oyster_data.sources.mussel_watch import site_rows as mussel_watch_rows
 
     schema = arrow_schema("sites")
-    return pa.Table.from_pylist(SITES + disease_bar_rows() + greatbay_rows(), schema=schema)
+    return pa.Table.from_pylist(SITES + disease_bar_rows() + greatbay_rows() + mussel_watch_rows(), schema=schema)
 
 
 def write_sites(dest: Path = PROCESSED_DIR / "sites.arrow") -> Path:
