@@ -1,0 +1,283 @@
+# New Hampshire Fish and Game Department, 'Testing of Great Bay Oysters for Two Protozoan Pathogens': Dermo (Perkinsus marinus) RFTM results, Great Bay estuary, NH.
+# Source A (source_article=1416): Grout, D.E. and Sullivan, K.M. (2019), Final Report to PREP, February 2019. UNH Scholars' Repository, PREP Reports & Publications 415,
+#   https://scholars.unh.edu/prep/415 ; PDF https://scholars.unh.edu/cgi/viewcontent.cgi?article=1416&context=prep
+#   (transcribed from the Internet Archive capture https://web.archive.org/web/20240709120216id_/https://scholars.unh.edu/cgi/viewcontent.cgi?article=1416&context=prep).
+#   Table 2 'Dermo Test Results - 1996 - 2018', report pp. 11-13 (PDF pp. 14-16): 120 rows.
+# Source B (source_article=1441): Patterson, C.A. and Sullivan, K.M. (2020), Final Report to PREP, March 2020. PREP Reports & Publications 440,
+#   https://scholars.unh.edu/prep/440 ; PDF https://scholars.unh.edu/cgi/viewcontent.cgi?article=1441&context=prep
+#   (transcribed from https://web.archive.org/web/20201022125921id_/https://scholars.unh.edu/cgi/viewcontent.cgi?article=1441&context=prep).
+#   Table 2 'Dermo test results for natural oyster beds in NH, 1996 - 2019', report pp. 12-14 (PDF pp. 15-17): 125 rows; plus 4 rows from
+#   Table 3 'MSX and Dermo test results from aquacultured oysters in NH, 2019' (report p. 15): 30 oysters per farm, 0 infected with Dermo
+#   (and 0 with MSX), so all class counts are 0 by implication; site = 'Location - Farm (aquaculture, Table 3)'; date = 'Date fixed/cultured'.
+# Both Table 2s are transcribed in full (each report repeats 1996 onward), so 1996-2018 rows appear twice, once per source_article; filter on
+#   source_article to get a single series (1441 is the longer one). Text extracted with pdfplumber and checked row by row against page renders.
+# Method (both reports): fall sampling of natural beds; oysters shipped to Haskin Shellfish Research Laboratory (Rutgers); Dermo by Ray's fluid
+#   thioglycollate medium (RFTM) incubation of rectal and mantle tissues; MSX by tissue-section histology. Infection categories 0.5-5 (Mackin);
+#   footnote: 'Categories 0.5 to 2 are generally thought of as light or minor, whereas categories 3 to 5 are moderate to heavy'.
+#   2018: 6 beds, 8 oysters per site, shell height about 68-101 mm. 2019: 5 beds, 10 per site, about 74-98 mm; no live adult oysters were found at
+#   Nannie Island in 2019. Aquaculture 2019: 30 per farm, 67-108 mm (means per farm in Table 3).
+# Columns: date (YYYY-MM-DD), site (as printed), n (No. Tested), c0_5..c5 (No. oysters in each infection category 0.5, 1, 2, 3, 4, 5),
+#   prevalence_reported (% Prevalence as printed, '%' sign removed; article 1416 prints e.g. 88.9, article 1441 prints whole numbers),
+#   source_article (bepress article number of the PDF in the prep collection).
+# Inconsistencies noticed:
+#   - Article 1416 prints the date of the 2000 Piscataqua River row as '110/4/00'; article 1441 prints 11/04/00; stored as 2000-11-04.
+#   - Site spelling differs between reports: 'Berrys Brook' (1416) vs 'Berry Brook' (1441); 'Adams Pt.' is used for the 1997-2000 rows in both.
+#   - Rows whose class counts disagree with n or with the printed prevalence (same counts and prevalence in both reports; the 2002-2008 rows
+#     are printed the same way in the 2015 report, article 1359). Printed prevalence shown as in article 1416 / article 1441:
+#       2002-11-20 Salmon Falls (native): n=18, sum of class counts=11 (61.1%), printed prevalence 50% / 50%
+#       2004-11-18 Nannie Island: n=17, sum of class counts=10 (58.8%), printed prevalence 65% / 65%
+#       2008-10-22 Nannie Island: n=20, sum of class counts=3 (15.0%), printed prevalence 30% / 30%
+#       2008-10-27 Squamscott River: n=10, sum of class counts=19 (190.0%), printed prevalence 95% / 95%
+#       2016-10-07 Oyster River: n=8, sum of class counts=6 (75.0%), printed prevalence 87.5% / 88%
+#       2018-10-24 Woodman Point: n=8, sum of class counts=7 (87.5%), printed prevalence 25% / 25%
+#   - Little Bay A and B, 2013-12-03: prevalence printed as '0' without a % sign in article 1416.
+date,site,n,c0_5,c1,c2,c3,c4,c5,prevalence_reported,source_article
+1996-12-16,Nannie Island,25,1,0,0,0,0,0,4,1416
+1996-12-16,Seal Rock,25,0,0,0,0,0,0,0,1416
+1996-12-16,Sturgeon Bed,25,2,0,0,0,1,0,12,1416
+1997-03-17,Fox Pt.,30,0,0,0,0,0,0,0,1416
+1997-08-14,Piscataqua River,25,2,2,0,0,1,0,20,1416
+1997-08-17,Adams Pt.,25,4,0,0,0,0,0,16,1416
+1997-08-14,Oyster River,25,1,0,0,0,0,0,4,1416
+1997-08-14,Nannie Island,25,1,0,0,0,0,0,4,1416
+1997-09-08,Bellamy River,25,0,0,0,0,0,0,0,1416
+1997-09-08,Squamscott River,25,1,0,0,0,0,0,4,1416
+1997-11-17,Adams Pt.,25,1,0,0,0,0,0,4,1416
+1997-11-17,Nannie Island,25,0,0,0,0,0,0,0,1416
+1997-11-17,Oyster River,25,0,0,0,0,0,0,0,1416
+1997-11-17,Piscataqua River,25,0,0,0,0,0,0,0,1416
+1998-12-09,Adams Pt.,25,0,0,0,0,0,0,0,1416
+1998-12-09,Nannie Island,25,0,0,0,0,0,0,0,1416
+1998-12-09,Squamscott River,25,0,0,0,0,0,0,0,1416
+1998-12-09,Piscataqua River,18,0,0,0,0,0,0,0,1416
+1999-10-21,Nannie Island,20,0,0,0,0,0,0,0,1416
+2000-11-04,Piscataqua River,20,0,0,0,0,0,0,0,1416
+2000-11-04,Adams Pt.,20,0,0,0,0,0,0,0,1416
+2000-11-04,Nannie Island,20,0,0,0,0,0,0,0,1416
+2000-11-15,Oyster River,20,0,0,0,0,0,0,0,1416
+2001-10-10,Nannie Island,25,0,0,0,0,0,0,0,1416
+2001-10-18,Salmon Falls (disease resistant),25,3,0,0,0,0,0,12,1416
+2001-10-18,Salmon Falls (native),25,6,5,1,1,1,1,60,1416
+2001-11-04,Oyster River,20,0,0,0,0,0,0,0,1416
+2001-11-04,Adams Point,20,0,0,0,0,0,0,0,1416
+2002-10-14,Adams Point,20,1,2,0,0,0,0,15,1416
+2002-10-14,Oyster River,20,0,0,0,0,0,0,0,1416
+2002-10-31,Nannie Island,24,2,0,0,0,0,0,8,1416
+2002-11-20,Salmon Falls (native),18,4,2,1,1,1,2,50,1416
+2002-11-20,Salmon Falls (crossbreeds),20,1,0,0,0,0,0,5,1416
+2003-10-28,Nannie Island,25,2,1,0,2,0,0,20,1416
+2004-10-27,Oyster River,25,2,0,2,0,0,0,16,1416
+2004-11-18,Nannie Island,17,5,2,2,1,0,0,65,1416
+2004-11-19,Adams Point,20,3,4,2,4,0,0,65,1416
+2004-11-19,Crommet Creek,23,0,1,0,1,0,0,8,1416
+2005-11-06,Oyster River,20,3,3,5,0,2,0,65,1416
+2005-11-14,Adams Point,20,6,7,3,1,1,0,90,1416
+2005-11-16,Woodman Point,20,4,4,8,2,0,0,90,1416
+2005-11-17,Squamscott River,20,0,1,0,0,0,0,5,1416
+2006-10-31,Piscataqua River,20,0,9,2,3,1,0,75,1416
+2006-11-01,Oyster River,20,3,3,4,6,0,0,80,1416
+2006-11-02,Woodman Point,20,3,8,8,1,0,0,100,1416
+2006-11-07,Squamscott River,39,3,1,1,0,0,0,13,1416
+2006-11-22,Adams Point,20,2,8,4,5,1,0,100,1416
+2006-11-28,Berrys Brook,16,0,0,0,0,0,0,0,1416
+2006-12-07,Nannie Island,20,2,5,4,0,1,0,60,1416
+2006-11-07,Nannie experimental reef,20,2,7,6,3,0,0,90,1416
+2006-11-07,Adams experimental reef,20,3,6,7,3,0,0,95,1416
+2006-11-28,UNH - Jackson (spat),20,0,0,0,0,0,0,0,1416
+2007-10-16,Piscataqua River,20,4,2,6,4,1,1,90,1416
+2007-10-23,Oyster River,20,7,1,5,4,2,1,100,1416
+2007-10-24,Woodman Point,20,3,6,1,4,3,1,90,1416
+2007-11-21,Nannie Island,20,2,0,3,0,2,0,35,1416
+2007-12-07,Adams Point,20,1,1,5,2,1,1,55,1416
+2008-10-08,Adams Point,20,3,3,4,4,1,1,80,1416
+2008-10-09,Woodman Point,20,1,5,0,1,0,1,40,1416
+2008-10-10,Oyster River,20,6,7,1,2,1,0,85,1416
+2008-10-22,Nannie Island,20,1,1,1,0,0,0,30,1416
+2008-10-23,Piscataqua River,10,1,1,2,0,1,0,50,1416
+2008-10-27,Squamscott River,10,3,5,4,3,2,2,95,1416
+2009-11-04,Oyster River,20,3,4,5,2,3,3,100,1416
+2009-11-06,Adams Point,20,3,2,6,3,1,3,90,1416
+2009-11-12,Nannie Island,20,3,9,4,0,0,0,80,1416
+2009-11-13,Woodman Point,20,0,6,4,2,1,2,75,1416
+2009-12-08,Piscataqua River,20,2,6,1,0,0,0,45,1416
+2010-10-21,Oyster River,20,3,6,6,2,2,0,95,1416
+2010-10-19,Adams Point,20,2,7,3,1,3,2,90,1416
+2010-10-20,Nannie Island,20,1,2,8,3,1,0,75,1416
+2010-10-18,Woodman Point,20,2,4,5,3,3,2,95,1416
+2010-10-26,Piscataqua River,17,5,4,1,1,0,0,64,1416
+2010-11-16,Squamscott River,20,8,3,0,0,0,0,55,1416
+2011-10-21,Adams Point,20,2,4,9,1,0,1,85,1416
+2011-10-26,Oyster River,20,3,8,2,3,2,2,100,1416
+2011-10-28,Woodman Point,20,4,5,4,6,1,0,100,1416
+2011-11-04,Nannie Island,20,6,7,4,0,1,0,90,1416
+2011-11-07,Squamscott River,20,9,1,3,2,1,0,80,1416
+2012-10-19,Nannie Island,10,0,1,3,3,1,0,80,1416
+2012-10-25,Woodman Point,10,0,1,2,4,1,2,100,1416
+2012-11-02,Oyster River,10,1,3,1,2,1,1,90,1416
+2012-11-05,Lamprey River,10,2,0,3,0,0,0,50,1416
+2012-11-19,Adams Point,10,4,1,1,0,2,0,80,1416
+2012-12-04,Squamscott River,10,3,0,1,1,0,0,50,1416
+2012-12-06,Adams Point EXP,10,2,2,0,0,0,0,40,1416
+2013-10-29,Woodman Point,10,3,1,3,2,0,0,90,1416
+2013-10-30,Adams Point,10,3,4,1,0,0,0,80,1416
+2013-10-31,Oyster River,10,2,5,1,0,0,0,80,1416
+2013-11-04,Nannie Island,10,3,1,4,1,0,1,100,1416
+2013-11-15,Piscataqua River,10,0,2,0,0,1,1,40,1416
+2013-12-03,Little Bay A,5,0,0,0,0,0,0,0,1416
+2013-12-03,Little Bay B,5,0,0,0,0,0,0,0,1416
+2014-10-16,Adams Point,10,0,2,2,3,1,1,90,1416
+2014-10-17,Nannie Island,9,0,0,0,3,4,1,88.9,1416
+2014-10-28,Oyster River,10,0,1,5,2,1,1,100,1416
+2014-10-30,Woodman Point,10,1,3,3,1,1,1,100,1416
+2014-11-19,Piscataqua River,6,1,0,2,1,1,0,83.3,1416
+2014-12-15,Little Bay A,10,0,0,0,0,0,0,0,1416
+2014-12-15,Little Bay B,10,1,0,0,0,0,0,10,1416
+2014-12-15,Little Bay C,10,0,0,0,0,0,0,0,1416
+2015-10-20,Adams Point,12,2,1,4,1,1,0,75,1416
+2015-10-21,Oyster River,13,0,1,1,1,3,1,54,1416
+2015-10-22,Nannie Island,7,0,4,1,0,1,0,86,1416
+2015-10-26,Woodman Point,6,0,1,0,1,0,0,33,1416
+2015-11-02,Piscataqua River,12,4,2,2,0,0,0,67,1416
+2016-10-07,Adams Point,8,4,1,1,1,0,0,87.5,1416
+2016-10-07,Nannie Island,8,1,5,2,0,0,0,100,1416
+2016-10-07,Oyster River,8,1,3,2,0,0,0,87.5,1416
+2016-11-01,Piscataqua River,8,2,0,1,0,0,0,37.5,1416
+2017-10-17,Adams Point,8,2,3,2,0,0,0,87.5,1416
+2017-10-18,Oyster River,8,1,1,2,0,0,0,50,1416
+2017-10-19,Woodman Point,8,1,3,1,0,0,0,62.5,1416
+2017-10-20,Piscataqua River,8,1,1,1,4,0,1,100,1416
+2018-10-23,Squamscott River,8,2,0,2,0,0,0,50,1416
+2018-10-24,Woodman Point,8,2,2,1,2,0,0,25,1416
+2018-10-29,Oyster River,8,1,1,4,0,0,0,75,1416
+2018-10-30,Piscataqua River,8,2,1,2,0,0,0,62.5,1416
+2018-11-02,Adams Point,8,3,3,1,0,0,0,87.5,1416
+2018-11-02,Nannie Island,8,0,0,1,0,0,0,12.5,1416
+1996-12-16,Nannie Island,25,1,0,0,0,0,0,4,1441
+1996-12-16,Seal Rock,25,0,0,0,0,0,0,0,1441
+1996-12-16,Sturgeon Bed,25,2,0,0,0,1,0,12,1441
+1997-03-17,Fox Pt.,30,0,0,0,0,0,0,0,1441
+1997-08-14,Piscataqua River,25,2,2,0,0,1,0,20,1441
+1997-08-17,Adams Pt.,25,4,0,0,0,0,0,16,1441
+1997-08-14,Oyster River,25,1,0,0,0,0,0,4,1441
+1997-08-14,Nannie Island,25,1,0,0,0,0,0,4,1441
+1997-09-08,Bellamy River,25,0,0,0,0,0,0,0,1441
+1997-09-08,Squamscott River,25,1,0,0,0,0,0,4,1441
+1997-11-17,Adams Pt.,25,1,0,0,0,0,0,4,1441
+1997-11-17,Nannie Island,25,0,0,0,0,0,0,0,1441
+1997-11-17,Oyster River,25,0,0,0,0,0,0,0,1441
+1997-11-17,Piscataqua River,25,0,0,0,0,0,0,0,1441
+1998-12-09,Adams Pt.,25,0,0,0,0,0,0,0,1441
+1998-12-09,Nannie Island,25,0,0,0,0,0,0,0,1441
+1998-12-09,Squamscott River,25,0,0,0,0,0,0,0,1441
+1998-12-09,Piscataqua River,18,0,0,0,0,0,0,0,1441
+1999-10-21,Nannie Island,20,0,0,0,0,0,0,0,1441
+2000-11-04,Piscataqua River,20,0,0,0,0,0,0,0,1441
+2000-11-04,Adams Pt.,20,0,0,0,0,0,0,0,1441
+2000-11-04,Nannie Island,20,0,0,0,0,0,0,0,1441
+2000-11-15,Oyster River,20,0,0,0,0,0,0,0,1441
+2001-10-10,Nannie Island,25,0,0,0,0,0,0,0,1441
+2001-10-18,Salmon Falls (disease resistant),25,3,0,0,0,0,0,12,1441
+2001-10-18,Salmon Falls (native),25,6,5,1,1,1,1,60,1441
+2001-11-04,Oyster River,20,0,0,0,0,0,0,0,1441
+2001-11-04,Adams Point,20,0,0,0,0,0,0,0,1441
+2002-10-14,Adams Point,20,1,2,0,0,0,0,15,1441
+2002-10-14,Oyster River,20,0,0,0,0,0,0,0,1441
+2002-10-31,Nannie Island,24,2,0,0,0,0,0,8,1441
+2002-11-20,Salmon Falls (native),18,4,2,1,1,1,2,50,1441
+2002-11-20,Salmon Falls (crossbreeds),20,1,0,0,0,0,0,5,1441
+2003-10-28,Nannie Island,25,2,1,0,2,0,0,20,1441
+2004-10-27,Oyster River,25,2,0,2,0,0,0,16,1441
+2004-11-18,Nannie Island,17,5,2,2,1,0,0,65,1441
+2004-11-19,Adams Point,20,3,4,2,4,0,0,65,1441
+2004-11-19,Crommet Creek,23,0,1,0,1,0,0,8,1441
+2005-11-06,Oyster River,20,3,3,5,0,2,0,65,1441
+2005-11-14,Adams Point,20,6,7,3,1,1,0,90,1441
+2005-11-16,Woodman Point,20,4,4,8,2,0,0,90,1441
+2005-11-17,Squamscott River,20,0,1,0,0,0,0,5,1441
+2006-10-31,Piscataqua River,20,0,9,2,3,1,0,75,1441
+2006-11-01,Oyster River,20,3,3,4,6,0,0,80,1441
+2006-11-02,Woodman Point,20,3,8,8,1,0,0,100,1441
+2006-11-07,Squamscott River,39,3,1,1,0,0,0,13,1441
+2006-11-22,Adams Point,20,2,8,4,5,1,0,100,1441
+2006-11-28,Berry Brook,16,0,0,0,0,0,0,0,1441
+2006-12-07,Nannie Island,20,2,5,4,0,1,0,60,1441
+2006-11-07,Nannie experimental reef,20,2,7,6,3,0,0,90,1441
+2006-11-07,Adams experimental reef,20,3,6,7,3,0,0,95,1441
+2006-11-28,UNH - Jackson (spat),20,0,0,0,0,0,0,0,1441
+2007-10-16,Piscataqua River,20,4,2,6,4,1,1,90,1441
+2007-10-23,Oyster River,20,7,1,5,4,2,1,100,1441
+2007-10-24,Woodman Point,20,3,6,1,4,3,1,90,1441
+2007-11-21,Nannie Island,20,2,0,3,0,2,0,35,1441
+2007-12-07,Adams Point,20,1,1,5,2,1,1,55,1441
+2008-10-08,Adams Point,20,3,3,4,4,1,1,80,1441
+2008-10-09,Woodman Point,20,1,5,0,1,0,1,40,1441
+2008-10-10,Oyster River,20,6,7,1,2,1,0,85,1441
+2008-10-22,Nannie Island,20,1,1,1,0,0,0,30,1441
+2008-10-23,Piscataqua River,10,1,1,2,0,1,0,50,1441
+2008-10-27,Squamscott River,10,3,5,4,3,2,2,95,1441
+2009-11-04,Oyster River,20,3,4,5,2,3,3,100,1441
+2009-11-06,Adams Point,20,3,2,6,3,1,3,90,1441
+2009-11-12,Nannie Island,20,3,9,4,0,0,0,80,1441
+2009-11-13,Woodman Point,20,0,6,4,2,1,2,75,1441
+2009-12-08,Piscataqua River,20,2,6,1,0,0,0,45,1441
+2010-10-21,Oyster River,20,3,6,6,2,2,0,95,1441
+2010-10-19,Adams Point,20,2,7,3,1,3,2,90,1441
+2010-10-20,Nannie Island,20,1,2,8,3,1,0,75,1441
+2010-10-18,Woodman Point,20,2,4,5,3,3,2,95,1441
+2010-10-26,Piscataqua River,17,5,4,1,1,0,0,64,1441
+2010-11-16,Squamscott River,20,8,3,0,0,0,0,55,1441
+2011-10-21,Adams Point,20,2,4,9,1,0,1,85,1441
+2011-10-26,Oyster River,20,3,8,2,3,2,2,100,1441
+2011-10-28,Woodman Point,20,4,5,4,6,1,0,100,1441
+2011-11-04,Nannie Island,20,6,7,4,0,1,0,90,1441
+2011-11-07,Squamscott River,20,9,1,3,2,1,0,80,1441
+2012-10-19,Nannie Island,10,0,1,3,3,1,0,80,1441
+2012-10-25,Woodman Point,10,0,1,2,4,1,2,100,1441
+2012-11-02,Oyster River,10,1,3,1,2,1,1,90,1441
+2012-11-05,Lamprey River,10,2,0,3,0,0,0,50,1441
+2012-11-19,Adams Point,10,4,1,1,0,2,0,80,1441
+2012-12-04,Squamscott River,10,3,0,1,1,0,0,50,1441
+2012-12-06,Adams Point EXP,10,2,2,0,0,0,0,40,1441
+2013-10-29,Woodman Point,10,3,1,3,2,0,0,90,1441
+2013-10-30,Adams Point,10,3,4,1,0,0,0,80,1441
+2013-10-31,Oyster River,10,2,5,1,0,0,0,80,1441
+2013-11-04,Nannie Island,10,3,1,4,1,0,1,100,1441
+2013-11-15,Piscataqua River,10,0,2,0,0,1,1,40,1441
+2013-12-03,Little Bay A,5,0,0,0,0,0,0,0,1441
+2013-12-03,Little Bay B,5,0,0,0,0,0,0,0,1441
+2014-10-16,Adams Point,10,0,2,2,3,1,1,90,1441
+2014-10-17,Nannie Island,9,0,0,0,3,4,1,89,1441
+2014-10-28,Oyster River,10,0,1,5,2,1,1,100,1441
+2014-10-30,Woodman Point,10,1,3,3,1,1,1,100,1441
+2014-11-19,Piscataqua River,6,1,0,2,1,1,0,83,1441
+2014-12-15,Little Bay A,10,0,0,0,0,0,0,0,1441
+2014-12-15,Little Bay B,10,1,0,0,0,0,0,10,1441
+2014-12-15,Little Bay C,10,0,0,0,0,0,0,0,1441
+2015-10-20,Adams Point,12,2,1,4,1,1,0,75,1441
+2015-10-21,Oyster River,13,0,1,1,1,3,1,54,1441
+2015-10-22,Nannie Island,7,0,4,1,0,1,0,86,1441
+2015-10-26,Woodman Point,6,0,1,0,1,0,0,33,1441
+2015-11-02,Piscataqua River,12,4,2,2,0,0,0,67,1441
+2016-10-07,Adams Point,8,4,1,1,1,0,0,88,1441
+2016-10-07,Nannie Island,8,1,5,2,0,0,0,100,1441
+2016-10-07,Oyster River,8,1,3,2,0,0,0,88,1441
+2016-11-01,Piscataqua River,8,2,0,1,0,0,0,38,1441
+2017-10-17,Adams Point,8,2,3,2,0,0,0,88,1441
+2017-10-18,Oyster River,8,1,1,2,0,0,0,50,1441
+2017-10-19,Woodman Point,8,1,3,1,0,0,0,63,1441
+2017-10-20,Piscataqua River,8,1,1,1,4,0,1,100,1441
+2018-10-23,Squamscott River,8,2,0,2,0,0,0,50,1441
+2018-10-24,Woodman Point,8,2,2,1,2,0,0,25,1441
+2018-10-29,Oyster River,8,1,1,4,0,0,0,75,1441
+2018-10-30,Piscataqua River,8,2,1,2,0,0,0,63,1441
+2018-11-02,Adams Point,8,3,3,1,0,0,0,88,1441
+2018-11-02,Nannie Island,8,0,0,1,0,0,0,13,1441
+2019-10-15,Oyster River,10,1,1,2,1,4,0,90,1441
+2019-10-16,Woodman Point,10,0,1,3,2,3,0,90,1441
+2019-10-16,Adams Point,10,0,2,2,2,1,1,80,1441
+2019-10-18,Squamscott River,10,1,1,0,0,2,0,40,1441
+2019-10-22,Piscataqua River,10,0,2,2,3,2,1,100,1441
+2019-08-28,"Hampton Harbor - Swell Oyster Co. (aquaculture, Table 3)",30,0,0,0,0,0,0,0,1441
+2019-08-28,"Lower Little Bay - Rising Tide Oysters (aquaculture, Table 3)",30,0,0,0,0,0,0,0,1441
+2019-08-28,"Upper Little Bay - Bay Point Oyster Co. (aquaculture, Table 3)",30,0,0,0,0,0,0,0,1441
+2019-09-11,"Upper Little Bay - Fat Dog Oyster Co. (aquaculture, Table 3)",30,0,0,0,0,0,0,0,1441
