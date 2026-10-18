@@ -53,6 +53,9 @@ def raw_path(station: str, year: int, raw_dir: Path = RAW_DIR) -> Path:
 
 def fetch_year(station: str, year: int, raw_dir: Path = RAW_DIR, get: Callable[[str], bytes] = http_get,
                overwrite: bool = False) -> Path:
+    path = raw_path(station, year, raw_dir)
+    if path.exists() and not overwrite:          # do not download what is already saved
+        raise FileExistsError(f"{path} exists")
     body = get(build_url(station, year))
     if not body.lstrip().startswith(b"Date Time"):
         raise RuntimeError(f"CO-OPS {station} {year}: unexpected response {body[:120]!r}")

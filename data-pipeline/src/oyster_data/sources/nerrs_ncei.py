@@ -46,7 +46,10 @@ def raw_path(station: str, year: int, raw_dir: Path = RAW_DIR) -> Path:
 
 def fetch_year(station: str, year: int, raw_dir: Path = RAW_DIR, get: Callable[[str], bytes] = http_get,
                overwrite: bool = False) -> Path:
-    return save_raw(get(build_url(station, year)), raw_path(station, year, raw_dir), overwrite=overwrite)
+    path = raw_path(station, year, raw_dir)
+    if path.exists() and not overwrite:          # do not download what is already saved
+        raise FileExistsError(f"{path} exists")
+    return save_raw(get(build_url(station, year)), path, overwrite=overwrite)
 
 
 def _flag(series: pd.Series) -> pd.Series:
